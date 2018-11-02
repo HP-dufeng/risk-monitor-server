@@ -4,7 +4,6 @@ import (
 	"encoding/csv"
 	"flag"
 	"fmt"
-	"io"
 	"log"
 	"math/rand"
 	"net"
@@ -18,7 +17,7 @@ import (
 
 func main() {
 	flag.Parse()
-	lis, err := net.Listen("tcp", fmt.Sprintf("10.1.7.127:%d", *port))
+	lis, err := net.Listen("tcp", fmt.Sprintf("0.0.0.0:%d", *port))
 	if err != nil {
 		log.Fatalf("failed to listen: %v", err)
 	}
@@ -30,33 +29,60 @@ func main() {
 
 var (
 	csvDBFile = flag.String("csv_db_file", "testdata/appleStore_description.csv", "A csv file containing a list of contracts")
-	port      = flag.Int("port", 8080, "The server port")
+	port      = flag.Int("port", 8081, "The server port")
 )
 
 type server struct {
-	savedContracts []*pb.QryContractRsp
-	savedCustomers []*pb.QryCustSimpleInfoRsp
-	savedVarieties []*pb.QryExchVariRsp
-	savedExchCodes []string
+	records [][]string
 }
 
-func (s *server) QryContract(req *pb.QryContractReq, stream pb.RiskMonitorServer_QryContractServer) error {
-	for _, contract := range s.savedContracts {
-		if err := stream.Send(contract); err != nil {
-			return err
+func (s *server) SubscribeTunnelRealFund(req *pb.SubscribeReq, stream pb.RiskMonitorServer_SubscribeTunnelRealFundServer) error {
+	tick := time.Tick(1 * time.Nanosecond)
+	for {
+		select {
+		case <-tick:
+			quote := &pb.TunnelRealFundRtn{
+				ActionFlag:         randomActionFlags(),
+				MonitorNo:          []byte(strconv.Itoa(randomIndex(100))),
+				TunnelCode:         []byte(strconv.Itoa(randomIndex(3000))),
+				CurrencyCode:       []byte(strconv.Itoa(randomIndex(2))),
+				AvailMarginBalance: randomFloat(10),
+				TodayMarginBalance: randomFloat(10),
+				OccupiedMargin:     randomFloat(10),
+				MarginOccupiedRate: randomFloat(10),
+			}
+			if err := stream.Send(quote); err != nil {
+				return err
+			}
 		}
+
 	}
-	return nil
+
 }
 
-func (s *server) QryCustSimpleInfo(req *pb.QryCustSimpleInfoReq, stream pb.RiskMonitorServer_QryCustSimpleInfoServer) error {
-	for _, customer := range s.savedCustomers {
-		if err := stream.Send(customer); err != nil {
-			return err
+func (s *server) SubscribeCorpHoldMon(req *pb.SubscribeReq, stream pb.RiskMonitorServer_SubscribeCorpHoldMonServer) error {
+	tick := time.Tick(1 * time.Nanosecond)
+	for {
+		select {
+		case <-tick:
+			quote := &pb.CorpHoldMonRtn{
+				ActionFlag:    randomActionFlags(),
+				MonitorNo:     []byte(strconv.Itoa(randomIndex(100))),
+				ContractCode:  []byte(strconv.Itoa(randomIndex(3000))),
+				SmarketCode:   []byte("smarketCode"),
+				SecCode:       []byte("secCode"),
+				SecName:       []byte("SecName"),
+				DirectionType: []byte("DirectionType"),
+				HoldQty:       uint32(randomIndex(100)),
+				HoldRate:      randomFloat(10),
+			}
+			if err := stream.Send(quote); err != nil {
+				return err
+			}
 		}
+
 	}
 
-	return nil
 }
 
 func (s *server) SubscribeQuoteMon(req *pb.SubscribeReq, stream pb.RiskMonitorServer_SubscribeQuoteMonServer) error {
@@ -65,9 +91,23 @@ func (s *server) SubscribeQuoteMon(req *pb.SubscribeReq, stream pb.RiskMonitorSe
 		select {
 		case <-tick:
 			quote := &pb.QuoteMonRtn{
-				ActionFlag:   randomActionFlags(),
-				MonitorNo:    []byte(strconv.Itoa(randomIndex(10))),
-				ContractCode: []byte(strconv.Itoa(randomIndex(100))),
+				ActionFlag:         randomActionFlags(),
+				MonitorNo:          []byte(strconv.Itoa(randomIndex(100))),
+				ContractCode:       []byte(strconv.Itoa(randomIndex(3000))),
+				SmarketCode:        []byte("smarketCode"),
+				SecCode:            []byte("secCode"),
+				TradeType:          []byte("1"),
+				LastPrice:          randomFloat(10),
+				PreSettlementPrice: randomFloat(10),
+				SettlementPrice:    randomFloat(10),
+				RfLimitPrice:       randomFloat(10),
+				Chg:                randomFloat(10),
+				RiskLevel:          int32(randomIndex(100)),
+				OpenInterest:       uint32(randomIndex(100)),
+				MinMargin:          randomFloat(10),
+				MarginRatio:        randomFloat(10),
+				MarginDiff:         randomFloat(10),
+				TickPriceNum:       uint32(randomIndex(100)),
 			}
 			if err := stream.Send(quote); err != nil {
 				return err
@@ -75,18 +115,6 @@ func (s *server) SubscribeQuoteMon(req *pb.SubscribeReq, stream pb.RiskMonitorSe
 		}
 
 	}
-	// for _, v := range []int{1, 2, 3, 4} {
-	// 	contractCode := strconv.FormatInt(time.Now().UnixNano(), 10)
-	// 	quote := &pb.QuoteMonRtn{
-	// 		ActionFlag:   randomActionFlags(),
-	// 		MonitorNo:    []byte(strconv.Itoa(v)),
-	// 		ContractCode: []byte(contractCode),
-	// 	}
-	// 	if err := stream.Send(quote); err != nil {
-	// 		return err
-	// 	}
-	// }
-	// return nil
 
 }
 
@@ -95,13 +123,45 @@ func (s *server) SubscribeCustRisk(req *pb.SubscribeReq, stream pb.RiskMonitorSe
 	for {
 		select {
 		case <-tick:
-
-			customer := &pb.CustRiskRtn{
-				ActionFlag: randomActionFlags(),
-				MonitorNo:  []byte(strconv.Itoa(randomIndex(5))),
-				CustNo:     []byte(strconv.Itoa(randomIndex(100))),
+			quote := &pb.CustRiskRtn{
+				ActionFlag:          randomActionFlags(),
+				MonitorNo:           []byte(strconv.Itoa(randomIndex(100))),
+				CustNo:              []byte(strconv.Itoa(randomIndex(3000))),
+				CustClass:           []byte("CustClass"),
+				CustName:            []byte("CustName"),
+				MobilePhone:         []byte("MobilePhone"),
+				Clientmode:          []byte("Clientmode"),
+				RiskLevel:           []byte("RiskLevel"),
+				RiskDegree0:         randomFloat(10),
+				RiskDegree1:         randomFloat(10),
+				RiskDegree2:         randomFloat(10),
+				RiskDegree3:         randomFloat(10),
+				LastRiskLevel:       []byte("LastRiskLevel"),
+				LastRemain:          randomFloat(10),
+				Margin:              randomFloat(10),
+				DropProfit:          randomFloat(10),
+				HoldProfit:          randomFloat(10),
+				TodayInout:          randomFloat(10),
+				RoyaltyInout:        randomFloat(10),
+				DynCapRight:         randomFloat(10),
+				ExchMargin:          randomFloat(10),
+				AvailFund:           randomFloat(10),
+				OptionCap:           randomFloat(10),
+				DynRights:           randomFloat(10),
+				OptionDynMargin:     randomFloat(10),
+				FrznMargin:          randomFloat(10),
+				FrznRoyalty:         randomFloat(10),
+				ExchFrznMargin:      randomFloat(10),
+				FrznStrikeMargin:    randomFloat(10),
+				OptionNowMargin:     randomFloat(10),
+				ExchOptionNowMargin: randomFloat(10),
+				ExchOptionDynMargin: randomFloat(10),
+				RiskContractQty:     uint32(randomIndex(100)),
+				CurrencyCode:        []byte(strconv.Itoa(randomIndex(2))),
+				TradingNo:           []byte("TradingNo"),
+				DynRatio:            randomFloat(10),
 			}
-			if err := stream.Send(customer); err != nil {
+			if err := stream.Send(quote); err != nil {
 				return err
 			}
 		}
@@ -110,83 +170,152 @@ func (s *server) SubscribeCustRisk(req *pb.SubscribeReq, stream pb.RiskMonitorSe
 
 }
 
-func (s *server) QryExchVari(req *pb.QryExchVariReq, stream pb.RiskMonitorServer_QryExchVariServer) error {
-	for _, variety := range s.savedVarieties {
-		if err := stream.Send(variety); err != nil {
-			return err
-		}
-	}
-	return nil
-}
-
-func (s *server) SetRiskContrLevel(stream pb.RiskMonitorServer_SetRiskContrLevelServer) error {
+func (s *server) SubscribeCustHold(req *pb.SubscribeReq, stream pb.RiskMonitorServer_SubscribeCustHoldServer) error {
+	tick := time.Tick(1 * time.Nanosecond)
 	for {
-		setting, err := stream.Recv()
-		if err == io.EOF {
-			return stream.SendAndClose(&pb.RspInfo{
-				Errid:  0,
-				Errmsg: []byte(""),
-			})
-		}
-		if err != nil {
-			return err
+		select {
+		case <-tick:
+			quote := &pb.CustHoldRtn{
+				ActionFlag:   randomActionFlags(),
+				MonitorNo:    []byte(strconv.Itoa(randomIndex(100))),
+				CustNo:       []byte(strconv.Itoa(randomIndex(3000))),
+				CustClass:    []byte("CustClass"),
+				ExchCode:     []byte("ExchCode"),
+				VariCode:     []byte("VariCode"),
+				ContractCode: []byte(strconv.Itoa(randomIndex(3000))),
+				DelivDate:    []byte("DelivDate"),
+				HoldSum:      uint32(randomIndex(100)),
+				TradeType:    []byte("1"),
+				CpFlag:       []byte("CpFlag"),
+				MonthFlag:    []byte("MonthFlag"),
+				LimitRatio:   randomFloat(10),
+				LimitVolmue:  uint32(randomIndex(100)),
+				OverVolume:   uint32(randomIndex(100)),
+				LimitWrning:  uint32(randomIndex(100)),
+				OverWrning:   uint32(randomIndex(100)),
+			}
+			if randomActionFlags() == 1 {
+				quote.HoldType = pb.CustHoldRtn_Speculate
+			} else {
+				quote.HoldType = pb.CustHoldRtn_Total
+			}
+			if err := stream.Send(quote); err != nil {
+				return err
+			}
 		}
 
-		log.Println("SetRiskContrLevel", setting)
 	}
 
 }
 
-func (s *server) SetCustRiskMonitor(stream pb.RiskMonitorServer_SetCustRiskMonitorServer) error {
+func (s *server) SubscribeCustGroupHold(req *pb.SubscribeReq, stream pb.RiskMonitorServer_SubscribeCustGroupHoldServer) error {
+	tick := time.Tick(1 * time.Nanosecond)
 	for {
-		setting, err := stream.Recv()
-		if err == io.EOF {
-			return stream.SendAndClose(&pb.RspInfo{
-				Errid:  0,
-				Errmsg: []byte(""),
-			})
-		}
-		if err != nil {
-			return err
+		select {
+		case <-tick:
+			quote := &pb.CustGroupHoldRtn{
+				ActionFlag:    randomActionFlags(),
+				MonitorNo:     []byte(strconv.Itoa(randomIndex(100))),
+				CustGroupNo:   []byte(strconv.Itoa(randomIndex(1000))),
+				CustGroupName: []byte("CustGroupName"),
+				ExchCode:      []byte("ExchCode"),
+				VariCode:      []byte("VariCode"),
+				ContractCode:  []byte(strconv.Itoa(randomIndex(3000))),
+				DelivDate:     []byte("DelivDate"),
+				HoldSum:       uint32(randomIndex(100)),
+				TradeType:     []byte("1"),
+				CpFlag:        []byte("CpFlag"),
+				MonthFlag:     []byte("MonthFlag"),
+				LimitRatio:    randomFloat(10),
+				LimitVolmue:   uint32(randomIndex(100)),
+				OverVolume:    uint32(randomIndex(100)),
+				LimitWrning:   uint32(randomIndex(100)),
+				OverWrning:    uint32(randomIndex(100)),
+			}
+			if randomActionFlags() == 1 {
+				quote.HoldType = pb.CustGroupHoldRtn_Speculate
+			} else {
+				quote.HoldType = pb.CustGroupHoldRtn_Total
+			}
+			if err := stream.Send(quote); err != nil {
+				return err
+			}
 		}
 
-		log.Println("SetCustRiskMonitor", setting)
 	}
+
 }
 
-func (s *server) SetQuoteMonitor(stream pb.RiskMonitorServer_SetQuoteMonitorServer) error {
+func (s *server) SubscribeNearDediveHold(req *pb.SubscribeReq, stream pb.RiskMonitorServer_SubscribeNearDediveHoldServer) error {
+	tick := time.Tick(1 * time.Nanosecond)
 	for {
-		setting, err := stream.Recv()
-		if err == io.EOF {
-			return stream.SendAndClose(&pb.RspInfo{
-				Errid:  0,
-				Errmsg: []byte(""),
-			})
-		}
-		if err != nil {
-			return err
+		select {
+		case <-tick:
+			quote := &pb.NearDediveHoldRtn{
+				ActionFlag:   randomActionFlags(),
+				MonitorNo:    []byte(strconv.Itoa(randomIndex(100))),
+				CustNo:       []byte(strconv.Itoa(randomIndex(3000))),
+				CustClass:    []byte("CustClass"),
+				ExchCode:     []byte(randomExchCodes()),
+				VariCode:     []byte("VariCode"),
+				ContractCode: []byte(strconv.Itoa(randomIndex(3000))),
+				DelivDate:    []byte("DelivDate"),
+				HoldSum:      uint32(randomIndex(100)),
+				TradeType:    []byte("1"),
+				CpFlag:       []byte("CpFlag"),
+				ExpireDays:   uint32(randomIndex(100)),
+				LimitBase:    uint32(randomIndex(100)),
+				CloseDays:    uint32(randomIndex(100)),
+			}
+			if err := stream.Send(quote); err != nil {
+				return err
+			}
 		}
 
-		log.Println("SetQuoteMonitor", setting)
 	}
+
 }
 
-// func (s *server) SetContrGroup(stream pb.RiskMonitorServer_SetContrGroupServer) error {
-// 	for {
-// 		setting, err := stream.Recv()
-// 		if err == io.EOF {
-// 			return stream.SendAndClose(&pb.RspInfo{
-// 				Errid:  0,
-// 				Errmsg: []byte(""),
-// 			})
-// 		}
-// 		if err != nil {
-// 			return err
-// 		}
+func (s *server) SubscribeProuctGroupRisk(req *pb.SubscribeReq, stream pb.RiskMonitorServer_SubscribeProuctGroupRiskServer) error {
+	tick := time.Tick(1 * time.Nanosecond)
+	for {
+		select {
+		case <-tick:
+			quote := &pb.ProuctGroupRiskRtn{
+				ActionFlag:       randomActionFlags(),
+				MonitorNo:        []byte(strconv.Itoa(randomIndex(100))),
+				ProductGroupNo:   []byte(strconv.Itoa(randomIndex(1000))),
+				ProductGroupName: []byte("ProductGroupName"),
+				Count:            uint32(randomIndex(100)),
+				RiskCount:        uint32(randomIndex(100)),
 
-// 		log.Println(setting)
-// 	}
-// }
+				RiskDegree:   randomFloat(10),
+				SmarketCode:  []byte("secCode"),
+				SecCode:      []byte("secCode"),
+				ContractCode: []byte(strconv.Itoa(randomIndex(3000))),
+
+				TradeType: []byte("1"),
+
+				LastPrice:          randomFloat(10),
+				PreSettlementPrice: randomFloat(10),
+				SettlementPrice:    randomFloat(10),
+				RfLimitPrice:       randomFloat(10),
+				Chg:                randomFloat(10),
+				RiskLevel:          int32(randomIndex(100)),
+				OpenInterest:       uint32(randomIndex(100)),
+				MinMargin:          randomFloat(10),
+				MarginRatio:        randomFloat(10),
+				MarginDiff:         randomFloat(10),
+				TickPriceNum:       uint32(randomIndex(100)),
+			}
+			if err := stream.Send(quote); err != nil {
+				return err
+			}
+		}
+
+	}
+
+}
 
 // loadDatas loads contracts from a csv file.
 func (s *server) loadDatas(filePath string) {
@@ -202,35 +331,7 @@ func (s *server) loadDatas(filePath string) {
 		log.Fatalf("Failed to load default features: %v", err)
 	}
 
-	for i, v := range records {
-		if i == 0 {
-			continue
-		}
-		if i > 2000 {
-			break
-		}
-
-		s.savedContracts = append(s.savedContracts, &pb.QryContractRsp{
-			ContractCode:      []byte(v[0]),
-			ContractShortName: []byte(v[1]),
-		})
-
-		s.savedCustomers = append(s.savedCustomers, &pb.QryCustSimpleInfoRsp{
-			CustNo:   []byte(v[0]),
-			CustName: []byte(v[1]),
-		})
-
-		if i < 80 {
-			s.savedVarieties = append(s.savedVarieties, &pb.QryExchVariRsp{
-				VariCode:  []byte(v[0]),
-				VariName:  []byte(v[1]),
-				ExchCode:  []byte(s.savedExchCodes[randomIndex(len(s.savedExchCodes))]),
-				TradeType: []byte(strconv.Itoa(randomIndex(i+1) % 2)),
-			})
-		}
-
-	}
-
+	s.records = records
 }
 
 func randomIndex(length int) int {
@@ -240,6 +341,13 @@ func randomIndex(length int) int {
 	return r.Intn(length - 1)
 }
 
+func randomFloat(length int) float64 {
+	source := rand.NewSource(time.Now().UnixNano())
+	r := rand.New(source)
+
+	return float64(r.Intn(length-1)) + r.Float64()
+}
+
 func randomActionFlags() uint32 {
 	actionFlags := []uint32{1, 2, 1, 2, 1, 2, 1, 2, 1, 2, 1, 2, 1, 2}
 
@@ -247,8 +355,13 @@ func randomActionFlags() uint32 {
 
 }
 
+func randomExchCodes() string {
+	savedExchCodes := []string{"A", "B", "C", "G", "I", "S", "Z"}
+	return savedExchCodes[randomIndex(len(savedExchCodes))]
+}
+
 func newServer() *server {
-	s := &server{savedExchCodes: []string{"A", "B", "C", "G", "I", "S", "Z"}}
+	s := &server{}
 	s.loadDatas(*csvDBFile)
 	return s
 }

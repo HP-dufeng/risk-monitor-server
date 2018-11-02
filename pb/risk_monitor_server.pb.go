@@ -23,6 +23,583 @@ var _ = math.Inf
 // proto package needs to be updated.
 const _ = proto.ProtoPackageIsVersion2 // please upgrade the proto package
 
+type CustHoldRtn_HoldType int32
+
+const (
+	CustHoldRtn_Total     CustHoldRtn_HoldType = 0
+	CustHoldRtn_Speculate CustHoldRtn_HoldType = 1
+)
+
+var CustHoldRtn_HoldType_name = map[int32]string{
+	0: "Total",
+	1: "Speculate",
+}
+var CustHoldRtn_HoldType_value = map[string]int32{
+	"Total":     0,
+	"Speculate": 1,
+}
+
+func (x CustHoldRtn_HoldType) String() string {
+	return proto.EnumName(CustHoldRtn_HoldType_name, int32(x))
+}
+func (CustHoldRtn_HoldType) EnumDescriptor() ([]byte, []int) {
+	return fileDescriptor_risk_monitor_server_5c5ac32ac9cad650, []int{11, 0}
+}
+
+type CustGroupHoldRtn_HoldType int32
+
+const (
+	CustGroupHoldRtn_Total     CustGroupHoldRtn_HoldType = 0
+	CustGroupHoldRtn_Speculate CustGroupHoldRtn_HoldType = 1
+)
+
+var CustGroupHoldRtn_HoldType_name = map[int32]string{
+	0: "Total",
+	1: "Speculate",
+}
+var CustGroupHoldRtn_HoldType_value = map[string]int32{
+	"Total":     0,
+	"Speculate": 1,
+}
+
+func (x CustGroupHoldRtn_HoldType) String() string {
+	return proto.EnumName(CustGroupHoldRtn_HoldType_name, int32(x))
+}
+func (CustGroupHoldRtn_HoldType) EnumDescriptor() ([]byte, []int) {
+	return fileDescriptor_risk_monitor_server_5c5ac32ac9cad650, []int{12, 0}
+}
+
+type QryCustSimpleInfoRsp_ClientType int32
+
+const (
+	QryCustSimpleInfoRsp_NATURAL QryCustSimpleInfoRsp_ClientType = 0
+	QryCustSimpleInfoRsp_LEGAL   QryCustSimpleInfoRsp_ClientType = 1
+)
+
+var QryCustSimpleInfoRsp_ClientType_name = map[int32]string{
+	0: "NATURAL",
+	1: "LEGAL",
+}
+var QryCustSimpleInfoRsp_ClientType_value = map[string]int32{
+	"NATURAL": 0,
+	"LEGAL":   1,
+}
+
+func (x QryCustSimpleInfoRsp_ClientType) String() string {
+	return proto.EnumName(QryCustSimpleInfoRsp_ClientType_name, int32(x))
+}
+func (QryCustSimpleInfoRsp_ClientType) EnumDescriptor() ([]byte, []int) {
+	return fileDescriptor_risk_monitor_server_5c5ac32ac9cad650, []int{16, 0}
+}
+
+type QuoteMonitorSetting_QuoteType int32
+
+const (
+	QuoteMonitorSetting_RiskQuote   QuoteMonitorSetting_QuoteType = 0
+	QuoteMonitorSetting_MarginQuote QuoteMonitorSetting_QuoteType = 1
+)
+
+var QuoteMonitorSetting_QuoteType_name = map[int32]string{
+	0: "RiskQuote",
+	1: "MarginQuote",
+}
+var QuoteMonitorSetting_QuoteType_value = map[string]int32{
+	"RiskQuote":   0,
+	"MarginQuote": 1,
+}
+
+func (x QuoteMonitorSetting_QuoteType) String() string {
+	return proto.EnumName(QuoteMonitorSetting_QuoteType_name, int32(x))
+}
+func (QuoteMonitorSetting_QuoteType) EnumDescriptor() ([]byte, []int) {
+	return fileDescriptor_risk_monitor_server_5c5ac32ac9cad650, []int{30, 0}
+}
+
+type HoldMaxLimit_HoldLimitConditionType int32
+
+const (
+	HoldMaxLimit_SINGLE_SIDE_HOLD_LIMIT HoldMaxLimit_HoldLimitConditionType = 0
+	HoldMaxLimit_BOTH_SIDE_HOLD_LIMIT   HoldMaxLimit_HoldLimitConditionType = 1
+	HoldMaxLimit_NO_HOLD_LIMIT          HoldMaxLimit_HoldLimitConditionType = 2
+)
+
+var HoldMaxLimit_HoldLimitConditionType_name = map[int32]string{
+	0: "SINGLE_SIDE_HOLD_LIMIT",
+	1: "BOTH_SIDE_HOLD_LIMIT",
+	2: "NO_HOLD_LIMIT",
+}
+var HoldMaxLimit_HoldLimitConditionType_value = map[string]int32{
+	"SINGLE_SIDE_HOLD_LIMIT": 0,
+	"BOTH_SIDE_HOLD_LIMIT":   1,
+	"NO_HOLD_LIMIT":          2,
+}
+
+func (x HoldMaxLimit_HoldLimitConditionType) String() string {
+	return proto.EnumName(HoldMaxLimit_HoldLimitConditionType_name, int32(x))
+}
+func (HoldMaxLimit_HoldLimitConditionType) EnumDescriptor() ([]byte, []int) {
+	return fileDescriptor_risk_monitor_server_5c5ac32ac9cad650, []int{42, 0}
+}
+
+type HoldMaxLimit_QtyLimitType int32
+
+const (
+	HoldMaxLimit_RATIO_LIMIT  HoldMaxLimit_QtyLimitType = 0
+	HoldMaxLimit_AMOUNT_LIMIT HoldMaxLimit_QtyLimitType = 1
+	HoldMaxLimit_NO_LIMIT     HoldMaxLimit_QtyLimitType = 2
+)
+
+var HoldMaxLimit_QtyLimitType_name = map[int32]string{
+	0: "RATIO_LIMIT",
+	1: "AMOUNT_LIMIT",
+	2: "NO_LIMIT",
+}
+var HoldMaxLimit_QtyLimitType_value = map[string]int32{
+	"RATIO_LIMIT":  0,
+	"AMOUNT_LIMIT": 1,
+	"NO_LIMIT":     2,
+}
+
+func (x HoldMaxLimit_QtyLimitType) String() string {
+	return proto.EnumName(HoldMaxLimit_QtyLimitType_name, int32(x))
+}
+func (HoldMaxLimit_QtyLimitType) EnumDescriptor() ([]byte, []int) {
+	return fileDescriptor_risk_monitor_server_5c5ac32ac9cad650, []int{42, 1}
+}
+
+type HoldMaxLimit_CompareFlag int32
+
+const (
+	HoldMaxLimit_Greater         HoldMaxLimit_CompareFlag = 0
+	HoldMaxLimit_GreaterAndEqual HoldMaxLimit_CompareFlag = 1
+	HoldMaxLimit_Lesser          HoldMaxLimit_CompareFlag = 2
+	HoldMaxLimit_LesserAndEqual  HoldMaxLimit_CompareFlag = 3
+)
+
+var HoldMaxLimit_CompareFlag_name = map[int32]string{
+	0: "Greater",
+	1: "GreaterAndEqual",
+	2: "Lesser",
+	3: "LesserAndEqual",
+}
+var HoldMaxLimit_CompareFlag_value = map[string]int32{
+	"Greater":         0,
+	"GreaterAndEqual": 1,
+	"Lesser":          2,
+	"LesserAndEqual":  3,
+}
+
+func (x HoldMaxLimit_CompareFlag) String() string {
+	return proto.EnumName(HoldMaxLimit_CompareFlag_name, int32(x))
+}
+func (HoldMaxLimit_CompareFlag) EnumDescriptor() ([]byte, []int) {
+	return fileDescriptor_risk_monitor_server_5c5ac32ac9cad650, []int{42, 2}
+}
+
+type ArbitrageLimitDateNode_LimitType int32
+
+const (
+	ArbitrageLimitDateNode_CzceDelive ArbitrageLimitDateNode_LimitType = 0
+	ArbitrageLimitDateNode_CzceNormal ArbitrageLimitDateNode_LimitType = 1
+)
+
+var ArbitrageLimitDateNode_LimitType_name = map[int32]string{
+	0: "CzceDelive",
+	1: "CzceNormal",
+}
+var ArbitrageLimitDateNode_LimitType_value = map[string]int32{
+	"CzceDelive": 0,
+	"CzceNormal": 1,
+}
+
+func (x ArbitrageLimitDateNode_LimitType) String() string {
+	return proto.EnumName(ArbitrageLimitDateNode_LimitType_name, int32(x))
+}
+func (ArbitrageLimitDateNode_LimitType) EnumDescriptor() ([]byte, []int) {
+	return fileDescriptor_risk_monitor_server_5c5ac32ac9cad650, []int{50, 0}
+}
+
+type NearDediveSetting_CloseDateType int32
+
+const (
+	NearDediveSetting_LastTradeDateDelive1 NearDediveSetting_CloseDateType = 0
+	NearDediveSetting_LastTradeDate3       NearDediveSetting_CloseDateType = 1
+	NearDediveSetting_LastTradeDate8       NearDediveSetting_CloseDateType = 2
+)
+
+var NearDediveSetting_CloseDateType_name = map[int32]string{
+	0: "LastTradeDateDelive1",
+	1: "LastTradeDate3",
+	2: "LastTradeDate8",
+}
+var NearDediveSetting_CloseDateType_value = map[string]int32{
+	"LastTradeDateDelive1": 0,
+	"LastTradeDate3":       1,
+	"LastTradeDate8":       2,
+}
+
+func (x NearDediveSetting_CloseDateType) String() string {
+	return proto.EnumName(NearDediveSetting_CloseDateType_name, int32(x))
+}
+func (NearDediveSetting_CloseDateType) EnumDescriptor() ([]byte, []int) {
+	return fileDescriptor_risk_monitor_server_5c5ac32ac9cad650, []int{55, 0}
+}
+
+type NearDediveSetting_ClientType int32
+
+const (
+	NearDediveSetting_LagelPerson           NearDediveSetting_ClientType = 0
+	NearDediveSetting_NaturalAndLagelPerson NearDediveSetting_ClientType = 1
+)
+
+var NearDediveSetting_ClientType_name = map[int32]string{
+	0: "LagelPerson",
+	1: "NaturalAndLagelPerson",
+}
+var NearDediveSetting_ClientType_value = map[string]int32{
+	"LagelPerson":           0,
+	"NaturalAndLagelPerson": 1,
+}
+
+func (x NearDediveSetting_ClientType) String() string {
+	return proto.EnumName(NearDediveSetting_ClientType_name, int32(x))
+}
+func (NearDediveSetting_ClientType) EnumDescriptor() ([]byte, []int) {
+	return fileDescriptor_risk_monitor_server_5c5ac32ac9cad650, []int{55, 1}
+}
+
+type VariMarginLimitTimeLineNode_TimeLineNodeTypeEnum int32
+
+const (
+	VariMarginLimitTimeLineNode_Delivery_Month        VariMarginLimitTimeLineNode_TimeLineNodeTypeEnum = 0
+	VariMarginLimitTimeLineNode_Delivery_Month_One    VariMarginLimitTimeLineNode_TimeLineNodeTypeEnum = 1
+	VariMarginLimitTimeLineNode_Delivery_Month_Second VariMarginLimitTimeLineNode_TimeLineNodeTypeEnum = 2
+	VariMarginLimitTimeLineNode_Delivery_Month_Third  VariMarginLimitTimeLineNode_TimeLineNodeTypeEnum = 3
+	VariMarginLimitTimeLineNode_Listing_Date          VariMarginLimitTimeLineNode_TimeLineNodeTypeEnum = 4
+	VariMarginLimitTimeLineNode_Last_Trade_Date       VariMarginLimitTimeLineNode_TimeLineNodeTypeEnum = 5
+)
+
+var VariMarginLimitTimeLineNode_TimeLineNodeTypeEnum_name = map[int32]string{
+	0: "Delivery_Month",
+	1: "Delivery_Month_One",
+	2: "Delivery_Month_Second",
+	3: "Delivery_Month_Third",
+	4: "Listing_Date",
+	5: "Last_Trade_Date",
+}
+var VariMarginLimitTimeLineNode_TimeLineNodeTypeEnum_value = map[string]int32{
+	"Delivery_Month":        0,
+	"Delivery_Month_One":    1,
+	"Delivery_Month_Second": 2,
+	"Delivery_Month_Third":  3,
+	"Listing_Date":          4,
+	"Last_Trade_Date":       5,
+}
+
+func (x VariMarginLimitTimeLineNode_TimeLineNodeTypeEnum) String() string {
+	return proto.EnumName(VariMarginLimitTimeLineNode_TimeLineNodeTypeEnum_name, int32(x))
+}
+func (VariMarginLimitTimeLineNode_TimeLineNodeTypeEnum) EnumDescriptor() ([]byte, []int) {
+	return fileDescriptor_risk_monitor_server_5c5ac32ac9cad650, []int{57, 0}
+}
+
+type VariMarginLimitSetting_StatisticsDateTypeEnum int32
+
+const (
+	VariMarginLimitSetting_Trade    VariMarginLimitSetting_StatisticsDateTypeEnum = 0
+	VariMarginLimitSetting_Calendar VariMarginLimitSetting_StatisticsDateTypeEnum = 1
+)
+
+var VariMarginLimitSetting_StatisticsDateTypeEnum_name = map[int32]string{
+	0: "Trade",
+	1: "Calendar",
+}
+var VariMarginLimitSetting_StatisticsDateTypeEnum_value = map[string]int32{
+	"Trade":    0,
+	"Calendar": 1,
+}
+
+func (x VariMarginLimitSetting_StatisticsDateTypeEnum) String() string {
+	return proto.EnumName(VariMarginLimitSetting_StatisticsDateTypeEnum_name, int32(x))
+}
+func (VariMarginLimitSetting_StatisticsDateTypeEnum) EnumDescriptor() ([]byte, []int) {
+	return fileDescriptor_risk_monitor_server_5c5ac32ac9cad650, []int{58, 0}
+}
+
+type VariMarginLimitSetting_PositionVariationMarginTypeEnum int32
+
+const (
+	VariMarginLimitSetting_Fixed     VariMarginLimitSetting_PositionVariationMarginTypeEnum = 0
+	VariMarginLimitSetting_Variation VariMarginLimitSetting_PositionVariationMarginTypeEnum = 1
+)
+
+var VariMarginLimitSetting_PositionVariationMarginTypeEnum_name = map[int32]string{
+	0: "Fixed",
+	1: "Variation",
+}
+var VariMarginLimitSetting_PositionVariationMarginTypeEnum_value = map[string]int32{
+	"Fixed":     0,
+	"Variation": 1,
+}
+
+func (x VariMarginLimitSetting_PositionVariationMarginTypeEnum) String() string {
+	return proto.EnumName(VariMarginLimitSetting_PositionVariationMarginTypeEnum_name, int32(x))
+}
+func (VariMarginLimitSetting_PositionVariationMarginTypeEnum) EnumDescriptor() ([]byte, []int) {
+	return fileDescriptor_risk_monitor_server_5c5ac32ac9cad650, []int{58, 1}
+}
+
+type ConditionHoldLimitObject_CompareFlagEnum int32
+
+const (
+	ConditionHoldLimitObject_Greater         ConditionHoldLimitObject_CompareFlagEnum = 0
+	ConditionHoldLimitObject_GreaterAndEqual ConditionHoldLimitObject_CompareFlagEnum = 1
+	ConditionHoldLimitObject_Lesser          ConditionHoldLimitObject_CompareFlagEnum = 2
+	ConditionHoldLimitObject_LesserAndEqual  ConditionHoldLimitObject_CompareFlagEnum = 3
+)
+
+var ConditionHoldLimitObject_CompareFlagEnum_name = map[int32]string{
+	0: "Greater",
+	1: "GreaterAndEqual",
+	2: "Lesser",
+	3: "LesserAndEqual",
+}
+var ConditionHoldLimitObject_CompareFlagEnum_value = map[string]int32{
+	"Greater":         0,
+	"GreaterAndEqual": 1,
+	"Lesser":          2,
+	"LesserAndEqual":  3,
+}
+
+func (x ConditionHoldLimitObject_CompareFlagEnum) String() string {
+	return proto.EnumName(ConditionHoldLimitObject_CompareFlagEnum_name, int32(x))
+}
+func (ConditionHoldLimitObject_CompareFlagEnum) EnumDescriptor() ([]byte, []int) {
+	return fileDescriptor_risk_monitor_server_5c5ac32ac9cad650, []int{59, 0}
+}
+
+type ConditionHoldLimitObject_QtyLimitTypeEnum int32
+
+const (
+	ConditionHoldLimitObject_RATIO_LIMIT  ConditionHoldLimitObject_QtyLimitTypeEnum = 0
+	ConditionHoldLimitObject_AMOUNT_LIMIT ConditionHoldLimitObject_QtyLimitTypeEnum = 1
+	ConditionHoldLimitObject_NO_LIMIT     ConditionHoldLimitObject_QtyLimitTypeEnum = 2
+)
+
+var ConditionHoldLimitObject_QtyLimitTypeEnum_name = map[int32]string{
+	0: "RATIO_LIMIT",
+	1: "AMOUNT_LIMIT",
+	2: "NO_LIMIT",
+}
+var ConditionHoldLimitObject_QtyLimitTypeEnum_value = map[string]int32{
+	"RATIO_LIMIT":  0,
+	"AMOUNT_LIMIT": 1,
+	"NO_LIMIT":     2,
+}
+
+func (x ConditionHoldLimitObject_QtyLimitTypeEnum) String() string {
+	return proto.EnumName(ConditionHoldLimitObject_QtyLimitTypeEnum_name, int32(x))
+}
+func (ConditionHoldLimitObject_QtyLimitTypeEnum) EnumDescriptor() ([]byte, []int) {
+	return fileDescriptor_risk_monitor_server_5c5ac32ac9cad650, []int{59, 1}
+}
+
+type VariHoldLimitTimeLineNode_TimeLineNodeTypeEnum int32
+
+const (
+	VariHoldLimitTimeLineNode_Delivery_Month        VariHoldLimitTimeLineNode_TimeLineNodeTypeEnum = 0
+	VariHoldLimitTimeLineNode_Delivery_Month_One    VariHoldLimitTimeLineNode_TimeLineNodeTypeEnum = 1
+	VariHoldLimitTimeLineNode_Delivery_Month_Second VariHoldLimitTimeLineNode_TimeLineNodeTypeEnum = 2
+	VariHoldLimitTimeLineNode_Delivery_Month_Third  VariHoldLimitTimeLineNode_TimeLineNodeTypeEnum = 3
+	VariHoldLimitTimeLineNode_Listing_Date          VariHoldLimitTimeLineNode_TimeLineNodeTypeEnum = 4
+	VariHoldLimitTimeLineNode_Last_Trade_Date       VariHoldLimitTimeLineNode_TimeLineNodeTypeEnum = 5
+)
+
+var VariHoldLimitTimeLineNode_TimeLineNodeTypeEnum_name = map[int32]string{
+	0: "Delivery_Month",
+	1: "Delivery_Month_One",
+	2: "Delivery_Month_Second",
+	3: "Delivery_Month_Third",
+	4: "Listing_Date",
+	5: "Last_Trade_Date",
+}
+var VariHoldLimitTimeLineNode_TimeLineNodeTypeEnum_value = map[string]int32{
+	"Delivery_Month":        0,
+	"Delivery_Month_One":    1,
+	"Delivery_Month_Second": 2,
+	"Delivery_Month_Third":  3,
+	"Listing_Date":          4,
+	"Last_Trade_Date":       5,
+}
+
+func (x VariHoldLimitTimeLineNode_TimeLineNodeTypeEnum) String() string {
+	return proto.EnumName(VariHoldLimitTimeLineNode_TimeLineNodeTypeEnum_name, int32(x))
+}
+func (VariHoldLimitTimeLineNode_TimeLineNodeTypeEnum) EnumDescriptor() ([]byte, []int) {
+	return fileDescriptor_risk_monitor_server_5c5ac32ac9cad650, []int{60, 0}
+}
+
+type VariHoldLimitTimeLineNode_HoldLimitConditionTypeEnum int32
+
+const (
+	VariHoldLimitTimeLineNode_SINGLE_SIDE_HOLD_LIMIT VariHoldLimitTimeLineNode_HoldLimitConditionTypeEnum = 0
+	VariHoldLimitTimeLineNode_BOTH_SIDE_HOLD_LIMIT   VariHoldLimitTimeLineNode_HoldLimitConditionTypeEnum = 1
+	VariHoldLimitTimeLineNode_NO_HOLD_LIMIT          VariHoldLimitTimeLineNode_HoldLimitConditionTypeEnum = 2
+)
+
+var VariHoldLimitTimeLineNode_HoldLimitConditionTypeEnum_name = map[int32]string{
+	0: "SINGLE_SIDE_HOLD_LIMIT",
+	1: "BOTH_SIDE_HOLD_LIMIT",
+	2: "NO_HOLD_LIMIT",
+}
+var VariHoldLimitTimeLineNode_HoldLimitConditionTypeEnum_value = map[string]int32{
+	"SINGLE_SIDE_HOLD_LIMIT": 0,
+	"BOTH_SIDE_HOLD_LIMIT":   1,
+	"NO_HOLD_LIMIT":          2,
+}
+
+func (x VariHoldLimitTimeLineNode_HoldLimitConditionTypeEnum) String() string {
+	return proto.EnumName(VariHoldLimitTimeLineNode_HoldLimitConditionTypeEnum_name, int32(x))
+}
+func (VariHoldLimitTimeLineNode_HoldLimitConditionTypeEnum) EnumDescriptor() ([]byte, []int) {
+	return fileDescriptor_risk_monitor_server_5c5ac32ac9cad650, []int{60, 1}
+}
+
+type VariHoldLimitSetting_StatisticsDateTypeEnum int32
+
+const (
+	VariHoldLimitSetting_Trade    VariHoldLimitSetting_StatisticsDateTypeEnum = 0
+	VariHoldLimitSetting_Calendar VariHoldLimitSetting_StatisticsDateTypeEnum = 1
+)
+
+var VariHoldLimitSetting_StatisticsDateTypeEnum_name = map[int32]string{
+	0: "Trade",
+	1: "Calendar",
+}
+var VariHoldLimitSetting_StatisticsDateTypeEnum_value = map[string]int32{
+	"Trade":    0,
+	"Calendar": 1,
+}
+
+func (x VariHoldLimitSetting_StatisticsDateTypeEnum) String() string {
+	return proto.EnumName(VariHoldLimitSetting_StatisticsDateTypeEnum_name, int32(x))
+}
+func (VariHoldLimitSetting_StatisticsDateTypeEnum) EnumDescriptor() ([]byte, []int) {
+	return fileDescriptor_risk_monitor_server_5c5ac32ac9cad650, []int{61, 0}
+}
+
+type VariArbitrageLimitTimeLineNode_TimeLineNodeTypeEnum int32
+
+const (
+	VariArbitrageLimitTimeLineNode_Delivery_Month        VariArbitrageLimitTimeLineNode_TimeLineNodeTypeEnum = 0
+	VariArbitrageLimitTimeLineNode_Delivery_Month_One    VariArbitrageLimitTimeLineNode_TimeLineNodeTypeEnum = 1
+	VariArbitrageLimitTimeLineNode_Delivery_Month_Second VariArbitrageLimitTimeLineNode_TimeLineNodeTypeEnum = 2
+	VariArbitrageLimitTimeLineNode_Delivery_Month_Third  VariArbitrageLimitTimeLineNode_TimeLineNodeTypeEnum = 3
+	VariArbitrageLimitTimeLineNode_Listing_Date          VariArbitrageLimitTimeLineNode_TimeLineNodeTypeEnum = 4
+	VariArbitrageLimitTimeLineNode_Last_Trade_Date       VariArbitrageLimitTimeLineNode_TimeLineNodeTypeEnum = 5
+)
+
+var VariArbitrageLimitTimeLineNode_TimeLineNodeTypeEnum_name = map[int32]string{
+	0: "Delivery_Month",
+	1: "Delivery_Month_One",
+	2: "Delivery_Month_Second",
+	3: "Delivery_Month_Third",
+	4: "Listing_Date",
+	5: "Last_Trade_Date",
+}
+var VariArbitrageLimitTimeLineNode_TimeLineNodeTypeEnum_value = map[string]int32{
+	"Delivery_Month":        0,
+	"Delivery_Month_One":    1,
+	"Delivery_Month_Second": 2,
+	"Delivery_Month_Third":  3,
+	"Listing_Date":          4,
+	"Last_Trade_Date":       5,
+}
+
+func (x VariArbitrageLimitTimeLineNode_TimeLineNodeTypeEnum) String() string {
+	return proto.EnumName(VariArbitrageLimitTimeLineNode_TimeLineNodeTypeEnum_name, int32(x))
+}
+func (VariArbitrageLimitTimeLineNode_TimeLineNodeTypeEnum) EnumDescriptor() ([]byte, []int) {
+	return fileDescriptor_risk_monitor_server_5c5ac32ac9cad650, []int{62, 0}
+}
+
+type VariArbitrageLimitTimeLineNode_LimitTypeEnum int32
+
+const (
+	VariArbitrageLimitTimeLineNode_CzceDelive VariArbitrageLimitTimeLineNode_LimitTypeEnum = 0
+	VariArbitrageLimitTimeLineNode_CzceNormal VariArbitrageLimitTimeLineNode_LimitTypeEnum = 1
+)
+
+var VariArbitrageLimitTimeLineNode_LimitTypeEnum_name = map[int32]string{
+	0: "CzceDelive",
+	1: "CzceNormal",
+}
+var VariArbitrageLimitTimeLineNode_LimitTypeEnum_value = map[string]int32{
+	"CzceDelive": 0,
+	"CzceNormal": 1,
+}
+
+func (x VariArbitrageLimitTimeLineNode_LimitTypeEnum) String() string {
+	return proto.EnumName(VariArbitrageLimitTimeLineNode_LimitTypeEnum_name, int32(x))
+}
+func (VariArbitrageLimitTimeLineNode_LimitTypeEnum) EnumDescriptor() ([]byte, []int) {
+	return fileDescriptor_risk_monitor_server_5c5ac32ac9cad650, []int{62, 1}
+}
+
+type VariArbitrageLimitSetting_StatisticsDateTypeEnum int32
+
+const (
+	VariArbitrageLimitSetting_Trade    VariArbitrageLimitSetting_StatisticsDateTypeEnum = 0
+	VariArbitrageLimitSetting_Calendar VariArbitrageLimitSetting_StatisticsDateTypeEnum = 1
+)
+
+var VariArbitrageLimitSetting_StatisticsDateTypeEnum_name = map[int32]string{
+	0: "Trade",
+	1: "Calendar",
+}
+var VariArbitrageLimitSetting_StatisticsDateTypeEnum_value = map[string]int32{
+	"Trade":    0,
+	"Calendar": 1,
+}
+
+func (x VariArbitrageLimitSetting_StatisticsDateTypeEnum) String() string {
+	return proto.EnumName(VariArbitrageLimitSetting_StatisticsDateTypeEnum_name, int32(x))
+}
+func (VariArbitrageLimitSetting_StatisticsDateTypeEnum) EnumDescriptor() ([]byte, []int) {
+	return fileDescriptor_risk_monitor_server_5c5ac32ac9cad650, []int{63, 0}
+}
+
+// 心跳包
+type HeartBeat struct {
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
+}
+
+func (m *HeartBeat) Reset()         { *m = HeartBeat{} }
+func (m *HeartBeat) String() string { return proto.CompactTextString(m) }
+func (*HeartBeat) ProtoMessage()    {}
+func (*HeartBeat) Descriptor() ([]byte, []int) {
+	return fileDescriptor_risk_monitor_server_5c5ac32ac9cad650, []int{0}
+}
+func (m *HeartBeat) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_HeartBeat.Unmarshal(m, b)
+}
+func (m *HeartBeat) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_HeartBeat.Marshal(b, m, deterministic)
+}
+func (dst *HeartBeat) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_HeartBeat.Merge(dst, src)
+}
+func (m *HeartBeat) XXX_Size() int {
+	return xxx_messageInfo_HeartBeat.Size(m)
+}
+func (m *HeartBeat) XXX_DiscardUnknown() {
+	xxx_messageInfo_HeartBeat.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_HeartBeat proto.InternalMessageInfo
+
 // 订阅请求
 type SubscribeReq struct {
 	XXX_NoUnkeyedLiteral struct{} `json:"-"`
@@ -34,7 +611,7 @@ func (m *SubscribeReq) Reset()         { *m = SubscribeReq{} }
 func (m *SubscribeReq) String() string { return proto.CompactTextString(m) }
 func (*SubscribeReq) ProtoMessage()    {}
 func (*SubscribeReq) Descriptor() ([]byte, []int) {
-	return fileDescriptor_risk_monitor_server_d760d86102bb67c7, []int{0}
+	return fileDescriptor_risk_monitor_server_5c5ac32ac9cad650, []int{1}
 }
 func (m *SubscribeReq) XXX_Unmarshal(b []byte) error {
 	return xxx_messageInfo_SubscribeReq.Unmarshal(m, b)
@@ -65,7 +642,7 @@ func (m *QryReq) Reset()         { *m = QryReq{} }
 func (m *QryReq) String() string { return proto.CompactTextString(m) }
 func (*QryReq) ProtoMessage()    {}
 func (*QryReq) Descriptor() ([]byte, []int) {
-	return fileDescriptor_risk_monitor_server_d760d86102bb67c7, []int{1}
+	return fileDescriptor_risk_monitor_server_5c5ac32ac9cad650, []int{2}
 }
 func (m *QryReq) XXX_Unmarshal(b []byte) error {
 	return xxx_messageInfo_QryReq.Unmarshal(m, b)
@@ -98,7 +675,7 @@ func (m *RspInfo) Reset()         { *m = RspInfo{} }
 func (m *RspInfo) String() string { return proto.CompactTextString(m) }
 func (*RspInfo) ProtoMessage()    {}
 func (*RspInfo) Descriptor() ([]byte, []int) {
-	return fileDescriptor_risk_monitor_server_d760d86102bb67c7, []int{2}
+	return fileDescriptor_risk_monitor_server_5c5ac32ac9cad650, []int{3}
 }
 func (m *RspInfo) XXX_Unmarshal(b []byte) error {
 	return xxx_messageInfo_RspInfo.Unmarshal(m, b)
@@ -146,7 +723,7 @@ func (m *SettingValueField) Reset()         { *m = SettingValueField{} }
 func (m *SettingValueField) String() string { return proto.CompactTextString(m) }
 func (*SettingValueField) ProtoMessage()    {}
 func (*SettingValueField) Descriptor() ([]byte, []int) {
-	return fileDescriptor_risk_monitor_server_d760d86102bb67c7, []int{3}
+	return fileDescriptor_risk_monitor_server_5c5ac32ac9cad650, []int{4}
 }
 func (m *SettingValueField) XXX_Unmarshal(b []byte) error {
 	return xxx_messageInfo_SettingValueField.Unmarshal(m, b)
@@ -198,7 +775,7 @@ func (m *QryHoldCustsByContractReq) Reset()         { *m = QryHoldCustsByContrac
 func (m *QryHoldCustsByContractReq) String() string { return proto.CompactTextString(m) }
 func (*QryHoldCustsByContractReq) ProtoMessage()    {}
 func (*QryHoldCustsByContractReq) Descriptor() ([]byte, []int) {
-	return fileDescriptor_risk_monitor_server_d760d86102bb67c7, []int{4}
+	return fileDescriptor_risk_monitor_server_5c5ac32ac9cad650, []int{5}
 }
 func (m *QryHoldCustsByContractReq) XXX_Unmarshal(b []byte) error {
 	return xxx_messageInfo_QryHoldCustsByContractReq.Unmarshal(m, b)
@@ -237,7 +814,7 @@ func (m *QryHoldCustsByContractRsp) Reset()         { *m = QryHoldCustsByContrac
 func (m *QryHoldCustsByContractRsp) String() string { return proto.CompactTextString(m) }
 func (*QryHoldCustsByContractRsp) ProtoMessage()    {}
 func (*QryHoldCustsByContractRsp) Descriptor() ([]byte, []int) {
-	return fileDescriptor_risk_monitor_server_d760d86102bb67c7, []int{5}
+	return fileDescriptor_risk_monitor_server_5c5ac32ac9cad650, []int{6}
 }
 func (m *QryHoldCustsByContractRsp) XXX_Unmarshal(b []byte) error {
 	return xxx_messageInfo_QryHoldCustsByContractRsp.Unmarshal(m, b)
@@ -271,6 +848,90 @@ func (m *QryHoldCustsByContractRsp) GetRspInfo() *RspInfo {
 	return nil
 }
 
+type QryTradeCalendarReq struct {
+	Year                 []byte   `protobuf:"bytes,1,opt,name=year,proto3" json:"year,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
+}
+
+func (m *QryTradeCalendarReq) Reset()         { *m = QryTradeCalendarReq{} }
+func (m *QryTradeCalendarReq) String() string { return proto.CompactTextString(m) }
+func (*QryTradeCalendarReq) ProtoMessage()    {}
+func (*QryTradeCalendarReq) Descriptor() ([]byte, []int) {
+	return fileDescriptor_risk_monitor_server_5c5ac32ac9cad650, []int{7}
+}
+func (m *QryTradeCalendarReq) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_QryTradeCalendarReq.Unmarshal(m, b)
+}
+func (m *QryTradeCalendarReq) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_QryTradeCalendarReq.Marshal(b, m, deterministic)
+}
+func (dst *QryTradeCalendarReq) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_QryTradeCalendarReq.Merge(dst, src)
+}
+func (m *QryTradeCalendarReq) XXX_Size() int {
+	return xxx_messageInfo_QryTradeCalendarReq.Size(m)
+}
+func (m *QryTradeCalendarReq) XXX_DiscardUnknown() {
+	xxx_messageInfo_QryTradeCalendarReq.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_QryTradeCalendarReq proto.InternalMessageInfo
+
+func (m *QryTradeCalendarReq) GetYear() []byte {
+	if m != nil {
+		return m.Year
+	}
+	return nil
+}
+
+type QryTradeCalendarRsp struct {
+	Calendar             []byte   `protobuf:"bytes,1,opt,name=calendar,proto3" json:"calendar,omitempty"`
+	RspInfo              *RspInfo `protobuf:"bytes,2,opt,name=rspInfo" json:"rspInfo,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
+}
+
+func (m *QryTradeCalendarRsp) Reset()         { *m = QryTradeCalendarRsp{} }
+func (m *QryTradeCalendarRsp) String() string { return proto.CompactTextString(m) }
+func (*QryTradeCalendarRsp) ProtoMessage()    {}
+func (*QryTradeCalendarRsp) Descriptor() ([]byte, []int) {
+	return fileDescriptor_risk_monitor_server_5c5ac32ac9cad650, []int{8}
+}
+func (m *QryTradeCalendarRsp) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_QryTradeCalendarRsp.Unmarshal(m, b)
+}
+func (m *QryTradeCalendarRsp) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_QryTradeCalendarRsp.Marshal(b, m, deterministic)
+}
+func (dst *QryTradeCalendarRsp) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_QryTradeCalendarRsp.Merge(dst, src)
+}
+func (m *QryTradeCalendarRsp) XXX_Size() int {
+	return xxx_messageInfo_QryTradeCalendarRsp.Size(m)
+}
+func (m *QryTradeCalendarRsp) XXX_DiscardUnknown() {
+	xxx_messageInfo_QryTradeCalendarRsp.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_QryTradeCalendarRsp proto.InternalMessageInfo
+
+func (m *QryTradeCalendarRsp) GetCalendar() []byte {
+	if m != nil {
+		return m.Calendar
+	}
+	return nil
+}
+
+func (m *QryTradeCalendarRsp) GetRspInfo() *RspInfo {
+	if m != nil {
+		return m.RspInfo
+	}
+	return nil
+}
+
 // 行情监控推送
 type QuoteMonRtn struct {
 	PackFlag             uint32   `protobuf:"varint,1,opt,name=pack_flag,json=packFlag" json:"pack_flag,omitempty"`
@@ -285,7 +946,7 @@ type QuoteMonRtn struct {
 	SettlementPrice      float64  `protobuf:"fixed64,10,opt,name=settlement_price,json=settlementPrice" json:"settlement_price,omitempty"`
 	RfLimitPrice         float64  `protobuf:"fixed64,11,opt,name=rf_limit_price,json=rfLimitPrice" json:"rf_limit_price,omitempty"`
 	Chg                  float64  `protobuf:"fixed64,12,opt,name=chg" json:"chg,omitempty"`
-	RiskLevel            []byte   `protobuf:"bytes,13,opt,name=risk_level,json=riskLevel,proto3" json:"risk_level,omitempty"`
+	RiskLevel            int32    `protobuf:"varint,13,opt,name=risk_level,json=riskLevel" json:"risk_level,omitempty"`
 	OpenInterest         uint32   `protobuf:"varint,14,opt,name=open_interest,json=openInterest" json:"open_interest,omitempty"`
 	MinMargin            float64  `protobuf:"fixed64,15,opt,name=min_margin,json=minMargin" json:"min_margin,omitempty"`
 	MarginRatio          float64  `protobuf:"fixed64,16,opt,name=margin_ratio,json=marginRatio" json:"margin_ratio,omitempty"`
@@ -300,7 +961,7 @@ func (m *QuoteMonRtn) Reset()         { *m = QuoteMonRtn{} }
 func (m *QuoteMonRtn) String() string { return proto.CompactTextString(m) }
 func (*QuoteMonRtn) ProtoMessage()    {}
 func (*QuoteMonRtn) Descriptor() ([]byte, []int) {
-	return fileDescriptor_risk_monitor_server_d760d86102bb67c7, []int{6}
+	return fileDescriptor_risk_monitor_server_5c5ac32ac9cad650, []int{9}
 }
 func (m *QuoteMonRtn) XXX_Unmarshal(b []byte) error {
 	return xxx_messageInfo_QuoteMonRtn.Unmarshal(m, b)
@@ -404,11 +1065,11 @@ func (m *QuoteMonRtn) GetChg() float64 {
 	return 0
 }
 
-func (m *QuoteMonRtn) GetRiskLevel() []byte {
+func (m *QuoteMonRtn) GetRiskLevel() int32 {
 	if m != nil {
 		return m.RiskLevel
 	}
-	return nil
+	return 0
 }
 
 func (m *QuoteMonRtn) GetOpenInterest() uint32 {
@@ -494,7 +1155,7 @@ func (m *CustRiskRtn) Reset()         { *m = CustRiskRtn{} }
 func (m *CustRiskRtn) String() string { return proto.CompactTextString(m) }
 func (*CustRiskRtn) ProtoMessage()    {}
 func (*CustRiskRtn) Descriptor() ([]byte, []int) {
-	return fileDescriptor_risk_monitor_server_d760d86102bb67c7, []int{7}
+	return fileDescriptor_risk_monitor_server_5c5ac32ac9cad650, []int{10}
 }
 func (m *CustRiskRtn) XXX_Unmarshal(b []byte) error {
 	return xxx_messageInfo_CustRiskRtn.Unmarshal(m, b)
@@ -775,38 +1436,35 @@ func (m *CustRiskRtn) GetDynRatio() float64 {
 
 // 客户持仓推送
 type CustHoldRtn struct {
-	PackFlag             uint32   `protobuf:"varint,1,opt,name=pack_flag,json=packFlag" json:"pack_flag,omitempty"`
-	ActionFlag           uint32   `protobuf:"varint,2,opt,name=action_flag,json=actionFlag" json:"action_flag,omitempty"`
-	MonitorNo            []byte   `protobuf:"bytes,3,opt,name=monitor_no,json=monitorNo,proto3" json:"monitor_no,omitempty"`
-	CustNo               []byte   `protobuf:"bytes,4,opt,name=cust_no,json=custNo,proto3" json:"cust_no,omitempty"`
-	CustClass            []byte   `protobuf:"bytes,5,opt,name=cust_class,json=custClass,proto3" json:"cust_class,omitempty"`
-	ExchCode             []byte   `protobuf:"bytes,6,opt,name=exch_code,json=exchCode,proto3" json:"exch_code,omitempty"`
-	VariCode             []byte   `protobuf:"bytes,7,opt,name=vari_code,json=variCode,proto3" json:"vari_code,omitempty"`
-	ContractCode         []byte   `protobuf:"bytes,8,opt,name=contract_code,json=contractCode,proto3" json:"contract_code,omitempty"`
-	DelivDate            []byte   `protobuf:"bytes,9,opt,name=deliv_date,json=delivDate,proto3" json:"deliv_date,omitempty"`
-	ShFlag               []byte   `protobuf:"bytes,10,opt,name=sh_flag,json=shFlag,proto3" json:"sh_flag,omitempty"`
-	BsFlag               []byte   `protobuf:"bytes,11,opt,name=bs_flag,json=bsFlag,proto3" json:"bs_flag,omitempty"`
-	HoldBSum             uint32   `protobuf:"varint,12,opt,name=hold_b_sum,json=holdBSum" json:"hold_b_sum,omitempty"`
-	HoldSSum             uint32   `protobuf:"varint,13,opt,name=hold_s_sum,json=holdSSum" json:"hold_s_sum,omitempty"`
-	HoldSum              uint32   `protobuf:"varint,14,opt,name=hold_sum,json=holdSum" json:"hold_sum,omitempty"`
-	TradeType            []byte   `protobuf:"bytes,15,opt,name=trade_type,json=tradeType,proto3" json:"trade_type,omitempty"`
-	CpFlag               []byte   `protobuf:"bytes,16,opt,name=cp_flag,json=cpFlag,proto3" json:"cp_flag,omitempty"`
-	MonthFlag            []byte   `protobuf:"bytes,17,opt,name=month_flag,json=monthFlag,proto3" json:"month_flag,omitempty"`
-	LimitRatio           float64  `protobuf:"fixed64,18,opt,name=limit_ratio,json=limitRatio" json:"limit_ratio,omitempty"`
-	LimitVolmue          uint32   `protobuf:"varint,19,opt,name=limit_volmue,json=limitVolmue" json:"limit_volmue,omitempty"`
-	OverVolume           uint32   `protobuf:"varint,20,opt,name=over_volume,json=overVolume" json:"over_volume,omitempty"`
-	ExpireDays           uint32   `protobuf:"varint,21,opt,name=expire_days,json=expireDays" json:"expire_days,omitempty"`
-	LimitBase            uint32   `protobuf:"varint,22,opt,name=limit_base,json=limitBase" json:"limit_base,omitempty"`
-	XXX_NoUnkeyedLiteral struct{} `json:"-"`
-	XXX_unrecognized     []byte   `json:"-"`
-	XXX_sizecache        int32    `json:"-"`
+	PackFlag             uint32               `protobuf:"varint,1,opt,name=pack_flag,json=packFlag" json:"pack_flag,omitempty"`
+	ActionFlag           uint32               `protobuf:"varint,2,opt,name=action_flag,json=actionFlag" json:"action_flag,omitempty"`
+	MonitorNo            []byte               `protobuf:"bytes,3,opt,name=monitor_no,json=monitorNo,proto3" json:"monitor_no,omitempty"`
+	CustNo               []byte               `protobuf:"bytes,4,opt,name=cust_no,json=custNo,proto3" json:"cust_no,omitempty"`
+	CustClass            []byte               `protobuf:"bytes,5,opt,name=cust_class,json=custClass,proto3" json:"cust_class,omitempty"`
+	ExchCode             []byte               `protobuf:"bytes,6,opt,name=exch_code,json=exchCode,proto3" json:"exch_code,omitempty"`
+	VariCode             []byte               `protobuf:"bytes,7,opt,name=vari_code,json=variCode,proto3" json:"vari_code,omitempty"`
+	ContractCode         []byte               `protobuf:"bytes,8,opt,name=contract_code,json=contractCode,proto3" json:"contract_code,omitempty"`
+	DelivDate            []byte               `protobuf:"bytes,9,opt,name=deliv_date,json=delivDate,proto3" json:"deliv_date,omitempty"`
+	HoldSum              uint32               `protobuf:"varint,10,opt,name=hold_sum,json=holdSum" json:"hold_sum,omitempty"`
+	TradeType            []byte               `protobuf:"bytes,11,opt,name=trade_type,json=tradeType,proto3" json:"trade_type,omitempty"`
+	CpFlag               []byte               `protobuf:"bytes,12,opt,name=cp_flag,json=cpFlag,proto3" json:"cp_flag,omitempty"`
+	MonthFlag            []byte               `protobuf:"bytes,13,opt,name=month_flag,json=monthFlag,proto3" json:"month_flag,omitempty"`
+	LimitRatio           float64              `protobuf:"fixed64,14,opt,name=limit_ratio,json=limitRatio" json:"limit_ratio,omitempty"`
+	LimitVolmue          uint32               `protobuf:"varint,15,opt,name=limit_volmue,json=limitVolmue" json:"limit_volmue,omitempty"`
+	OverVolume           uint32               `protobuf:"varint,16,opt,name=over_volume,json=overVolume" json:"over_volume,omitempty"`
+	LimitWrning          uint32               `protobuf:"varint,17,opt,name=limit_wrning,json=limitWrning" json:"limit_wrning,omitempty"`
+	OverWrning           uint32               `protobuf:"varint,18,opt,name=over_wrning,json=overWrning" json:"over_wrning,omitempty"`
+	HoldType             CustHoldRtn_HoldType `protobuf:"varint,19,opt,name=hold_type,json=holdType,enum=riskmonitorserver.CustHoldRtn_HoldType" json:"hold_type,omitempty"`
+	XXX_NoUnkeyedLiteral struct{}             `json:"-"`
+	XXX_unrecognized     []byte               `json:"-"`
+	XXX_sizecache        int32                `json:"-"`
 }
 
 func (m *CustHoldRtn) Reset()         { *m = CustHoldRtn{} }
 func (m *CustHoldRtn) String() string { return proto.CompactTextString(m) }
 func (*CustHoldRtn) ProtoMessage()    {}
 func (*CustHoldRtn) Descriptor() ([]byte, []int) {
-	return fileDescriptor_risk_monitor_server_d760d86102bb67c7, []int{8}
+	return fileDescriptor_risk_monitor_server_5c5ac32ac9cad650, []int{11}
 }
 func (m *CustHoldRtn) XXX_Unmarshal(b []byte) error {
 	return xxx_messageInfo_CustHoldRtn.Unmarshal(m, b)
@@ -889,34 +1547,6 @@ func (m *CustHoldRtn) GetDelivDate() []byte {
 	return nil
 }
 
-func (m *CustHoldRtn) GetShFlag() []byte {
-	if m != nil {
-		return m.ShFlag
-	}
-	return nil
-}
-
-func (m *CustHoldRtn) GetBsFlag() []byte {
-	if m != nil {
-		return m.BsFlag
-	}
-	return nil
-}
-
-func (m *CustHoldRtn) GetHoldBSum() uint32 {
-	if m != nil {
-		return m.HoldBSum
-	}
-	return 0
-}
-
-func (m *CustHoldRtn) GetHoldSSum() uint32 {
-	if m != nil {
-		return m.HoldSSum
-	}
-	return 0
-}
-
 func (m *CustHoldRtn) GetHoldSum() uint32 {
 	if m != nil {
 		return m.HoldSum
@@ -966,42 +1596,52 @@ func (m *CustHoldRtn) GetOverVolume() uint32 {
 	return 0
 }
 
-func (m *CustHoldRtn) GetExpireDays() uint32 {
+func (m *CustHoldRtn) GetLimitWrning() uint32 {
 	if m != nil {
-		return m.ExpireDays
+		return m.LimitWrning
 	}
 	return 0
 }
 
-func (m *CustHoldRtn) GetLimitBase() uint32 {
+func (m *CustHoldRtn) GetOverWrning() uint32 {
 	if m != nil {
-		return m.LimitBase
+		return m.OverWrning
 	}
 	return 0
+}
+
+func (m *CustHoldRtn) GetHoldType() CustHoldRtn_HoldType {
+	if m != nil {
+		return m.HoldType
+	}
+	return CustHoldRtn_Total
 }
 
 // 客户组持仓推送
 type CustGroupHoldRtn struct {
-	PackFlag             uint32   `protobuf:"varint,1,opt,name=pack_flag,json=packFlag" json:"pack_flag,omitempty"`
-	ActionFlag           uint32   `protobuf:"varint,2,opt,name=action_flag,json=actionFlag" json:"action_flag,omitempty"`
-	MonitorNo            []byte   `protobuf:"bytes,3,opt,name=monitor_no,json=monitorNo,proto3" json:"monitor_no,omitempty"`
-	CustGroupNo          []byte   `protobuf:"bytes,4,opt,name=cust_group_no,json=custGroupNo,proto3" json:"cust_group_no,omitempty"`
-	CustGroupName        []byte   `protobuf:"bytes,5,opt,name=cust_group_name,json=custGroupName,proto3" json:"cust_group_name,omitempty"`
-	ExchCode             []byte   `protobuf:"bytes,6,opt,name=exch_code,json=exchCode,proto3" json:"exch_code,omitempty"`
-	VariCode             []byte   `protobuf:"bytes,7,opt,name=vari_code,json=variCode,proto3" json:"vari_code,omitempty"`
-	ContractCode         []byte   `protobuf:"bytes,8,opt,name=contract_code,json=contractCode,proto3" json:"contract_code,omitempty"`
-	DelivDate            []byte   `protobuf:"bytes,9,opt,name=deliv_date,json=delivDate,proto3" json:"deliv_date,omitempty"`
-	ShFlag               []byte   `protobuf:"bytes,10,opt,name=sh_flag,json=shFlag,proto3" json:"sh_flag,omitempty"`
-	BsFlag               []byte   `protobuf:"bytes,11,opt,name=bs_flag,json=bsFlag,proto3" json:"bs_flag,omitempty"`
-	HoldBSum             uint32   `protobuf:"varint,12,opt,name=hold_b_sum,json=holdBSum" json:"hold_b_sum,omitempty"`
-	HoldSSum             uint32   `protobuf:"varint,13,opt,name=hold_s_sum,json=holdSSum" json:"hold_s_sum,omitempty"`
-	HoldSum              uint32   `protobuf:"varint,14,opt,name=hold_sum,json=holdSum" json:"hold_sum,omitempty"`
-	TradeType            []byte   `protobuf:"bytes,15,opt,name=trade_type,json=tradeType,proto3" json:"trade_type,omitempty"`
-	CpFlag               []byte   `protobuf:"bytes,16,opt,name=cp_flag,json=cpFlag,proto3" json:"cp_flag,omitempty"`
-	MonthFlag            []byte   `protobuf:"bytes,17,opt,name=month_flag,json=monthFlag,proto3" json:"month_flag,omitempty"`
-	LimitRatio           float64  `protobuf:"fixed64,18,opt,name=limit_ratio,json=limitRatio" json:"limit_ratio,omitempty"`
-	LimitVolmue          uint32   `protobuf:"varint,19,opt,name=limit_volmue,json=limitVolmue" json:"limit_volmue,omitempty"`
-	OverVolume           uint32   `protobuf:"varint,20,opt,name=over_volume,json=overVolume" json:"over_volume,omitempty"`
+	PackFlag      uint32                    `protobuf:"varint,1,opt,name=pack_flag,json=packFlag" json:"pack_flag,omitempty"`
+	ActionFlag    uint32                    `protobuf:"varint,2,opt,name=action_flag,json=actionFlag" json:"action_flag,omitempty"`
+	MonitorNo     []byte                    `protobuf:"bytes,3,opt,name=monitor_no,json=monitorNo,proto3" json:"monitor_no,omitempty"`
+	CustGroupNo   []byte                    `protobuf:"bytes,4,opt,name=cust_group_no,json=custGroupNo,proto3" json:"cust_group_no,omitempty"`
+	CustGroupName []byte                    `protobuf:"bytes,5,opt,name=cust_group_name,json=custGroupName,proto3" json:"cust_group_name,omitempty"`
+	ExchCode      []byte                    `protobuf:"bytes,6,opt,name=exch_code,json=exchCode,proto3" json:"exch_code,omitempty"`
+	VariCode      []byte                    `protobuf:"bytes,7,opt,name=vari_code,json=variCode,proto3" json:"vari_code,omitempty"`
+	ContractCode  []byte                    `protobuf:"bytes,8,opt,name=contract_code,json=contractCode,proto3" json:"contract_code,omitempty"`
+	DelivDate     []byte                    `protobuf:"bytes,9,opt,name=deliv_date,json=delivDate,proto3" json:"deliv_date,omitempty"`
+	HoldSum       uint32                    `protobuf:"varint,10,opt,name=hold_sum,json=holdSum" json:"hold_sum,omitempty"`
+	TradeType     []byte                    `protobuf:"bytes,11,opt,name=trade_type,json=tradeType,proto3" json:"trade_type,omitempty"`
+	CpFlag        []byte                    `protobuf:"bytes,12,opt,name=cp_flag,json=cpFlag,proto3" json:"cp_flag,omitempty"`
+	MonthFlag     []byte                    `protobuf:"bytes,13,opt,name=month_flag,json=monthFlag,proto3" json:"month_flag,omitempty"`
+	LimitRatio    float64                   `protobuf:"fixed64,14,opt,name=limit_ratio,json=limitRatio" json:"limit_ratio,omitempty"`
+	LimitVolmue   uint32                    `protobuf:"varint,15,opt,name=limit_volmue,json=limitVolmue" json:"limit_volmue,omitempty"`
+	OverVolume    uint32                    `protobuf:"varint,16,opt,name=over_volume,json=overVolume" json:"over_volume,omitempty"`
+	LimitWrning   uint32                    `protobuf:"varint,17,opt,name=limit_wrning,json=limitWrning" json:"limit_wrning,omitempty"`
+	OverWrning    uint32                    `protobuf:"varint,18,opt,name=over_wrning,json=overWrning" json:"over_wrning,omitempty"`
+	HoldType      CustGroupHoldRtn_HoldType `protobuf:"varint,19,opt,name=hold_type,json=holdType,enum=riskmonitorserver.CustGroupHoldRtn_HoldType" json:"hold_type,omitempty"`
+	// 客户持仓明细
+	CustNo               []byte   `protobuf:"bytes,20,opt,name=cust_no,json=custNo,proto3" json:"cust_no,omitempty"`
+	CustClass            []byte   `protobuf:"bytes,21,opt,name=cust_class,json=custClass,proto3" json:"cust_class,omitempty"`
+	CustHoldSum          uint32   `protobuf:"varint,22,opt,name=cust_hold_sum,json=custHoldSum" json:"cust_hold_sum,omitempty"`
 	XXX_NoUnkeyedLiteral struct{} `json:"-"`
 	XXX_unrecognized     []byte   `json:"-"`
 	XXX_sizecache        int32    `json:"-"`
@@ -1011,7 +1651,7 @@ func (m *CustGroupHoldRtn) Reset()         { *m = CustGroupHoldRtn{} }
 func (m *CustGroupHoldRtn) String() string { return proto.CompactTextString(m) }
 func (*CustGroupHoldRtn) ProtoMessage()    {}
 func (*CustGroupHoldRtn) Descriptor() ([]byte, []int) {
-	return fileDescriptor_risk_monitor_server_d760d86102bb67c7, []int{9}
+	return fileDescriptor_risk_monitor_server_5c5ac32ac9cad650, []int{12}
 }
 func (m *CustGroupHoldRtn) XXX_Unmarshal(b []byte) error {
 	return xxx_messageInfo_CustGroupHoldRtn.Unmarshal(m, b)
@@ -1094,34 +1734,6 @@ func (m *CustGroupHoldRtn) GetDelivDate() []byte {
 	return nil
 }
 
-func (m *CustGroupHoldRtn) GetShFlag() []byte {
-	if m != nil {
-		return m.ShFlag
-	}
-	return nil
-}
-
-func (m *CustGroupHoldRtn) GetBsFlag() []byte {
-	if m != nil {
-		return m.BsFlag
-	}
-	return nil
-}
-
-func (m *CustGroupHoldRtn) GetHoldBSum() uint32 {
-	if m != nil {
-		return m.HoldBSum
-	}
-	return 0
-}
-
-func (m *CustGroupHoldRtn) GetHoldSSum() uint32 {
-	if m != nil {
-		return m.HoldSSum
-	}
-	return 0
-}
-
 func (m *CustGroupHoldRtn) GetHoldSum() uint32 {
 	if m != nil {
 		return m.HoldSum
@@ -1171,6 +1783,199 @@ func (m *CustGroupHoldRtn) GetOverVolume() uint32 {
 	return 0
 }
 
+func (m *CustGroupHoldRtn) GetLimitWrning() uint32 {
+	if m != nil {
+		return m.LimitWrning
+	}
+	return 0
+}
+
+func (m *CustGroupHoldRtn) GetOverWrning() uint32 {
+	if m != nil {
+		return m.OverWrning
+	}
+	return 0
+}
+
+func (m *CustGroupHoldRtn) GetHoldType() CustGroupHoldRtn_HoldType {
+	if m != nil {
+		return m.HoldType
+	}
+	return CustGroupHoldRtn_Total
+}
+
+func (m *CustGroupHoldRtn) GetCustNo() []byte {
+	if m != nil {
+		return m.CustNo
+	}
+	return nil
+}
+
+func (m *CustGroupHoldRtn) GetCustClass() []byte {
+	if m != nil {
+		return m.CustClass
+	}
+	return nil
+}
+
+func (m *CustGroupHoldRtn) GetCustHoldSum() uint32 {
+	if m != nil {
+		return m.CustHoldSum
+	}
+	return 0
+}
+
+// 临近最后交易日持仓监控推送
+type NearDediveHoldRtn struct {
+	PackFlag             uint32   `protobuf:"varint,1,opt,name=pack_flag,json=packFlag" json:"pack_flag,omitempty"`
+	ActionFlag           uint32   `protobuf:"varint,2,opt,name=action_flag,json=actionFlag" json:"action_flag,omitempty"`
+	MonitorNo            []byte   `protobuf:"bytes,3,opt,name=monitor_no,json=monitorNo,proto3" json:"monitor_no,omitempty"`
+	CustNo               []byte   `protobuf:"bytes,4,opt,name=cust_no,json=custNo,proto3" json:"cust_no,omitempty"`
+	CustClass            []byte   `protobuf:"bytes,5,opt,name=cust_class,json=custClass,proto3" json:"cust_class,omitempty"`
+	ExchCode             []byte   `protobuf:"bytes,6,opt,name=exch_code,json=exchCode,proto3" json:"exch_code,omitempty"`
+	VariCode             []byte   `protobuf:"bytes,7,opt,name=vari_code,json=variCode,proto3" json:"vari_code,omitempty"`
+	ContractCode         []byte   `protobuf:"bytes,8,opt,name=contract_code,json=contractCode,proto3" json:"contract_code,omitempty"`
+	DelivDate            []byte   `protobuf:"bytes,9,opt,name=deliv_date,json=delivDate,proto3" json:"deliv_date,omitempty"`
+	HoldSum              uint32   `protobuf:"varint,10,opt,name=hold_sum,json=holdSum" json:"hold_sum,omitempty"`
+	TradeType            []byte   `protobuf:"bytes,11,opt,name=trade_type,json=tradeType,proto3" json:"trade_type,omitempty"`
+	CpFlag               []byte   `protobuf:"bytes,12,opt,name=cp_flag,json=cpFlag,proto3" json:"cp_flag,omitempty"`
+	ExpireDays           uint32   `protobuf:"varint,13,opt,name=expire_days,json=expireDays" json:"expire_days,omitempty"`
+	LimitBase            uint32   `protobuf:"varint,14,opt,name=limit_base,json=limitBase" json:"limit_base,omitempty"`
+	CloseDays            uint32   `protobuf:"varint,15,opt,name=close_days,json=closeDays" json:"close_days,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
+}
+
+func (m *NearDediveHoldRtn) Reset()         { *m = NearDediveHoldRtn{} }
+func (m *NearDediveHoldRtn) String() string { return proto.CompactTextString(m) }
+func (*NearDediveHoldRtn) ProtoMessage()    {}
+func (*NearDediveHoldRtn) Descriptor() ([]byte, []int) {
+	return fileDescriptor_risk_monitor_server_5c5ac32ac9cad650, []int{13}
+}
+func (m *NearDediveHoldRtn) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_NearDediveHoldRtn.Unmarshal(m, b)
+}
+func (m *NearDediveHoldRtn) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_NearDediveHoldRtn.Marshal(b, m, deterministic)
+}
+func (dst *NearDediveHoldRtn) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_NearDediveHoldRtn.Merge(dst, src)
+}
+func (m *NearDediveHoldRtn) XXX_Size() int {
+	return xxx_messageInfo_NearDediveHoldRtn.Size(m)
+}
+func (m *NearDediveHoldRtn) XXX_DiscardUnknown() {
+	xxx_messageInfo_NearDediveHoldRtn.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_NearDediveHoldRtn proto.InternalMessageInfo
+
+func (m *NearDediveHoldRtn) GetPackFlag() uint32 {
+	if m != nil {
+		return m.PackFlag
+	}
+	return 0
+}
+
+func (m *NearDediveHoldRtn) GetActionFlag() uint32 {
+	if m != nil {
+		return m.ActionFlag
+	}
+	return 0
+}
+
+func (m *NearDediveHoldRtn) GetMonitorNo() []byte {
+	if m != nil {
+		return m.MonitorNo
+	}
+	return nil
+}
+
+func (m *NearDediveHoldRtn) GetCustNo() []byte {
+	if m != nil {
+		return m.CustNo
+	}
+	return nil
+}
+
+func (m *NearDediveHoldRtn) GetCustClass() []byte {
+	if m != nil {
+		return m.CustClass
+	}
+	return nil
+}
+
+func (m *NearDediveHoldRtn) GetExchCode() []byte {
+	if m != nil {
+		return m.ExchCode
+	}
+	return nil
+}
+
+func (m *NearDediveHoldRtn) GetVariCode() []byte {
+	if m != nil {
+		return m.VariCode
+	}
+	return nil
+}
+
+func (m *NearDediveHoldRtn) GetContractCode() []byte {
+	if m != nil {
+		return m.ContractCode
+	}
+	return nil
+}
+
+func (m *NearDediveHoldRtn) GetDelivDate() []byte {
+	if m != nil {
+		return m.DelivDate
+	}
+	return nil
+}
+
+func (m *NearDediveHoldRtn) GetHoldSum() uint32 {
+	if m != nil {
+		return m.HoldSum
+	}
+	return 0
+}
+
+func (m *NearDediveHoldRtn) GetTradeType() []byte {
+	if m != nil {
+		return m.TradeType
+	}
+	return nil
+}
+
+func (m *NearDediveHoldRtn) GetCpFlag() []byte {
+	if m != nil {
+		return m.CpFlag
+	}
+	return nil
+}
+
+func (m *NearDediveHoldRtn) GetExpireDays() uint32 {
+	if m != nil {
+		return m.ExpireDays
+	}
+	return 0
+}
+
+func (m *NearDediveHoldRtn) GetLimitBase() uint32 {
+	if m != nil {
+		return m.LimitBase
+	}
+	return 0
+}
+
+func (m *NearDediveHoldRtn) GetCloseDays() uint32 {
+	if m != nil {
+		return m.CloseDays
+	}
+	return 0
+}
+
 // 商品组风险推送
 type ProuctGroupRiskRtn struct {
 	PackFlag             uint32   `protobuf:"varint,1,opt,name=pack_flag,json=packFlag" json:"pack_flag,omitempty"`
@@ -1190,7 +1995,7 @@ type ProuctGroupRiskRtn struct {
 	SettlementPrice      float64  `protobuf:"fixed64,15,opt,name=settlement_price,json=settlementPrice" json:"settlement_price,omitempty"`
 	RfLimitPrice         float64  `protobuf:"fixed64,16,opt,name=rf_limit_price,json=rfLimitPrice" json:"rf_limit_price,omitempty"`
 	Chg                  float64  `protobuf:"fixed64,17,opt,name=chg" json:"chg,omitempty"`
-	RiskLevel            []byte   `protobuf:"bytes,18,opt,name=risk_level,json=riskLevel,proto3" json:"risk_level,omitempty"`
+	RiskLevel            int32    `protobuf:"varint,18,opt,name=risk_level,json=riskLevel" json:"risk_level,omitempty"`
 	OpenInterest         uint32   `protobuf:"varint,19,opt,name=open_interest,json=openInterest" json:"open_interest,omitempty"`
 	MinMargin            float64  `protobuf:"fixed64,20,opt,name=min_margin,json=minMargin" json:"min_margin,omitempty"`
 	MarginRatio          float64  `protobuf:"fixed64,21,opt,name=margin_ratio,json=marginRatio" json:"margin_ratio,omitempty"`
@@ -1205,7 +2010,7 @@ func (m *ProuctGroupRiskRtn) Reset()         { *m = ProuctGroupRiskRtn{} }
 func (m *ProuctGroupRiskRtn) String() string { return proto.CompactTextString(m) }
 func (*ProuctGroupRiskRtn) ProtoMessage()    {}
 func (*ProuctGroupRiskRtn) Descriptor() ([]byte, []int) {
-	return fileDescriptor_risk_monitor_server_d760d86102bb67c7, []int{10}
+	return fileDescriptor_risk_monitor_server_5c5ac32ac9cad650, []int{14}
 }
 func (m *ProuctGroupRiskRtn) XXX_Unmarshal(b []byte) error {
 	return xxx_messageInfo_ProuctGroupRiskRtn.Unmarshal(m, b)
@@ -1344,11 +2149,11 @@ func (m *ProuctGroupRiskRtn) GetChg() float64 {
 	return 0
 }
 
-func (m *ProuctGroupRiskRtn) GetRiskLevel() []byte {
+func (m *ProuctGroupRiskRtn) GetRiskLevel() int32 {
 	if m != nil {
 		return m.RiskLevel
 	}
-	return nil
+	return 0
 }
 
 func (m *ProuctGroupRiskRtn) GetOpenInterest() uint32 {
@@ -1401,7 +2206,7 @@ func (m *QryCustSimpleInfoReq) Reset()         { *m = QryCustSimpleInfoReq{} }
 func (m *QryCustSimpleInfoReq) String() string { return proto.CompactTextString(m) }
 func (*QryCustSimpleInfoReq) ProtoMessage()    {}
 func (*QryCustSimpleInfoReq) Descriptor() ([]byte, []int) {
-	return fileDescriptor_risk_monitor_server_d760d86102bb67c7, []int{11}
+	return fileDescriptor_risk_monitor_server_5c5ac32ac9cad650, []int{15}
 }
 func (m *QryCustSimpleInfoReq) XXX_Unmarshal(b []byte) error {
 	return xxx_messageInfo_QryCustSimpleInfoReq.Unmarshal(m, b)
@@ -1451,31 +2256,32 @@ func (m *QryCustSimpleInfoReq) GetCustName() []byte {
 
 // 客户信息查询应答
 type QryCustSimpleInfoRsp struct {
-	RspInfo              *RspInfo `protobuf:"bytes,1,opt,name=rspInfo" json:"rspInfo,omitempty"`
-	PackFlag             uint32   `protobuf:"varint,2,opt,name=pack_flag,json=packFlag" json:"pack_flag,omitempty"`
-	CustNo               []byte   `protobuf:"bytes,3,opt,name=cust_no,json=custNo,proto3" json:"cust_no,omitempty"`
-	CustClass            []byte   `protobuf:"bytes,4,opt,name=cust_class,json=custClass,proto3" json:"cust_class,omitempty"`
-	CustStatus           []byte   `protobuf:"bytes,5,opt,name=cust_status,json=custStatus,proto3" json:"cust_status,omitempty"`
-	CustName             []byte   `protobuf:"bytes,6,opt,name=cust_name,json=custName,proto3" json:"cust_name,omitempty"`
-	Phone                []byte   `protobuf:"bytes,7,opt,name=phone,proto3" json:"phone,omitempty"`
-	Fax                  []byte   `protobuf:"bytes,8,opt,name=fax,proto3" json:"fax,omitempty"`
-	Addr                 []byte   `protobuf:"bytes,9,opt,name=addr,proto3" json:"addr,omitempty"`
-	CmdAssign1           []byte   `protobuf:"bytes,10,opt,name=cmd_assign1,json=cmdAssign1,proto3" json:"cmd_assign1,omitempty"`
-	FundAllot1           []byte   `protobuf:"bytes,11,opt,name=fund_allot1,json=fundAllot1,proto3" json:"fund_allot1,omitempty"`
-	Email                []byte   `protobuf:"bytes,12,opt,name=email,proto3" json:"email,omitempty"`
-	CmdAssign2           []byte   `protobuf:"bytes,13,opt,name=cmd_assign2,json=cmdAssign2,proto3" json:"cmd_assign2,omitempty"`
-	MobilePhone          []byte   `protobuf:"bytes,14,opt,name=mobile_phone,json=mobilePhone,proto3" json:"mobile_phone,omitempty"`
-	Clientmode           []byte   `protobuf:"bytes,15,opt,name=clientmode,proto3" json:"clientmode,omitempty"`
-	XXX_NoUnkeyedLiteral struct{} `json:"-"`
-	XXX_unrecognized     []byte   `json:"-"`
-	XXX_sizecache        int32    `json:"-"`
+	RspInfo              *RspInfo                        `protobuf:"bytes,1,opt,name=rspInfo" json:"rspInfo,omitempty"`
+	PackFlag             uint32                          `protobuf:"varint,2,opt,name=pack_flag,json=packFlag" json:"pack_flag,omitempty"`
+	CustNo               []byte                          `protobuf:"bytes,3,opt,name=cust_no,json=custNo,proto3" json:"cust_no,omitempty"`
+	CustClass            []byte                          `protobuf:"bytes,4,opt,name=cust_class,json=custClass,proto3" json:"cust_class,omitempty"`
+	CustStatus           []byte                          `protobuf:"bytes,5,opt,name=cust_status,json=custStatus,proto3" json:"cust_status,omitempty"`
+	CustName             []byte                          `protobuf:"bytes,6,opt,name=cust_name,json=custName,proto3" json:"cust_name,omitempty"`
+	Phone                []byte                          `protobuf:"bytes,7,opt,name=phone,proto3" json:"phone,omitempty"`
+	Fax                  []byte                          `protobuf:"bytes,8,opt,name=fax,proto3" json:"fax,omitempty"`
+	Addr                 []byte                          `protobuf:"bytes,9,opt,name=addr,proto3" json:"addr,omitempty"`
+	CmdAssign1           []byte                          `protobuf:"bytes,10,opt,name=cmd_assign1,json=cmdAssign1,proto3" json:"cmd_assign1,omitempty"`
+	FundAllot1           []byte                          `protobuf:"bytes,11,opt,name=fund_allot1,json=fundAllot1,proto3" json:"fund_allot1,omitempty"`
+	Email                []byte                          `protobuf:"bytes,12,opt,name=email,proto3" json:"email,omitempty"`
+	CmdAssign2           []byte                          `protobuf:"bytes,13,opt,name=cmd_assign2,json=cmdAssign2,proto3" json:"cmd_assign2,omitempty"`
+	MobilePhone          []byte                          `protobuf:"bytes,14,opt,name=mobile_phone,json=mobilePhone,proto3" json:"mobile_phone,omitempty"`
+	Clientmode           []byte                          `protobuf:"bytes,15,opt,name=clientmode,proto3" json:"clientmode,omitempty"`
+	ClientType           QryCustSimpleInfoRsp_ClientType `protobuf:"varint,16,opt,name=client_type,json=clientType,enum=riskmonitorserver.QryCustSimpleInfoRsp_ClientType" json:"client_type,omitempty"`
+	XXX_NoUnkeyedLiteral struct{}                        `json:"-"`
+	XXX_unrecognized     []byte                          `json:"-"`
+	XXX_sizecache        int32                           `json:"-"`
 }
 
 func (m *QryCustSimpleInfoRsp) Reset()         { *m = QryCustSimpleInfoRsp{} }
 func (m *QryCustSimpleInfoRsp) String() string { return proto.CompactTextString(m) }
 func (*QryCustSimpleInfoRsp) ProtoMessage()    {}
 func (*QryCustSimpleInfoRsp) Descriptor() ([]byte, []int) {
-	return fileDescriptor_risk_monitor_server_d760d86102bb67c7, []int{12}
+	return fileDescriptor_risk_monitor_server_5c5ac32ac9cad650, []int{16}
 }
 func (m *QryCustSimpleInfoRsp) XXX_Unmarshal(b []byte) error {
 	return xxx_messageInfo_QryCustSimpleInfoRsp.Unmarshal(m, b)
@@ -1600,6 +2406,13 @@ func (m *QryCustSimpleInfoRsp) GetClientmode() []byte {
 	return nil
 }
 
+func (m *QryCustSimpleInfoRsp) GetClientType() QryCustSimpleInfoRsp_ClientType {
+	if m != nil {
+		return m.ClientType
+	}
+	return QryCustSimpleInfoRsp_NATURAL
+}
+
 // 实时资金查询请求
 type QryRealFundReq struct {
 	CustNo               []byte   `protobuf:"bytes,1,opt,name=cust_no,json=custNo,proto3" json:"cust_no,omitempty"`
@@ -1613,7 +2426,7 @@ func (m *QryRealFundReq) Reset()         { *m = QryRealFundReq{} }
 func (m *QryRealFundReq) String() string { return proto.CompactTextString(m) }
 func (*QryRealFundReq) ProtoMessage()    {}
 func (*QryRealFundReq) Descriptor() ([]byte, []int) {
-	return fileDescriptor_risk_monitor_server_d760d86102bb67c7, []int{13}
+	return fileDescriptor_risk_monitor_server_5c5ac32ac9cad650, []int{17}
 }
 func (m *QryRealFundReq) XXX_Unmarshal(b []byte) error {
 	return xxx_messageInfo_QryRealFundReq.Unmarshal(m, b)
@@ -1734,7 +2547,7 @@ func (m *QryRealFundRsp) Reset()         { *m = QryRealFundRsp{} }
 func (m *QryRealFundRsp) String() string { return proto.CompactTextString(m) }
 func (*QryRealFundRsp) ProtoMessage()    {}
 func (*QryRealFundRsp) Descriptor() ([]byte, []int) {
-	return fileDescriptor_risk_monitor_server_d760d86102bb67c7, []int{14}
+	return fileDescriptor_risk_monitor_server_5c5ac32ac9cad650, []int{18}
 }
 func (m *QryRealFundRsp) XXX_Unmarshal(b []byte) error {
 	return xxx_messageInfo_QryRealFundRsp.Unmarshal(m, b)
@@ -2306,7 +3119,7 @@ func (m *TunnelRealFundRtn) Reset()         { *m = TunnelRealFundRtn{} }
 func (m *TunnelRealFundRtn) String() string { return proto.CompactTextString(m) }
 func (*TunnelRealFundRtn) ProtoMessage()    {}
 func (*TunnelRealFundRtn) Descriptor() ([]byte, []int) {
-	return fileDescriptor_risk_monitor_server_d760d86102bb67c7, []int{15}
+	return fileDescriptor_risk_monitor_server_5c5ac32ac9cad650, []int{19}
 }
 func (m *TunnelRealFundRtn) XXX_Unmarshal(b []byte) error {
 	return xxx_messageInfo_TunnelRealFundRtn.Unmarshal(m, b)
@@ -2410,7 +3223,7 @@ func (m *CorpHoldMonRtn) Reset()         { *m = CorpHoldMonRtn{} }
 func (m *CorpHoldMonRtn) String() string { return proto.CompactTextString(m) }
 func (*CorpHoldMonRtn) ProtoMessage()    {}
 func (*CorpHoldMonRtn) Descriptor() ([]byte, []int) {
-	return fileDescriptor_risk_monitor_server_d760d86102bb67c7, []int{16}
+	return fileDescriptor_risk_monitor_server_5c5ac32ac9cad650, []int{20}
 }
 func (m *CorpHoldMonRtn) XXX_Unmarshal(b []byte) error {
 	return xxx_messageInfo_CorpHoldMonRtn.Unmarshal(m, b)
@@ -2514,7 +3327,7 @@ func (m *QryCustHoldReq) Reset()         { *m = QryCustHoldReq{} }
 func (m *QryCustHoldReq) String() string { return proto.CompactTextString(m) }
 func (*QryCustHoldReq) ProtoMessage()    {}
 func (*QryCustHoldReq) Descriptor() ([]byte, []int) {
-	return fileDescriptor_risk_monitor_server_d760d86102bb67c7, []int{17}
+	return fileDescriptor_risk_monitor_server_5c5ac32ac9cad650, []int{21}
 }
 func (m *QryCustHoldReq) XXX_Unmarshal(b []byte) error {
 	return xxx_messageInfo_QryCustHoldReq.Unmarshal(m, b)
@@ -2607,7 +3420,7 @@ func (m *QryCustHoldRsp) Reset()         { *m = QryCustHoldRsp{} }
 func (m *QryCustHoldRsp) String() string { return proto.CompactTextString(m) }
 func (*QryCustHoldRsp) ProtoMessage()    {}
 func (*QryCustHoldRsp) Descriptor() ([]byte, []int) {
-	return fileDescriptor_risk_monitor_server_d760d86102bb67c7, []int{18}
+	return fileDescriptor_risk_monitor_server_5c5ac32ac9cad650, []int{22}
 }
 func (m *QryCustHoldRsp) XXX_Unmarshal(b []byte) error {
 	return xxx_messageInfo_QryCustHoldRsp.Unmarshal(m, b)
@@ -2926,7 +3739,7 @@ func (m *QrySingleCustEntrustReq) Reset()         { *m = QrySingleCustEntrustReq
 func (m *QrySingleCustEntrustReq) String() string { return proto.CompactTextString(m) }
 func (*QrySingleCustEntrustReq) ProtoMessage()    {}
 func (*QrySingleCustEntrustReq) Descriptor() ([]byte, []int) {
-	return fileDescriptor_risk_monitor_server_d760d86102bb67c7, []int{19}
+	return fileDescriptor_risk_monitor_server_5c5ac32ac9cad650, []int{23}
 }
 func (m *QrySingleCustEntrustReq) XXX_Unmarshal(b []byte) error {
 	return xxx_messageInfo_QrySingleCustEntrustReq.Unmarshal(m, b)
@@ -3017,7 +3830,7 @@ func (m *QrySingleCustEntrustRsp) Reset()         { *m = QrySingleCustEntrustRsp
 func (m *QrySingleCustEntrustRsp) String() string { return proto.CompactTextString(m) }
 func (*QrySingleCustEntrustRsp) ProtoMessage()    {}
 func (*QrySingleCustEntrustRsp) Descriptor() ([]byte, []int) {
-	return fileDescriptor_risk_monitor_server_d760d86102bb67c7, []int{20}
+	return fileDescriptor_risk_monitor_server_5c5ac32ac9cad650, []int{24}
 }
 func (m *QrySingleCustEntrustRsp) XXX_Unmarshal(b []byte) error {
 	return xxx_messageInfo_QrySingleCustEntrustRsp.Unmarshal(m, b)
@@ -3421,7 +4234,7 @@ func (m *QryExchVariReq) Reset()         { *m = QryExchVariReq{} }
 func (m *QryExchVariReq) String() string { return proto.CompactTextString(m) }
 func (*QryExchVariReq) ProtoMessage()    {}
 func (*QryExchVariReq) Descriptor() ([]byte, []int) {
-	return fileDescriptor_risk_monitor_server_d760d86102bb67c7, []int{21}
+	return fileDescriptor_risk_monitor_server_5c5ac32ac9cad650, []int{25}
 }
 func (m *QryExchVariReq) XXX_Unmarshal(b []byte) error {
 	return xxx_messageInfo_QryExchVariReq.Unmarshal(m, b)
@@ -3472,7 +4285,7 @@ func (m *QryExchVariRsp) Reset()         { *m = QryExchVariRsp{} }
 func (m *QryExchVariRsp) String() string { return proto.CompactTextString(m) }
 func (*QryExchVariRsp) ProtoMessage()    {}
 func (*QryExchVariRsp) Descriptor() ([]byte, []int) {
-	return fileDescriptor_risk_monitor_server_d760d86102bb67c7, []int{22}
+	return fileDescriptor_risk_monitor_server_5c5ac32ac9cad650, []int{26}
 }
 func (m *QryExchVariRsp) XXX_Unmarshal(b []byte) error {
 	return xxx_messageInfo_QryExchVariRsp.Unmarshal(m, b)
@@ -3549,7 +4362,7 @@ func (m *QryContractReq) Reset()         { *m = QryContractReq{} }
 func (m *QryContractReq) String() string { return proto.CompactTextString(m) }
 func (*QryContractReq) ProtoMessage()    {}
 func (*QryContractReq) Descriptor() ([]byte, []int) {
-	return fileDescriptor_risk_monitor_server_d760d86102bb67c7, []int{23}
+	return fileDescriptor_risk_monitor_server_5c5ac32ac9cad650, []int{27}
 }
 func (m *QryContractReq) XXX_Unmarshal(b []byte) error {
 	return xxx_messageInfo_QryContractReq.Unmarshal(m, b)
@@ -3654,7 +4467,7 @@ func (m *QryContractRsp) Reset()         { *m = QryContractRsp{} }
 func (m *QryContractRsp) String() string { return proto.CompactTextString(m) }
 func (*QryContractRsp) ProtoMessage()    {}
 func (*QryContractRsp) Descriptor() ([]byte, []int) {
-	return fileDescriptor_risk_monitor_server_d760d86102bb67c7, []int{24}
+	return fileDescriptor_risk_monitor_server_5c5ac32ac9cad650, []int{28}
 }
 func (m *QryContractRsp) XXX_Unmarshal(b []byte) error {
 	return xxx_messageInfo_QryContractRsp.Unmarshal(m, b)
@@ -4010,7 +4823,7 @@ func (m *ContrRangeField) Reset()         { *m = ContrRangeField{} }
 func (m *ContrRangeField) String() string { return proto.CompactTextString(m) }
 func (*ContrRangeField) ProtoMessage()    {}
 func (*ContrRangeField) Descriptor() ([]byte, []int) {
-	return fileDescriptor_risk_monitor_server_d760d86102bb67c7, []int{25}
+	return fileDescriptor_risk_monitor_server_5c5ac32ac9cad650, []int{29}
 }
 func (m *ContrRangeField) XXX_Unmarshal(b []byte) error {
 	return xxx_messageInfo_ContrRangeField.Unmarshal(m, b)
@@ -4053,22 +4866,23 @@ func (m *ContrRangeField) GetValue() []byte {
 
 // 行情监控设置
 type QuoteMonitorSetting struct {
-	PackFlag             uint32               `protobuf:"varint,1,opt,name=pack_flag,json=packFlag" json:"pack_flag,omitempty"`
-	ActionFlag           uint32               `protobuf:"varint,2,opt,name=action_flag,json=actionFlag" json:"action_flag,omitempty"`
-	MonitorNo            []byte               `protobuf:"bytes,3,opt,name=monitor_no,json=monitorNo,proto3" json:"monitor_no,omitempty"`
-	TradeType            []byte               `protobuf:"bytes,4,opt,name=trade_type,json=tradeType,proto3" json:"trade_type,omitempty"`
-	FilterFields         []*SettingValueField `protobuf:"bytes,5,rep,name=filter_fields,json=filterFields" json:"filter_fields,omitempty"`
-	RangeFields          []*ContrRangeField   `protobuf:"bytes,6,rep,name=range_fields,json=rangeFields" json:"range_fields,omitempty"`
-	XXX_NoUnkeyedLiteral struct{}             `json:"-"`
-	XXX_unrecognized     []byte               `json:"-"`
-	XXX_sizecache        int32                `json:"-"`
+	PackFlag             uint32                        `protobuf:"varint,1,opt,name=pack_flag,json=packFlag" json:"pack_flag,omitempty"`
+	ActionFlag           uint32                        `protobuf:"varint,2,opt,name=action_flag,json=actionFlag" json:"action_flag,omitempty"`
+	MonitorNo            []byte                        `protobuf:"bytes,3,opt,name=monitor_no,json=monitorNo,proto3" json:"monitor_no,omitempty"`
+	TradeType            []byte                        `protobuf:"bytes,4,opt,name=trade_type,json=tradeType,proto3" json:"trade_type,omitempty"`
+	FilterFields         []*SettingValueField          `protobuf:"bytes,5,rep,name=filter_fields,json=filterFields" json:"filter_fields,omitempty"`
+	RangeFields          []*ContrRangeField            `protobuf:"bytes,6,rep,name=range_fields,json=rangeFields" json:"range_fields,omitempty"`
+	QuoteType            QuoteMonitorSetting_QuoteType `protobuf:"varint,7,opt,name=quote_type,json=quoteType,enum=riskmonitorserver.QuoteMonitorSetting_QuoteType" json:"quote_type,omitempty"`
+	XXX_NoUnkeyedLiteral struct{}                      `json:"-"`
+	XXX_unrecognized     []byte                        `json:"-"`
+	XXX_sizecache        int32                         `json:"-"`
 }
 
 func (m *QuoteMonitorSetting) Reset()         { *m = QuoteMonitorSetting{} }
 func (m *QuoteMonitorSetting) String() string { return proto.CompactTextString(m) }
 func (*QuoteMonitorSetting) ProtoMessage()    {}
 func (*QuoteMonitorSetting) Descriptor() ([]byte, []int) {
-	return fileDescriptor_risk_monitor_server_d760d86102bb67c7, []int{26}
+	return fileDescriptor_risk_monitor_server_5c5ac32ac9cad650, []int{30}
 }
 func (m *QuoteMonitorSetting) XXX_Unmarshal(b []byte) error {
 	return xxx_messageInfo_QuoteMonitorSetting.Unmarshal(m, b)
@@ -4130,6 +4944,13 @@ func (m *QuoteMonitorSetting) GetRangeFields() []*ContrRangeField {
 	return nil
 }
 
+func (m *QuoteMonitorSetting) GetQuoteType() QuoteMonitorSetting_QuoteType {
+	if m != nil {
+		return m.QuoteType
+	}
+	return QuoteMonitorSetting_RiskQuote
+}
+
 // 风险合约级别设置
 type RiskContrLevelSetting struct {
 	PackFlag             uint32    `protobuf:"varint,1,opt,name=pack_flag,json=packFlag" json:"pack_flag,omitempty"`
@@ -4148,7 +4969,7 @@ func (m *RiskContrLevelSetting) Reset()         { *m = RiskContrLevelSetting{} }
 func (m *RiskContrLevelSetting) String() string { return proto.CompactTextString(m) }
 func (*RiskContrLevelSetting) ProtoMessage()    {}
 func (*RiskContrLevelSetting) Descriptor() ([]byte, []int) {
-	return fileDescriptor_risk_monitor_server_d760d86102bb67c7, []int{27}
+	return fileDescriptor_risk_monitor_server_5c5ac32ac9cad650, []int{31}
 }
 func (m *RiskContrLevelSetting) XXX_Unmarshal(b []byte) error {
 	return xxx_messageInfo_RiskContrLevelSetting.Unmarshal(m, b)
@@ -4233,7 +5054,7 @@ func (m *ContrGroupSetting) Reset()         { *m = ContrGroupSetting{} }
 func (m *ContrGroupSetting) String() string { return proto.CompactTextString(m) }
 func (*ContrGroupSetting) ProtoMessage()    {}
 func (*ContrGroupSetting) Descriptor() ([]byte, []int) {
-	return fileDescriptor_risk_monitor_server_d760d86102bb67c7, []int{28}
+	return fileDescriptor_risk_monitor_server_5c5ac32ac9cad650, []int{32}
 }
 func (m *ContrGroupSetting) XXX_Unmarshal(b []byte) error {
 	return xxx_messageInfo_ContrGroupSetting.Unmarshal(m, b)
@@ -4304,7 +5125,7 @@ func (m *ProductGroupMonitorSetting) Reset()         { *m = ProductGroupMonitorS
 func (m *ProductGroupMonitorSetting) String() string { return proto.CompactTextString(m) }
 func (*ProductGroupMonitorSetting) ProtoMessage()    {}
 func (*ProductGroupMonitorSetting) Descriptor() ([]byte, []int) {
-	return fileDescriptor_risk_monitor_server_d760d86102bb67c7, []int{29}
+	return fileDescriptor_risk_monitor_server_5c5ac32ac9cad650, []int{33}
 }
 func (m *ProductGroupMonitorSetting) XXX_Unmarshal(b []byte) error {
 	return xxx_messageInfo_ProductGroupMonitorSetting.Unmarshal(m, b)
@@ -4375,7 +5196,7 @@ func (m *CustRiskMonitorSetting) Reset()         { *m = CustRiskMonitorSetting{}
 func (m *CustRiskMonitorSetting) String() string { return proto.CompactTextString(m) }
 func (*CustRiskMonitorSetting) ProtoMessage()    {}
 func (*CustRiskMonitorSetting) Descriptor() ([]byte, []int) {
-	return fileDescriptor_risk_monitor_server_d760d86102bb67c7, []int{30}
+	return fileDescriptor_risk_monitor_server_5c5ac32ac9cad650, []int{34}
 }
 func (m *CustRiskMonitorSetting) XXX_Unmarshal(b []byte) error {
 	return xxx_messageInfo_CustRiskMonitorSetting.Unmarshal(m, b)
@@ -4446,7 +5267,7 @@ func (m *CustGroupSetting) Reset()         { *m = CustGroupSetting{} }
 func (m *CustGroupSetting) String() string { return proto.CompactTextString(m) }
 func (*CustGroupSetting) ProtoMessage()    {}
 func (*CustGroupSetting) Descriptor() ([]byte, []int) {
-	return fileDescriptor_risk_monitor_server_d760d86102bb67c7, []int{31}
+	return fileDescriptor_risk_monitor_server_5c5ac32ac9cad650, []int{35}
 }
 func (m *CustGroupSetting) XXX_Unmarshal(b []byte) error {
 	return xxx_messageInfo_CustGroupSetting.Unmarshal(m, b)
@@ -4517,7 +5338,7 @@ func (m *CorpHoldMonitorSetting) Reset()         { *m = CorpHoldMonitorSetting{}
 func (m *CorpHoldMonitorSetting) String() string { return proto.CompactTextString(m) }
 func (*CorpHoldMonitorSetting) ProtoMessage()    {}
 func (*CorpHoldMonitorSetting) Descriptor() ([]byte, []int) {
-	return fileDescriptor_risk_monitor_server_d760d86102bb67c7, []int{32}
+	return fileDescriptor_risk_monitor_server_5c5ac32ac9cad650, []int{36}
 }
 func (m *CorpHoldMonitorSetting) XXX_Unmarshal(b []byte) error {
 	return xxx_messageInfo_CorpHoldMonitorSetting.Unmarshal(m, b)
@@ -4585,7 +5406,7 @@ func (m *QryForceCustInfoReq) Reset()         { *m = QryForceCustInfoReq{} }
 func (m *QryForceCustInfoReq) String() string { return proto.CompactTextString(m) }
 func (*QryForceCustInfoReq) ProtoMessage()    {}
 func (*QryForceCustInfoReq) Descriptor() ([]byte, []int) {
-	return fileDescriptor_risk_monitor_server_d760d86102bb67c7, []int{33}
+	return fileDescriptor_risk_monitor_server_5c5ac32ac9cad650, []int{37}
 }
 func (m *QryForceCustInfoReq) XXX_Unmarshal(b []byte) error {
 	return xxx_messageInfo_QryForceCustInfoReq.Unmarshal(m, b)
@@ -4674,7 +5495,7 @@ func (m *ForceCustInfoRsp) Reset()         { *m = ForceCustInfoRsp{} }
 func (m *ForceCustInfoRsp) String() string { return proto.CompactTextString(m) }
 func (*ForceCustInfoRsp) ProtoMessage()    {}
 func (*ForceCustInfoRsp) Descriptor() ([]byte, []int) {
-	return fileDescriptor_risk_monitor_server_d760d86102bb67c7, []int{34}
+	return fileDescriptor_risk_monitor_server_5c5ac32ac9cad650, []int{38}
 }
 func (m *ForceCustInfoRsp) XXX_Unmarshal(b []byte) error {
 	return xxx_messageInfo_ForceCustInfoRsp.Unmarshal(m, b)
@@ -5002,17 +5823,1605 @@ func (m *ForceCustInfoRsp) GetRspInfo() *RspInfo {
 	return nil
 }
 
+type CustHoldMonitorSetting struct {
+	PackFlag             uint32               `protobuf:"varint,1,opt,name=pack_flag,json=packFlag" json:"pack_flag,omitempty"`
+	ActionFlag           uint32               `protobuf:"varint,2,opt,name=action_flag,json=actionFlag" json:"action_flag,omitempty"`
+	MonitorNo            []byte               `protobuf:"bytes,3,opt,name=monitor_no,json=monitorNo,proto3" json:"monitor_no,omitempty"`
+	Custs                [][]byte             `protobuf:"bytes,4,rep,name=custs,proto3" json:"custs,omitempty"`
+	FilterFields         []*SettingValueField `protobuf:"bytes,5,rep,name=filter_fields,json=filterFields" json:"filter_fields,omitempty"`
+	XXX_NoUnkeyedLiteral struct{}             `json:"-"`
+	XXX_unrecognized     []byte               `json:"-"`
+	XXX_sizecache        int32                `json:"-"`
+}
+
+func (m *CustHoldMonitorSetting) Reset()         { *m = CustHoldMonitorSetting{} }
+func (m *CustHoldMonitorSetting) String() string { return proto.CompactTextString(m) }
+func (*CustHoldMonitorSetting) ProtoMessage()    {}
+func (*CustHoldMonitorSetting) Descriptor() ([]byte, []int) {
+	return fileDescriptor_risk_monitor_server_5c5ac32ac9cad650, []int{39}
+}
+func (m *CustHoldMonitorSetting) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_CustHoldMonitorSetting.Unmarshal(m, b)
+}
+func (m *CustHoldMonitorSetting) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_CustHoldMonitorSetting.Marshal(b, m, deterministic)
+}
+func (dst *CustHoldMonitorSetting) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_CustHoldMonitorSetting.Merge(dst, src)
+}
+func (m *CustHoldMonitorSetting) XXX_Size() int {
+	return xxx_messageInfo_CustHoldMonitorSetting.Size(m)
+}
+func (m *CustHoldMonitorSetting) XXX_DiscardUnknown() {
+	xxx_messageInfo_CustHoldMonitorSetting.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_CustHoldMonitorSetting proto.InternalMessageInfo
+
+func (m *CustHoldMonitorSetting) GetPackFlag() uint32 {
+	if m != nil {
+		return m.PackFlag
+	}
+	return 0
+}
+
+func (m *CustHoldMonitorSetting) GetActionFlag() uint32 {
+	if m != nil {
+		return m.ActionFlag
+	}
+	return 0
+}
+
+func (m *CustHoldMonitorSetting) GetMonitorNo() []byte {
+	if m != nil {
+		return m.MonitorNo
+	}
+	return nil
+}
+
+func (m *CustHoldMonitorSetting) GetCusts() [][]byte {
+	if m != nil {
+		return m.Custs
+	}
+	return nil
+}
+
+func (m *CustHoldMonitorSetting) GetFilterFields() []*SettingValueField {
+	if m != nil {
+		return m.FilterFields
+	}
+	return nil
+}
+
+type CustGroupHoldMonitorSetting struct {
+	PackFlag             uint32               `protobuf:"varint,1,opt,name=pack_flag,json=packFlag" json:"pack_flag,omitempty"`
+	ActionFlag           uint32               `protobuf:"varint,2,opt,name=action_flag,json=actionFlag" json:"action_flag,omitempty"`
+	MonitorNo            []byte               `protobuf:"bytes,3,opt,name=monitor_no,json=monitorNo,proto3" json:"monitor_no,omitempty"`
+	CustGroupNos         [][]byte             `protobuf:"bytes,4,rep,name=cust_group_nos,json=custGroupNos,proto3" json:"cust_group_nos,omitempty"`
+	FilterFields         []*SettingValueField `protobuf:"bytes,5,rep,name=filter_fields,json=filterFields" json:"filter_fields,omitempty"`
+	XXX_NoUnkeyedLiteral struct{}             `json:"-"`
+	XXX_unrecognized     []byte               `json:"-"`
+	XXX_sizecache        int32                `json:"-"`
+}
+
+func (m *CustGroupHoldMonitorSetting) Reset()         { *m = CustGroupHoldMonitorSetting{} }
+func (m *CustGroupHoldMonitorSetting) String() string { return proto.CompactTextString(m) }
+func (*CustGroupHoldMonitorSetting) ProtoMessage()    {}
+func (*CustGroupHoldMonitorSetting) Descriptor() ([]byte, []int) {
+	return fileDescriptor_risk_monitor_server_5c5ac32ac9cad650, []int{40}
+}
+func (m *CustGroupHoldMonitorSetting) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_CustGroupHoldMonitorSetting.Unmarshal(m, b)
+}
+func (m *CustGroupHoldMonitorSetting) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_CustGroupHoldMonitorSetting.Marshal(b, m, deterministic)
+}
+func (dst *CustGroupHoldMonitorSetting) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_CustGroupHoldMonitorSetting.Merge(dst, src)
+}
+func (m *CustGroupHoldMonitorSetting) XXX_Size() int {
+	return xxx_messageInfo_CustGroupHoldMonitorSetting.Size(m)
+}
+func (m *CustGroupHoldMonitorSetting) XXX_DiscardUnknown() {
+	xxx_messageInfo_CustGroupHoldMonitorSetting.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_CustGroupHoldMonitorSetting proto.InternalMessageInfo
+
+func (m *CustGroupHoldMonitorSetting) GetPackFlag() uint32 {
+	if m != nil {
+		return m.PackFlag
+	}
+	return 0
+}
+
+func (m *CustGroupHoldMonitorSetting) GetActionFlag() uint32 {
+	if m != nil {
+		return m.ActionFlag
+	}
+	return 0
+}
+
+func (m *CustGroupHoldMonitorSetting) GetMonitorNo() []byte {
+	if m != nil {
+		return m.MonitorNo
+	}
+	return nil
+}
+
+func (m *CustGroupHoldMonitorSetting) GetCustGroupNos() [][]byte {
+	if m != nil {
+		return m.CustGroupNos
+	}
+	return nil
+}
+
+func (m *CustGroupHoldMonitorSetting) GetFilterFields() []*SettingValueField {
+	if m != nil {
+		return m.FilterFields
+	}
+	return nil
+}
+
+type NearDediveHoldMonitorSetting struct {
+	PackFlag             uint32               `protobuf:"varint,1,opt,name=pack_flag,json=packFlag" json:"pack_flag,omitempty"`
+	ActionFlag           uint32               `protobuf:"varint,2,opt,name=action_flag,json=actionFlag" json:"action_flag,omitempty"`
+	MonitorNo            []byte               `protobuf:"bytes,3,opt,name=monitor_no,json=monitorNo,proto3" json:"monitor_no,omitempty"`
+	Custs                [][]byte             `protobuf:"bytes,4,rep,name=custs,proto3" json:"custs,omitempty"`
+	FilterFields         []*SettingValueField `protobuf:"bytes,5,rep,name=filter_fields,json=filterFields" json:"filter_fields,omitempty"`
+	XXX_NoUnkeyedLiteral struct{}             `json:"-"`
+	XXX_unrecognized     []byte               `json:"-"`
+	XXX_sizecache        int32                `json:"-"`
+}
+
+func (m *NearDediveHoldMonitorSetting) Reset()         { *m = NearDediveHoldMonitorSetting{} }
+func (m *NearDediveHoldMonitorSetting) String() string { return proto.CompactTextString(m) }
+func (*NearDediveHoldMonitorSetting) ProtoMessage()    {}
+func (*NearDediveHoldMonitorSetting) Descriptor() ([]byte, []int) {
+	return fileDescriptor_risk_monitor_server_5c5ac32ac9cad650, []int{41}
+}
+func (m *NearDediveHoldMonitorSetting) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_NearDediveHoldMonitorSetting.Unmarshal(m, b)
+}
+func (m *NearDediveHoldMonitorSetting) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_NearDediveHoldMonitorSetting.Marshal(b, m, deterministic)
+}
+func (dst *NearDediveHoldMonitorSetting) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_NearDediveHoldMonitorSetting.Merge(dst, src)
+}
+func (m *NearDediveHoldMonitorSetting) XXX_Size() int {
+	return xxx_messageInfo_NearDediveHoldMonitorSetting.Size(m)
+}
+func (m *NearDediveHoldMonitorSetting) XXX_DiscardUnknown() {
+	xxx_messageInfo_NearDediveHoldMonitorSetting.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_NearDediveHoldMonitorSetting proto.InternalMessageInfo
+
+func (m *NearDediveHoldMonitorSetting) GetPackFlag() uint32 {
+	if m != nil {
+		return m.PackFlag
+	}
+	return 0
+}
+
+func (m *NearDediveHoldMonitorSetting) GetActionFlag() uint32 {
+	if m != nil {
+		return m.ActionFlag
+	}
+	return 0
+}
+
+func (m *NearDediveHoldMonitorSetting) GetMonitorNo() []byte {
+	if m != nil {
+		return m.MonitorNo
+	}
+	return nil
+}
+
+func (m *NearDediveHoldMonitorSetting) GetCusts() [][]byte {
+	if m != nil {
+		return m.Custs
+	}
+	return nil
+}
+
+func (m *NearDediveHoldMonitorSetting) GetFilterFields() []*SettingValueField {
+	if m != nil {
+		return m.FilterFields
+	}
+	return nil
+}
+
+type HoldMaxLimit struct {
+	ConditionType        HoldMaxLimit_HoldLimitConditionType `protobuf:"varint,1,opt,name=condition_type,json=conditionType,enum=riskmonitorserver.HoldMaxLimit_HoldLimitConditionType" json:"condition_type,omitempty"`
+	ConditionValue       float64                             `protobuf:"fixed64,2,opt,name=condition_value,json=conditionValue" json:"condition_value,omitempty"`
+	Conditioncompareflag HoldMaxLimit_CompareFlag            `protobuf:"varint,3,opt,name=conditioncompareflag,enum=riskmonitorserver.HoldMaxLimit_CompareFlag" json:"conditioncompareflag,omitempty"`
+	HoldValueLimitType   HoldMaxLimit_QtyLimitType           `protobuf:"varint,4,opt,name=hold_value_limit_type,json=holdValueLimitType,enum=riskmonitorserver.HoldMaxLimit_QtyLimitType" json:"hold_value_limit_type,omitempty"`
+	HoldValue            float64                             `protobuf:"fixed64,5,opt,name=hold_value,json=holdValue" json:"hold_value,omitempty"`
+	XXX_NoUnkeyedLiteral struct{}                            `json:"-"`
+	XXX_unrecognized     []byte                              `json:"-"`
+	XXX_sizecache        int32                               `json:"-"`
+}
+
+func (m *HoldMaxLimit) Reset()         { *m = HoldMaxLimit{} }
+func (m *HoldMaxLimit) String() string { return proto.CompactTextString(m) }
+func (*HoldMaxLimit) ProtoMessage()    {}
+func (*HoldMaxLimit) Descriptor() ([]byte, []int) {
+	return fileDescriptor_risk_monitor_server_5c5ac32ac9cad650, []int{42}
+}
+func (m *HoldMaxLimit) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_HoldMaxLimit.Unmarshal(m, b)
+}
+func (m *HoldMaxLimit) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_HoldMaxLimit.Marshal(b, m, deterministic)
+}
+func (dst *HoldMaxLimit) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_HoldMaxLimit.Merge(dst, src)
+}
+func (m *HoldMaxLimit) XXX_Size() int {
+	return xxx_messageInfo_HoldMaxLimit.Size(m)
+}
+func (m *HoldMaxLimit) XXX_DiscardUnknown() {
+	xxx_messageInfo_HoldMaxLimit.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_HoldMaxLimit proto.InternalMessageInfo
+
+func (m *HoldMaxLimit) GetConditionType() HoldMaxLimit_HoldLimitConditionType {
+	if m != nil {
+		return m.ConditionType
+	}
+	return HoldMaxLimit_SINGLE_SIDE_HOLD_LIMIT
+}
+
+func (m *HoldMaxLimit) GetConditionValue() float64 {
+	if m != nil {
+		return m.ConditionValue
+	}
+	return 0
+}
+
+func (m *HoldMaxLimit) GetConditioncompareflag() HoldMaxLimit_CompareFlag {
+	if m != nil {
+		return m.Conditioncompareflag
+	}
+	return HoldMaxLimit_Greater
+}
+
+func (m *HoldMaxLimit) GetHoldValueLimitType() HoldMaxLimit_QtyLimitType {
+	if m != nil {
+		return m.HoldValueLimitType
+	}
+	return HoldMaxLimit_RATIO_LIMIT
+}
+
+func (m *HoldMaxLimit) GetHoldValue() float64 {
+	if m != nil {
+		return m.HoldValue
+	}
+	return 0
+}
+
+type HoldLimitDateNode struct {
+	Date                 []byte          `protobuf:"bytes,1,opt,name=date,proto3" json:"date,omitempty"`
+	HoldMaxLimits        []*HoldMaxLimit `protobuf:"bytes,2,rep,name=hold_max_limits,json=holdMaxLimits" json:"hold_max_limits,omitempty"`
+	XXX_NoUnkeyedLiteral struct{}        `json:"-"`
+	XXX_unrecognized     []byte          `json:"-"`
+	XXX_sizecache        int32           `json:"-"`
+}
+
+func (m *HoldLimitDateNode) Reset()         { *m = HoldLimitDateNode{} }
+func (m *HoldLimitDateNode) String() string { return proto.CompactTextString(m) }
+func (*HoldLimitDateNode) ProtoMessage()    {}
+func (*HoldLimitDateNode) Descriptor() ([]byte, []int) {
+	return fileDescriptor_risk_monitor_server_5c5ac32ac9cad650, []int{43}
+}
+func (m *HoldLimitDateNode) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_HoldLimitDateNode.Unmarshal(m, b)
+}
+func (m *HoldLimitDateNode) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_HoldLimitDateNode.Marshal(b, m, deterministic)
+}
+func (dst *HoldLimitDateNode) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_HoldLimitDateNode.Merge(dst, src)
+}
+func (m *HoldLimitDateNode) XXX_Size() int {
+	return xxx_messageInfo_HoldLimitDateNode.Size(m)
+}
+func (m *HoldLimitDateNode) XXX_DiscardUnknown() {
+	xxx_messageInfo_HoldLimitDateNode.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_HoldLimitDateNode proto.InternalMessageInfo
+
+func (m *HoldLimitDateNode) GetDate() []byte {
+	if m != nil {
+		return m.Date
+	}
+	return nil
+}
+
+func (m *HoldLimitDateNode) GetHoldMaxLimits() []*HoldMaxLimit {
+	if m != nil {
+		return m.HoldMaxLimits
+	}
+	return nil
+}
+
+type HoldLimitTimeLine struct {
+	ContractCode         []byte               `protobuf:"bytes,1,opt,name=contract_code,json=contractCode,proto3" json:"contract_code,omitempty"`
+	DateNodes            []*HoldLimitDateNode `protobuf:"bytes,2,rep,name=date_nodes,json=dateNodes" json:"date_nodes,omitempty"`
+	XXX_NoUnkeyedLiteral struct{}             `json:"-"`
+	XXX_unrecognized     []byte               `json:"-"`
+	XXX_sizecache        int32                `json:"-"`
+}
+
+func (m *HoldLimitTimeLine) Reset()         { *m = HoldLimitTimeLine{} }
+func (m *HoldLimitTimeLine) String() string { return proto.CompactTextString(m) }
+func (*HoldLimitTimeLine) ProtoMessage()    {}
+func (*HoldLimitTimeLine) Descriptor() ([]byte, []int) {
+	return fileDescriptor_risk_monitor_server_5c5ac32ac9cad650, []int{44}
+}
+func (m *HoldLimitTimeLine) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_HoldLimitTimeLine.Unmarshal(m, b)
+}
+func (m *HoldLimitTimeLine) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_HoldLimitTimeLine.Marshal(b, m, deterministic)
+}
+func (dst *HoldLimitTimeLine) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_HoldLimitTimeLine.Merge(dst, src)
+}
+func (m *HoldLimitTimeLine) XXX_Size() int {
+	return xxx_messageInfo_HoldLimitTimeLine.Size(m)
+}
+func (m *HoldLimitTimeLine) XXX_DiscardUnknown() {
+	xxx_messageInfo_HoldLimitTimeLine.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_HoldLimitTimeLine proto.InternalMessageInfo
+
+func (m *HoldLimitTimeLine) GetContractCode() []byte {
+	if m != nil {
+		return m.ContractCode
+	}
+	return nil
+}
+
+func (m *HoldLimitTimeLine) GetDateNodes() []*HoldLimitDateNode {
+	if m != nil {
+		return m.DateNodes
+	}
+	return nil
+}
+
+type MarginLimitDateNode struct {
+	Date                 []byte   `protobuf:"bytes,1,opt,name=date,proto3" json:"date,omitempty"`
+	MinMarginRatio       float64  `protobuf:"fixed64,2,opt,name=min_margin_ratio,json=minMarginRatio" json:"min_margin_ratio,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
+}
+
+func (m *MarginLimitDateNode) Reset()         { *m = MarginLimitDateNode{} }
+func (m *MarginLimitDateNode) String() string { return proto.CompactTextString(m) }
+func (*MarginLimitDateNode) ProtoMessage()    {}
+func (*MarginLimitDateNode) Descriptor() ([]byte, []int) {
+	return fileDescriptor_risk_monitor_server_5c5ac32ac9cad650, []int{45}
+}
+func (m *MarginLimitDateNode) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_MarginLimitDateNode.Unmarshal(m, b)
+}
+func (m *MarginLimitDateNode) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_MarginLimitDateNode.Marshal(b, m, deterministic)
+}
+func (dst *MarginLimitDateNode) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_MarginLimitDateNode.Merge(dst, src)
+}
+func (m *MarginLimitDateNode) XXX_Size() int {
+	return xxx_messageInfo_MarginLimitDateNode.Size(m)
+}
+func (m *MarginLimitDateNode) XXX_DiscardUnknown() {
+	xxx_messageInfo_MarginLimitDateNode.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_MarginLimitDateNode proto.InternalMessageInfo
+
+func (m *MarginLimitDateNode) GetDate() []byte {
+	if m != nil {
+		return m.Date
+	}
+	return nil
+}
+
+func (m *MarginLimitDateNode) GetMinMarginRatio() float64 {
+	if m != nil {
+		return m.MinMarginRatio
+	}
+	return 0
+}
+
+type MarginLimitHoldNode struct {
+	LowerLimitQty        uint32   `protobuf:"varint,1,opt,name=lower_limit_qty,json=lowerLimitQty" json:"lower_limit_qty,omitempty"`
+	UpperLimitQty        uint32   `protobuf:"varint,2,opt,name=upper_limit_qty,json=upperLimitQty" json:"upper_limit_qty,omitempty"`
+	MinMarginRatio       float64  `protobuf:"fixed64,3,opt,name=min_margin_ratio,json=minMarginRatio" json:"min_margin_ratio,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
+}
+
+func (m *MarginLimitHoldNode) Reset()         { *m = MarginLimitHoldNode{} }
+func (m *MarginLimitHoldNode) String() string { return proto.CompactTextString(m) }
+func (*MarginLimitHoldNode) ProtoMessage()    {}
+func (*MarginLimitHoldNode) Descriptor() ([]byte, []int) {
+	return fileDescriptor_risk_monitor_server_5c5ac32ac9cad650, []int{46}
+}
+func (m *MarginLimitHoldNode) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_MarginLimitHoldNode.Unmarshal(m, b)
+}
+func (m *MarginLimitHoldNode) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_MarginLimitHoldNode.Marshal(b, m, deterministic)
+}
+func (dst *MarginLimitHoldNode) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_MarginLimitHoldNode.Merge(dst, src)
+}
+func (m *MarginLimitHoldNode) XXX_Size() int {
+	return xxx_messageInfo_MarginLimitHoldNode.Size(m)
+}
+func (m *MarginLimitHoldNode) XXX_DiscardUnknown() {
+	xxx_messageInfo_MarginLimitHoldNode.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_MarginLimitHoldNode proto.InternalMessageInfo
+
+func (m *MarginLimitHoldNode) GetLowerLimitQty() uint32 {
+	if m != nil {
+		return m.LowerLimitQty
+	}
+	return 0
+}
+
+func (m *MarginLimitHoldNode) GetUpperLimitQty() uint32 {
+	if m != nil {
+		return m.UpperLimitQty
+	}
+	return 0
+}
+
+func (m *MarginLimitHoldNode) GetMinMarginRatio() float64 {
+	if m != nil {
+		return m.MinMarginRatio
+	}
+	return 0
+}
+
+type MarginLimitTimeLine struct {
+	ContractCode         []byte                 `protobuf:"bytes,1,opt,name=contract_code,json=contractCode,proto3" json:"contract_code,omitempty"`
+	DateNodes            []*MarginLimitDateNode `protobuf:"bytes,2,rep,name=date_nodes,json=dateNodes" json:"date_nodes,omitempty"`
+	HoldNodes            []*MarginLimitHoldNode `protobuf:"bytes,3,rep,name=hold_nodes,json=holdNodes" json:"hold_nodes,omitempty"`
+	XXX_NoUnkeyedLiteral struct{}               `json:"-"`
+	XXX_unrecognized     []byte                 `json:"-"`
+	XXX_sizecache        int32                  `json:"-"`
+}
+
+func (m *MarginLimitTimeLine) Reset()         { *m = MarginLimitTimeLine{} }
+func (m *MarginLimitTimeLine) String() string { return proto.CompactTextString(m) }
+func (*MarginLimitTimeLine) ProtoMessage()    {}
+func (*MarginLimitTimeLine) Descriptor() ([]byte, []int) {
+	return fileDescriptor_risk_monitor_server_5c5ac32ac9cad650, []int{47}
+}
+func (m *MarginLimitTimeLine) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_MarginLimitTimeLine.Unmarshal(m, b)
+}
+func (m *MarginLimitTimeLine) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_MarginLimitTimeLine.Marshal(b, m, deterministic)
+}
+func (dst *MarginLimitTimeLine) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_MarginLimitTimeLine.Merge(dst, src)
+}
+func (m *MarginLimitTimeLine) XXX_Size() int {
+	return xxx_messageInfo_MarginLimitTimeLine.Size(m)
+}
+func (m *MarginLimitTimeLine) XXX_DiscardUnknown() {
+	xxx_messageInfo_MarginLimitTimeLine.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_MarginLimitTimeLine proto.InternalMessageInfo
+
+func (m *MarginLimitTimeLine) GetContractCode() []byte {
+	if m != nil {
+		return m.ContractCode
+	}
+	return nil
+}
+
+func (m *MarginLimitTimeLine) GetDateNodes() []*MarginLimitDateNode {
+	if m != nil {
+		return m.DateNodes
+	}
+	return nil
+}
+
+func (m *MarginLimitTimeLine) GetHoldNodes() []*MarginLimitHoldNode {
+	if m != nil {
+		return m.HoldNodes
+	}
+	return nil
+}
+
+type HoldLimitSetting struct {
+	PackFlag             uint32               `protobuf:"varint,1,opt,name=pack_flag,json=packFlag" json:"pack_flag,omitempty"`
+	ActionFlag           uint32               `protobuf:"varint,2,opt,name=action_flag,json=actionFlag" json:"action_flag,omitempty"`
+	ExchCode             []byte               `protobuf:"bytes,3,opt,name=exch_code,json=exchCode,proto3" json:"exch_code,omitempty"`
+	VariCode             []byte               `protobuf:"bytes,4,opt,name=vari_code,json=variCode,proto3" json:"vari_code,omitempty"`
+	Settings             []*HoldLimitTimeLine `protobuf:"bytes,5,rep,name=settings" json:"settings,omitempty"`
+	XXX_NoUnkeyedLiteral struct{}             `json:"-"`
+	XXX_unrecognized     []byte               `json:"-"`
+	XXX_sizecache        int32                `json:"-"`
+}
+
+func (m *HoldLimitSetting) Reset()         { *m = HoldLimitSetting{} }
+func (m *HoldLimitSetting) String() string { return proto.CompactTextString(m) }
+func (*HoldLimitSetting) ProtoMessage()    {}
+func (*HoldLimitSetting) Descriptor() ([]byte, []int) {
+	return fileDescriptor_risk_monitor_server_5c5ac32ac9cad650, []int{48}
+}
+func (m *HoldLimitSetting) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_HoldLimitSetting.Unmarshal(m, b)
+}
+func (m *HoldLimitSetting) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_HoldLimitSetting.Marshal(b, m, deterministic)
+}
+func (dst *HoldLimitSetting) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_HoldLimitSetting.Merge(dst, src)
+}
+func (m *HoldLimitSetting) XXX_Size() int {
+	return xxx_messageInfo_HoldLimitSetting.Size(m)
+}
+func (m *HoldLimitSetting) XXX_DiscardUnknown() {
+	xxx_messageInfo_HoldLimitSetting.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_HoldLimitSetting proto.InternalMessageInfo
+
+func (m *HoldLimitSetting) GetPackFlag() uint32 {
+	if m != nil {
+		return m.PackFlag
+	}
+	return 0
+}
+
+func (m *HoldLimitSetting) GetActionFlag() uint32 {
+	if m != nil {
+		return m.ActionFlag
+	}
+	return 0
+}
+
+func (m *HoldLimitSetting) GetExchCode() []byte {
+	if m != nil {
+		return m.ExchCode
+	}
+	return nil
+}
+
+func (m *HoldLimitSetting) GetVariCode() []byte {
+	if m != nil {
+		return m.VariCode
+	}
+	return nil
+}
+
+func (m *HoldLimitSetting) GetSettings() []*HoldLimitTimeLine {
+	if m != nil {
+		return m.Settings
+	}
+	return nil
+}
+
+type MarginLimitSetting struct {
+	PackFlag             uint32                 `protobuf:"varint,1,opt,name=pack_flag,json=packFlag" json:"pack_flag,omitempty"`
+	ActionFlag           uint32                 `protobuf:"varint,2,opt,name=action_flag,json=actionFlag" json:"action_flag,omitempty"`
+	ExchCode             []byte                 `protobuf:"bytes,3,opt,name=exch_code,json=exchCode,proto3" json:"exch_code,omitempty"`
+	VariCode             []byte                 `protobuf:"bytes,4,opt,name=vari_code,json=variCode,proto3" json:"vari_code,omitempty"`
+	Settings             []*MarginLimitTimeLine `protobuf:"bytes,5,rep,name=settings" json:"settings,omitempty"`
+	XXX_NoUnkeyedLiteral struct{}               `json:"-"`
+	XXX_unrecognized     []byte                 `json:"-"`
+	XXX_sizecache        int32                  `json:"-"`
+}
+
+func (m *MarginLimitSetting) Reset()         { *m = MarginLimitSetting{} }
+func (m *MarginLimitSetting) String() string { return proto.CompactTextString(m) }
+func (*MarginLimitSetting) ProtoMessage()    {}
+func (*MarginLimitSetting) Descriptor() ([]byte, []int) {
+	return fileDescriptor_risk_monitor_server_5c5ac32ac9cad650, []int{49}
+}
+func (m *MarginLimitSetting) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_MarginLimitSetting.Unmarshal(m, b)
+}
+func (m *MarginLimitSetting) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_MarginLimitSetting.Marshal(b, m, deterministic)
+}
+func (dst *MarginLimitSetting) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_MarginLimitSetting.Merge(dst, src)
+}
+func (m *MarginLimitSetting) XXX_Size() int {
+	return xxx_messageInfo_MarginLimitSetting.Size(m)
+}
+func (m *MarginLimitSetting) XXX_DiscardUnknown() {
+	xxx_messageInfo_MarginLimitSetting.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_MarginLimitSetting proto.InternalMessageInfo
+
+func (m *MarginLimitSetting) GetPackFlag() uint32 {
+	if m != nil {
+		return m.PackFlag
+	}
+	return 0
+}
+
+func (m *MarginLimitSetting) GetActionFlag() uint32 {
+	if m != nil {
+		return m.ActionFlag
+	}
+	return 0
+}
+
+func (m *MarginLimitSetting) GetExchCode() []byte {
+	if m != nil {
+		return m.ExchCode
+	}
+	return nil
+}
+
+func (m *MarginLimitSetting) GetVariCode() []byte {
+	if m != nil {
+		return m.VariCode
+	}
+	return nil
+}
+
+func (m *MarginLimitSetting) GetSettings() []*MarginLimitTimeLine {
+	if m != nil {
+		return m.Settings
+	}
+	return nil
+}
+
+type ArbitrageLimitDateNode struct {
+	Date                 []byte                           `protobuf:"bytes,1,opt,name=date,proto3" json:"date,omitempty"`
+	Type                 ArbitrageLimitDateNode_LimitType `protobuf:"varint,2,opt,name=type,enum=riskmonitorserver.ArbitrageLimitDateNode_LimitType" json:"type,omitempty"`
+	XXX_NoUnkeyedLiteral struct{}                         `json:"-"`
+	XXX_unrecognized     []byte                           `json:"-"`
+	XXX_sizecache        int32                            `json:"-"`
+}
+
+func (m *ArbitrageLimitDateNode) Reset()         { *m = ArbitrageLimitDateNode{} }
+func (m *ArbitrageLimitDateNode) String() string { return proto.CompactTextString(m) }
+func (*ArbitrageLimitDateNode) ProtoMessage()    {}
+func (*ArbitrageLimitDateNode) Descriptor() ([]byte, []int) {
+	return fileDescriptor_risk_monitor_server_5c5ac32ac9cad650, []int{50}
+}
+func (m *ArbitrageLimitDateNode) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_ArbitrageLimitDateNode.Unmarshal(m, b)
+}
+func (m *ArbitrageLimitDateNode) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_ArbitrageLimitDateNode.Marshal(b, m, deterministic)
+}
+func (dst *ArbitrageLimitDateNode) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_ArbitrageLimitDateNode.Merge(dst, src)
+}
+func (m *ArbitrageLimitDateNode) XXX_Size() int {
+	return xxx_messageInfo_ArbitrageLimitDateNode.Size(m)
+}
+func (m *ArbitrageLimitDateNode) XXX_DiscardUnknown() {
+	xxx_messageInfo_ArbitrageLimitDateNode.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_ArbitrageLimitDateNode proto.InternalMessageInfo
+
+func (m *ArbitrageLimitDateNode) GetDate() []byte {
+	if m != nil {
+		return m.Date
+	}
+	return nil
+}
+
+func (m *ArbitrageLimitDateNode) GetType() ArbitrageLimitDateNode_LimitType {
+	if m != nil {
+		return m.Type
+	}
+	return ArbitrageLimitDateNode_CzceDelive
+}
+
+type ArbitrageLimitTimeLine struct {
+	ContractCode         []byte                    `protobuf:"bytes,1,opt,name=contract_code,json=contractCode,proto3" json:"contract_code,omitempty"`
+	DateNodes            []*ArbitrageLimitDateNode `protobuf:"bytes,2,rep,name=date_nodes,json=dateNodes" json:"date_nodes,omitempty"`
+	XXX_NoUnkeyedLiteral struct{}                  `json:"-"`
+	XXX_unrecognized     []byte                    `json:"-"`
+	XXX_sizecache        int32                     `json:"-"`
+}
+
+func (m *ArbitrageLimitTimeLine) Reset()         { *m = ArbitrageLimitTimeLine{} }
+func (m *ArbitrageLimitTimeLine) String() string { return proto.CompactTextString(m) }
+func (*ArbitrageLimitTimeLine) ProtoMessage()    {}
+func (*ArbitrageLimitTimeLine) Descriptor() ([]byte, []int) {
+	return fileDescriptor_risk_monitor_server_5c5ac32ac9cad650, []int{51}
+}
+func (m *ArbitrageLimitTimeLine) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_ArbitrageLimitTimeLine.Unmarshal(m, b)
+}
+func (m *ArbitrageLimitTimeLine) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_ArbitrageLimitTimeLine.Marshal(b, m, deterministic)
+}
+func (dst *ArbitrageLimitTimeLine) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_ArbitrageLimitTimeLine.Merge(dst, src)
+}
+func (m *ArbitrageLimitTimeLine) XXX_Size() int {
+	return xxx_messageInfo_ArbitrageLimitTimeLine.Size(m)
+}
+func (m *ArbitrageLimitTimeLine) XXX_DiscardUnknown() {
+	xxx_messageInfo_ArbitrageLimitTimeLine.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_ArbitrageLimitTimeLine proto.InternalMessageInfo
+
+func (m *ArbitrageLimitTimeLine) GetContractCode() []byte {
+	if m != nil {
+		return m.ContractCode
+	}
+	return nil
+}
+
+func (m *ArbitrageLimitTimeLine) GetDateNodes() []*ArbitrageLimitDateNode {
+	if m != nil {
+		return m.DateNodes
+	}
+	return nil
+}
+
+type ArbitrageLimitSetting struct {
+	PackFlag             uint32                    `protobuf:"varint,1,opt,name=pack_flag,json=packFlag" json:"pack_flag,omitempty"`
+	ActionFlag           uint32                    `protobuf:"varint,2,opt,name=action_flag,json=actionFlag" json:"action_flag,omitempty"`
+	ExchCode             []byte                    `protobuf:"bytes,3,opt,name=exch_code,json=exchCode,proto3" json:"exch_code,omitempty"`
+	VariCode             []byte                    `protobuf:"bytes,4,opt,name=vari_code,json=variCode,proto3" json:"vari_code,omitempty"`
+	Settings             []*ArbitrageLimitTimeLine `protobuf:"bytes,5,rep,name=settings" json:"settings,omitempty"`
+	XXX_NoUnkeyedLiteral struct{}                  `json:"-"`
+	XXX_unrecognized     []byte                    `json:"-"`
+	XXX_sizecache        int32                     `json:"-"`
+}
+
+func (m *ArbitrageLimitSetting) Reset()         { *m = ArbitrageLimitSetting{} }
+func (m *ArbitrageLimitSetting) String() string { return proto.CompactTextString(m) }
+func (*ArbitrageLimitSetting) ProtoMessage()    {}
+func (*ArbitrageLimitSetting) Descriptor() ([]byte, []int) {
+	return fileDescriptor_risk_monitor_server_5c5ac32ac9cad650, []int{52}
+}
+func (m *ArbitrageLimitSetting) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_ArbitrageLimitSetting.Unmarshal(m, b)
+}
+func (m *ArbitrageLimitSetting) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_ArbitrageLimitSetting.Marshal(b, m, deterministic)
+}
+func (dst *ArbitrageLimitSetting) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_ArbitrageLimitSetting.Merge(dst, src)
+}
+func (m *ArbitrageLimitSetting) XXX_Size() int {
+	return xxx_messageInfo_ArbitrageLimitSetting.Size(m)
+}
+func (m *ArbitrageLimitSetting) XXX_DiscardUnknown() {
+	xxx_messageInfo_ArbitrageLimitSetting.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_ArbitrageLimitSetting proto.InternalMessageInfo
+
+func (m *ArbitrageLimitSetting) GetPackFlag() uint32 {
+	if m != nil {
+		return m.PackFlag
+	}
+	return 0
+}
+
+func (m *ArbitrageLimitSetting) GetActionFlag() uint32 {
+	if m != nil {
+		return m.ActionFlag
+	}
+	return 0
+}
+
+func (m *ArbitrageLimitSetting) GetExchCode() []byte {
+	if m != nil {
+		return m.ExchCode
+	}
+	return nil
+}
+
+func (m *ArbitrageLimitSetting) GetVariCode() []byte {
+	if m != nil {
+		return m.VariCode
+	}
+	return nil
+}
+
+func (m *ArbitrageLimitSetting) GetSettings() []*ArbitrageLimitTimeLine {
+	if m != nil {
+		return m.Settings
+	}
+	return nil
+}
+
+type EarlyWrningTimeSetting struct {
+	PackFlag             uint32   `protobuf:"varint,1,opt,name=pack_flag,json=packFlag" json:"pack_flag,omitempty"`
+	ActionFlag           uint32   `protobuf:"varint,2,opt,name=action_flag,json=actionFlag" json:"action_flag,omitempty"`
+	EarlyTradedays       int32    `protobuf:"varint,3,opt,name=early_tradedays,json=earlyTradedays" json:"early_tradedays,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
+}
+
+func (m *EarlyWrningTimeSetting) Reset()         { *m = EarlyWrningTimeSetting{} }
+func (m *EarlyWrningTimeSetting) String() string { return proto.CompactTextString(m) }
+func (*EarlyWrningTimeSetting) ProtoMessage()    {}
+func (*EarlyWrningTimeSetting) Descriptor() ([]byte, []int) {
+	return fileDescriptor_risk_monitor_server_5c5ac32ac9cad650, []int{53}
+}
+func (m *EarlyWrningTimeSetting) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_EarlyWrningTimeSetting.Unmarshal(m, b)
+}
+func (m *EarlyWrningTimeSetting) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_EarlyWrningTimeSetting.Marshal(b, m, deterministic)
+}
+func (dst *EarlyWrningTimeSetting) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_EarlyWrningTimeSetting.Merge(dst, src)
+}
+func (m *EarlyWrningTimeSetting) XXX_Size() int {
+	return xxx_messageInfo_EarlyWrningTimeSetting.Size(m)
+}
+func (m *EarlyWrningTimeSetting) XXX_DiscardUnknown() {
+	xxx_messageInfo_EarlyWrningTimeSetting.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_EarlyWrningTimeSetting proto.InternalMessageInfo
+
+func (m *EarlyWrningTimeSetting) GetPackFlag() uint32 {
+	if m != nil {
+		return m.PackFlag
+	}
+	return 0
+}
+
+func (m *EarlyWrningTimeSetting) GetActionFlag() uint32 {
+	if m != nil {
+		return m.ActionFlag
+	}
+	return 0
+}
+
+func (m *EarlyWrningTimeSetting) GetEarlyTradedays() int32 {
+	if m != nil {
+		return m.EarlyTradedays
+	}
+	return 0
+}
+
+type EarlyWrningValueSetting struct {
+	PackFlag             uint32   `protobuf:"varint,1,opt,name=pack_flag,json=packFlag" json:"pack_flag,omitempty"`
+	ActionFlag           uint32   `protobuf:"varint,2,opt,name=action_flag,json=actionFlag" json:"action_flag,omitempty"`
+	ExchCode             []byte   `protobuf:"bytes,3,opt,name=exch_code,json=exchCode,proto3" json:"exch_code,omitempty"`
+	VariCode             []byte   `protobuf:"bytes,4,opt,name=vari_code,json=variCode,proto3" json:"vari_code,omitempty"`
+	EarlyValue           int32    `protobuf:"varint,5,opt,name=early_value,json=earlyValue" json:"early_value,omitempty"`
+	EarlyRadio           int32    `protobuf:"varint,6,opt,name=early_radio,json=earlyRadio" json:"early_radio,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
+}
+
+func (m *EarlyWrningValueSetting) Reset()         { *m = EarlyWrningValueSetting{} }
+func (m *EarlyWrningValueSetting) String() string { return proto.CompactTextString(m) }
+func (*EarlyWrningValueSetting) ProtoMessage()    {}
+func (*EarlyWrningValueSetting) Descriptor() ([]byte, []int) {
+	return fileDescriptor_risk_monitor_server_5c5ac32ac9cad650, []int{54}
+}
+func (m *EarlyWrningValueSetting) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_EarlyWrningValueSetting.Unmarshal(m, b)
+}
+func (m *EarlyWrningValueSetting) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_EarlyWrningValueSetting.Marshal(b, m, deterministic)
+}
+func (dst *EarlyWrningValueSetting) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_EarlyWrningValueSetting.Merge(dst, src)
+}
+func (m *EarlyWrningValueSetting) XXX_Size() int {
+	return xxx_messageInfo_EarlyWrningValueSetting.Size(m)
+}
+func (m *EarlyWrningValueSetting) XXX_DiscardUnknown() {
+	xxx_messageInfo_EarlyWrningValueSetting.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_EarlyWrningValueSetting proto.InternalMessageInfo
+
+func (m *EarlyWrningValueSetting) GetPackFlag() uint32 {
+	if m != nil {
+		return m.PackFlag
+	}
+	return 0
+}
+
+func (m *EarlyWrningValueSetting) GetActionFlag() uint32 {
+	if m != nil {
+		return m.ActionFlag
+	}
+	return 0
+}
+
+func (m *EarlyWrningValueSetting) GetExchCode() []byte {
+	if m != nil {
+		return m.ExchCode
+	}
+	return nil
+}
+
+func (m *EarlyWrningValueSetting) GetVariCode() []byte {
+	if m != nil {
+		return m.VariCode
+	}
+	return nil
+}
+
+func (m *EarlyWrningValueSetting) GetEarlyValue() int32 {
+	if m != nil {
+		return m.EarlyValue
+	}
+	return 0
+}
+
+func (m *EarlyWrningValueSetting) GetEarlyRadio() int32 {
+	if m != nil {
+		return m.EarlyRadio
+	}
+	return 0
+}
+
+type NearDediveSetting struct {
+	PackFlag             uint32                          `protobuf:"varint,1,opt,name=pack_flag,json=packFlag" json:"pack_flag,omitempty"`
+	ActionFlag           uint32                          `protobuf:"varint,2,opt,name=action_flag,json=actionFlag" json:"action_flag,omitempty"`
+	ExchCode             []byte                          `protobuf:"bytes,3,opt,name=exch_code,json=exchCode,proto3" json:"exch_code,omitempty"`
+	VariCode             []byte                          `protobuf:"bytes,4,opt,name=vari_code,json=variCode,proto3" json:"vari_code,omitempty"`
+	CloseDate            NearDediveSetting_CloseDateType `protobuf:"varint,5,opt,name=close_date,json=closeDate,enum=riskmonitorserver.NearDediveSetting_CloseDateType" json:"close_date,omitempty"`
+	ClientType           NearDediveSetting_ClientType    `protobuf:"varint,6,opt,name=client_type,json=clientType,enum=riskmonitorserver.NearDediveSetting_ClientType" json:"client_type,omitempty"`
+	BaseHold             int32                           `protobuf:"varint,7,opt,name=base_hold,json=baseHold" json:"base_hold,omitempty"`
+	XXX_NoUnkeyedLiteral struct{}                        `json:"-"`
+	XXX_unrecognized     []byte                          `json:"-"`
+	XXX_sizecache        int32                           `json:"-"`
+}
+
+func (m *NearDediveSetting) Reset()         { *m = NearDediveSetting{} }
+func (m *NearDediveSetting) String() string { return proto.CompactTextString(m) }
+func (*NearDediveSetting) ProtoMessage()    {}
+func (*NearDediveSetting) Descriptor() ([]byte, []int) {
+	return fileDescriptor_risk_monitor_server_5c5ac32ac9cad650, []int{55}
+}
+func (m *NearDediveSetting) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_NearDediveSetting.Unmarshal(m, b)
+}
+func (m *NearDediveSetting) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_NearDediveSetting.Marshal(b, m, deterministic)
+}
+func (dst *NearDediveSetting) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_NearDediveSetting.Merge(dst, src)
+}
+func (m *NearDediveSetting) XXX_Size() int {
+	return xxx_messageInfo_NearDediveSetting.Size(m)
+}
+func (m *NearDediveSetting) XXX_DiscardUnknown() {
+	xxx_messageInfo_NearDediveSetting.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_NearDediveSetting proto.InternalMessageInfo
+
+func (m *NearDediveSetting) GetPackFlag() uint32 {
+	if m != nil {
+		return m.PackFlag
+	}
+	return 0
+}
+
+func (m *NearDediveSetting) GetActionFlag() uint32 {
+	if m != nil {
+		return m.ActionFlag
+	}
+	return 0
+}
+
+func (m *NearDediveSetting) GetExchCode() []byte {
+	if m != nil {
+		return m.ExchCode
+	}
+	return nil
+}
+
+func (m *NearDediveSetting) GetVariCode() []byte {
+	if m != nil {
+		return m.VariCode
+	}
+	return nil
+}
+
+func (m *NearDediveSetting) GetCloseDate() NearDediveSetting_CloseDateType {
+	if m != nil {
+		return m.CloseDate
+	}
+	return NearDediveSetting_LastTradeDateDelive1
+}
+
+func (m *NearDediveSetting) GetClientType() NearDediveSetting_ClientType {
+	if m != nil {
+		return m.ClientType
+	}
+	return NearDediveSetting_LagelPerson
+}
+
+func (m *NearDediveSetting) GetBaseHold() int32 {
+	if m != nil {
+		return m.BaseHold
+	}
+	return 0
+}
+
+// 随合约持仓量变化调整
+type VariationObject struct {
+	Start                uint32   `protobuf:"varint,1,opt,name=Start" json:"Start,omitempty"`
+	End                  uint32   `protobuf:"varint,2,opt,name=End" json:"End,omitempty"`
+	Margin               float64  `protobuf:"fixed64,3,opt,name=Margin" json:"Margin,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
+}
+
+func (m *VariationObject) Reset()         { *m = VariationObject{} }
+func (m *VariationObject) String() string { return proto.CompactTextString(m) }
+func (*VariationObject) ProtoMessage()    {}
+func (*VariationObject) Descriptor() ([]byte, []int) {
+	return fileDescriptor_risk_monitor_server_5c5ac32ac9cad650, []int{56}
+}
+func (m *VariationObject) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_VariationObject.Unmarshal(m, b)
+}
+func (m *VariationObject) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_VariationObject.Marshal(b, m, deterministic)
+}
+func (dst *VariationObject) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_VariationObject.Merge(dst, src)
+}
+func (m *VariationObject) XXX_Size() int {
+	return xxx_messageInfo_VariationObject.Size(m)
+}
+func (m *VariationObject) XXX_DiscardUnknown() {
+	xxx_messageInfo_VariationObject.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_VariationObject proto.InternalMessageInfo
+
+func (m *VariationObject) GetStart() uint32 {
+	if m != nil {
+		return m.Start
+	}
+	return 0
+}
+
+func (m *VariationObject) GetEnd() uint32 {
+	if m != nil {
+		return m.End
+	}
+	return 0
+}
+
+func (m *VariationObject) GetMargin() float64 {
+	if m != nil {
+		return m.Margin
+	}
+	return 0
+}
+
+// 区间配置项
+type VariMarginLimitTimeLineNode struct {
+	TiemLineNodeType     VariMarginLimitTimeLineNode_TimeLineNodeTypeEnum `protobuf:"varint,1,opt,name=TiemLineNodeType,enum=riskmonitorserver.VariMarginLimitTimeLineNode_TimeLineNodeTypeEnum" json:"TiemLineNodeType,omitempty"`
+	Day                  uint32                                           `protobuf:"varint,2,opt,name=Day" json:"Day,omitempty"`
+	MinMargin            float64                                          `protobuf:"fixed64,3,opt,name=MinMargin" json:"MinMargin,omitempty"`
+	XXX_NoUnkeyedLiteral struct{}                                         `json:"-"`
+	XXX_unrecognized     []byte                                           `json:"-"`
+	XXX_sizecache        int32                                            `json:"-"`
+}
+
+func (m *VariMarginLimitTimeLineNode) Reset()         { *m = VariMarginLimitTimeLineNode{} }
+func (m *VariMarginLimitTimeLineNode) String() string { return proto.CompactTextString(m) }
+func (*VariMarginLimitTimeLineNode) ProtoMessage()    {}
+func (*VariMarginLimitTimeLineNode) Descriptor() ([]byte, []int) {
+	return fileDescriptor_risk_monitor_server_5c5ac32ac9cad650, []int{57}
+}
+func (m *VariMarginLimitTimeLineNode) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_VariMarginLimitTimeLineNode.Unmarshal(m, b)
+}
+func (m *VariMarginLimitTimeLineNode) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_VariMarginLimitTimeLineNode.Marshal(b, m, deterministic)
+}
+func (dst *VariMarginLimitTimeLineNode) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_VariMarginLimitTimeLineNode.Merge(dst, src)
+}
+func (m *VariMarginLimitTimeLineNode) XXX_Size() int {
+	return xxx_messageInfo_VariMarginLimitTimeLineNode.Size(m)
+}
+func (m *VariMarginLimitTimeLineNode) XXX_DiscardUnknown() {
+	xxx_messageInfo_VariMarginLimitTimeLineNode.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_VariMarginLimitTimeLineNode proto.InternalMessageInfo
+
+func (m *VariMarginLimitTimeLineNode) GetTiemLineNodeType() VariMarginLimitTimeLineNode_TimeLineNodeTypeEnum {
+	if m != nil {
+		return m.TiemLineNodeType
+	}
+	return VariMarginLimitTimeLineNode_Delivery_Month
+}
+
+func (m *VariMarginLimitTimeLineNode) GetDay() uint32 {
+	if m != nil {
+		return m.Day
+	}
+	return 0
+}
+
+func (m *VariMarginLimitTimeLineNode) GetMinMargin() float64 {
+	if m != nil {
+		return m.MinMargin
+	}
+	return 0
+}
+
+type VariMarginLimitSetting struct {
+	PackFlag                    uint32                                                 `protobuf:"varint,1,opt,name=pack_flag,json=packFlag" json:"pack_flag,omitempty"`
+	ActionFlag                  uint32                                                 `protobuf:"varint,2,opt,name=action_flag,json=actionFlag" json:"action_flag,omitempty"`
+	ExchCode                    []byte                                                 `protobuf:"bytes,3,opt,name=exch_code,json=exchCode,proto3" json:"exch_code,omitempty"`
+	VariCode                    []byte                                                 `protobuf:"bytes,4,opt,name=vari_code,json=variCode,proto3" json:"vari_code,omitempty"`
+	StatisticsDateType          VariMarginLimitSetting_StatisticsDateTypeEnum          `protobuf:"varint,5,opt,name=statisticsDateType,enum=riskmonitorserver.VariMarginLimitSetting_StatisticsDateTypeEnum" json:"statisticsDateType,omitempty"`
+	PositionVariationMarginType VariMarginLimitSetting_PositionVariationMarginTypeEnum `protobuf:"varint,6,opt,name=positionVariationMarginType,enum=riskmonitorserver.VariMarginLimitSetting_PositionVariationMarginTypeEnum" json:"positionVariationMarginType,omitempty"`
+	VariationObjects            []*VariationObject                                     `protobuf:"bytes,7,rep,name=VariationObjects" json:"VariationObjects,omitempty"`
+	MarginLimitTimeLineNodes    []*VariMarginLimitTimeLineNode                         `protobuf:"bytes,8,rep,name=MarginLimitTimeLineNodes" json:"MarginLimitTimeLineNodes,omitempty"`
+	XXX_NoUnkeyedLiteral        struct{}                                               `json:"-"`
+	XXX_unrecognized            []byte                                                 `json:"-"`
+	XXX_sizecache               int32                                                  `json:"-"`
+}
+
+func (m *VariMarginLimitSetting) Reset()         { *m = VariMarginLimitSetting{} }
+func (m *VariMarginLimitSetting) String() string { return proto.CompactTextString(m) }
+func (*VariMarginLimitSetting) ProtoMessage()    {}
+func (*VariMarginLimitSetting) Descriptor() ([]byte, []int) {
+	return fileDescriptor_risk_monitor_server_5c5ac32ac9cad650, []int{58}
+}
+func (m *VariMarginLimitSetting) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_VariMarginLimitSetting.Unmarshal(m, b)
+}
+func (m *VariMarginLimitSetting) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_VariMarginLimitSetting.Marshal(b, m, deterministic)
+}
+func (dst *VariMarginLimitSetting) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_VariMarginLimitSetting.Merge(dst, src)
+}
+func (m *VariMarginLimitSetting) XXX_Size() int {
+	return xxx_messageInfo_VariMarginLimitSetting.Size(m)
+}
+func (m *VariMarginLimitSetting) XXX_DiscardUnknown() {
+	xxx_messageInfo_VariMarginLimitSetting.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_VariMarginLimitSetting proto.InternalMessageInfo
+
+func (m *VariMarginLimitSetting) GetPackFlag() uint32 {
+	if m != nil {
+		return m.PackFlag
+	}
+	return 0
+}
+
+func (m *VariMarginLimitSetting) GetActionFlag() uint32 {
+	if m != nil {
+		return m.ActionFlag
+	}
+	return 0
+}
+
+func (m *VariMarginLimitSetting) GetExchCode() []byte {
+	if m != nil {
+		return m.ExchCode
+	}
+	return nil
+}
+
+func (m *VariMarginLimitSetting) GetVariCode() []byte {
+	if m != nil {
+		return m.VariCode
+	}
+	return nil
+}
+
+func (m *VariMarginLimitSetting) GetStatisticsDateType() VariMarginLimitSetting_StatisticsDateTypeEnum {
+	if m != nil {
+		return m.StatisticsDateType
+	}
+	return VariMarginLimitSetting_Trade
+}
+
+func (m *VariMarginLimitSetting) GetPositionVariationMarginType() VariMarginLimitSetting_PositionVariationMarginTypeEnum {
+	if m != nil {
+		return m.PositionVariationMarginType
+	}
+	return VariMarginLimitSetting_Fixed
+}
+
+func (m *VariMarginLimitSetting) GetVariationObjects() []*VariationObject {
+	if m != nil {
+		return m.VariationObjects
+	}
+	return nil
+}
+
+func (m *VariMarginLimitSetting) GetMarginLimitTimeLineNodes() []*VariMarginLimitTimeLineNode {
+	if m != nil {
+		return m.MarginLimitTimeLineNodes
+	}
+	return nil
+}
+
+type ConditionHoldLimitObject struct {
+	CompareFlag          ConditionHoldLimitObject_CompareFlagEnum  `protobuf:"varint,1,opt,name=compare_flag,json=compareFlag,enum=riskmonitorserver.ConditionHoldLimitObject_CompareFlagEnum" json:"compare_flag,omitempty"`
+	Hands                uint32                                    `protobuf:"varint,2,opt,name=hands" json:"hands,omitempty"`
+	LimitType            ConditionHoldLimitObject_QtyLimitTypeEnum `protobuf:"varint,3,opt,name=limit_type,json=limitType,enum=riskmonitorserver.ConditionHoldLimitObject_QtyLimitTypeEnum" json:"limit_type,omitempty"`
+	HoldValue            float64                                   `protobuf:"fixed64,4,opt,name=hold_value,json=holdValue" json:"hold_value,omitempty"`
+	XXX_NoUnkeyedLiteral struct{}                                  `json:"-"`
+	XXX_unrecognized     []byte                                    `json:"-"`
+	XXX_sizecache        int32                                     `json:"-"`
+}
+
+func (m *ConditionHoldLimitObject) Reset()         { *m = ConditionHoldLimitObject{} }
+func (m *ConditionHoldLimitObject) String() string { return proto.CompactTextString(m) }
+func (*ConditionHoldLimitObject) ProtoMessage()    {}
+func (*ConditionHoldLimitObject) Descriptor() ([]byte, []int) {
+	return fileDescriptor_risk_monitor_server_5c5ac32ac9cad650, []int{59}
+}
+func (m *ConditionHoldLimitObject) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_ConditionHoldLimitObject.Unmarshal(m, b)
+}
+func (m *ConditionHoldLimitObject) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_ConditionHoldLimitObject.Marshal(b, m, deterministic)
+}
+func (dst *ConditionHoldLimitObject) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_ConditionHoldLimitObject.Merge(dst, src)
+}
+func (m *ConditionHoldLimitObject) XXX_Size() int {
+	return xxx_messageInfo_ConditionHoldLimitObject.Size(m)
+}
+func (m *ConditionHoldLimitObject) XXX_DiscardUnknown() {
+	xxx_messageInfo_ConditionHoldLimitObject.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_ConditionHoldLimitObject proto.InternalMessageInfo
+
+func (m *ConditionHoldLimitObject) GetCompareFlag() ConditionHoldLimitObject_CompareFlagEnum {
+	if m != nil {
+		return m.CompareFlag
+	}
+	return ConditionHoldLimitObject_Greater
+}
+
+func (m *ConditionHoldLimitObject) GetHands() uint32 {
+	if m != nil {
+		return m.Hands
+	}
+	return 0
+}
+
+func (m *ConditionHoldLimitObject) GetLimitType() ConditionHoldLimitObject_QtyLimitTypeEnum {
+	if m != nil {
+		return m.LimitType
+	}
+	return ConditionHoldLimitObject_RATIO_LIMIT
+}
+
+func (m *ConditionHoldLimitObject) GetHoldValue() float64 {
+	if m != nil {
+		return m.HoldValue
+	}
+	return 0
+}
+
+type VariHoldLimitTimeLineNode struct {
+	TiemLineNodeType          VariHoldLimitTimeLineNode_TimeLineNodeTypeEnum       `protobuf:"varint,1,opt,name=TiemLineNodeType,enum=riskmonitorserver.VariHoldLimitTimeLineNode_TimeLineNodeTypeEnum" json:"TiemLineNodeType,omitempty"`
+	Day                       uint32                                               `protobuf:"varint,2,opt,name=Day" json:"Day,omitempty"`
+	ConditionType             VariHoldLimitTimeLineNode_HoldLimitConditionTypeEnum `protobuf:"varint,3,opt,name=conditionType,enum=riskmonitorserver.VariHoldLimitTimeLineNode_HoldLimitConditionTypeEnum" json:"conditionType,omitempty"`
+	ConditionHoldLimitObjects []*ConditionHoldLimitObject                          `protobuf:"bytes,4,rep,name=ConditionHoldLimitObjects" json:"ConditionHoldLimitObjects,omitempty"`
+	XXX_NoUnkeyedLiteral      struct{}                                             `json:"-"`
+	XXX_unrecognized          []byte                                               `json:"-"`
+	XXX_sizecache             int32                                                `json:"-"`
+}
+
+func (m *VariHoldLimitTimeLineNode) Reset()         { *m = VariHoldLimitTimeLineNode{} }
+func (m *VariHoldLimitTimeLineNode) String() string { return proto.CompactTextString(m) }
+func (*VariHoldLimitTimeLineNode) ProtoMessage()    {}
+func (*VariHoldLimitTimeLineNode) Descriptor() ([]byte, []int) {
+	return fileDescriptor_risk_monitor_server_5c5ac32ac9cad650, []int{60}
+}
+func (m *VariHoldLimitTimeLineNode) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_VariHoldLimitTimeLineNode.Unmarshal(m, b)
+}
+func (m *VariHoldLimitTimeLineNode) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_VariHoldLimitTimeLineNode.Marshal(b, m, deterministic)
+}
+func (dst *VariHoldLimitTimeLineNode) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_VariHoldLimitTimeLineNode.Merge(dst, src)
+}
+func (m *VariHoldLimitTimeLineNode) XXX_Size() int {
+	return xxx_messageInfo_VariHoldLimitTimeLineNode.Size(m)
+}
+func (m *VariHoldLimitTimeLineNode) XXX_DiscardUnknown() {
+	xxx_messageInfo_VariHoldLimitTimeLineNode.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_VariHoldLimitTimeLineNode proto.InternalMessageInfo
+
+func (m *VariHoldLimitTimeLineNode) GetTiemLineNodeType() VariHoldLimitTimeLineNode_TimeLineNodeTypeEnum {
+	if m != nil {
+		return m.TiemLineNodeType
+	}
+	return VariHoldLimitTimeLineNode_Delivery_Month
+}
+
+func (m *VariHoldLimitTimeLineNode) GetDay() uint32 {
+	if m != nil {
+		return m.Day
+	}
+	return 0
+}
+
+func (m *VariHoldLimitTimeLineNode) GetConditionType() VariHoldLimitTimeLineNode_HoldLimitConditionTypeEnum {
+	if m != nil {
+		return m.ConditionType
+	}
+	return VariHoldLimitTimeLineNode_SINGLE_SIDE_HOLD_LIMIT
+}
+
+func (m *VariHoldLimitTimeLineNode) GetConditionHoldLimitObjects() []*ConditionHoldLimitObject {
+	if m != nil {
+		return m.ConditionHoldLimitObjects
+	}
+	return nil
+}
+
+type VariHoldLimitSetting struct {
+	PackFlag                   uint32                                      `protobuf:"varint,1,opt,name=pack_flag,json=packFlag" json:"pack_flag,omitempty"`
+	ActionFlag                 uint32                                      `protobuf:"varint,2,opt,name=action_flag,json=actionFlag" json:"action_flag,omitempty"`
+	ExchCode                   []byte                                      `protobuf:"bytes,3,opt,name=exch_code,json=exchCode,proto3" json:"exch_code,omitempty"`
+	VariCode                   []byte                                      `protobuf:"bytes,4,opt,name=vari_code,json=variCode,proto3" json:"vari_code,omitempty"`
+	StatisticsDateType         VariHoldLimitSetting_StatisticsDateTypeEnum `protobuf:"varint,5,opt,name=statisticsDateType,enum=riskmonitorserver.VariHoldLimitSetting_StatisticsDateTypeEnum" json:"statisticsDateType,omitempty"`
+	VariHoldLimitTimeLineNodes []*VariHoldLimitTimeLineNode                `protobuf:"bytes,6,rep,name=VariHoldLimitTimeLineNodes" json:"VariHoldLimitTimeLineNodes,omitempty"`
+	XXX_NoUnkeyedLiteral       struct{}                                    `json:"-"`
+	XXX_unrecognized           []byte                                      `json:"-"`
+	XXX_sizecache              int32                                       `json:"-"`
+}
+
+func (m *VariHoldLimitSetting) Reset()         { *m = VariHoldLimitSetting{} }
+func (m *VariHoldLimitSetting) String() string { return proto.CompactTextString(m) }
+func (*VariHoldLimitSetting) ProtoMessage()    {}
+func (*VariHoldLimitSetting) Descriptor() ([]byte, []int) {
+	return fileDescriptor_risk_monitor_server_5c5ac32ac9cad650, []int{61}
+}
+func (m *VariHoldLimitSetting) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_VariHoldLimitSetting.Unmarshal(m, b)
+}
+func (m *VariHoldLimitSetting) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_VariHoldLimitSetting.Marshal(b, m, deterministic)
+}
+func (dst *VariHoldLimitSetting) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_VariHoldLimitSetting.Merge(dst, src)
+}
+func (m *VariHoldLimitSetting) XXX_Size() int {
+	return xxx_messageInfo_VariHoldLimitSetting.Size(m)
+}
+func (m *VariHoldLimitSetting) XXX_DiscardUnknown() {
+	xxx_messageInfo_VariHoldLimitSetting.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_VariHoldLimitSetting proto.InternalMessageInfo
+
+func (m *VariHoldLimitSetting) GetPackFlag() uint32 {
+	if m != nil {
+		return m.PackFlag
+	}
+	return 0
+}
+
+func (m *VariHoldLimitSetting) GetActionFlag() uint32 {
+	if m != nil {
+		return m.ActionFlag
+	}
+	return 0
+}
+
+func (m *VariHoldLimitSetting) GetExchCode() []byte {
+	if m != nil {
+		return m.ExchCode
+	}
+	return nil
+}
+
+func (m *VariHoldLimitSetting) GetVariCode() []byte {
+	if m != nil {
+		return m.VariCode
+	}
+	return nil
+}
+
+func (m *VariHoldLimitSetting) GetStatisticsDateType() VariHoldLimitSetting_StatisticsDateTypeEnum {
+	if m != nil {
+		return m.StatisticsDateType
+	}
+	return VariHoldLimitSetting_Trade
+}
+
+func (m *VariHoldLimitSetting) GetVariHoldLimitTimeLineNodes() []*VariHoldLimitTimeLineNode {
+	if m != nil {
+		return m.VariHoldLimitTimeLineNodes
+	}
+	return nil
+}
+
+type VariArbitrageLimitTimeLineNode struct {
+	TiemLineNodeType     VariArbitrageLimitTimeLineNode_TimeLineNodeTypeEnum `protobuf:"varint,1,opt,name=TiemLineNodeType,enum=riskmonitorserver.VariArbitrageLimitTimeLineNode_TimeLineNodeTypeEnum" json:"TiemLineNodeType,omitempty"`
+	Day                  uint32                                              `protobuf:"varint,2,opt,name=Day" json:"Day,omitempty"`
+	Type                 VariArbitrageLimitTimeLineNode_LimitTypeEnum        `protobuf:"varint,3,opt,name=type,enum=riskmonitorserver.VariArbitrageLimitTimeLineNode_LimitTypeEnum" json:"type,omitempty"`
+	XXX_NoUnkeyedLiteral struct{}                                            `json:"-"`
+	XXX_unrecognized     []byte                                              `json:"-"`
+	XXX_sizecache        int32                                               `json:"-"`
+}
+
+func (m *VariArbitrageLimitTimeLineNode) Reset()         { *m = VariArbitrageLimitTimeLineNode{} }
+func (m *VariArbitrageLimitTimeLineNode) String() string { return proto.CompactTextString(m) }
+func (*VariArbitrageLimitTimeLineNode) ProtoMessage()    {}
+func (*VariArbitrageLimitTimeLineNode) Descriptor() ([]byte, []int) {
+	return fileDescriptor_risk_monitor_server_5c5ac32ac9cad650, []int{62}
+}
+func (m *VariArbitrageLimitTimeLineNode) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_VariArbitrageLimitTimeLineNode.Unmarshal(m, b)
+}
+func (m *VariArbitrageLimitTimeLineNode) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_VariArbitrageLimitTimeLineNode.Marshal(b, m, deterministic)
+}
+func (dst *VariArbitrageLimitTimeLineNode) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_VariArbitrageLimitTimeLineNode.Merge(dst, src)
+}
+func (m *VariArbitrageLimitTimeLineNode) XXX_Size() int {
+	return xxx_messageInfo_VariArbitrageLimitTimeLineNode.Size(m)
+}
+func (m *VariArbitrageLimitTimeLineNode) XXX_DiscardUnknown() {
+	xxx_messageInfo_VariArbitrageLimitTimeLineNode.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_VariArbitrageLimitTimeLineNode proto.InternalMessageInfo
+
+func (m *VariArbitrageLimitTimeLineNode) GetTiemLineNodeType() VariArbitrageLimitTimeLineNode_TimeLineNodeTypeEnum {
+	if m != nil {
+		return m.TiemLineNodeType
+	}
+	return VariArbitrageLimitTimeLineNode_Delivery_Month
+}
+
+func (m *VariArbitrageLimitTimeLineNode) GetDay() uint32 {
+	if m != nil {
+		return m.Day
+	}
+	return 0
+}
+
+func (m *VariArbitrageLimitTimeLineNode) GetType() VariArbitrageLimitTimeLineNode_LimitTypeEnum {
+	if m != nil {
+		return m.Type
+	}
+	return VariArbitrageLimitTimeLineNode_CzceDelive
+}
+
+type VariArbitrageLimitSetting struct {
+	PackFlag                        uint32                                           `protobuf:"varint,1,opt,name=pack_flag,json=packFlag" json:"pack_flag,omitempty"`
+	ActionFlag                      uint32                                           `protobuf:"varint,2,opt,name=action_flag,json=actionFlag" json:"action_flag,omitempty"`
+	ExchCode                        []byte                                           `protobuf:"bytes,3,opt,name=exch_code,json=exchCode,proto3" json:"exch_code,omitempty"`
+	VariCode                        []byte                                           `protobuf:"bytes,4,opt,name=vari_code,json=variCode,proto3" json:"vari_code,omitempty"`
+	StatisticsDateType              VariArbitrageLimitSetting_StatisticsDateTypeEnum `protobuf:"varint,5,opt,name=statisticsDateType,enum=riskmonitorserver.VariArbitrageLimitSetting_StatisticsDateTypeEnum" json:"statisticsDateType,omitempty"`
+	VariArbitrageLimitTimeLineNodes []*VariArbitrageLimitTimeLineNode                `protobuf:"bytes,6,rep,name=VariArbitrageLimitTimeLineNodes" json:"VariArbitrageLimitTimeLineNodes,omitempty"`
+	XXX_NoUnkeyedLiteral            struct{}                                         `json:"-"`
+	XXX_unrecognized                []byte                                           `json:"-"`
+	XXX_sizecache                   int32                                            `json:"-"`
+}
+
+func (m *VariArbitrageLimitSetting) Reset()         { *m = VariArbitrageLimitSetting{} }
+func (m *VariArbitrageLimitSetting) String() string { return proto.CompactTextString(m) }
+func (*VariArbitrageLimitSetting) ProtoMessage()    {}
+func (*VariArbitrageLimitSetting) Descriptor() ([]byte, []int) {
+	return fileDescriptor_risk_monitor_server_5c5ac32ac9cad650, []int{63}
+}
+func (m *VariArbitrageLimitSetting) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_VariArbitrageLimitSetting.Unmarshal(m, b)
+}
+func (m *VariArbitrageLimitSetting) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_VariArbitrageLimitSetting.Marshal(b, m, deterministic)
+}
+func (dst *VariArbitrageLimitSetting) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_VariArbitrageLimitSetting.Merge(dst, src)
+}
+func (m *VariArbitrageLimitSetting) XXX_Size() int {
+	return xxx_messageInfo_VariArbitrageLimitSetting.Size(m)
+}
+func (m *VariArbitrageLimitSetting) XXX_DiscardUnknown() {
+	xxx_messageInfo_VariArbitrageLimitSetting.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_VariArbitrageLimitSetting proto.InternalMessageInfo
+
+func (m *VariArbitrageLimitSetting) GetPackFlag() uint32 {
+	if m != nil {
+		return m.PackFlag
+	}
+	return 0
+}
+
+func (m *VariArbitrageLimitSetting) GetActionFlag() uint32 {
+	if m != nil {
+		return m.ActionFlag
+	}
+	return 0
+}
+
+func (m *VariArbitrageLimitSetting) GetExchCode() []byte {
+	if m != nil {
+		return m.ExchCode
+	}
+	return nil
+}
+
+func (m *VariArbitrageLimitSetting) GetVariCode() []byte {
+	if m != nil {
+		return m.VariCode
+	}
+	return nil
+}
+
+func (m *VariArbitrageLimitSetting) GetStatisticsDateType() VariArbitrageLimitSetting_StatisticsDateTypeEnum {
+	if m != nil {
+		return m.StatisticsDateType
+	}
+	return VariArbitrageLimitSetting_Trade
+}
+
+func (m *VariArbitrageLimitSetting) GetVariArbitrageLimitTimeLineNodes() []*VariArbitrageLimitTimeLineNode {
+	if m != nil {
+		return m.VariArbitrageLimitTimeLineNodes
+	}
+	return nil
+}
+
 func init() {
+	proto.RegisterType((*HeartBeat)(nil), "riskmonitorserver.HeartBeat")
 	proto.RegisterType((*SubscribeReq)(nil), "riskmonitorserver.SubscribeReq")
 	proto.RegisterType((*QryReq)(nil), "riskmonitorserver.QryReq")
 	proto.RegisterType((*RspInfo)(nil), "riskmonitorserver.RspInfo")
 	proto.RegisterType((*SettingValueField)(nil), "riskmonitorserver.SettingValueField")
 	proto.RegisterType((*QryHoldCustsByContractReq)(nil), "riskmonitorserver.QryHoldCustsByContractReq")
 	proto.RegisterType((*QryHoldCustsByContractRsp)(nil), "riskmonitorserver.QryHoldCustsByContractRsp")
+	proto.RegisterType((*QryTradeCalendarReq)(nil), "riskmonitorserver.QryTradeCalendarReq")
+	proto.RegisterType((*QryTradeCalendarRsp)(nil), "riskmonitorserver.QryTradeCalendarRsp")
 	proto.RegisterType((*QuoteMonRtn)(nil), "riskmonitorserver.QuoteMonRtn")
 	proto.RegisterType((*CustRiskRtn)(nil), "riskmonitorserver.CustRiskRtn")
 	proto.RegisterType((*CustHoldRtn)(nil), "riskmonitorserver.CustHoldRtn")
 	proto.RegisterType((*CustGroupHoldRtn)(nil), "riskmonitorserver.CustGroupHoldRtn")
+	proto.RegisterType((*NearDediveHoldRtn)(nil), "riskmonitorserver.NearDediveHoldRtn")
 	proto.RegisterType((*ProuctGroupRiskRtn)(nil), "riskmonitorserver.ProuctGroupRiskRtn")
 	proto.RegisterType((*QryCustSimpleInfoReq)(nil), "riskmonitorserver.QryCustSimpleInfoReq")
 	proto.RegisterType((*QryCustSimpleInfoRsp)(nil), "riskmonitorserver.QryCustSimpleInfoRsp")
@@ -5038,6 +7447,52 @@ func init() {
 	proto.RegisterType((*CorpHoldMonitorSetting)(nil), "riskmonitorserver.CorpHoldMonitorSetting")
 	proto.RegisterType((*QryForceCustInfoReq)(nil), "riskmonitorserver.QryForceCustInfoReq")
 	proto.RegisterType((*ForceCustInfoRsp)(nil), "riskmonitorserver.ForceCustInfoRsp")
+	proto.RegisterType((*CustHoldMonitorSetting)(nil), "riskmonitorserver.CustHoldMonitorSetting")
+	proto.RegisterType((*CustGroupHoldMonitorSetting)(nil), "riskmonitorserver.CustGroupHoldMonitorSetting")
+	proto.RegisterType((*NearDediveHoldMonitorSetting)(nil), "riskmonitorserver.NearDediveHoldMonitorSetting")
+	proto.RegisterType((*HoldMaxLimit)(nil), "riskmonitorserver.HoldMaxLimit")
+	proto.RegisterType((*HoldLimitDateNode)(nil), "riskmonitorserver.HoldLimitDateNode")
+	proto.RegisterType((*HoldLimitTimeLine)(nil), "riskmonitorserver.HoldLimitTimeLine")
+	proto.RegisterType((*MarginLimitDateNode)(nil), "riskmonitorserver.MarginLimitDateNode")
+	proto.RegisterType((*MarginLimitHoldNode)(nil), "riskmonitorserver.MarginLimitHoldNode")
+	proto.RegisterType((*MarginLimitTimeLine)(nil), "riskmonitorserver.MarginLimitTimeLine")
+	proto.RegisterType((*HoldLimitSetting)(nil), "riskmonitorserver.HoldLimitSetting")
+	proto.RegisterType((*MarginLimitSetting)(nil), "riskmonitorserver.MarginLimitSetting")
+	proto.RegisterType((*ArbitrageLimitDateNode)(nil), "riskmonitorserver.ArbitrageLimitDateNode")
+	proto.RegisterType((*ArbitrageLimitTimeLine)(nil), "riskmonitorserver.ArbitrageLimitTimeLine")
+	proto.RegisterType((*ArbitrageLimitSetting)(nil), "riskmonitorserver.ArbitrageLimitSetting")
+	proto.RegisterType((*EarlyWrningTimeSetting)(nil), "riskmonitorserver.EarlyWrningTimeSetting")
+	proto.RegisterType((*EarlyWrningValueSetting)(nil), "riskmonitorserver.EarlyWrningValueSetting")
+	proto.RegisterType((*NearDediveSetting)(nil), "riskmonitorserver.NearDediveSetting")
+	proto.RegisterType((*VariationObject)(nil), "riskmonitorserver.VariationObject")
+	proto.RegisterType((*VariMarginLimitTimeLineNode)(nil), "riskmonitorserver.VariMarginLimitTimeLineNode")
+	proto.RegisterType((*VariMarginLimitSetting)(nil), "riskmonitorserver.VariMarginLimitSetting")
+	proto.RegisterType((*ConditionHoldLimitObject)(nil), "riskmonitorserver.ConditionHoldLimitObject")
+	proto.RegisterType((*VariHoldLimitTimeLineNode)(nil), "riskmonitorserver.VariHoldLimitTimeLineNode")
+	proto.RegisterType((*VariHoldLimitSetting)(nil), "riskmonitorserver.VariHoldLimitSetting")
+	proto.RegisterType((*VariArbitrageLimitTimeLineNode)(nil), "riskmonitorserver.VariArbitrageLimitTimeLineNode")
+	proto.RegisterType((*VariArbitrageLimitSetting)(nil), "riskmonitorserver.VariArbitrageLimitSetting")
+	proto.RegisterEnum("riskmonitorserver.CustHoldRtn_HoldType", CustHoldRtn_HoldType_name, CustHoldRtn_HoldType_value)
+	proto.RegisterEnum("riskmonitorserver.CustGroupHoldRtn_HoldType", CustGroupHoldRtn_HoldType_name, CustGroupHoldRtn_HoldType_value)
+	proto.RegisterEnum("riskmonitorserver.QryCustSimpleInfoRsp_ClientType", QryCustSimpleInfoRsp_ClientType_name, QryCustSimpleInfoRsp_ClientType_value)
+	proto.RegisterEnum("riskmonitorserver.QuoteMonitorSetting_QuoteType", QuoteMonitorSetting_QuoteType_name, QuoteMonitorSetting_QuoteType_value)
+	proto.RegisterEnum("riskmonitorserver.HoldMaxLimit_HoldLimitConditionType", HoldMaxLimit_HoldLimitConditionType_name, HoldMaxLimit_HoldLimitConditionType_value)
+	proto.RegisterEnum("riskmonitorserver.HoldMaxLimit_QtyLimitType", HoldMaxLimit_QtyLimitType_name, HoldMaxLimit_QtyLimitType_value)
+	proto.RegisterEnum("riskmonitorserver.HoldMaxLimit_CompareFlag", HoldMaxLimit_CompareFlag_name, HoldMaxLimit_CompareFlag_value)
+	proto.RegisterEnum("riskmonitorserver.ArbitrageLimitDateNode_LimitType", ArbitrageLimitDateNode_LimitType_name, ArbitrageLimitDateNode_LimitType_value)
+	proto.RegisterEnum("riskmonitorserver.NearDediveSetting_CloseDateType", NearDediveSetting_CloseDateType_name, NearDediveSetting_CloseDateType_value)
+	proto.RegisterEnum("riskmonitorserver.NearDediveSetting_ClientType", NearDediveSetting_ClientType_name, NearDediveSetting_ClientType_value)
+	proto.RegisterEnum("riskmonitorserver.VariMarginLimitTimeLineNode_TimeLineNodeTypeEnum", VariMarginLimitTimeLineNode_TimeLineNodeTypeEnum_name, VariMarginLimitTimeLineNode_TimeLineNodeTypeEnum_value)
+	proto.RegisterEnum("riskmonitorserver.VariMarginLimitSetting_StatisticsDateTypeEnum", VariMarginLimitSetting_StatisticsDateTypeEnum_name, VariMarginLimitSetting_StatisticsDateTypeEnum_value)
+	proto.RegisterEnum("riskmonitorserver.VariMarginLimitSetting_PositionVariationMarginTypeEnum", VariMarginLimitSetting_PositionVariationMarginTypeEnum_name, VariMarginLimitSetting_PositionVariationMarginTypeEnum_value)
+	proto.RegisterEnum("riskmonitorserver.ConditionHoldLimitObject_CompareFlagEnum", ConditionHoldLimitObject_CompareFlagEnum_name, ConditionHoldLimitObject_CompareFlagEnum_value)
+	proto.RegisterEnum("riskmonitorserver.ConditionHoldLimitObject_QtyLimitTypeEnum", ConditionHoldLimitObject_QtyLimitTypeEnum_name, ConditionHoldLimitObject_QtyLimitTypeEnum_value)
+	proto.RegisterEnum("riskmonitorserver.VariHoldLimitTimeLineNode_TimeLineNodeTypeEnum", VariHoldLimitTimeLineNode_TimeLineNodeTypeEnum_name, VariHoldLimitTimeLineNode_TimeLineNodeTypeEnum_value)
+	proto.RegisterEnum("riskmonitorserver.VariHoldLimitTimeLineNode_HoldLimitConditionTypeEnum", VariHoldLimitTimeLineNode_HoldLimitConditionTypeEnum_name, VariHoldLimitTimeLineNode_HoldLimitConditionTypeEnum_value)
+	proto.RegisterEnum("riskmonitorserver.VariHoldLimitSetting_StatisticsDateTypeEnum", VariHoldLimitSetting_StatisticsDateTypeEnum_name, VariHoldLimitSetting_StatisticsDateTypeEnum_value)
+	proto.RegisterEnum("riskmonitorserver.VariArbitrageLimitTimeLineNode_TimeLineNodeTypeEnum", VariArbitrageLimitTimeLineNode_TimeLineNodeTypeEnum_name, VariArbitrageLimitTimeLineNode_TimeLineNodeTypeEnum_value)
+	proto.RegisterEnum("riskmonitorserver.VariArbitrageLimitTimeLineNode_LimitTypeEnum", VariArbitrageLimitTimeLineNode_LimitTypeEnum_name, VariArbitrageLimitTimeLineNode_LimitTypeEnum_value)
+	proto.RegisterEnum("riskmonitorserver.VariArbitrageLimitSetting_StatisticsDateTypeEnum", VariArbitrageLimitSetting_StatisticsDateTypeEnum_name, VariArbitrageLimitSetting_StatisticsDateTypeEnum_value)
 }
 
 // Reference imports to suppress errors if they are not otherwise used.
@@ -5051,24 +7506,23 @@ const _ = grpc.SupportPackageIsVersion4
 // Client API for RiskMonitorServer service
 
 type RiskMonitorServerClient interface {
-	// 可以本地缓存处理的查询请求
-	// 客户信息查询
-	QryCustSimpleInfo(ctx context.Context, in *QryCustSimpleInfoReq, opts ...grpc.CallOption) (RiskMonitorServer_QryCustSimpleInfoClient, error)
-	// 交易所对应品种查询
-	QryExchVari(ctx context.Context, in *QryExchVariReq, opts ...grpc.CallOption) (RiskMonitorServer_QryExchVariClient, error)
-	// 合约查询
-	QryContract(ctx context.Context, in *QryContractReq, opts ...grpc.CallOption) (RiskMonitorServer_QryContractClient, error)
+	// 订阅监控类请求
+	// 订阅通道资金
+	SubscribeTunnelRealFund(ctx context.Context, in *SubscribeReq, opts ...grpc.CallOption) (RiskMonitorServer_SubscribeTunnelRealFundClient, error)
+	// 订阅公司持仓监控
+	SubscribeCorpHoldMon(ctx context.Context, in *SubscribeReq, opts ...grpc.CallOption) (RiskMonitorServer_SubscribeCorpHoldMonClient, error)
 	// 订阅行情监控
 	SubscribeQuoteMon(ctx context.Context, in *SubscribeReq, opts ...grpc.CallOption) (RiskMonitorServer_SubscribeQuoteMonClient, error)
 	// 订阅风险客户推送
 	SubscribeCustRisk(ctx context.Context, in *SubscribeReq, opts ...grpc.CallOption) (RiskMonitorServer_SubscribeCustRiskClient, error)
-	// 风险监控配置项交互接口
-	// 设置风险合约级别
-	SetRiskContrLevel(ctx context.Context, opts ...grpc.CallOption) (RiskMonitorServer_SetRiskContrLevelClient, error)
-	// 设置客户风险监控
-	SetCustRiskMonitor(ctx context.Context, opts ...grpc.CallOption) (RiskMonitorServer_SetCustRiskMonitorClient, error)
-	// 设置行情监控
-	SetQuoteMonitor(ctx context.Context, opts ...grpc.CallOption) (RiskMonitorServer_SetQuoteMonitorClient, error)
+	// 订阅客户持仓推送
+	SubscribeCustHold(ctx context.Context, in *SubscribeReq, opts ...grpc.CallOption) (RiskMonitorServer_SubscribeCustHoldClient, error)
+	// 订阅客户组持仓推送
+	SubscribeCustGroupHold(ctx context.Context, in *SubscribeReq, opts ...grpc.CallOption) (RiskMonitorServer_SubscribeCustGroupHoldClient, error)
+	// 订阅临近交易日持仓推送
+	SubscribeNearDediveHold(ctx context.Context, in *SubscribeReq, opts ...grpc.CallOption) (RiskMonitorServer_SubscribeNearDediveHoldClient, error)
+	// 订阅商品组风险推送
+	SubscribeProuctGroupRisk(ctx context.Context, in *SubscribeReq, opts ...grpc.CallOption) (RiskMonitorServer_SubscribeProuctGroupRiskClient, error)
 }
 
 type riskMonitorServerClient struct {
@@ -5079,12 +7533,12 @@ func NewRiskMonitorServerClient(cc *grpc.ClientConn) RiskMonitorServerClient {
 	return &riskMonitorServerClient{cc}
 }
 
-func (c *riskMonitorServerClient) QryCustSimpleInfo(ctx context.Context, in *QryCustSimpleInfoReq, opts ...grpc.CallOption) (RiskMonitorServer_QryCustSimpleInfoClient, error) {
-	stream, err := grpc.NewClientStream(ctx, &_RiskMonitorServer_serviceDesc.Streams[0], c.cc, "/riskmonitorserver.RiskMonitorServer/QryCustSimpleInfo", opts...)
+func (c *riskMonitorServerClient) SubscribeTunnelRealFund(ctx context.Context, in *SubscribeReq, opts ...grpc.CallOption) (RiskMonitorServer_SubscribeTunnelRealFundClient, error) {
+	stream, err := grpc.NewClientStream(ctx, &_RiskMonitorServer_serviceDesc.Streams[0], c.cc, "/riskmonitorserver.RiskMonitorServer/SubscribeTunnelRealFund", opts...)
 	if err != nil {
 		return nil, err
 	}
-	x := &riskMonitorServerQryCustSimpleInfoClient{stream}
+	x := &riskMonitorServerSubscribeTunnelRealFundClient{stream}
 	if err := x.ClientStream.SendMsg(in); err != nil {
 		return nil, err
 	}
@@ -5094,29 +7548,29 @@ func (c *riskMonitorServerClient) QryCustSimpleInfo(ctx context.Context, in *Qry
 	return x, nil
 }
 
-type RiskMonitorServer_QryCustSimpleInfoClient interface {
-	Recv() (*QryCustSimpleInfoRsp, error)
+type RiskMonitorServer_SubscribeTunnelRealFundClient interface {
+	Recv() (*TunnelRealFundRtn, error)
 	grpc.ClientStream
 }
 
-type riskMonitorServerQryCustSimpleInfoClient struct {
+type riskMonitorServerSubscribeTunnelRealFundClient struct {
 	grpc.ClientStream
 }
 
-func (x *riskMonitorServerQryCustSimpleInfoClient) Recv() (*QryCustSimpleInfoRsp, error) {
-	m := new(QryCustSimpleInfoRsp)
+func (x *riskMonitorServerSubscribeTunnelRealFundClient) Recv() (*TunnelRealFundRtn, error) {
+	m := new(TunnelRealFundRtn)
 	if err := x.ClientStream.RecvMsg(m); err != nil {
 		return nil, err
 	}
 	return m, nil
 }
 
-func (c *riskMonitorServerClient) QryExchVari(ctx context.Context, in *QryExchVariReq, opts ...grpc.CallOption) (RiskMonitorServer_QryExchVariClient, error) {
-	stream, err := grpc.NewClientStream(ctx, &_RiskMonitorServer_serviceDesc.Streams[1], c.cc, "/riskmonitorserver.RiskMonitorServer/QryExchVari", opts...)
+func (c *riskMonitorServerClient) SubscribeCorpHoldMon(ctx context.Context, in *SubscribeReq, opts ...grpc.CallOption) (RiskMonitorServer_SubscribeCorpHoldMonClient, error) {
+	stream, err := grpc.NewClientStream(ctx, &_RiskMonitorServer_serviceDesc.Streams[1], c.cc, "/riskmonitorserver.RiskMonitorServer/SubscribeCorpHoldMon", opts...)
 	if err != nil {
 		return nil, err
 	}
-	x := &riskMonitorServerQryExchVariClient{stream}
+	x := &riskMonitorServerSubscribeCorpHoldMonClient{stream}
 	if err := x.ClientStream.SendMsg(in); err != nil {
 		return nil, err
 	}
@@ -5126,49 +7580,17 @@ func (c *riskMonitorServerClient) QryExchVari(ctx context.Context, in *QryExchVa
 	return x, nil
 }
 
-type RiskMonitorServer_QryExchVariClient interface {
-	Recv() (*QryExchVariRsp, error)
+type RiskMonitorServer_SubscribeCorpHoldMonClient interface {
+	Recv() (*CorpHoldMonRtn, error)
 	grpc.ClientStream
 }
 
-type riskMonitorServerQryExchVariClient struct {
+type riskMonitorServerSubscribeCorpHoldMonClient struct {
 	grpc.ClientStream
 }
 
-func (x *riskMonitorServerQryExchVariClient) Recv() (*QryExchVariRsp, error) {
-	m := new(QryExchVariRsp)
-	if err := x.ClientStream.RecvMsg(m); err != nil {
-		return nil, err
-	}
-	return m, nil
-}
-
-func (c *riskMonitorServerClient) QryContract(ctx context.Context, in *QryContractReq, opts ...grpc.CallOption) (RiskMonitorServer_QryContractClient, error) {
-	stream, err := grpc.NewClientStream(ctx, &_RiskMonitorServer_serviceDesc.Streams[2], c.cc, "/riskmonitorserver.RiskMonitorServer/QryContract", opts...)
-	if err != nil {
-		return nil, err
-	}
-	x := &riskMonitorServerQryContractClient{stream}
-	if err := x.ClientStream.SendMsg(in); err != nil {
-		return nil, err
-	}
-	if err := x.ClientStream.CloseSend(); err != nil {
-		return nil, err
-	}
-	return x, nil
-}
-
-type RiskMonitorServer_QryContractClient interface {
-	Recv() (*QryContractRsp, error)
-	grpc.ClientStream
-}
-
-type riskMonitorServerQryContractClient struct {
-	grpc.ClientStream
-}
-
-func (x *riskMonitorServerQryContractClient) Recv() (*QryContractRsp, error) {
-	m := new(QryContractRsp)
+func (x *riskMonitorServerSubscribeCorpHoldMonClient) Recv() (*CorpHoldMonRtn, error) {
+	m := new(CorpHoldMonRtn)
 	if err := x.ClientStream.RecvMsg(m); err != nil {
 		return nil, err
 	}
@@ -5176,7 +7598,7 @@ func (x *riskMonitorServerQryContractClient) Recv() (*QryContractRsp, error) {
 }
 
 func (c *riskMonitorServerClient) SubscribeQuoteMon(ctx context.Context, in *SubscribeReq, opts ...grpc.CallOption) (RiskMonitorServer_SubscribeQuoteMonClient, error) {
-	stream, err := grpc.NewClientStream(ctx, &_RiskMonitorServer_serviceDesc.Streams[3], c.cc, "/riskmonitorserver.RiskMonitorServer/SubscribeQuoteMon", opts...)
+	stream, err := grpc.NewClientStream(ctx, &_RiskMonitorServer_serviceDesc.Streams[2], c.cc, "/riskmonitorserver.RiskMonitorServer/SubscribeQuoteMon", opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -5208,7 +7630,7 @@ func (x *riskMonitorServerSubscribeQuoteMonClient) Recv() (*QuoteMonRtn, error) 
 }
 
 func (c *riskMonitorServerClient) SubscribeCustRisk(ctx context.Context, in *SubscribeReq, opts ...grpc.CallOption) (RiskMonitorServer_SubscribeCustRiskClient, error) {
-	stream, err := grpc.NewClientStream(ctx, &_RiskMonitorServer_serviceDesc.Streams[4], c.cc, "/riskmonitorserver.RiskMonitorServer/SubscribeCustRisk", opts...)
+	stream, err := grpc.NewClientStream(ctx, &_RiskMonitorServer_serviceDesc.Streams[3], c.cc, "/riskmonitorserver.RiskMonitorServer/SubscribeCustRisk", opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -5239,102 +7661,128 @@ func (x *riskMonitorServerSubscribeCustRiskClient) Recv() (*CustRiskRtn, error) 
 	return m, nil
 }
 
-func (c *riskMonitorServerClient) SetRiskContrLevel(ctx context.Context, opts ...grpc.CallOption) (RiskMonitorServer_SetRiskContrLevelClient, error) {
-	stream, err := grpc.NewClientStream(ctx, &_RiskMonitorServer_serviceDesc.Streams[5], c.cc, "/riskmonitorserver.RiskMonitorServer/SetRiskContrLevel", opts...)
+func (c *riskMonitorServerClient) SubscribeCustHold(ctx context.Context, in *SubscribeReq, opts ...grpc.CallOption) (RiskMonitorServer_SubscribeCustHoldClient, error) {
+	stream, err := grpc.NewClientStream(ctx, &_RiskMonitorServer_serviceDesc.Streams[4], c.cc, "/riskmonitorserver.RiskMonitorServer/SubscribeCustHold", opts...)
 	if err != nil {
 		return nil, err
 	}
-	x := &riskMonitorServerSetRiskContrLevelClient{stream}
-	return x, nil
-}
-
-type RiskMonitorServer_SetRiskContrLevelClient interface {
-	Send(*RiskContrLevelSetting) error
-	CloseAndRecv() (*RspInfo, error)
-	grpc.ClientStream
-}
-
-type riskMonitorServerSetRiskContrLevelClient struct {
-	grpc.ClientStream
-}
-
-func (x *riskMonitorServerSetRiskContrLevelClient) Send(m *RiskContrLevelSetting) error {
-	return x.ClientStream.SendMsg(m)
-}
-
-func (x *riskMonitorServerSetRiskContrLevelClient) CloseAndRecv() (*RspInfo, error) {
+	x := &riskMonitorServerSubscribeCustHoldClient{stream}
+	if err := x.ClientStream.SendMsg(in); err != nil {
+		return nil, err
+	}
 	if err := x.ClientStream.CloseSend(); err != nil {
 		return nil, err
 	}
-	m := new(RspInfo)
+	return x, nil
+}
+
+type RiskMonitorServer_SubscribeCustHoldClient interface {
+	Recv() (*CustHoldRtn, error)
+	grpc.ClientStream
+}
+
+type riskMonitorServerSubscribeCustHoldClient struct {
+	grpc.ClientStream
+}
+
+func (x *riskMonitorServerSubscribeCustHoldClient) Recv() (*CustHoldRtn, error) {
+	m := new(CustHoldRtn)
 	if err := x.ClientStream.RecvMsg(m); err != nil {
 		return nil, err
 	}
 	return m, nil
 }
 
-func (c *riskMonitorServerClient) SetCustRiskMonitor(ctx context.Context, opts ...grpc.CallOption) (RiskMonitorServer_SetCustRiskMonitorClient, error) {
-	stream, err := grpc.NewClientStream(ctx, &_RiskMonitorServer_serviceDesc.Streams[6], c.cc, "/riskmonitorserver.RiskMonitorServer/SetCustRiskMonitor", opts...)
+func (c *riskMonitorServerClient) SubscribeCustGroupHold(ctx context.Context, in *SubscribeReq, opts ...grpc.CallOption) (RiskMonitorServer_SubscribeCustGroupHoldClient, error) {
+	stream, err := grpc.NewClientStream(ctx, &_RiskMonitorServer_serviceDesc.Streams[5], c.cc, "/riskmonitorserver.RiskMonitorServer/SubscribeCustGroupHold", opts...)
 	if err != nil {
 		return nil, err
 	}
-	x := &riskMonitorServerSetCustRiskMonitorClient{stream}
-	return x, nil
-}
-
-type RiskMonitorServer_SetCustRiskMonitorClient interface {
-	Send(*CustRiskMonitorSetting) error
-	CloseAndRecv() (*RspInfo, error)
-	grpc.ClientStream
-}
-
-type riskMonitorServerSetCustRiskMonitorClient struct {
-	grpc.ClientStream
-}
-
-func (x *riskMonitorServerSetCustRiskMonitorClient) Send(m *CustRiskMonitorSetting) error {
-	return x.ClientStream.SendMsg(m)
-}
-
-func (x *riskMonitorServerSetCustRiskMonitorClient) CloseAndRecv() (*RspInfo, error) {
+	x := &riskMonitorServerSubscribeCustGroupHoldClient{stream}
+	if err := x.ClientStream.SendMsg(in); err != nil {
+		return nil, err
+	}
 	if err := x.ClientStream.CloseSend(); err != nil {
 		return nil, err
 	}
-	m := new(RspInfo)
+	return x, nil
+}
+
+type RiskMonitorServer_SubscribeCustGroupHoldClient interface {
+	Recv() (*CustGroupHoldRtn, error)
+	grpc.ClientStream
+}
+
+type riskMonitorServerSubscribeCustGroupHoldClient struct {
+	grpc.ClientStream
+}
+
+func (x *riskMonitorServerSubscribeCustGroupHoldClient) Recv() (*CustGroupHoldRtn, error) {
+	m := new(CustGroupHoldRtn)
 	if err := x.ClientStream.RecvMsg(m); err != nil {
 		return nil, err
 	}
 	return m, nil
 }
 
-func (c *riskMonitorServerClient) SetQuoteMonitor(ctx context.Context, opts ...grpc.CallOption) (RiskMonitorServer_SetQuoteMonitorClient, error) {
-	stream, err := grpc.NewClientStream(ctx, &_RiskMonitorServer_serviceDesc.Streams[7], c.cc, "/riskmonitorserver.RiskMonitorServer/SetQuoteMonitor", opts...)
+func (c *riskMonitorServerClient) SubscribeNearDediveHold(ctx context.Context, in *SubscribeReq, opts ...grpc.CallOption) (RiskMonitorServer_SubscribeNearDediveHoldClient, error) {
+	stream, err := grpc.NewClientStream(ctx, &_RiskMonitorServer_serviceDesc.Streams[6], c.cc, "/riskmonitorserver.RiskMonitorServer/SubscribeNearDediveHold", opts...)
 	if err != nil {
 		return nil, err
 	}
-	x := &riskMonitorServerSetQuoteMonitorClient{stream}
-	return x, nil
-}
-
-type RiskMonitorServer_SetQuoteMonitorClient interface {
-	Send(*QuoteMonitorSetting) error
-	CloseAndRecv() (*RspInfo, error)
-	grpc.ClientStream
-}
-
-type riskMonitorServerSetQuoteMonitorClient struct {
-	grpc.ClientStream
-}
-
-func (x *riskMonitorServerSetQuoteMonitorClient) Send(m *QuoteMonitorSetting) error {
-	return x.ClientStream.SendMsg(m)
-}
-
-func (x *riskMonitorServerSetQuoteMonitorClient) CloseAndRecv() (*RspInfo, error) {
+	x := &riskMonitorServerSubscribeNearDediveHoldClient{stream}
+	if err := x.ClientStream.SendMsg(in); err != nil {
+		return nil, err
+	}
 	if err := x.ClientStream.CloseSend(); err != nil {
 		return nil, err
 	}
-	m := new(RspInfo)
+	return x, nil
+}
+
+type RiskMonitorServer_SubscribeNearDediveHoldClient interface {
+	Recv() (*NearDediveHoldRtn, error)
+	grpc.ClientStream
+}
+
+type riskMonitorServerSubscribeNearDediveHoldClient struct {
+	grpc.ClientStream
+}
+
+func (x *riskMonitorServerSubscribeNearDediveHoldClient) Recv() (*NearDediveHoldRtn, error) {
+	m := new(NearDediveHoldRtn)
+	if err := x.ClientStream.RecvMsg(m); err != nil {
+		return nil, err
+	}
+	return m, nil
+}
+
+func (c *riskMonitorServerClient) SubscribeProuctGroupRisk(ctx context.Context, in *SubscribeReq, opts ...grpc.CallOption) (RiskMonitorServer_SubscribeProuctGroupRiskClient, error) {
+	stream, err := grpc.NewClientStream(ctx, &_RiskMonitorServer_serviceDesc.Streams[7], c.cc, "/riskmonitorserver.RiskMonitorServer/SubscribeProuctGroupRisk", opts...)
+	if err != nil {
+		return nil, err
+	}
+	x := &riskMonitorServerSubscribeProuctGroupRiskClient{stream}
+	if err := x.ClientStream.SendMsg(in); err != nil {
+		return nil, err
+	}
+	if err := x.ClientStream.CloseSend(); err != nil {
+		return nil, err
+	}
+	return x, nil
+}
+
+type RiskMonitorServer_SubscribeProuctGroupRiskClient interface {
+	Recv() (*ProuctGroupRiskRtn, error)
+	grpc.ClientStream
+}
+
+type riskMonitorServerSubscribeProuctGroupRiskClient struct {
+	grpc.ClientStream
+}
+
+func (x *riskMonitorServerSubscribeProuctGroupRiskClient) Recv() (*ProuctGroupRiskRtn, error) {
+	m := new(ProuctGroupRiskRtn)
 	if err := x.ClientStream.RecvMsg(m); err != nil {
 		return nil, err
 	}
@@ -5344,90 +7792,68 @@ func (x *riskMonitorServerSetQuoteMonitorClient) CloseAndRecv() (*RspInfo, error
 // Server API for RiskMonitorServer service
 
 type RiskMonitorServerServer interface {
-	// 可以本地缓存处理的查询请求
-	// 客户信息查询
-	QryCustSimpleInfo(*QryCustSimpleInfoReq, RiskMonitorServer_QryCustSimpleInfoServer) error
-	// 交易所对应品种查询
-	QryExchVari(*QryExchVariReq, RiskMonitorServer_QryExchVariServer) error
-	// 合约查询
-	QryContract(*QryContractReq, RiskMonitorServer_QryContractServer) error
+	// 订阅监控类请求
+	// 订阅通道资金
+	SubscribeTunnelRealFund(*SubscribeReq, RiskMonitorServer_SubscribeTunnelRealFundServer) error
+	// 订阅公司持仓监控
+	SubscribeCorpHoldMon(*SubscribeReq, RiskMonitorServer_SubscribeCorpHoldMonServer) error
 	// 订阅行情监控
 	SubscribeQuoteMon(*SubscribeReq, RiskMonitorServer_SubscribeQuoteMonServer) error
 	// 订阅风险客户推送
 	SubscribeCustRisk(*SubscribeReq, RiskMonitorServer_SubscribeCustRiskServer) error
-	// 风险监控配置项交互接口
-	// 设置风险合约级别
-	SetRiskContrLevel(RiskMonitorServer_SetRiskContrLevelServer) error
-	// 设置客户风险监控
-	SetCustRiskMonitor(RiskMonitorServer_SetCustRiskMonitorServer) error
-	// 设置行情监控
-	SetQuoteMonitor(RiskMonitorServer_SetQuoteMonitorServer) error
+	// 订阅客户持仓推送
+	SubscribeCustHold(*SubscribeReq, RiskMonitorServer_SubscribeCustHoldServer) error
+	// 订阅客户组持仓推送
+	SubscribeCustGroupHold(*SubscribeReq, RiskMonitorServer_SubscribeCustGroupHoldServer) error
+	// 订阅临近交易日持仓推送
+	SubscribeNearDediveHold(*SubscribeReq, RiskMonitorServer_SubscribeNearDediveHoldServer) error
+	// 订阅商品组风险推送
+	SubscribeProuctGroupRisk(*SubscribeReq, RiskMonitorServer_SubscribeProuctGroupRiskServer) error
 }
 
 func RegisterRiskMonitorServerServer(s *grpc.Server, srv RiskMonitorServerServer) {
 	s.RegisterService(&_RiskMonitorServer_serviceDesc, srv)
 }
 
-func _RiskMonitorServer_QryCustSimpleInfo_Handler(srv interface{}, stream grpc.ServerStream) error {
-	m := new(QryCustSimpleInfoReq)
+func _RiskMonitorServer_SubscribeTunnelRealFund_Handler(srv interface{}, stream grpc.ServerStream) error {
+	m := new(SubscribeReq)
 	if err := stream.RecvMsg(m); err != nil {
 		return err
 	}
-	return srv.(RiskMonitorServerServer).QryCustSimpleInfo(m, &riskMonitorServerQryCustSimpleInfoServer{stream})
+	return srv.(RiskMonitorServerServer).SubscribeTunnelRealFund(m, &riskMonitorServerSubscribeTunnelRealFundServer{stream})
 }
 
-type RiskMonitorServer_QryCustSimpleInfoServer interface {
-	Send(*QryCustSimpleInfoRsp) error
+type RiskMonitorServer_SubscribeTunnelRealFundServer interface {
+	Send(*TunnelRealFundRtn) error
 	grpc.ServerStream
 }
 
-type riskMonitorServerQryCustSimpleInfoServer struct {
+type riskMonitorServerSubscribeTunnelRealFundServer struct {
 	grpc.ServerStream
 }
 
-func (x *riskMonitorServerQryCustSimpleInfoServer) Send(m *QryCustSimpleInfoRsp) error {
+func (x *riskMonitorServerSubscribeTunnelRealFundServer) Send(m *TunnelRealFundRtn) error {
 	return x.ServerStream.SendMsg(m)
 }
 
-func _RiskMonitorServer_QryExchVari_Handler(srv interface{}, stream grpc.ServerStream) error {
-	m := new(QryExchVariReq)
+func _RiskMonitorServer_SubscribeCorpHoldMon_Handler(srv interface{}, stream grpc.ServerStream) error {
+	m := new(SubscribeReq)
 	if err := stream.RecvMsg(m); err != nil {
 		return err
 	}
-	return srv.(RiskMonitorServerServer).QryExchVari(m, &riskMonitorServerQryExchVariServer{stream})
+	return srv.(RiskMonitorServerServer).SubscribeCorpHoldMon(m, &riskMonitorServerSubscribeCorpHoldMonServer{stream})
 }
 
-type RiskMonitorServer_QryExchVariServer interface {
-	Send(*QryExchVariRsp) error
+type RiskMonitorServer_SubscribeCorpHoldMonServer interface {
+	Send(*CorpHoldMonRtn) error
 	grpc.ServerStream
 }
 
-type riskMonitorServerQryExchVariServer struct {
+type riskMonitorServerSubscribeCorpHoldMonServer struct {
 	grpc.ServerStream
 }
 
-func (x *riskMonitorServerQryExchVariServer) Send(m *QryExchVariRsp) error {
-	return x.ServerStream.SendMsg(m)
-}
-
-func _RiskMonitorServer_QryContract_Handler(srv interface{}, stream grpc.ServerStream) error {
-	m := new(QryContractReq)
-	if err := stream.RecvMsg(m); err != nil {
-		return err
-	}
-	return srv.(RiskMonitorServerServer).QryContract(m, &riskMonitorServerQryContractServer{stream})
-}
-
-type RiskMonitorServer_QryContractServer interface {
-	Send(*QryContractRsp) error
-	grpc.ServerStream
-}
-
-type riskMonitorServerQryContractServer struct {
-	grpc.ServerStream
-}
-
-func (x *riskMonitorServerQryContractServer) Send(m *QryContractRsp) error {
+func (x *riskMonitorServerSubscribeCorpHoldMonServer) Send(m *CorpHoldMonRtn) error {
 	return x.ServerStream.SendMsg(m)
 }
 
@@ -5473,82 +7899,88 @@ func (x *riskMonitorServerSubscribeCustRiskServer) Send(m *CustRiskRtn) error {
 	return x.ServerStream.SendMsg(m)
 }
 
-func _RiskMonitorServer_SetRiskContrLevel_Handler(srv interface{}, stream grpc.ServerStream) error {
-	return srv.(RiskMonitorServerServer).SetRiskContrLevel(&riskMonitorServerSetRiskContrLevelServer{stream})
+func _RiskMonitorServer_SubscribeCustHold_Handler(srv interface{}, stream grpc.ServerStream) error {
+	m := new(SubscribeReq)
+	if err := stream.RecvMsg(m); err != nil {
+		return err
+	}
+	return srv.(RiskMonitorServerServer).SubscribeCustHold(m, &riskMonitorServerSubscribeCustHoldServer{stream})
 }
 
-type RiskMonitorServer_SetRiskContrLevelServer interface {
-	SendAndClose(*RspInfo) error
-	Recv() (*RiskContrLevelSetting, error)
+type RiskMonitorServer_SubscribeCustHoldServer interface {
+	Send(*CustHoldRtn) error
 	grpc.ServerStream
 }
 
-type riskMonitorServerSetRiskContrLevelServer struct {
+type riskMonitorServerSubscribeCustHoldServer struct {
 	grpc.ServerStream
 }
 
-func (x *riskMonitorServerSetRiskContrLevelServer) SendAndClose(m *RspInfo) error {
+func (x *riskMonitorServerSubscribeCustHoldServer) Send(m *CustHoldRtn) error {
 	return x.ServerStream.SendMsg(m)
 }
 
-func (x *riskMonitorServerSetRiskContrLevelServer) Recv() (*RiskContrLevelSetting, error) {
-	m := new(RiskContrLevelSetting)
-	if err := x.ServerStream.RecvMsg(m); err != nil {
-		return nil, err
+func _RiskMonitorServer_SubscribeCustGroupHold_Handler(srv interface{}, stream grpc.ServerStream) error {
+	m := new(SubscribeReq)
+	if err := stream.RecvMsg(m); err != nil {
+		return err
 	}
-	return m, nil
+	return srv.(RiskMonitorServerServer).SubscribeCustGroupHold(m, &riskMonitorServerSubscribeCustGroupHoldServer{stream})
 }
 
-func _RiskMonitorServer_SetCustRiskMonitor_Handler(srv interface{}, stream grpc.ServerStream) error {
-	return srv.(RiskMonitorServerServer).SetCustRiskMonitor(&riskMonitorServerSetCustRiskMonitorServer{stream})
-}
-
-type RiskMonitorServer_SetCustRiskMonitorServer interface {
-	SendAndClose(*RspInfo) error
-	Recv() (*CustRiskMonitorSetting, error)
+type RiskMonitorServer_SubscribeCustGroupHoldServer interface {
+	Send(*CustGroupHoldRtn) error
 	grpc.ServerStream
 }
 
-type riskMonitorServerSetCustRiskMonitorServer struct {
+type riskMonitorServerSubscribeCustGroupHoldServer struct {
 	grpc.ServerStream
 }
 
-func (x *riskMonitorServerSetCustRiskMonitorServer) SendAndClose(m *RspInfo) error {
+func (x *riskMonitorServerSubscribeCustGroupHoldServer) Send(m *CustGroupHoldRtn) error {
 	return x.ServerStream.SendMsg(m)
 }
 
-func (x *riskMonitorServerSetCustRiskMonitorServer) Recv() (*CustRiskMonitorSetting, error) {
-	m := new(CustRiskMonitorSetting)
-	if err := x.ServerStream.RecvMsg(m); err != nil {
-		return nil, err
+func _RiskMonitorServer_SubscribeNearDediveHold_Handler(srv interface{}, stream grpc.ServerStream) error {
+	m := new(SubscribeReq)
+	if err := stream.RecvMsg(m); err != nil {
+		return err
 	}
-	return m, nil
+	return srv.(RiskMonitorServerServer).SubscribeNearDediveHold(m, &riskMonitorServerSubscribeNearDediveHoldServer{stream})
 }
 
-func _RiskMonitorServer_SetQuoteMonitor_Handler(srv interface{}, stream grpc.ServerStream) error {
-	return srv.(RiskMonitorServerServer).SetQuoteMonitor(&riskMonitorServerSetQuoteMonitorServer{stream})
-}
-
-type RiskMonitorServer_SetQuoteMonitorServer interface {
-	SendAndClose(*RspInfo) error
-	Recv() (*QuoteMonitorSetting, error)
+type RiskMonitorServer_SubscribeNearDediveHoldServer interface {
+	Send(*NearDediveHoldRtn) error
 	grpc.ServerStream
 }
 
-type riskMonitorServerSetQuoteMonitorServer struct {
+type riskMonitorServerSubscribeNearDediveHoldServer struct {
 	grpc.ServerStream
 }
 
-func (x *riskMonitorServerSetQuoteMonitorServer) SendAndClose(m *RspInfo) error {
+func (x *riskMonitorServerSubscribeNearDediveHoldServer) Send(m *NearDediveHoldRtn) error {
 	return x.ServerStream.SendMsg(m)
 }
 
-func (x *riskMonitorServerSetQuoteMonitorServer) Recv() (*QuoteMonitorSetting, error) {
-	m := new(QuoteMonitorSetting)
-	if err := x.ServerStream.RecvMsg(m); err != nil {
-		return nil, err
+func _RiskMonitorServer_SubscribeProuctGroupRisk_Handler(srv interface{}, stream grpc.ServerStream) error {
+	m := new(SubscribeReq)
+	if err := stream.RecvMsg(m); err != nil {
+		return err
 	}
-	return m, nil
+	return srv.(RiskMonitorServerServer).SubscribeProuctGroupRisk(m, &riskMonitorServerSubscribeProuctGroupRiskServer{stream})
+}
+
+type RiskMonitorServer_SubscribeProuctGroupRiskServer interface {
+	Send(*ProuctGroupRiskRtn) error
+	grpc.ServerStream
+}
+
+type riskMonitorServerSubscribeProuctGroupRiskServer struct {
+	grpc.ServerStream
+}
+
+func (x *riskMonitorServerSubscribeProuctGroupRiskServer) Send(m *ProuctGroupRiskRtn) error {
+	return x.ServerStream.SendMsg(m)
 }
 
 var _RiskMonitorServer_serviceDesc = grpc.ServiceDesc{
@@ -5557,18 +7989,13 @@ var _RiskMonitorServer_serviceDesc = grpc.ServiceDesc{
 	Methods:     []grpc.MethodDesc{},
 	Streams: []grpc.StreamDesc{
 		{
-			StreamName:    "QryCustSimpleInfo",
-			Handler:       _RiskMonitorServer_QryCustSimpleInfo_Handler,
+			StreamName:    "SubscribeTunnelRealFund",
+			Handler:       _RiskMonitorServer_SubscribeTunnelRealFund_Handler,
 			ServerStreams: true,
 		},
 		{
-			StreamName:    "QryExchVari",
-			Handler:       _RiskMonitorServer_QryExchVari_Handler,
-			ServerStreams: true,
-		},
-		{
-			StreamName:    "QryContract",
-			Handler:       _RiskMonitorServer_QryContract_Handler,
+			StreamName:    "SubscribeCorpHoldMon",
+			Handler:       _RiskMonitorServer_SubscribeCorpHoldMon_Handler,
 			ServerStreams: true,
 		},
 		{
@@ -5582,350 +8009,462 @@ var _RiskMonitorServer_serviceDesc = grpc.ServiceDesc{
 			ServerStreams: true,
 		},
 		{
-			StreamName:    "SetRiskContrLevel",
-			Handler:       _RiskMonitorServer_SetRiskContrLevel_Handler,
-			ClientStreams: true,
+			StreamName:    "SubscribeCustHold",
+			Handler:       _RiskMonitorServer_SubscribeCustHold_Handler,
+			ServerStreams: true,
 		},
 		{
-			StreamName:    "SetCustRiskMonitor",
-			Handler:       _RiskMonitorServer_SetCustRiskMonitor_Handler,
-			ClientStreams: true,
+			StreamName:    "SubscribeCustGroupHold",
+			Handler:       _RiskMonitorServer_SubscribeCustGroupHold_Handler,
+			ServerStreams: true,
 		},
 		{
-			StreamName:    "SetQuoteMonitor",
-			Handler:       _RiskMonitorServer_SetQuoteMonitor_Handler,
-			ClientStreams: true,
+			StreamName:    "SubscribeNearDediveHold",
+			Handler:       _RiskMonitorServer_SubscribeNearDediveHold_Handler,
+			ServerStreams: true,
+		},
+		{
+			StreamName:    "SubscribeProuctGroupRisk",
+			Handler:       _RiskMonitorServer_SubscribeProuctGroupRisk_Handler,
+			ServerStreams: true,
 		},
 	},
 	Metadata: "risk_monitor_server.proto",
 }
 
 func init() {
-	proto.RegisterFile("risk_monitor_server.proto", fileDescriptor_risk_monitor_server_d760d86102bb67c7)
+	proto.RegisterFile("risk_monitor_server.proto", fileDescriptor_risk_monitor_server_5c5ac32ac9cad650)
 }
 
-var fileDescriptor_risk_monitor_server_d760d86102bb67c7 = []byte{
-	// 5145 bytes of a gzipped FileDescriptorProto
-	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0xec, 0x5c, 0x4b, 0x73, 0xdc, 0x48,
-	0x72, 0x5e, 0xbe, 0x9b, 0xd9, 0x2f, 0x12, 0xa4, 0xa8, 0x26, 0xb5, 0x92, 0xa8, 0x16, 0x45, 0x51,
-	0x1a, 0x8d, 0x46, 0xa4, 0x66, 0xbc, 0x7e, 0x7b, 0x25, 0x6a, 0xb4, 0x23, 0x7b, 0x44, 0x49, 0x68,
-	0x79, 0xd6, 0x7b, 0x70, 0x20, 0xc0, 0x46, 0xb1, 0x89, 0x10, 0x1a, 0x80, 0x50, 0x68, 0x4a, 0x3d,
-	0xbf, 0xc1, 0xe1, 0x1f, 0xe1, 0x09, 0xff, 0x01, 0xdf, 0xfc, 0x17, 0x7c, 0xb5, 0xc3, 0x8f, 0x9f,
-	0xe0, 0x08, 0xfb, 0x66, 0xfb, 0x68, 0x3b, 0x32, 0xb3, 0x0a, 0x28, 0x00, 0xcd, 0xc7, 0xbc, 0x14,
-	0xbb, 0x0e, 0xdf, 0x88, 0x2f, 0x13, 0x85, 0xaa, 0xac, 0xcc, 0xac, 0xcc, 0xac, 0x6c, 0xc2, 0x7a,
-	0xe2, 0xcb, 0x37, 0xce, 0x30, 0x0a, 0xfd, 0x34, 0x4a, 0x1c, 0x29, 0x92, 0x13, 0x91, 0xdc, 0x8f,
-	0x93, 0x28, 0x8d, 0xac, 0x65, 0x24, 0x29, 0x0a, 0x13, 0xba, 0x2d, 0x68, 0xf4, 0x46, 0x87, 0xb2,
-	0x9f, 0xf8, 0x87, 0xc2, 0x16, 0x6f, 0xbb, 0x35, 0x98, 0x7f, 0x95, 0x8c, 0xf1, 0xaf, 0x9f, 0xc1,
-	0x82, 0x2d, 0xe3, 0x67, 0xe1, 0x51, 0x64, 0xad, 0xc2, 0x9c, 0x48, 0x12, 0xdf, 0xeb, 0x4c, 0x6d,
-	0x4e, 0xed, 0x34, 0x6d, 0x7e, 0xb0, 0xd6, 0x60, 0x5e, 0x24, 0xc9, 0x50, 0x0e, 0x3a, 0xd3, 0x9b,
-	0x53, 0x3b, 0x0d, 0x5b, 0x3d, 0x75, 0x7f, 0x05, 0xcb, 0x3d, 0x91, 0xa6, 0x7e, 0x38, 0xf8, 0xca,
-	0x0d, 0x46, 0xe2, 0xa9, 0x2f, 0x02, 0xcf, 0xb2, 0x60, 0x36, 0x74, 0x87, 0x82, 0x46, 0x68, 0xd8,
-	0xf4, 0xb7, 0xb5, 0x01, 0xb5, 0x28, 0x16, 0x89, 0x9b, 0x46, 0x09, 0x0d, 0xd1, 0xb4, 0xb3, 0x67,
-	0xfc, 0xe4, 0x09, 0xbe, 0xdd, 0x99, 0xa1, 0x17, 0xf8, 0xa1, 0xfb, 0x73, 0x58, 0x7f, 0x95, 0x8c,
-	0xbf, 0x88, 0x02, 0x6f, 0x7f, 0x24, 0x53, 0xf9, 0x78, 0xbc, 0x1f, 0x85, 0x69, 0xe2, 0xf6, 0x53,
-	0x5b, 0xbc, 0xb5, 0x6e, 0x42, 0xb3, 0xaf, 0x1e, 0x9d, 0x7e, 0xe4, 0xe9, 0x6f, 0x35, 0x34, 0xb8,
-	0x1f, 0x79, 0xa2, 0x1b, 0x9c, 0x3a, 0x82, 0x8c, 0xad, 0x75, 0xa8, 0xf5, 0x47, 0x32, 0x75, 0xc2,
-	0x48, 0x76, 0xa6, 0x36, 0x67, 0x76, 0x1a, 0xf6, 0x02, 0x3e, 0x1f, 0x44, 0xd2, 0xfa, 0x14, 0x16,
-	0x12, 0x96, 0x06, 0x4d, 0xb5, 0xbe, 0xb7, 0x71, 0xbf, 0x22, 0xcc, 0xfb, 0x4a, 0x5e, 0xb6, 0x66,
-	0xed, 0xfe, 0xfb, 0x2c, 0xd4, 0x5f, 0x8d, 0xa2, 0x54, 0x3c, 0x8f, 0x42, 0x3b, 0x0d, 0xad, 0x2b,
-	0xb0, 0x18, 0xbb, 0xfd, 0x37, 0xce, 0x51, 0xe0, 0x0e, 0x94, 0x30, 0x6b, 0x08, 0x3c, 0x0d, 0xdc,
-	0x81, 0x75, 0x1d, 0xea, 0x6e, 0x3f, 0xf5, 0xa3, 0x90, 0xc9, 0x2c, 0x11, 0x60, 0x88, 0x18, 0xae,
-	0x02, 0xe8, 0x6d, 0x0d, 0x23, 0x25, 0x98, 0x45, 0x85, 0x1c, 0x44, 0xd6, 0x0d, 0x68, 0xc8, 0xa1,
-	0x9b, 0xbc, 0x11, 0x6a, 0xf9, 0xb3, 0xc4, 0x50, 0x57, 0x18, 0xae, 0x1e, 0x17, 0x28, 0x45, 0x9f,
-	0xc9, 0x73, 0x44, 0x5e, 0x90, 0xa2, 0x4f, 0xa4, 0x8a, 0xf4, 0xe6, 0xab, 0xd2, 0xc3, 0x19, 0xa4,
-	0x89, 0xeb, 0x09, 0x27, 0x1d, 0xc7, 0xa2, 0xb3, 0xc0, 0x33, 0x20, 0xe4, 0xf5, 0x38, 0x26, 0x72,
-	0xe0, 0xca, 0xd4, 0x89, 0x13, 0xbf, 0x2f, 0x3a, 0xb5, 0xcd, 0xa9, 0x9d, 0x29, 0x7b, 0x11, 0x91,
-	0x97, 0x08, 0x58, 0x0f, 0x60, 0x35, 0x4e, 0x84, 0x23, 0x45, 0x9a, 0x06, 0x62, 0x28, 0x42, 0xcd,
-	0xb8, 0x48, 0x8c, 0x56, 0x9c, 0x88, 0x5e, 0x46, 0xe2, 0x37, 0xee, 0xc0, 0x52, 0x85, 0x1b, 0x88,
-	0xbb, 0x2d, 0x4b, 0xac, 0x5b, 0xd0, 0x4a, 0x8e, 0x9c, 0xc0, 0x1f, 0xfa, 0x9a, 0xb1, 0x4e, 0x8c,
-	0x8d, 0xe4, 0xe8, 0x4b, 0x04, 0x99, 0x6b, 0x09, 0x66, 0xfa, 0xc7, 0x83, 0x4e, 0x83, 0x48, 0xf8,
-	0x27, 0xce, 0x99, 0x0c, 0x26, 0x10, 0x27, 0x22, 0xe8, 0x34, 0x79, 0x49, 0x88, 0x7c, 0x89, 0x00,
-	0x8a, 0x25, 0x8a, 0x45, 0xe8, 0xf8, 0x61, 0x2a, 0x12, 0x21, 0xd3, 0x4e, 0x8b, 0xb6, 0xa5, 0x81,
-	0xe0, 0x33, 0x85, 0xd1, 0xc6, 0xf8, 0xa1, 0x33, 0x74, 0x93, 0x81, 0x1f, 0x76, 0xda, 0xbc, 0xee,
-	0xa1, 0x1f, 0x3e, 0x27, 0x00, 0x37, 0x86, 0x49, 0x4e, 0xe2, 0xa6, 0x7e, 0xd4, 0x59, 0x22, 0x86,
-	0x3a, 0x63, 0x36, 0x42, 0xb8, 0xf7, 0x8a, 0xc5, 0xf3, 0x8f, 0x8e, 0x3a, 0xcb, 0xc4, 0x01, 0x0c,
-	0x3d, 0xf1, 0x8f, 0x8e, 0x70, 0x79, 0xa9, 0xdf, 0x7f, 0xc3, 0x4b, 0x73, 0xc2, 0xd1, 0xb0, 0x63,
-	0xf1, 0x44, 0x10, 0xa5, 0xb5, 0x1d, 0x8c, 0x86, 0xdd, 0x6f, 0x00, 0xea, 0xa8, 0xd7, 0xb6, 0x2f,
-	0xdf, 0xfc, 0xe8, 0xfa, 0x76, 0x19, 0x16, 0x94, 0xb5, 0x28, 0x55, 0x9b, 0x67, 0x63, 0xc1, 0xf7,
-	0x88, 0xd0, 0x0f, 0x5c, 0x29, 0x95, 0x9e, 0x2d, 0x22, 0xb2, 0x8f, 0x00, 0x4e, 0x8a, 0xdf, 0x43,
-	0x7f, 0xc0, 0x5a, 0x46, 0x66, 0x77, 0x80, 0x3e, 0x01, 0x65, 0x15, 0x1d, 0xfa, 0x81, 0x70, 0xe2,
-	0xe3, 0x28, 0xd4, 0x3a, 0x56, 0x67, 0xec, 0x25, 0x42, 0xd6, 0x35, 0x80, 0x7e, 0xe0, 0x8b, 0x30,
-	0x1d, 0xa2, 0x9a, 0xd6, 0x88, 0xc1, 0x40, 0x4a, 0x3b, 0xba, 0x58, 0xde, 0xd1, 0x1b, 0xd0, 0x20,
-	0xb2, 0x27, 0x06, 0x89, 0x10, 0x0f, 0x94, 0x3e, 0xd5, 0x11, 0x7b, 0xc2, 0x50, 0x89, 0x65, 0x57,
-	0x69, 0x92, 0xc1, 0xb2, 0x5b, 0x62, 0xd9, 0x53, 0x1a, 0x65, 0xb0, 0xec, 0x95, 0x58, 0x1e, 0x92,
-	0x6e, 0x15, 0x58, 0x1e, 0x5a, 0xdb, 0xd0, 0x26, 0x83, 0x31, 0xe6, 0xdb, 0xa2, 0xf9, 0x36, 0x11,
-	0xb6, 0xb3, 0x39, 0x5f, 0x87, 0x3a, 0xf3, 0x89, 0xa1, 0x9b, 0x69, 0x18, 0xd9, 0x9a, 0x4d, 0x08,
-	0xfa, 0x62, 0xa5, 0x7d, 0xac, 0x5c, 0xea, 0x09, 0x5f, 0xf4, 0x92, 0x28, 0x76, 0xe2, 0x24, 0x3a,
-	0xf2, 0x53, 0xad, 0x57, 0x08, 0xbd, 0x24, 0x04, 0x19, 0x8e, 0xa3, 0xc0, 0xd3, 0x0c, 0x16, 0x33,
-	0x20, 0x94, 0x33, 0xa4, 0x91, 0xe7, 0x8e, 0x1d, 0x3f, 0x8c, 0x46, 0x69, 0x67, 0x85, 0x19, 0x08,
-	0x7a, 0x86, 0x08, 0x5a, 0x48, 0x12, 0x8d, 0xdd, 0x20, 0xd5, 0x2c, 0xab, 0xca, 0xee, 0x18, 0x64,
-	0xa6, 0x2e, 0x34, 0xbd, 0x71, 0xe8, 0xf4, 0xdd, 0xd8, 0x49, 0xfc, 0xc1, 0x71, 0xda, 0xb9, 0xc4,
-	0xc2, 0xf0, 0xc6, 0xe1, 0xbe, 0x1b, 0xdb, 0x08, 0xe1, 0x97, 0xc4, 0xfb, 0xfe, 0xb1, 0x36, 0xa3,
-	0x35, 0xfe, 0x12, 0x42, 0xca, 0x8e, 0xae, 0x02, 0xb8, 0x27, 0xae, 0x1f, 0x38, 0x47, 0xa3, 0xd0,
-	0xeb, 0x5c, 0x66, 0x33, 0x23, 0xe4, 0xe9, 0x28, 0xf4, 0x90, 0x1c, 0xc5, 0xa4, 0xcf, 0x7d, 0x37,
-	0xee, 0x74, 0x98, 0xcc, 0xc8, 0xbe, 0x1b, 0x23, 0x19, 0xa7, 0x40, 0x9f, 0x97, 0x9d, 0x75, 0x26,
-	0x7b, 0xe3, 0x90, 0x3e, 0x2e, 0xad, 0xbb, 0xb0, 0xac, 0xde, 0x46, 0x2e, 0x35, 0x87, 0x0d, 0xf6,
-	0x35, 0x4c, 0x78, 0x32, 0xd6, 0x06, 0x7d, 0x1d, 0xea, 0x47, 0xc9, 0xd7, 0x19, 0xd7, 0x15, 0x9e,
-	0x29, 0x42, 0xb9, 0xc5, 0x13, 0x83, 0x92, 0x41, 0xe7, 0xa7, 0xbc, 0x5a, 0xc4, 0x6c, 0x86, 0xac,
-	0x1d, 0x58, 0xa2, 0xd5, 0x9a, 0x03, 0x5d, 0x25, 0xb6, 0x16, 0xe2, 0x4f, 0xf3, 0xc1, 0xee, 0x81,
-	0x45, 0x4c, 0x32, 0x4d, 0xfc, 0x37, 0x42, 0xf3, 0x5e, 0x23, 0xde, 0x25, 0xa4, 0xf4, 0x88, 0xa0,
-	0xb8, 0xf3, 0x75, 0x84, 0xd1, 0x3b, 0xcd, 0x7c, 0xdd, 0x5c, 0xc7, 0x41, 0xf4, 0x4e, 0xf1, 0x3e,
-	0x84, 0x35, 0x9a, 0x43, 0xf5, 0x85, 0x4d, 0x7a, 0x61, 0x05, 0xa9, 0x2f, 0xce, 0x7e, 0xc9, 0x90,
-	0xd6, 0x8d, 0xf2, 0x4b, 0xb9, 0xc4, 0xee, 0x02, 0xc5, 0x1e, 0x4e, 0x76, 0xc4, 0xbc, 0x4d, 0xc7,
-	0x9d, 0x2e, 0x79, 0x9c, 0x36, 0x12, 0xf4, 0x29, 0xfc, 0x2a, 0x1d, 0xd3, 0x49, 0x34, 0x4a, 0x12,
-	0x11, 0xf6, 0xc7, 0x7c, 0x12, 0xdd, 0x54, 0x27, 0x91, 0x02, 0xcd, 0x93, 0xc8, 0x0f, 0x07, 0xe8,
-	0x7f, 0xb6, 0xf2, 0x93, 0xc8, 0x0f, 0x07, 0x07, 0x11, 0xfa, 0x18, 0xda, 0x6c, 0xf2, 0xb7, 0xb7,
-	0x68, 0x5e, 0x35, 0xdc, 0x6b, 0x7c, 0xee, 0xfe, 0xf5, 0x1c, 0x7b, 0x49, 0x8c, 0x02, 0x7e, 0x9d,
-	0xbd, 0x24, 0x89, 0xd9, 0x38, 0x8b, 0x6b, 0x08, 0xd0, 0xea, 0xaf, 0xc0, 0xe2, 0x89, 0x9b, 0xf8,
-	0x4c, 0x64, 0x17, 0x59, 0x43, 0x60, 0xf2, 0x49, 0x5e, 0x9b, 0x7c, 0x92, 0x7b, 0x22, 0xf0, 0x4f,
-	0x1c, 0xcf, 0x4d, 0x85, 0x76, 0x92, 0x84, 0x3c, 0x71, 0x53, 0x81, 0xb3, 0x96, 0xc7, 0xbc, 0x62,
-	0xe0, 0x59, 0xcb, 0x63, 0x5a, 0xed, 0x65, 0x58, 0x38, 0x94, 0x4c, 0xa8, 0x33, 0xe1, 0x50, 0x12,
-	0xe1, 0xa7, 0x40, 0x5e, 0xc3, 0x39, 0x74, 0xe4, 0x68, 0x48, 0xee, 0xb0, 0x69, 0xd7, 0x10, 0x79,
-	0xdc, 0x1b, 0x0d, 0x33, 0xaa, 0x24, 0x6a, 0x33, 0xa7, 0xf6, 0x90, 0xba, 0x0e, 0x35, 0xa6, 0x8e,
-	0x86, 0xea, 0x7c, 0x5d, 0x20, 0xda, 0x68, 0x58, 0x8a, 0x38, 0xda, 0xe5, 0x88, 0x03, 0xa5, 0x1b,
-	0xf3, 0x74, 0x96, 0x94, 0x74, 0x63, 0x63, 0x57, 0x52, 0xb5, 0x86, 0xe5, 0x6c, 0x57, 0xd2, 0x63,
-	0xbd, 0xab, 0x1c, 0x2a, 0xb0, 0x86, 0x28, 0xb7, 0x47, 0x10, 0x1f, 0xc8, 0x37, 0xa0, 0xc1, 0x0c,
-	0x27, 0x51, 0x30, 0x1c, 0x09, 0xf2, 0x7b, 0x4d, 0x9b, 0x5f, 0xfa, 0x8a, 0x20, 0x1c, 0x23, 0x3a,
-	0x11, 0x09, 0x72, 0x8c, 0x86, 0x82, 0xdc, 0x5e, 0xd3, 0x06, 0x84, 0xbe, 0x22, 0x84, 0x1d, 0x5a,
-	0xec, 0x27, 0xc2, 0xf1, 0xdc, 0xb1, 0x24, 0x97, 0xd7, 0x44, 0x87, 0x86, 0xd0, 0x13, 0x77, 0x2c,
-	0x29, 0x5e, 0xa2, 0x8f, 0x1c, 0xba, 0x52, 0x90, 0xc3, 0x6b, 0xda, 0x8b, 0x84, 0x3c, 0x76, 0xa5,
-	0xe8, 0xfe, 0xf7, 0x2c, 0x2c, 0xa1, 0x9e, 0xfe, 0x22, 0x89, 0x46, 0xf1, 0x07, 0x51, 0xd6, 0x2e,
-	0x9a, 0x9e, 0x4c, 0x9d, 0x01, 0x7e, 0x31, 0x57, 0xd9, 0x7a, 0x5f, 0xcf, 0xe2, 0x20, 0xc2, 0x33,
-	0xcb, 0xe4, 0xc1, 0x43, 0x9c, 0x95, 0xb7, 0x99, 0x73, 0xe1, 0x49, 0xfe, 0xff, 0x0a, 0xfc, 0x9b,
-	0xae, 0xc0, 0xdd, 0xbf, 0x9a, 0x07, 0xeb, 0x65, 0x12, 0x8d, 0xfa, 0xbc, 0xad, 0x1f, 0x24, 0xaa,
-	0xdc, 0x81, 0xa5, 0x38, 0x89, 0xbc, 0x51, 0xbf, 0xa2, 0x85, 0x2d, 0x85, 0x6b, 0x45, 0xbc, 0x07,
-	0x56, 0x89, 0x33, 0xd7, 0xc5, 0xa5, 0x02, 0x2f, 0xaa, 0xe3, 0x2a, 0xcc, 0xf5, 0xa3, 0x51, 0x98,
-	0x92, 0x2a, 0x36, 0x6d, 0x7e, 0xc8, 0x62, 0x45, 0x26, 0x2d, 0xb0, 0x05, 0xf2, 0x81, 0x84, 0xe4,
-	0xeb, 0x50, 0x37, 0x42, 0x38, 0x95, 0xd1, 0x40, 0x1e, 0xc1, 0x55, 0x72, 0xae, 0xc5, 0xb3, 0x73,
-	0x2e, 0x38, 0x27, 0xe7, 0xaa, 0x9f, 0x9b, 0x73, 0x35, 0xce, 0xce, 0xb9, 0x9a, 0x17, 0xcd, 0xb9,
-	0x5a, 0xdf, 0x2a, 0xe7, 0x6a, 0x5f, 0x34, 0xe7, 0x5a, 0x3a, 0x3d, 0xe7, 0x5a, 0x3e, 0x2d, 0xe7,
-	0xb2, 0xce, 0xcd, 0xb9, 0x56, 0xce, 0xcd, 0xb9, 0x56, 0xcf, 0xcb, 0xb9, 0x2e, 0x9d, 0x9b, 0x73,
-	0xad, 0x5d, 0x20, 0xe7, 0xba, 0x3c, 0x21, 0xe7, 0xfa, 0x8b, 0x29, 0x58, 0x7d, 0x95, 0x8c, 0xd1,
-	0x51, 0xf7, 0xfc, 0x61, 0x1c, 0x08, 0x2a, 0x01, 0x88, 0xb7, 0xe6, 0xc9, 0x3f, 0x75, 0xc6, 0xc9,
-	0x3f, 0x5d, 0x3e, 0xf9, 0xaf, 0x03, 0xf9, 0x5b, 0x47, 0xa6, 0x6e, 0x3a, 0x92, 0xca, 0x42, 0xe8,
-	0x8d, 0x1e, 0x21, 0xc5, 0x04, 0x6a, 0xb6, 0x98, 0x40, 0x75, 0xff, 0x69, 0x66, 0xd2, 0x74, 0x64,
-	0x6c, 0x56, 0x30, 0xa6, 0x2e, 0x5c, 0xc1, 0x28, 0xda, 0xfa, 0x74, 0xc9, 0xd6, 0x8d, 0x15, 0xce,
-	0x9c, 0xb1, 0xc2, 0xd9, 0x73, 0x56, 0x38, 0x77, 0xf6, 0x0a, 0xcb, 0x29, 0xe2, 0x2a, 0xcc, 0x99,
-	0xb9, 0x21, 0x3f, 0xa0, 0x96, 0x1d, 0xb9, 0xef, 0xd5, 0x51, 0x81, 0x7f, 0x5a, 0x16, 0xcc, 0xba,
-	0x9e, 0x97, 0x28, 0x9b, 0xa4, 0xbf, 0xe9, 0xcb, 0x43, 0xcf, 0x71, 0xa5, 0xf4, 0x07, 0xe1, 0xae,
-	0xb2, 0x47, 0xe8, 0x0f, 0xbd, 0x47, 0x8c, 0x50, 0x68, 0x3f, 0x0a, 0x3d, 0xc7, 0x0d, 0x82, 0x28,
-	0xdd, 0x55, 0x06, 0x09, 0x08, 0x3d, 0x22, 0x84, 0x6a, 0x61, 0x43, 0xd7, 0x0f, 0x94, 0x25, 0xf2,
-	0x43, 0x71, 0xdc, 0x3d, 0x55, 0x46, 0xc8, 0xc7, 0xdd, 0xab, 0xe4, 0xb5, 0xad, 0xf3, 0xf2, 0xda,
-	0x76, 0x39, 0xaf, 0xed, 0x1e, 0x40, 0x8b, 0x4a, 0x73, 0x2e, 0xa5, 0x3b, 0x67, 0x6a, 0x58, 0x25,
-	0x84, 0x9e, 0xae, 0x86, 0xd0, 0xdd, 0x7f, 0xbd, 0x54, 0x1c, 0x50, 0xc6, 0x67, 0x7b, 0x76, 0xe3,
-	0x6b, 0xd3, 0x85, 0xaf, 0x15, 0x76, 0x6b, 0xa6, 0xb4, 0x5b, 0x95, 0xa9, 0xcc, 0x4e, 0x88, 0xe6,
-	0xb7, 0xa1, 0xcd, 0x52, 0xef, 0x93, 0x23, 0xc6, 0x4f, 0xa8, 0x98, 0x82, 0x24, 0xcf, 0xe8, 0x41,
-	0x54, 0xce, 0x83, 0xe7, 0x2b, 0x79, 0x70, 0x31, 0x45, 0x5c, 0x28, 0xa7, 0x88, 0x5b, 0xd0, 0x3a,
-	0x74, 0x44, 0x98, 0x26, 0x38, 0x5d, 0x4c, 0x9d, 0x94, 0x4b, 0x6f, 0x1c, 0x7e, 0xce, 0x20, 0xa6,
-	0x5d, 0xc8, 0x25, 0x8b, 0x5c, 0x5c, 0xa1, 0x6a, 0x48, 0x93, 0x8b, 0x0e, 0x94, 0xe1, 0xd0, 0x57,
-	0x05, 0x04, 0x7e, 0x40, 0x6f, 0x7f, 0xa8, 0x9d, 0x12, 0x97, 0x0d, 0x16, 0x0e, 0x95, 0x4b, 0xc2,
-	0x83, 0x40, 0x93, 0xb8, 0x5c, 0xb0, 0x20, 0x9f, 0x4f, 0x4c, 0xd3, 0x9b, 0xe7, 0xa5, 0xe9, 0xad,
-	0x4a, 0x9a, 0x7e, 0x05, 0x16, 0xdf, 0xb9, 0x63, 0x67, 0x18, 0x85, 0x62, 0xac, 0xdc, 0x75, 0xed,
-	0x9d, 0x3b, 0x7e, 0x8e, 0xcf, 0xd6, 0x2d, 0x68, 0x8d, 0x42, 0x8e, 0x96, 0xd4, 0x00, 0xec, 0xa7,
-	0x9b, 0x0a, 0x55, 0x63, 0x14, 0x33, 0xe4, 0xe5, 0x72, 0x86, 0x5c, 0xaa, 0x04, 0x58, 0x95, 0x4a,
-	0x00, 0x9e, 0x54, 0x51, 0xea, 0x06, 0x2c, 0x33, 0xae, 0x14, 0x2c, 0x12, 0x42, 0x02, 0xcb, 0x6b,
-	0x14, 0xab, 0xe5, 0x1a, 0x85, 0x99, 0xf7, 0x5f, 0x9a, 0x94, 0xf7, 0xc7, 0x81, 0xf0, 0x06, 0xc2,
-	0x71, 0x87, 0xa9, 0xf2, 0xd3, 0x8b, 0x8c, 0x3c, 0x1a, 0xd2, 0x67, 0xfb, 0x89, 0xf0, 0xfc, 0x94,
-	0xc8, 0xaa, 0x2c, 0xc0, 0x08, 0x92, 0xcb, 0xf5, 0x9e, 0xce, 0xf9, 0xf5, 0x9e, 0xf5, 0xf3, 0xeb,
-	0x3d, 0x1b, 0xe7, 0xd7, 0x7b, 0xae, 0x54, 0xeb, 0x3d, 0x45, 0x96, 0x4f, 0x75, 0x5d, 0x20, 0x67,
-	0xf9, 0xb4, 0x74, 0x36, 0x5e, 0x2d, 0x9f, 0x8d, 0x57, 0x81, 0xea, 0x0c, 0x0e, 0xab, 0x1e, 0x17,
-	0x01, 0x16, 0x11, 0xd9, 0x27, 0xf5, 0x23, 0xcf, 0xaa, 0xac, 0x2d, 0xcb, 0xfb, 0x41, 0x43, 0xcf,
-	0xe8, 0x5c, 0xcc, 0x18, 0x70, 0x17, 0x39, 0xd1, 0xcf, 0x5e, 0x7a, 0x31, 0x22, 0x81, 0xf9, 0xa1,
-	0x9f, 0xfa, 0xae, 0xb2, 0x22, 0x4e, 0xeb, 0xeb, 0x0a, 0x23, 0x3b, 0xba, 0x05, 0x2d, 0xb5, 0x23,
-	0x87, 0x6e, 0xe0, 0x86, 0x7d, 0x41, 0xb9, 0xfc, 0x94, 0xdd, 0x64, 0xf4, 0x31, 0x83, 0x38, 0xd9,
-	0xc3, 0x28, 0x49, 0xa2, 0x77, 0xb4, 0x33, 0x37, 0x79, 0xb2, 0x8c, 0xe0, 0xce, 0xac, 0x43, 0x2d,
-	0x10, 0x68, 0xf5, 0xc3, 0x94, 0x32, 0xf8, 0x29, 0x7b, 0x01, 0x9f, 0x91, 0xb4, 0x0d, 0x6d, 0x19,
-	0x8b, 0xbe, 0x63, 0xe8, 0x13, 0x67, 0xf1, 0x4d, 0x84, 0x5f, 0x67, 0x3a, 0xf5, 0x31, 0xac, 0x10,
-	0x5f, 0xc9, 0xaa, 0xb7, 0xb9, 0x38, 0x82, 0xa4, 0xc7, 0xa6, 0xcd, 0x6a, 0xf6, 0x92, 0x79, 0xdf,
-	0xce, 0xd9, 0x7b, 0x26, 0x7b, 0x17, 0x9a, 0x6a, 0x74, 0xa5, 0x9b, 0x3b, 0x2c, 0x0a, 0x1a, 0x57,
-	0x29, 0xa7, 0xe6, 0xc9, 0x4c, 0xfb, 0x4e, 0xce, 0xd3, 0xcb, 0xcd, 0x9b, 0x78, 0x14, 0xc7, 0x5d,
-	0xde, 0x15, 0x84, 0x14, 0xc3, 0x0e, 0xd0, 0xc7, 0x1d, 0xd3, 0x0e, 0x3e, 0xe2, 0x62, 0x10, 0xe2,
-	0x9f, 0xe7, 0xb6, 0xa0, 0x05, 0x63, 0x28, 0xc1, 0xbd, 0x5c, 0x30, 0x4f, 0x33, 0x45, 0xb8, 0x0a,
-	0x34, 0xbe, 0x62, 0xf9, 0x98, 0x45, 0x8f, 0x08, 0x93, 0xf5, 0x07, 0x4d, 0xaf, 0x73, 0x3f, 0xff,
-	0xe0, 0x93, 0xdc, 0xf3, 0x68, 0x4e, 0xd3, 0xfd, 0x7c, 0x92, 0x73, 0x7e, 0x91, 0xbb, 0x20, 0x8c,
-	0xc7, 0x59, 0x29, 0x4c, 0x15, 0x7c, 0xc0, 0xb2, 0x65, 0xca, 0x7e, 0xae, 0x88, 0xf7, 0x61, 0xa5,
-	0xcc, 0x8d, 0xfa, 0xb8, 0x4b, 0xec, 0xcb, 0x45, 0x76, 0xd4, 0xca, 0xdb, 0xd0, 0xce, 0xa2, 0x35,
-	0xc9, 0xe1, 0xfa, 0x1e, 0x4f, 0x43, 0x47, 0x6c, 0x32, 0x0f, 0xe9, 0xb3, 0x7a, 0x64, 0xe7, 0x21,
-	0xaf, 0x3c, 0x2b, 0x46, 0x52, 0x48, 0xaf, 0xc8, 0xf8, 0xbd, 0x4f, 0x55, 0x48, 0xcf, 0x90, 0x52,
-	0xff, 0x42, 0xed, 0xee, 0xb3, 0x6a, 0xed, 0xee, 0x1e, 0x58, 0xaa, 0x18, 0x67, 0x56, 0xef, 0x7e,
-	0x4b, 0x69, 0x11, 0x51, 0x8c, 0xfa, 0x5d, 0xb1, 0x2e, 0xf9, 0xb3, 0x72, 0x5d, 0xb2, 0x52, 0x1a,
-	0xfd, 0xed, 0x6a, 0x69, 0xb4, 0x52, 0x63, 0xfd, 0x9d, 0x09, 0x35, 0xd6, 0x89, 0x15, 0xcc, 0xdf,
-	0x9d, 0x5c, 0xc1, 0xdc, 0x86, 0x36, 0xe9, 0x9a, 0xc1, 0xf9, 0x7b, 0xac, 0x46, 0x08, 0xe7, 0x7c,
-	0x1f, 0x81, 0x75, 0xc8, 0x8b, 0x34, 0x55, 0xf3, 0xf7, 0x79, 0xd0, 0x43, 0x5c, 0xa4, 0xa1, 0x9b,
-	0x1f, 0x81, 0x25, 0xab, 0xcc, 0x7f, 0xa0, 0x72, 0x87, 0x12, 0xf3, 0x55, 0x00, 0xa3, 0xde, 0xf8,
-	0x87, 0x2c, 0x95, 0x30, 0xab, 0x32, 0xea, 0x09, 0x1a, 0x3c, 0x7f, 0x94, 0x4f, 0x30, 0xaf, 0x46,
-	0xa2, 0x7a, 0x1a, 0x5b, 0x41, 0x0e, 0xeb, 0xe7, 0x4a, 0x3d, 0xb3, 0x8d, 0x20, 0x9f, 0xf5, 0x19,
-	0x5c, 0x36, 0x39, 0xa3, 0xf4, 0x58, 0x24, 0xca, 0x3c, 0x1e, 0xd1, 0x0b, 0xab, 0xf9, 0x0b, 0x2f,
-	0x90, 0xc8, 0x96, 0xb2, 0x05, 0x2d, 0x3f, 0xf4, 0x4d, 0x47, 0xf4, 0x98, 0x65, 0xef, 0x87, 0x7e,
-	0xee, 0x87, 0x6e, 0x41, 0x4b, 0xc7, 0x2e, 0x2a, 0xa8, 0xdd, 0xe7, 0xf8, 0x45, 0xa1, 0x2a, 0xae,
-	0xd5, 0xd1, 0xa5, 0xe2, 0x79, 0x92, 0x47, 0x97, 0x8a, 0xe1, 0x06, 0x34, 0x38, 0xd9, 0x53, 0x1c,
-	0x9f, 0x73, 0x98, 0x48, 0x98, 0x62, 0xd9, 0x82, 0x96, 0x61, 0x8b, 0x4e, 0x14, 0x77, 0x9e, 0xf2,
-	0x84, 0xf2, 0x68, 0xe0, 0x45, 0x8c, 0x5c, 0x51, 0x5c, 0x30, 0xef, 0x5f, 0x30, 0x57, 0x14, 0x1b,
-	0xc6, 0xfd, 0x09, 0xac, 0x8e, 0x05, 0x26, 0x8f, 0x6c, 0x89, 0x24, 0x18, 0xf4, 0xc6, 0x5f, 0xb0,
-	0x15, 0x22, 0xed, 0x25, 0x91, 0x70, 0x91, 0xe8, 0x97, 0x3f, 0x86, 0x15, 0x1d, 0x7d, 0x39, 0xf2,
-	0x9d, 0x1b, 0x73, 0xf2, 0xd7, 0x79, 0xc6, 0xaa, 0xaf, 0xa2, 0xb0, 0xde, 0x3b, 0x37, 0xa6, 0xfc,
-	0xcf, 0xba, 0x03, 0xcb, 0xe9, 0x2e, 0xdf, 0x6e, 0xd0, 0xba, 0x49, 0x7e, 0x7f, 0xcc, 0xdb, 0x93,
-	0xee, 0xda, 0xbe, 0x7c, 0x83, 0x5b, 0x43, 0x12, 0xdc, 0x86, 0x36, 0x05, 0x2f, 0x38, 0x17, 0x75,
-	0xd2, 0xff, 0x09, 0x6f, 0x38, 0xc1, 0x2f, 0x11, 0xc5, 0x19, 0x18, 0x69, 0xcc, 0x97, 0x17, 0xbf,
-	0x88, 0xfd, 0xcf, 0x69, 0x58, 0x7e, 0x3d, 0x0a, 0x43, 0x11, 0x64, 0xe1, 0xee, 0x8f, 0x5d, 0xc8,
-	0xc0, 0x70, 0x89, 0xbe, 0x68, 0x86, 0xbd, 0xc0, 0x50, 0x96, 0xfd, 0x17, 0x22, 0xe3, 0xb9, 0x09,
-	0x91, 0xf1, 0x03, 0x58, 0xe5, 0x80, 0x56, 0x39, 0x3f, 0x7d, 0xde, 0x72, 0xe8, 0x6b, 0x11, 0x8d,
-	0x4d, 0x41, 0x1f, 0xba, 0x0f, 0x60, 0x95, 0xc3, 0xb4, 0xd2, 0x1b, 0x1c, 0x0c, 0x5b, 0x44, 0x2b,
-	0xbe, 0x71, 0x1b, 0xda, 0x51, 0xbf, 0x3f, 0x8a, 0x7d, 0xe1, 0x69, 0x5b, 0xe3, 0xb0, 0xb8, 0xa5,
-	0x61, 0x65, 0x6c, 0x0f, 0x60, 0x55, 0x0d, 0x9a, 0xf1, 0x27, 0xba, 0xfa, 0x36, 0x65, 0x5b, 0x4c,
-	0x7b, 0xa1, 0x48, 0xb6, 0x9b, 0x8a, 0xee, 0xdf, 0x4d, 0x43, 0x6b, 0x3f, 0x4a, 0xa8, 0x7a, 0xf9,
-	0xeb, 0x7f, 0x07, 0xae, 0x48, 0x46, 0xd6, 0x89, 0xa4, 0x2c, 0x8d, 0x29, 0x94, 0x6a, 0x16, 0x26,
-	0x94, 0x6a, 0x6e, 0x41, 0xcb, 0xf3, 0x13, 0xc1, 0x0b, 0xa0, 0x72, 0x0d, 0xa7, 0xa3, 0xcd, 0x0c,
-	0xa5, 0x92, 0x8d, 0xae, 0x16, 0xbe, 0x4d, 0xc7, 0x24, 0x3a, 0x55, 0x2d, 0x7c, 0x95, 0x8e, 0x51,
-	0x38, 0x44, 0x22, 0xb1, 0x72, 0x62, 0x41, 0xbc, 0x24, 0xcc, 0x13, 0xca, 0xd7, 0xb2, 0x9b, 0x8b,
-	0xf3, 0x12, 0xc0, 0xc2, 0x74, 0xa7, 0x27, 0x4c, 0x77, 0x1b, 0xda, 0x6f, 0x47, 0x22, 0x19, 0xf3,
-	0xd9, 0x4e, 0x02, 0x67, 0x81, 0x36, 0x09, 0xc6, 0x8f, 0xa0, 0xcc, 0xbb, 0x7f, 0x0f, 0xc5, 0x0f,
-	0x7f, 0xe7, 0x44, 0xb1, 0x58, 0x16, 0x98, 0x39, 0xf3, 0x62, 0xb8, 0x54, 0xd7, 0xc0, 0x41, 0xd3,
-	0xf7, 0x5c, 0xec, 0xe5, 0x5d, 0x9b, 0x4f, 0xdf, 0x53, 0xa5, 0xf7, 0xff, 0x56, 0x9d, 0xf9, 0x36,
-	0x2c, 0x29, 0x2a, 0x1b, 0x71, 0x5e, 0x6d, 0x6e, 0x12, 0xcf, 0x6b, 0x44, 0x8b, 0x8c, 0xee, 0xc9,
-	0xa0, 0x50, 0xd4, 0x63, 0xc6, 0x47, 0x27, 0x03, 0x2e, 0xbf, 0x95, 0x52, 0xc7, 0x76, 0x25, 0x75,
-	0xd4, 0x23, 0x49, 0x63, 0xa4, 0xa5, 0x7c, 0xa4, 0x5e, 0x36, 0xd2, 0x2a, 0xcc, 0x1d, 0xbb, 0xa1,
-	0xc7, 0xa9, 0x61, 0xd3, 0xe6, 0x07, 0x14, 0x71, 0x28, 0xde, 0xa9, 0xf7, 0x38, 0x29, 0xac, 0x85,
-	0xe2, 0x1d, 0xbf, 0x52, 0x2c, 0x9b, 0xaf, 0x94, 0xca, 0xe6, 0xf9, 0x97, 0xf3, 0xc5, 0xae, 0xe6,
-	0x8b, 0xed, 0x65, 0x8b, 0x35, 0xb3, 0xea, 0x4b, 0xa7, 0x67, 0xd5, 0x6b, 0xc5, 0xac, 0xfa, 0x26,
-	0x34, 0x65, 0x8a, 0x96, 0x34, 0x50, 0x0e, 0xf6, 0x32, 0xef, 0xaf, 0x06, 0xb5, 0x12, 0x64, 0x4c,
-	0xa4, 0x78, 0x9d, 0x22, 0x13, 0x29, 0x1f, 0xa6, 0x55, 0x6e, 0x76, 0x79, 0x49, 0xf9, 0x61, 0xc3,
-	0x86, 0xbe, 0xab, 0xaf, 0x2d, 0xab, 0xbe, 0x7c, 0x63, 0x82, 0x2f, 0xbf, 0x0f, 0x2b, 0x99, 0xbe,
-	0xc9, 0xe3, 0x28, 0x51, 0x9a, 0x7e, 0x85, 0x58, 0x97, 0x35, 0xa9, 0x87, 0x14, 0xfa, 0x6a, 0xb1,
-	0xf2, 0xfb, 0xd3, 0x72, 0xe5, 0xb7, 0x03, 0x0b, 0x3a, 0x46, 0xe5, 0x8b, 0x63, 0xfd, 0x58, 0xce,
-	0xa8, 0xaf, 0x55, 0x32, 0xea, 0xd2, 0xcd, 0xd4, 0xf5, 0xca, 0xcd, 0x14, 0xc6, 0x21, 0xb4, 0x25,
-	0xaa, 0xf2, 0xad, 0xd2, 0x44, 0xc2, 0x54, 0xe9, 0x7b, 0x1b, 0x30, 0xaa, 0x2c, 0xe4, 0x05, 0x9c,
-	0x29, 0x36, 0xa3, 0x38, 0x35, 0xd2, 0x82, 0x75, 0xa8, 0x51, 0x5c, 0x91, 0xdf, 0xf8, 0x2e, 0xe0,
-	0x33, 0x7a, 0xbb, 0x2e, 0x34, 0xc5, 0x7b, 0x91, 0x38, 0x19, 0xfd, 0x26, 0x5f, 0x52, 0x20, 0xf8,
-	0x54, 0xf1, 0x90, 0x79, 0x63, 0xa6, 0x82, 0xe6, 0xb7, 0xa5, 0xcd, 0x5b, 0xf4, 0xb5, 0xf5, 0xe9,
-	0xdb, 0x93, 0x5b, 0x85, 0xdb, 0x93, 0x4d, 0xa0, 0x70, 0xc8, 0xc1, 0x19, 0x62, 0xd4, 0xbd, 0x9d,
-	0x6b, 0xfd, 0x8b, 0x38, 0xc5, 0xb0, 0xfb, 0x1e, 0x58, 0xfd, 0x20, 0x92, 0xc2, 0x71, 0x83, 0xc0,
-	0x89, 0x23, 0xe9, 0xa3, 0x7b, 0xd6, 0x99, 0x20, 0x51, 0x1e, 0x05, 0xc1, 0x4b, 0x85, 0x67, 0x7e,
-	0x84, 0x36, 0x6c, 0x27, 0xf7, 0x23, 0xb4, 0x4f, 0x46, 0x48, 0x72, 0xe7, 0xe2, 0x21, 0xc9, 0x1e,
-	0x5c, 0x7e, 0x95, 0x8c, 0x7b, 0x7e, 0x38, 0x08, 0x04, 0xba, 0x56, 0x95, 0x78, 0x9e, 0xe5, 0xd6,
-	0xbb, 0xff, 0xd5, 0x3c, 0xe5, 0xa5, 0x1f, 0xa7, 0x76, 0x77, 0x15, 0x40, 0xe7, 0xc9, 0xd9, 0x2d,
-	0xcc, 0xa2, 0x42, 0xf8, 0xb0, 0xd5, 0xe4, 0x28, 0x16, 0x89, 0xf2, 0xcb, 0x75, 0x85, 0xbd, 0x88,
-	0x45, 0xf2, 0x1b, 0xe7, 0x9c, 0x2f, 0xc3, 0x82, 0x88, 0x98, 0xd0, 0x50, 0x4d, 0x8d, 0x11, 0x11,
-	0x6e, 0x41, 0x4b, 0xaf, 0x55, 0x85, 0xe6, 0x5c, 0xe3, 0x6d, 0x2a, 0x34, 0x0f, 0xf0, 0x35, 0x1b,
-	0xea, 0x73, 0x4b, 0x19, 0x16, 0x43, 0xaa, 0xb9, 0x41, 0x33, 0x98, 0x57, 0x2b, 0x5a, 0x90, 0xec,
-	0x35, 0x31, 0x85, 0xe5, 0x18, 0x1b, 0x07, 0x59, 0x52, 0xb7, 0x52, 0x84, 0xe0, 0x18, 0xb8, 0xea,
-	0x28, 0x14, 0x6a, 0x00, 0x5d, 0xa7, 0x8b, 0x42, 0xc1, 0x6f, 0xaf, 0x43, 0x8d, 0xc8, 0xf8, 0x2e,
-	0x37, 0x89, 0x2d, 0xe0, 0x33, 0xbe, 0x79, 0x09, 0xe6, 0xe5, 0x58, 0xe2, 0x66, 0xae, 0x70, 0xf5,
-	0x5a, 0x8e, 0x65, 0x71, 0x23, 0x53, 0x5f, 0xdd, 0x04, 0xe6, 0x1b, 0xf9, 0xda, 0x67, 0x55, 0x88,
-	0x12, 0x4f, 0x24, 0xcc, 0x70, 0x89, 0x25, 0x4d, 0x08, 0x91, 0x57, 0x60, 0x2e, 0x7d, 0x8f, 0xe3,
-	0xae, 0x71, 0xb1, 0x3d, 0x7d, 0xcf, 0x11, 0xb0, 0x1e, 0xf6, 0x9d, 0x3b, 0x56, 0xde, 0x57, 0x0b,
-	0xe3, 0x97, 0xee, 0x98, 0xdd, 0x6a, 0xd8, 0x17, 0x01, 0xeb, 0x4f, 0x47, 0xbb, 0x55, 0x84, 0x48,
-	0x7d, 0x72, 0x06, 0xfa, 0xec, 0xba, 0xc9, 0x40, 0xdf, 0x35, 0x67, 0x8e, 0x4e, 0x72, 0xa3, 0x38,
-	0x73, 0x74, 0x93, 0xa5, 0x38, 0xfc, 0x4a, 0x25, 0x0e, 0x5f, 0x83, 0x79, 0x94, 0x6d, 0xf2, 0x46,
-	0xb9, 0x58, 0xf5, 0x84, 0x63, 0x8f, 0x62, 0x54, 0x2c, 0xe7, 0xd0, 0x4d, 0xfb, 0xc7, 0xe4, 0x64,
-	0x9b, 0x76, 0x9d, 0xb1, 0xc7, 0x08, 0x55, 0xdd, 0xfe, 0xb5, 0x09, 0x6e, 0xff, 0x06, 0x34, 0x8e,
-	0xa2, 0xa4, 0x2f, 0x9c, 0xe8, 0xe8, 0x48, 0x8a, 0x94, 0xbc, 0x6d, 0xc3, 0xae, 0x13, 0xf6, 0x82,
-	0x20, 0xdc, 0x97, 0xfe, 0xd0, 0x43, 0xf9, 0x6d, 0xaa, 0xdb, 0xc9, 0xa1, 0xc7, 0x57, 0xed, 0x99,
-	0xd2, 0x09, 0x97, 0x8c, 0xf0, 0x46, 0x51, 0xeb, 0x84, 0xab, 0x0c, 0x91, 0xd3, 0x59, 0x39, 0x96,
-	0xa9, 0x18, 0x92, 0x9b, 0x6d, 0xd8, 0x75, 0xc2, 0x7a, 0x04, 0x55, 0xcf, 0xc2, 0x9b, 0x13, 0xce,
-	0xc2, 0x7c, 0x93, 0x51, 0x96, 0x5b, 0xe6, 0x26, 0xa3, 0x24, 0x31, 0xbc, 0x45, 0xc5, 0x72, 0xd3,
-	0x34, 0xf1, 0x0f, 0x47, 0xa9, 0x50, 0x4e, 0xb7, 0x89, 0xe8, 0x23, 0x0d, 0xa2, 0x59, 0xcb, 0x20,
-	0x56, 0xda, 0xc9, 0x8e, 0xb7, 0x26, 0x83, 0x38, 0xbb, 0x5d, 0xec, 0x47, 0xc3, 0x43, 0x3f, 0x74,
-	0xf3, 0x20, 0xf9, 0x36, 0x8d, 0xd2, 0x36, 0x70, 0xfa, 0x1c, 0xe5, 0xc2, 0xfe, 0x60, 0xa0, 0x95,
-	0x6e, 0x47, 0xe7, 0xc2, 0x84, 0xd1, 0xf6, 0x6f, 0xe2, 0xf6, 0x93, 0xf2, 0xf0, 0x48, 0x77, 0xb4,
-	0x8a, 0xa1, 0xf6, 0xe8, 0x41, 0xe2, 0xc4, 0x3f, 0xc1, 0x5d, 0xf4, 0xd1, 0x41, 0xdf, 0xe5, 0x41,
-	0x14, 0x46, 0x57, 0x5c, 0x06, 0x0b, 0x19, 0xfe, 0x47, 0x05, 0x16, 0xb2, 0xfe, 0xbb, 0xb0, 0xac,
-	0x59, 0xa4, 0x48, 0x7c, 0x37, 0xc0, 0xad, 0xb8, 0xc7, 0xd3, 0x56, 0x84, 0x1e, 0xe1, 0x1c, 0xe4,
-	0x4a, 0x21, 0x25, 0xae, 0xce, 0xf7, 0xa8, 0xf2, 0xd6, 0xb4, 0x17, 0x15, 0xf2, 0xcc, 0xc3, 0xa1,
-	0x94, 0x4a, 0x1b, 0x5c, 0xf7, 0xb9, 0x13, 0x8a, 0x09, 0xbd, 0x8c, 0xb7, 0xd4, 0x67, 0xf6, 0x49,
-	0xa5, 0xcf, 0xac, 0x58, 0x0d, 0x7e, 0x50, 0xae, 0x06, 0x6f, 0x42, 0x63, 0xe8, 0x87, 0x4e, 0xe6,
-	0x0d, 0x76, 0xd9, 0x1d, 0x0d, 0xfd, 0xf0, 0x89, 0x72, 0x08, 0xc5, 0x10, 0x63, 0xaf, 0x1c, 0x62,
-	0x9c, 0x12, 0xb1, 0x3c, 0x3c, 0x2d, 0x62, 0x29, 0xd7, 0xce, 0x3e, 0xad, 0xd6, 0xce, 0x8c, 0xc3,
-	0xf2, 0xb3, 0x8b, 0x1f, 0x96, 0x5f, 0x52, 0x06, 0xf2, 0xf9, 0xfb, 0xfe, 0xf1, 0x57, 0x6e, 0xe2,
-	0xe3, 0x19, 0x59, 0x38, 0x59, 0xa6, 0x4a, 0x27, 0x4b, 0x71, 0x59, 0xd3, 0xa5, 0x65, 0x75, 0xff,
-	0x65, 0xaa, 0x38, 0xdc, 0x79, 0xa7, 0x67, 0xe1, 0x5b, 0xd3, 0x67, 0x9d, 0x62, 0x33, 0xa5, 0x53,
-	0xac, 0x10, 0x37, 0xcc, 0x96, 0xe2, 0x86, 0xe2, 0x2c, 0xe7, 0xca, 0xc2, 0x37, 0x24, 0x35, 0x7f,
-	0x71, 0x49, 0xfd, 0x25, 0xaf, 0xcd, 0x6c, 0x8c, 0xff, 0x1e, 0xa2, 0xaa, 0x1e, 0xc3, 0x33, 0x13,
-	0x8e, 0xe1, 0x82, 0x08, 0x66, 0x8b, 0x22, 0xe8, 0xfe, 0x43, 0xa3, 0x38, 0xa1, 0xef, 0x2b, 0x6c,
-	0x2e, 0x0b, 0x1a, 0xe1, 0x0a, 0x15, 0x04, 0x55, 0xc7, 0xd1, 0xa9, 0xd3, 0x28, 0xee, 0xc4, 0x5c,
-	0x75, 0x27, 0x8c, 0x38, 0x62, 0xbe, 0x1c, 0x47, 0x5c, 0x28, 0xf9, 0x2f, 0x0a, 0xb2, 0x56, 0x16,
-	0x64, 0x96, 0x3c, 0x2d, 0x9a, 0xc9, 0x53, 0xf6, 0x52, 0x32, 0x0a, 0x74, 0x7b, 0x08, 0xbf, 0x64,
-	0x8f, 0x02, 0x3a, 0xca, 0xd1, 0x80, 0x91, 0x97, 0x02, 0x95, 0xa6, 0xbd, 0x30, 0xf4, 0xc3, 0x2f,
-	0xdc, 0xd0, 0x23, 0x92, 0xfb, 0x9e, 0x49, 0x0d, 0x45, 0x72, 0xdf, 0x13, 0x69, 0x9b, 0x4a, 0xe5,
-	0x6f, 0x44, 0xea, 0x64, 0x1c, 0x2a, 0x85, 0x64, 0xf8, 0xb9, 0xe2, 0xd3, 0x43, 0x44, 0x81, 0xa7,
-	0xbb, 0x96, 0x70, 0x88, 0x28, 0xf0, 0xaa, 0x07, 0x5b, 0x7b, 0x72, 0x0f, 0x26, 0xb7, 0x46, 0x8c,
-	0xc2, 0xec, 0x4a, 0x71, 0x91, 0x90, 0x3f, 0x0d, 0x29, 0xaf, 0x6c, 0xe7, 0xce, 0x83, 0x63, 0x26,
-	0x6e, 0x63, 0x6a, 0x65, 0x8e, 0x83, 0x83, 0xa6, 0x53, 0xbc, 0x8c, 0x75, 0x9a, 0x97, 0xb9, 0x05,
-	0x2d, 0x75, 0x47, 0x3f, 0x88, 0x12, 0x3f, 0x3d, 0x1e, 0xaa, 0x68, 0x86, 0x2f, 0x8b, 0x35, 0x88,
-	0xd9, 0x85, 0x7f, 0xe4, 0xe4, 0x97, 0x06, 0x3a, 0xac, 0xf1, 0x8f, 0x9e, 0xeb, 0x1b, 0x03, 0x5c,
-	0x67, 0xe0, 0xcb, 0xd4, 0x0f, 0x75, 0xe2, 0xcb, 0xd9, 0x65, 0x43, 0x81, 0x7c, 0x66, 0xdd, 0x80,
-	0x86, 0xaa, 0x1c, 0x33, 0xcf, 0x9a, 0xba, 0xe1, 0x21, 0x2c, 0x4b, 0xb2, 0x55, 0xed, 0x9d, 0x76,
-	0x5f, 0x85, 0x3a, 0x0c, 0x95, 0xfb, 0xbc, 0x3a, 0x85, 0x4c, 0x45, 0xb7, 0x80, 0xb3, 0x1a, 0x90,
-	0xfe, 0xad, 0xe7, 0x2d, 0xe0, 0xaf, 0x11, 0x25, 0x1d, 0xcc, 0x34, 0xc5, 0x48, 0x2f, 0x59, 0x53,
-	0x2a, 0xe1, 0x32, 0x4d, 0xe1, 0x4a, 0x51, 0x45, 0x69, 0x12, 0xdb, 0xd0, 0x1e, 0x0b, 0xe9, 0x70,
-	0xde, 0xc3, 0x6b, 0xe1, 0x1b, 0xc8, 0xe6, 0x58, 0xc8, 0x7d, 0x44, 0x79, 0x35, 0x3b, 0xb0, 0x84,
-	0x7c, 0xdc, 0xee, 0xa3, 0x18, 0x55, 0x6f, 0xf2, 0x58, 0x48, 0x6e, 0x18, 0x62, 0x4e, 0xf3, 0xb3,
-	0xa4, 0x05, 0xd7, 0xb8, 0x43, 0x46, 0x83, 0xa4, 0x08, 0xda, 0xf4, 0x68, 0x5e, 0xd7, 0x73, 0xd3,
-	0xa3, 0x39, 0x15, 0xf2, 0xbb, 0xcd, 0x52, 0x7e, 0x67, 0xe6, 0xa9, 0xa9, 0x50, 0xc1, 0x4f, 0x96,
-	0xa7, 0xa6, 0x74, 0x40, 0x8d, 0x42, 0x6a, 0x62, 0x8b, 0x7d, 0x4e, 0xd5, 0xa8, 0x4f, 0x87, 0xf3,
-	0xcc, 0x65, 0x26, 0xbd, 0x54, 0x94, 0x83, 0xd1, 0x30, 0x93, 0x36, 0xcd, 0x87, 0x17, 0xc6, 0xd7,
-	0x92, 0x24, 0x6d, 0x3c, 0x0c, 0xb2, 0xfd, 0x54, 0x8a, 0x43, 0xab, 0xda, 0x32, 0x7b, 0x83, 0x68,
-	0x4d, 0x37, 0xa1, 0x69, 0xf6, 0x17, 0xed, 0x52, 0x34, 0xd0, 0xb4, 0x1b, 0x46, 0x83, 0xd1, 0x6e,
-	0x99, 0x69, 0x4f, 0x45, 0x03, 0x26, 0xd3, 0x1e, 0x0a, 0x5b, 0x5b, 0xab, 0x32, 0x75, 0xa9, 0xe2,
-	0x81, 0x96, 0x32, 0x57, 0xb6, 0x78, 0xc9, 0x2d, 0x7d, 0xac, 0xac, 0x24, 0x8e, 0x4f, 0x58, 0x9f,
-	0x15, 0x56, 0x11, 0xd8, 0x58, 0x52, 0x44, 0x50, 0x4c, 0xec, 0x0b, 0xd5, 0x9a, 0xdd, 0x52, 0xb5,
-	0xe6, 0x1e, 0x58, 0xaa, 0x10, 0x63, 0xee, 0xfc, 0x9e, 0x2a, 0xee, 0x53, 0x31, 0xc6, 0xd8, 0xfb,
-	0x62, 0xe7, 0xd9, 0xc3, 0x72, 0xe7, 0xd9, 0x6d, 0x68, 0x9f, 0x44, 0x81, 0x9b, 0xfa, 0x81, 0x9f,
-	0x8e, 0xb9, 0xa0, 0xc9, 0xe1, 0x40, 0x2b, 0x87, 0x6d, 0x9c, 0xf3, 0x77, 0x8b, 0x08, 0x5e, 0x40,
-	0x9b, 0x8e, 0x14, 0xdb, 0x0d, 0x07, 0x67, 0xfc, 0xc6, 0xcc, 0x82, 0x59, 0xe3, 0x60, 0xa3, 0xbf,
-	0x4f, 0xf9, 0x6d, 0xd9, 0x37, 0xd3, 0xb0, 0xa2, 0x7f, 0xab, 0x85, 0x1f, 0x56, 0xbf, 0x61, 0xfb,
-	0x71, 0xeb, 0xd5, 0xc5, 0x43, 0x63, 0xb6, 0x7c, 0x68, 0x3c, 0x83, 0xe6, 0x91, 0x1f, 0xa4, 0x22,
-	0x71, 0x8e, 0x70, 0x85, 0xb2, 0x33, 0xb7, 0x39, 0xb3, 0x53, 0xdf, 0xdb, 0x9a, 0x20, 0xa0, 0xca,
-	0x4f, 0xee, 0xec, 0x06, 0xbf, 0x4a, 0x0f, 0xd2, 0xfa, 0x1c, 0x1a, 0x09, 0x8a, 0x4a, 0x8f, 0x34,
-	0x4f, 0x23, 0x75, 0x27, 0x8c, 0x54, 0x12, 0xab, 0x5d, 0x4f, 0xb2, 0xbf, 0x65, 0xf7, 0x3f, 0xa6,
-	0xe0, 0x92, 0xad, 0x1b, 0xf6, 0xa9, 0x25, 0xe1, 0x07, 0x93, 0x93, 0xe4, 0x81, 0x0c, 0x39, 0x29,
-	0xe4, 0x7b, 0xd7, 0xf5, 0x8b, 0x52, 0x9e, 0x2f, 0x4b, 0x19, 0xed, 0x0a, 0x57, 0xe2, 0x90, 0x22,
-	0xc8, 0xce, 0xc2, 0xe6, 0x0c, 0xfa, 0x77, 0xc2, 0x48, 0x9e, 0xb2, 0xfb, 0xb7, 0x53, 0xb0, 0x4c,
-	0x4b, 0xa6, 0x86, 0xd2, 0x1f, 0x66, 0xc9, 0x5b, 0xc0, 0x07, 0x61, 0xde, 0xe7, 0x6a, 0xc6, 0x56,
-	0xba, 0xcb, 0x75, 0x07, 0x13, 0x26, 0x83, 0x2b, 0x0f, 0x24, 0x5b, 0x06, 0x1f, 0xaa, 0xfa, 0x1a,
-	0xcc, 0x13, 0xc2, 0x5a, 0x82, 0x27, 0x0c, 0x3d, 0x75, 0xff, 0x6d, 0x0a, 0x36, 0x5e, 0x1a, 0xed,
-	0xb0, 0x1f, 0x52, 0xbf, 0xb7, 0x55, 0x0c, 0x90, 0xad, 0x51, 0x76, 0x66, 0x69, 0x72, 0x4d, 0x73,
-	0x91, 0xf2, 0x07, 0x54, 0xf4, 0xee, 0x3f, 0x4e, 0xc1, 0x9a, 0xfe, 0x0d, 0xdc, 0x87, 0x5c, 0xea,
-	0x2a, 0xcc, 0xf5, 0x47, 0x32, 0xd5, 0xd2, 0xe7, 0x87, 0xea, 0xc2, 0x66, 0xbf, 0xf3, 0xc2, 0xfe,
-	0x66, 0xca, 0xf8, 0x39, 0xc0, 0x0f, 0xb3, 0xa4, 0x4a, 0xbf, 0xff, 0xcc, 0x85, 0xfa, 0xfd, 0x67,
-	0x27, 0xf5, 0xfb, 0x4f, 0x5c, 0x7f, 0xf7, 0x9f, 0x71, 0x37, 0xf2, 0x0b, 0xc0, 0x0f, 0xb6, 0x1b,
-	0xb9, 0x31, 0xcc, 0x9a, 0xc6, 0xf0, 0x43, 0x2a, 0x5a, 0x0f, 0x56, 0x5e, 0x25, 0xe3, 0xa7, 0x51,
-	0xd2, 0xa7, 0x52, 0xec, 0xb9, 0x6d, 0xbf, 0x17, 0x6a, 0xca, 0xfc, 0xa6, 0x01, 0x4b, 0xc5, 0x21,
-	0x7f, 0xb4, 0xd2, 0xee, 0x59, 0x1d, 0xba, 0x59, 0x8f, 0xed, 0x9c, 0xd9, 0x63, 0xbb, 0x06, 0xf3,
-	0xdc, 0xb0, 0xaa, 0x7c, 0xa8, 0x7a, 0xc2, 0xcd, 0x3a, 0x4c, 0xa2, 0x37, 0x22, 0x71, 0x30, 0x16,
-	0x51, 0xd9, 0x11, 0x30, 0xf4, 0xa5, 0x2f, 0xd3, 0xec, 0xe7, 0x58, 0xd4, 0xdf, 0x52, 0xcb, 0x7f,
-	0x8e, 0x45, 0xcd, 0x2d, 0x79, 0x5f, 0xe0, 0x62, 0xa1, 0x2f, 0xf0, 0x2a, 0x80, 0xeb, 0x65, 0x37,
-	0xd2, 0xa0, 0x7a, 0x39, 0x3d, 0x2f, 0xef, 0x10, 0xa1, 0xf0, 0xc3, 0xe0, 0xa9, 0xe7, 0xa1, 0xdc,
-	0xa3, 0x8c, 0xaf, 0xd4, 0xb6, 0xd8, 0x98, 0xd4, 0xb6, 0x98, 0xf7, 0xee, 0xea, 0x5f, 0x00, 0x67,
-	0xad, 0xbb, 0xe5, 0xcb, 0x94, 0x56, 0xe5, 0x32, 0x45, 0xb7, 0xaa, 0x18, 0x13, 0x69, 0xe7, 0xad,
-	0x2a, 0xf9, 0x44, 0x6e, 0x40, 0x43, 0xf5, 0x29, 0x72, 0x6f, 0xdf, 0x92, 0xb2, 0x35, 0xc2, 0xb2,
-	0xee, 0x3e, 0xa3, 0xf9, 0x6f, 0xb9, 0xdc, 0xfc, 0x77, 0x05, 0xe8, 0x81, 0x8f, 0x31, 0x4e, 0x8f,
-	0x6a, 0x08, 0xd0, 0x29, 0x76, 0x0f, 0x2c, 0xaa, 0x53, 0x3a, 0x85, 0x62, 0x23, 0x67, 0x46, 0x4b,
-	0x44, 0x79, 0x6a, 0x54, 0x1c, 0x4b, 0x7d, 0xce, 0xab, 0x95, 0x3e, 0xe7, 0xac, 0x25, 0x17, 0x1f,
-	0x9d, 0x54, 0x04, 0xbb, 0xaa, 0xea, 0xdb, 0xcc, 0x98, 0x5e, 0x8b, 0x60, 0x97, 0xce, 0xa7, 0xbc,
-	0xa3, 0x1a, 0x19, 0x03, 0x55, 0x04, 0x6e, 0xe5, 0x6d, 0xd5, 0xaf, 0x45, 0x10, 0xe4, 0x1b, 0x56,
-	0xfe, 0x0d, 0x27, 0x6f, 0x58, 0xd6, 0xa4, 0x9b, 0x35, 0xf9, 0x72, 0x1f, 0x6a, 0xc7, 0x68, 0xf2,
-	0xe5, 0x46, 0xd4, 0x0b, 0xb4, 0x6b, 0xde, 0x84, 0x66, 0x18, 0xa5, 0xfe, 0xd1, 0x58, 0x67, 0x9e,
-	0xea, 0x3e, 0x8e, 0x41, 0x95, 0x77, 0xee, 0xc0, 0x52, 0x1a, 0xa1, 0xdb, 0x23, 0x46, 0x96, 0x39,
-	0xa7, 0x4d, 0xad, 0x34, 0x8a, 0x0f, 0x08, 0x9e, 0xf4, 0x9b, 0xe1, 0xbd, 0x6a, 0xdf, 0xe6, 0x1e,
-	0xce, 0x5a, 0x0d, 0x44, 0x75, 0x46, 0x6e, 0xdc, 0x04, 0x86, 0xa8, 0xcc, 0x78, 0xa1, 0x5a, 0x71,
-	0xa5, 0xd1, 0xeb, 0xfa, 0x84, 0x46, 0xaf, 0x62, 0x43, 0xd9, 0x66, 0xb9, 0xa1, 0x6c, 0x0b, 0x5a,
-	0xde, 0x38, 0xec, 0x1b, 0x1d, 0x65, 0x7c, 0x2f, 0xd7, 0x40, 0x34, 0x6b, 0x29, 0x9b, 0xd8, 0x2d,
-	0xd6, 0x9d, 0xdc, 0x2d, 0x76, 0xfa, 0x4f, 0x3e, 0x6f, 0x9e, 0xfe, 0x93, 0xcf, 0x52, 0xf1, 0x72,
-	0xab, 0x52, 0xbc, 0x9c, 0xf4, 0x0b, 0xd8, 0x5b, 0xdf, 0xe2, 0x17, 0xb0, 0xdb, 0xa7, 0xfc, 0x02,
-	0xb6, 0x5c, 0x84, 0xbc, 0x5d, 0x2d, 0x42, 0xa2, 0x4f, 0xa0, 0x80, 0x90, 0x37, 0x7d, 0x87, 0x4f,
-	0x17, 0x82, 0x78, 0xc3, 0x51, 0x35, 0x72, 0x06, 0x47, 0x7e, 0x2d, 0xb9, 0xb8, 0xdc, 0xb4, 0x5b,
-	0x39, 0x57, 0xef, 0x6b, 0x59, 0xee, 0xda, 0xbf, 0x3b, 0xe9, 0xd7, 0xe8, 0x86, 0xc2, 0x7f, 0x54,
-	0xee, 0x48, 0x37, 0x92, 0x9f, 0x7b, 0x17, 0x4e, 0x7e, 0xf6, 0xfe, 0x67, 0x0e, 0x96, 0x0b, 0xf1,
-	0x0d, 0xb2, 0x59, 0x3e, 0x2c, 0x57, 0x7e, 0xf9, 0x61, 0xdd, 0x9e, 0x30, 0xde, 0xa4, 0x9f, 0xab,
-	0x6c, 0x5c, 0x8c, 0x51, 0xc6, 0xdd, 0x9f, 0x3c, 0x98, 0xb2, 0x7e, 0x09, 0x75, 0xa3, 0x80, 0x6a,
-	0xdd, 0x98, 0xfc, 0xae, 0x51, 0xaf, 0xdd, 0x38, 0x8f, 0xa5, 0x30, 0x70, 0x76, 0xaf, 0x7e, 0xca,
-	0x5b, 0x46, 0x75, 0x73, 0xe3, 0x3c, 0x16, 0x35, 0xf0, 0x9f, 0xc1, 0x72, 0xf6, 0x8f, 0x4e, 0x74,
-	0x9a, 0x67, 0x5d, 0x9f, 0x74, 0xec, 0x1b, 0xff, 0x0e, 0x65, 0xe3, 0xda, 0xa4, 0xc1, 0xf3, 0x7f,
-	0xe8, 0x51, 0x19, 0x59, 0x07, 0x9e, 0xdf, 0x6d, 0x64, 0xe3, 0x5f, 0x37, 0xd0, 0xc8, 0x7f, 0x4e,
-	0xff, 0x49, 0xa5, 0x98, 0x6e, 0x59, 0x3b, 0x93, 0x14, 0x64, 0x52, 0x46, 0xb6, 0x71, 0x86, 0x2a,
-	0x75, 0x7f, 0xb2, 0x33, 0x65, 0x39, 0x60, 0xf5, 0x44, 0x5a, 0x8a, 0x95, 0xad, 0x3b, 0x67, 0x4c,
-	0xac, 0x18, 0xc1, 0x9d, 0xfb, 0x81, 0x5f, 0x41, 0xbb, 0x27, 0x52, 0x33, 0xa9, 0xb6, 0xb6, 0xcf,
-	0x10, 0xe8, 0xb7, 0x18, 0xfa, 0x70, 0x9e, 0xfe, 0xa3, 0xcd, 0xc3, 0xff, 0x0d, 0x00, 0x00, 0xff,
-	0xff, 0x52, 0x05, 0xcc, 0xc7, 0xee, 0x46, 0x00, 0x00,
+var fileDescriptor_risk_monitor_server_5c5ac32ac9cad650 = []byte{
+	// 6857 bytes of a gzipped FileDescriptorProto
+	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0xec, 0x7d, 0x4b, 0x6f, 0x1c, 0x49,
+	0x72, 0xb0, 0x9a, 0xef, 0x8e, 0x7e, 0xb2, 0x44, 0x51, 0x2d, 0x69, 0x34, 0x92, 0x5a, 0x2f, 0xce,
+	0x48, 0xab, 0x11, 0xa9, 0xd9, 0xc7, 0xf7, 0xed, 0x7e, 0xbb, 0x43, 0x91, 0xd2, 0x48, 0xdf, 0x47,
+	0x91, 0x52, 0x35, 0x77, 0xf6, 0x33, 0x0c, 0x6f, 0xa1, 0xd8, 0x9d, 0x24, 0x6b, 0x55, 0x5d, 0xd5,
+	0xaa, 0xaa, 0xa6, 0xd4, 0x63, 0x18, 0x3e, 0xfa, 0x60, 0xc3, 0x3e, 0xfb, 0x62, 0x63, 0x77, 0x01,
+	0xfb, 0xee, 0x93, 0x0d, 0xf8, 0x07, 0x18, 0x86, 0x0d, 0x18, 0x5e, 0x63, 0xb1, 0x36, 0x0c, 0xf8,
+	0x6c, 0x78, 0x7d, 0xb3, 0x7d, 0x34, 0x8c, 0x88, 0xc8, 0xac, 0xca, 0x7a, 0x90, 0x4d, 0x71, 0x35,
+	0xd2, 0xd8, 0xd8, 0x93, 0x58, 0x91, 0x51, 0x91, 0x99, 0xf1, 0xca, 0x88, 0xc8, 0xa8, 0x16, 0x9c,
+	0x0b, 0x9c, 0xf0, 0xb9, 0xd5, 0xf7, 0x3d, 0x27, 0xf2, 0x03, 0x2b, 0x14, 0xc1, 0x81, 0x08, 0xee,
+	0x0c, 0x02, 0x3f, 0xf2, 0x8d, 0x79, 0x1c, 0x92, 0x23, 0x3c, 0xd0, 0xae, 0x40, 0xf9, 0x91, 0xb0,
+	0x83, 0xe8, 0xbe, 0xb0, 0xa3, 0x76, 0x1d, 0xaa, 0x9d, 0xe1, 0x4e, 0xd8, 0x0d, 0x9c, 0x1d, 0x61,
+	0x8a, 0x17, 0xed, 0x39, 0x98, 0x79, 0x16, 0x8c, 0xf0, 0xaf, 0xaf, 0xc3, 0xac, 0x19, 0x0e, 0x1e,
+	0x7b, 0xbb, 0xbe, 0xb1, 0x00, 0xd3, 0x22, 0x08, 0x9c, 0x5e, 0xab, 0x74, 0xb9, 0xb4, 0x54, 0x33,
+	0xf9, 0xc1, 0x58, 0x84, 0x19, 0x11, 0x04, 0xfd, 0x70, 0xaf, 0x35, 0x71, 0xb9, 0xb4, 0x54, 0x35,
+	0xe5, 0x53, 0xfb, 0x57, 0x60, 0xbe, 0x23, 0xa2, 0xc8, 0xf1, 0xf6, 0x3e, 0xb3, 0xdd, 0xa1, 0x78,
+	0xe8, 0x08, 0xb7, 0x67, 0x18, 0x30, 0xe5, 0xd9, 0x7d, 0x41, 0x14, 0xaa, 0x26, 0xfd, 0x6d, 0x9c,
+	0x87, 0x39, 0x7f, 0x20, 0x02, 0x3b, 0xf2, 0x03, 0x22, 0x51, 0x33, 0xe3, 0x67, 0x9c, 0xf2, 0x00,
+	0xdf, 0x6e, 0x4d, 0xd2, 0x0b, 0xfc, 0xd0, 0xfe, 0x04, 0xce, 0x3d, 0x0b, 0x46, 0x8f, 0x7c, 0xb7,
+	0xb7, 0x36, 0x0c, 0xa3, 0xf0, 0xfe, 0x68, 0xcd, 0xf7, 0xa2, 0xc0, 0xee, 0x46, 0xa6, 0x78, 0x61,
+	0x5c, 0x85, 0x5a, 0x57, 0x3e, 0x5a, 0x5d, 0xbf, 0xa7, 0xe6, 0xaa, 0x2a, 0xe0, 0x9a, 0xdf, 0x13,
+	0x6d, 0xf7, 0x50, 0x0a, 0xe1, 0xc0, 0x38, 0x07, 0x73, 0xdd, 0x61, 0x18, 0x59, 0x9e, 0x1f, 0xb6,
+	0x4a, 0x97, 0x27, 0x97, 0xaa, 0xe6, 0x2c, 0x3e, 0x6f, 0xfa, 0xa1, 0xf1, 0x31, 0xcc, 0x06, 0xcc,
+	0x0d, 0x5a, 0x6a, 0x65, 0xe5, 0xfc, 0x9d, 0x1c, 0x67, 0xef, 0x48, 0x7e, 0x99, 0x0a, 0xb5, 0xfd,
+	0x01, 0x9c, 0x7e, 0x16, 0x8c, 0xb6, 0x03, 0xbb, 0x27, 0xd6, 0x6c, 0x57, 0x78, 0x3d, 0x3b, 0xc0,
+	0x95, 0x1a, 0x30, 0x35, 0x12, 0x76, 0xa0, 0x98, 0x81, 0x7f, 0xb7, 0xf7, 0x0a, 0x50, 0xc3, 0x01,
+	0xf2, 0xa8, 0x2b, 0x1f, 0x25, 0x7a, 0xfc, 0x7c, 0xc2, 0x35, 0xfd, 0xeb, 0x14, 0x54, 0x9e, 0x0d,
+	0xfd, 0x48, 0x3c, 0xf1, 0x3d, 0x33, 0xf2, 0x8c, 0x0b, 0x50, 0x1e, 0xd8, 0xdd, 0xe7, 0xd6, 0xae,
+	0x6b, 0xef, 0x49, 0x01, 0xcf, 0x21, 0xe0, 0xa1, 0x6b, 0xef, 0x19, 0x97, 0xa0, 0x62, 0x77, 0x23,
+	0xc7, 0xf7, 0x78, 0x98, 0xa5, 0x04, 0x0c, 0x22, 0x84, 0x8b, 0x00, 0x4a, 0xef, 0x3c, 0x5f, 0x0a,
+	0xab, 0x2c, 0x21, 0x9b, 0xbe, 0x71, 0x05, 0xaa, 0x61, 0xdf, 0x0e, 0x9e, 0x0b, 0x29, 0x92, 0x29,
+	0x42, 0xa8, 0x48, 0x18, 0x4a, 0x04, 0x99, 0x1e, 0x8a, 0x2e, 0x0f, 0x4f, 0xd3, 0xf0, 0x6c, 0x28,
+	0xba, 0x34, 0x94, 0x93, 0xe8, 0x4c, 0x5e, 0xa2, 0xb8, 0x82, 0x08, 0xb9, 0x66, 0x45, 0xa3, 0x81,
+	0x68, 0xcd, 0xf2, 0x0a, 0x08, 0xb2, 0x3d, 0x1a, 0xd0, 0xb0, 0x6b, 0x87, 0x91, 0x35, 0x08, 0x9c,
+	0xae, 0x68, 0xcd, 0x5d, 0x2e, 0x2d, 0x95, 0xcc, 0x32, 0x42, 0x9e, 0x22, 0xc0, 0xb8, 0x0b, 0x0b,
+	0x83, 0x40, 0x58, 0xa1, 0x88, 0x22, 0x57, 0xf4, 0x85, 0xa7, 0x10, 0xcb, 0x84, 0x68, 0x0c, 0x02,
+	0xd1, 0x89, 0x87, 0xf8, 0x8d, 0x0f, 0xa0, 0x99, 0xc3, 0x06, 0xc2, 0x6e, 0x84, 0x19, 0xd4, 0x6b,
+	0x50, 0x0f, 0x76, 0x2d, 0xd7, 0xe9, 0x3b, 0x0a, 0xb1, 0x42, 0x88, 0xd5, 0x60, 0x77, 0x03, 0x81,
+	0x8c, 0xd5, 0x84, 0xc9, 0xee, 0xfe, 0x5e, 0xab, 0x4a, 0x43, 0xf8, 0x27, 0xae, 0x99, 0x2c, 0xda,
+	0x15, 0x07, 0xc2, 0x6d, 0xd5, 0x2e, 0x97, 0x96, 0xa6, 0xcd, 0x32, 0x42, 0x36, 0x10, 0x80, 0x6c,
+	0xf1, 0x07, 0xc2, 0xb3, 0x1c, 0x2f, 0x12, 0x81, 0x08, 0xa3, 0x56, 0x9d, 0xc4, 0x52, 0x45, 0xe0,
+	0x63, 0x09, 0x23, 0xc1, 0x38, 0x9e, 0xd5, 0xb7, 0x83, 0x3d, 0xc7, 0x6b, 0x35, 0x78, 0xdf, 0x7d,
+	0xc7, 0x7b, 0x42, 0x00, 0x14, 0x0c, 0x0f, 0x59, 0x81, 0x1d, 0x39, 0x7e, 0xab, 0x49, 0x08, 0x15,
+	0x86, 0x99, 0x08, 0x42, 0xd9, 0x4b, 0x94, 0x9e, 0xb3, 0xbb, 0xdb, 0x9a, 0x27, 0x0c, 0x60, 0xd0,
+	0xba, 0xb3, 0xbb, 0x8b, 0xdb, 0x8b, 0x9c, 0xee, 0x73, 0xde, 0x9a, 0xe5, 0x0d, 0xfb, 0x2d, 0x83,
+	0x17, 0x82, 0x50, 0xda, 0xdb, 0xe6, 0xb0, 0xdf, 0xfe, 0x31, 0x40, 0x05, 0x6d, 0xcd, 0x74, 0xc2,
+	0xe7, 0x5f, 0xb8, 0xbe, 0x9d, 0x85, 0x59, 0x69, 0xc1, 0x52, 0xd5, 0x66, 0xd8, 0x80, 0xf1, 0x3d,
+	0x1a, 0xe8, 0xba, 0x76, 0x18, 0x4a, 0x3d, 0x2b, 0x23, 0x64, 0x0d, 0x01, 0xb8, 0x28, 0x7e, 0x0f,
+	0x7d, 0xd4, 0x8c, 0xb4, 0x33, 0x7c, 0x13, 0xfd, 0x14, 0xf2, 0xca, 0xdf, 0x71, 0x5c, 0x61, 0x0d,
+	0xf6, 0x7d, 0x4f, 0xe9, 0x58, 0x85, 0x61, 0x4f, 0x11, 0x64, 0xbc, 0x0f, 0xd0, 0x75, 0x1d, 0xe1,
+	0x45, 0x7d, 0x54, 0xd3, 0x39, 0x42, 0xd0, 0x20, 0x19, 0x89, 0x96, 0x79, 0xfa, 0x44, 0xa2, 0x57,
+	0xa0, 0x4a, 0xc3, 0x3d, 0xb1, 0x17, 0x08, 0x71, 0x57, 0xea, 0x53, 0x05, 0x61, 0xeb, 0x0c, 0xca,
+	0xa0, 0x2c, 0x4b, 0x4d, 0xd2, 0x50, 0x96, 0x33, 0x28, 0x2b, 0x52, 0xa3, 0x34, 0x94, 0x95, 0x0c,
+	0xca, 0x3d, 0xd2, 0xad, 0x14, 0xca, 0x3d, 0xe3, 0x06, 0x34, 0xc8, 0x60, 0xb4, 0xf5, 0xd6, 0x69,
+	0xbd, 0x35, 0x04, 0x9b, 0xf1, 0x9a, 0x2f, 0x41, 0x85, 0xf1, 0x44, 0xdf, 0x8e, 0x35, 0x8c, 0x6c,
+	0xcd, 0x24, 0x08, 0x9e, 0x0f, 0x52, 0xfb, 0x58, 0xb9, 0xe4, 0x13, 0xbe, 0xd8, 0x0b, 0xfc, 0x81,
+	0x35, 0x08, 0xfc, 0x5d, 0x27, 0x52, 0x7a, 0x85, 0xa0, 0xa7, 0x04, 0x41, 0x84, 0x7d, 0xdf, 0xed,
+	0x29, 0x04, 0x83, 0x11, 0x10, 0x94, 0x20, 0x44, 0x7e, 0xcf, 0x1e, 0x59, 0x8e, 0xe7, 0x0f, 0xa3,
+	0xd6, 0x69, 0x46, 0x20, 0xd0, 0x63, 0x84, 0xa0, 0x85, 0x04, 0xfe, 0xc8, 0x76, 0x23, 0x85, 0xb2,
+	0x20, 0xed, 0x8e, 0x81, 0x8c, 0xd4, 0x86, 0x5a, 0x6f, 0xe4, 0x59, 0x5d, 0x7b, 0x60, 0x05, 0xce,
+	0xde, 0x7e, 0xd4, 0x3a, 0xc3, 0xcc, 0xe8, 0x8d, 0xbc, 0x35, 0x7b, 0x60, 0x22, 0x08, 0x67, 0x12,
+	0xaf, 0xba, 0xfb, 0xca, 0x8c, 0x16, 0x79, 0x26, 0x04, 0x49, 0x3b, 0xba, 0x08, 0x60, 0x1f, 0xd8,
+	0x8e, 0x6b, 0xed, 0x0e, 0xbd, 0x5e, 0xeb, 0x2c, 0x9b, 0x19, 0x41, 0x1e, 0x0e, 0xbd, 0x1e, 0x0e,
+	0xfb, 0x03, 0xd2, 0xe7, 0xae, 0x3d, 0x68, 0xb5, 0x78, 0x98, 0x21, 0x6b, 0xf6, 0x00, 0x87, 0x71,
+	0x09, 0x34, 0x7d, 0xd8, 0x3a, 0xc7, 0xc3, 0xbd, 0x91, 0x47, 0x93, 0x87, 0xc6, 0x87, 0x30, 0x2f,
+	0xdf, 0x46, 0x2c, 0xb9, 0x86, 0xf3, 0xec, 0x6b, 0x78, 0x60, 0x7d, 0xa4, 0x0c, 0xfa, 0x12, 0x54,
+	0x76, 0x83, 0xcf, 0x63, 0xac, 0x0b, 0xbc, 0x52, 0x04, 0x25, 0x16, 0x4f, 0x08, 0x92, 0x07, 0xad,
+	0xf7, 0x78, 0xb7, 0x08, 0x33, 0x19, 0x64, 0x2c, 0x41, 0x93, 0x76, 0xab, 0x13, 0xba, 0x48, 0x68,
+	0x75, 0x84, 0x3f, 0x4c, 0x88, 0xdd, 0x06, 0x83, 0x90, 0xc2, 0x28, 0x70, 0x9e, 0x0b, 0x85, 0xfb,
+	0x3e, 0xe1, 0x36, 0x71, 0xa4, 0x43, 0x03, 0x12, 0x3b, 0xd9, 0x87, 0xe7, 0xbf, 0x54, 0xc8, 0x97,
+	0xf4, 0x7d, 0x6c, 0xfa, 0x2f, 0x25, 0xee, 0x3d, 0x58, 0xa4, 0x35, 0xe4, 0x5f, 0xb8, 0x4c, 0x2f,
+	0x9c, 0xc6, 0xd1, 0xad, 0xa3, 0x5f, 0xd2, 0xb8, 0x75, 0x25, 0xfb, 0x52, 0xc2, 0xb1, 0x0f, 0x81,
+	0x82, 0x23, 0x2b, 0x3e, 0x62, 0x5e, 0x44, 0xa3, 0x56, 0x9b, 0x3c, 0x4e, 0x03, 0x07, 0x54, 0x64,
+	0xf0, 0x2c, 0x1a, 0xd1, 0x49, 0x34, 0x0c, 0x02, 0xe1, 0x75, 0x47, 0x7c, 0x12, 0x5d, 0x95, 0x27,
+	0x91, 0x04, 0xea, 0x27, 0x91, 0xe3, 0xed, 0xa1, 0xff, 0xb9, 0x96, 0x9c, 0x44, 0x8e, 0xb7, 0xb7,
+	0xe9, 0xa3, 0x8f, 0x21, 0x61, 0x93, 0xbf, 0xbd, 0x4e, 0xeb, 0x9a, 0x43, 0x59, 0xe3, 0x73, 0xfb,
+	0x8f, 0xa7, 0xd9, 0x4b, 0x62, 0x64, 0xf2, 0x65, 0xf6, 0x92, 0xc4, 0x66, 0xed, 0x2c, 0x9e, 0x43,
+	0x00, 0xed, 0xfe, 0x02, 0x94, 0x0f, 0xec, 0xc0, 0xe1, 0x41, 0x76, 0x91, 0x73, 0x08, 0x28, 0x3e,
+	0xc9, 0xe7, 0x8a, 0x4f, 0xf2, 0x9e, 0x70, 0x9d, 0x03, 0xab, 0x67, 0x47, 0x42, 0x39, 0x49, 0x82,
+	0xac, 0xdb, 0x11, 0x05, 0x0a, 0xe4, 0x16, 0xc2, 0x61, 0x9f, 0x1c, 0x64, 0xcd, 0x9c, 0xc5, 0xe7,
+	0xce, 0xb0, 0x9f, 0x89, 0x01, 0x2a, 0xd9, 0x18, 0x00, 0xf7, 0x3b, 0x60, 0x5e, 0x55, 0xe5, 0x7e,
+	0x07, 0x1a, 0x9f, 0xa2, 0x7d, 0x1e, 0xab, 0xc5, 0x7c, 0x8a, 0xf6, 0x15, 0x9f, 0xf9, 0xf0, 0x66,
+	0x99, 0xd5, 0xa5, 0x8b, 0x43, 0x10, 0x1f, 0x91, 0x57, 0xa0, 0xca, 0x08, 0x07, 0xbe, 0xdb, 0x1f,
+	0x0a, 0x72, 0x82, 0x35, 0x93, 0x5f, 0xfa, 0x8c, 0x40, 0x48, 0xc3, 0x3f, 0x10, 0x01, 0x62, 0x0c,
+	0xfb, 0x82, 0x5c, 0x61, 0xcd, 0x04, 0x04, 0x7d, 0x46, 0x90, 0x84, 0xc6, 0xcb, 0xc0, 0x73, 0xbc,
+	0x3d, 0xf2, 0x87, 0x8a, 0xc6, 0xf7, 0x08, 0x14, 0xd3, 0x90, 0x18, 0x46, 0x42, 0x43, 0x22, 0xac,
+	0x43, 0x99, 0x58, 0x43, 0xdb, 0x47, 0x77, 0x58, 0x5f, 0xb9, 0x59, 0x10, 0x0b, 0x6a, 0x0a, 0x76,
+	0x07, 0xff, 0x45, 0xe6, 0x98, 0xc4, 0x54, 0xfc, 0xab, 0x7d, 0x0d, 0xe6, 0x14, 0xd4, 0x28, 0xc3,
+	0xf4, 0xb6, 0x1f, 0xd9, 0x6e, 0xf3, 0x94, 0x51, 0x83, 0x72, 0x67, 0x20, 0xba, 0x43, 0xd7, 0x8e,
+	0x44, 0xb3, 0xd4, 0xfe, 0xe1, 0x0c, 0x34, 0x91, 0xd0, 0xa7, 0x81, 0x3f, 0x1c, 0xbc, 0x15, 0x75,
+	0x6d, 0xa3, 0xf1, 0x85, 0x91, 0xb5, 0x87, 0x33, 0x26, 0x4a, 0x5b, 0xe9, 0xaa, 0x55, 0x6c, 0xfa,
+	0x78, 0x6a, 0xe9, 0x38, 0x78, 0x8c, 0xb3, 0xfa, 0xd6, 0x12, 0x2c, 0x3c, 0xcb, 0x7f, 0xa9, 0xc2,
+	0x5f, 0x52, 0x15, 0x7e, 0x9c, 0x57, 0xe1, 0xdb, 0x87, 0xa8, 0xb0, 0xae, 0x79, 0x05, 0x7a, 0xac,
+	0xbb, 0xb7, 0x85, 0x23, 0xdc, 0xdb, 0x99, 0xac, 0x7b, 0x53, 0x7a, 0x16, 0x8b, 0x68, 0x91, 0xf7,
+	0xd1, 0x95, 0x66, 0xd3, 0x19, 0xf6, 0x8f, 0x69, 0x23, 0x3f, 0x9b, 0x84, 0xf9, 0x4d, 0x61, 0x07,
+	0xeb, 0xa2, 0xe7, 0x1c, 0x88, 0x5f, 0xfa, 0xf4, 0xb7, 0x69, 0x10, 0x14, 0xb2, 0x0d, 0x9c, 0x40,
+	0x58, 0x3d, 0x7b, 0x14, 0x92, 0x45, 0xd4, 0x30, 0x64, 0x43, 0xd0, 0xba, 0x3d, 0x0a, 0x29, 0x23,
+	0x24, 0x6d, 0xdd, 0xb1, 0x43, 0x21, 0x73, 0xa7, 0x32, 0x41, 0xee, 0xdb, 0x21, 0xad, 0xb8, 0xeb,
+	0xfa, 0xa1, 0x7c, 0x9d, 0xcd, 0xa1, 0x4c, 0x10, 0x7c, 0xbb, 0xfd, 0xa3, 0x19, 0x30, 0x9e, 0x06,
+	0xfe, 0xb0, 0xcb, 0x6a, 0xf8, 0x56, 0xb2, 0x9a, 0x25, 0x68, 0x0e, 0x02, 0xbf, 0x37, 0xec, 0xe6,
+	0x7c, 0x60, 0x5d, 0xc2, 0x95, 0x1b, 0xbc, 0x0d, 0x46, 0x06, 0x33, 0xf1, 0x84, 0xcd, 0x14, 0x2e,
+	0x3a, 0xc3, 0x05, 0x98, 0xee, 0xfa, 0x43, 0x2f, 0x22, 0xb9, 0xd7, 0x4c, 0x7e, 0x88, 0x73, 0x15,
+	0x1e, 0x9a, 0x65, 0x06, 0x70, 0x40, 0x84, 0xc3, 0x97, 0xa0, 0xa2, 0xa5, 0x10, 0x32, 0xa3, 0x86,
+	0x24, 0x83, 0xc8, 0xe5, 0xfc, 0xe5, 0xa3, 0x73, 0x7e, 0x18, 0x93, 0xf3, 0x57, 0xc6, 0xe6, 0xfc,
+	0xd5, 0xa3, 0x73, 0xfe, 0xda, 0x71, 0x73, 0xfe, 0xfa, 0x6b, 0xe5, 0xfc, 0x8d, 0xe3, 0xe6, 0xfc,
+	0xcd, 0xc3, 0x73, 0xfe, 0xf9, 0xc3, 0x72, 0x7e, 0x63, 0x6c, 0xce, 0x7f, 0x7a, 0x6c, 0xce, 0xbf,
+	0x30, 0x2e, 0xe7, 0x3f, 0x33, 0x36, 0xe7, 0x5f, 0x3c, 0x46, 0xce, 0x7f, 0xb6, 0x20, 0xe7, 0xff,
+	0x9d, 0x12, 0x2c, 0x3c, 0x0b, 0x46, 0xe8, 0xac, 0x3b, 0x4e, 0x7f, 0xe0, 0x0a, 0x2a, 0x41, 0x89,
+	0x17, 0xba, 0x97, 0x2a, 0x1d, 0xe1, 0xa5, 0x26, 0xb2, 0x5e, 0xea, 0x12, 0x90, 0x17, 0xb6, 0xc2,
+	0xc8, 0x8e, 0x86, 0xa1, 0xb4, 0x10, 0x7a, 0xa3, 0x43, 0x90, 0x74, 0x02, 0x3f, 0x95, 0x4e, 0xe0,
+	0xdb, 0x7f, 0x3b, 0x55, 0xb4, 0x9c, 0x70, 0xa0, 0x57, 0xd0, 0x4a, 0xc7, 0xae, 0xa0, 0xa5, 0x6d,
+	0x7d, 0x22, 0x63, 0xeb, 0xda, 0x0e, 0x27, 0x8f, 0xd8, 0xe1, 0xd4, 0x98, 0x1d, 0x4e, 0x1f, 0xbd,
+	0xc3, 0x6c, 0x89, 0x62, 0x01, 0xa6, 0xf5, 0xda, 0x04, 0x3f, 0xa0, 0x96, 0xed, 0xda, 0xaf, 0xa4,
+	0x5f, 0xc6, 0x3f, 0x0d, 0x03, 0xa6, 0xec, 0x5e, 0x2f, 0x90, 0x36, 0x49, 0x7f, 0xd3, 0xcc, 0xfd,
+	0x9e, 0x65, 0x87, 0xa1, 0xb3, 0xe7, 0x2d, 0x4b, 0x7b, 0x84, 0x6e, 0xbf, 0xb7, 0xca, 0x10, 0x4a,
+	0x2d, 0x87, 0x5e, 0xcf, 0xb2, 0x5d, 0xd7, 0x8f, 0x96, 0xa5, 0x41, 0x02, 0x82, 0x56, 0x09, 0x42,
+	0xf5, 0xe1, 0xbe, 0xed, 0xb8, 0xd2, 0x12, 0xf9, 0x21, 0x4d, 0x77, 0x45, 0x86, 0x26, 0x09, 0xdd,
+	0x95, 0x5c, 0x5d, 0xa5, 0x3e, 0xae, 0xae, 0xd2, 0xc8, 0xd5, 0x55, 0x3a, 0x50, 0xe1, 0x27, 0xf6,
+	0x04, 0x4d, 0x8a, 0x1b, 0x56, 0x0a, 0x84, 0x58, 0x24, 0xfe, 0x3b, 0x6b, 0xf4, 0x2a, 0x45, 0x0f,
+	0x92, 0xa8, 0x8c, 0x83, 0x21, 0x19, 0x31, 0x2a, 0x30, 0xbb, 0xb9, 0xba, 0xfd, 0x5d, 0x73, 0x75,
+	0xa3, 0x79, 0x0a, 0x8f, 0xfc, 0x8d, 0x07, 0x9f, 0xae, 0x6e, 0x34, 0x4b, 0xed, 0x4d, 0xa8, 0x53,
+	0xa5, 0xdc, 0xa6, 0x4c, 0xff, 0x48, 0xe5, 0xce, 0x65, 0x8f, 0x13, 0xf9, 0xec, 0xb1, 0xfd, 0xcf,
+	0x67, 0xd2, 0x04, 0xc3, 0xc1, 0xd1, 0x87, 0x8a, 0x36, 0xdb, 0x44, 0x6a, 0xb6, 0x94, 0xa2, 0x4c,
+	0x66, 0x14, 0x25, 0xb7, 0x94, 0xa9, 0x82, 0x44, 0xf6, 0x06, 0x34, 0x58, 0xe0, 0x5d, 0x3a, 0x03,
+	0x70, 0x0a, 0x19, 0x4c, 0x93, 0xd0, 0x19, 0xba, 0xe9, 0x67, 0x4b, 0x40, 0x33, 0xb9, 0x12, 0x50,
+	0xba, 0x3a, 0x32, 0x9b, 0xad, 0x8e, 0x5c, 0x83, 0xfa, 0x8e, 0x25, 0xbc, 0x28, 0xc0, 0xe5, 0xee,
+	0x06, 0x9f, 0x7b, 0xf2, 0x34, 0xa9, 0xee, 0x3c, 0x60, 0xe0, 0xc3, 0xe0, 0x73, 0x0f, 0xb1, 0xc2,
+	0x34, 0x16, 0x17, 0x67, 0xab, 0xa1, 0x8e, 0x45, 0x67, 0x59, 0xbf, 0xef, 0xc8, 0xda, 0x19, 0x3f,
+	0xe0, 0x41, 0xb3, 0xa3, 0xfc, 0x21, 0x57, 0xcc, 0x66, 0x77, 0xa4, 0x37, 0xc4, 0x33, 0x48, 0x0d,
+	0x71, 0xa5, 0x6c, 0x36, 0x7c, 0x52, 0x58, 0xa1, 0xaa, 0x8d, 0xab, 0x50, 0xd5, 0x73, 0x15, 0xaa,
+	0x0b, 0x50, 0x7e, 0x69, 0x8f, 0xac, 0xbe, 0xef, 0x89, 0x91, 0x3c, 0x29, 0xe6, 0x5e, 0xda, 0xa3,
+	0x27, 0xf8, 0x6c, 0x5c, 0x87, 0xfa, 0xd0, 0xe3, 0xa8, 0x48, 0x12, 0xe0, 0x23, 0xa2, 0x26, 0xa1,
+	0x92, 0x46, 0xba, 0x38, 0x34, 0x9f, 0x2d, 0x0e, 0x65, 0x8a, 0x60, 0x46, 0xae, 0x08, 0x86, 0x87,
+	0x24, 0x86, 0xa7, 0xcc, 0x33, 0x2e, 0x92, 0x95, 0x09, 0x42, 0x0c, 0x4b, 0xca, 0x73, 0x0b, 0xd9,
+	0xf2, 0x9c, 0x5e, 0xf2, 0x3a, 0x53, 0x54, 0xf2, 0x1a, 0xb8, 0xa2, 0xb7, 0x27, 0x2c, 0xbb, 0x1f,
+	0xc9, 0x23, 0xa2, 0xcc, 0x90, 0xd5, 0x3e, 0x4d, 0xdb, 0x0d, 0x44, 0xcf, 0x89, 0x68, 0x58, 0x56,
+	0xc4, 0x18, 0x82, 0xc3, 0xd9, 0x52, 0x67, 0x6b, 0x7c, 0xa9, 0xf3, 0xdc, 0xf8, 0x52, 0xe7, 0xf9,
+	0xf1, 0xa5, 0xce, 0x0b, 0xf9, 0x52, 0x67, 0x1a, 0xe5, 0x63, 0x55, 0x12, 0x4b, 0x50, 0x3e, 0xce,
+	0x1c, 0xcb, 0x17, 0xb3, 0x85, 0xdb, 0x8b, 0x40, 0x25, 0x36, 0x8b, 0x55, 0x8f, 0xeb, 0x5f, 0x65,
+	0x84, 0xac, 0x91, 0xfa, 0x91, 0x53, 0x97, 0xd6, 0x16, 0x97, 0xbc, 0x40, 0x81, 0x1e, 0xd3, 0x91,
+	0x1c, 0x23, 0xa0, 0x14, 0xb9, 0xc6, 0x15, 0xbf, 0xb4, 0x35, 0x24, 0x86, 0x39, 0x9e, 0x13, 0x39,
+	0xb6, 0xb4, 0x22, 0xae, 0x68, 0x55, 0x24, 0x8c, 0xec, 0xe8, 0x3a, 0xd4, 0xa5, 0x44, 0x76, 0x6c,
+	0xd7, 0xf6, 0xba, 0x82, 0xca, 0x58, 0x25, 0xb3, 0xc6, 0xd0, 0xfb, 0x0c, 0xc4, 0xc5, 0xee, 0xf8,
+	0x41, 0xe0, 0xbf, 0x24, 0xc9, 0x5c, 0xe5, 0xc5, 0x32, 0x04, 0x25, 0x73, 0x0e, 0xe6, 0x5c, 0x81,
+	0x56, 0xdf, 0x8f, 0xa8, 0x78, 0x55, 0x32, 0x67, 0xf1, 0x19, 0x87, 0x6e, 0x40, 0x23, 0x1c, 0x88,
+	0xae, 0xa5, 0xe9, 0x13, 0x17, 0xb0, 0x6a, 0x08, 0xde, 0x8e, 0x75, 0xea, 0x2b, 0x70, 0x9a, 0xf0,
+	0x32, 0x56, 0x7d, 0x83, 0xeb, 0x82, 0x38, 0x74, 0x5f, 0xb7, 0x59, 0x85, 0x9e, 0x31, 0xef, 0x9b,
+	0x09, 0x7a, 0x47, 0x47, 0x6f, 0x43, 0x4d, 0x52, 0x97, 0xba, 0xb9, 0xc4, 0xac, 0x20, 0xba, 0x52,
+	0x39, 0x15, 0x4e, 0x6c, 0xda, 0x1f, 0x24, 0x38, 0x9d, 0xc4, 0xbc, 0x09, 0x47, 0x62, 0x7c, 0xc8,
+	0x52, 0x41, 0x90, 0x44, 0x58, 0x02, 0x9a, 0xdc, 0xd2, 0xed, 0xe0, 0x16, 0xd7, 0x41, 0x11, 0xfe,
+	0x20, 0xb1, 0x05, 0xc5, 0x18, 0x4d, 0x09, 0x6e, 0x27, 0x8c, 0x79, 0x18, 0x2b, 0xc2, 0x45, 0x20,
+	0xfa, 0x12, 0xe5, 0x2b, 0xcc, 0x7a, 0x84, 0xf0, 0xb0, 0x9a, 0x50, 0xf7, 0x3a, 0x77, 0x92, 0x09,
+	0xd7, 0x13, 0xcf, 0xa3, 0x30, 0x75, 0xf7, 0xf3, 0x51, 0x82, 0xf9, 0x28, 0x71, 0x41, 0x98, 0x0a,
+	0xb0, 0x52, 0xe8, 0x2a, 0x78, 0x97, 0x79, 0xcb, 0x23, 0x6b, 0x89, 0x22, 0xde, 0x81, 0xd3, 0x59,
+	0x6c, 0xd4, 0xc7, 0x65, 0x42, 0x9f, 0x4f, 0xa3, 0xa3, 0x56, 0xde, 0x84, 0x46, 0x1c, 0x28, 0x86,
+	0x9c, 0x29, 0xac, 0xf0, 0x32, 0x54, 0xb0, 0x18, 0x26, 0xd9, 0x44, 0x5c, 0x8a, 0x6f, 0xdd, 0xe3,
+	0x9d, 0xc7, 0x75, 0x78, 0xca, 0x26, 0xe4, 0x30, 0xce, 0xf7, 0xb1, 0xcc, 0x26, 0x18, 0x24, 0xd5,
+	0x3f, 0x55, 0xb6, 0xfe, 0x6a, 0xbe, 0x6c, 0x7d, 0x1b, 0x0c, 0x59, 0x87, 0xd6, 0x0b, 0xd7, 0x5f,
+	0x93, 0x5a, 0x44, 0x23, 0x5a, 0xe9, 0x3a, 0x5d, 0x92, 0xff, 0x7a, 0xb6, 0x24, 0x9f, 0xbb, 0x15,
+	0xf8, 0x46, 0xfe, 0x56, 0x20, 0x77, 0xbd, 0xf0, 0xbf, 0x0a, 0xae, 0x17, 0x0a, 0x8b, 0xf7, 0xff,
+	0xbb, 0xb8, 0x78, 0x7f, 0x03, 0x1a, 0xa4, 0x6b, 0x1a, 0xe6, 0x37, 0x59, 0x8d, 0x10, 0x9c, 0xe0,
+	0xdd, 0x02, 0x63, 0x87, 0x37, 0xa9, 0xab, 0xe6, 0xb7, 0x98, 0xe8, 0x0e, 0x6e, 0x52, 0xd3, 0xcd,
+	0x5b, 0x60, 0x84, 0x79, 0xe4, 0xff, 0x23, 0xd3, 0x96, 0x0c, 0xf2, 0x45, 0x00, 0xad, 0xd4, 0xfe,
+	0x6d, 0xe6, 0x8a, 0x17, 0x17, 0xd8, 0xd5, 0x02, 0x35, 0x9c, 0xef, 0x24, 0x0b, 0x4c, 0x0a, 0xf1,
+	0xa8, 0x9e, 0x9a, 0x28, 0xc8, 0x61, 0x7d, 0x22, 0xd5, 0x33, 0x16, 0x04, 0xf9, 0xac, 0xaf, 0xc2,
+	0x59, 0x1d, 0xd3, 0x8f, 0xf6, 0x45, 0x20, 0xcd, 0x63, 0x95, 0x5e, 0x58, 0x48, 0x5e, 0xd8, 0xc2,
+	0x41, 0xb6, 0x94, 0x6b, 0x50, 0x77, 0x3c, 0x47, 0x77, 0x44, 0xf7, 0x99, 0xf7, 0x8e, 0xe7, 0x24,
+	0x7e, 0xe8, 0x3a, 0xd4, 0x55, 0xec, 0x22, 0xe3, 0xe9, 0x35, 0x8e, 0x5f, 0x24, 0x54, 0x86, 0xd4,
+	0x2a, 0xb0, 0x95, 0x38, 0xeb, 0x49, 0x60, 0x2b, 0x11, 0xae, 0x40, 0x95, 0xf3, 0x4c, 0x89, 0xf1,
+	0x80, 0x23, 0x54, 0x82, 0x49, 0x94, 0x6b, 0x50, 0xd7, 0x6c, 0xd1, 0xf2, 0x07, 0xad, 0x87, 0xbc,
+	0xa0, 0x24, 0x1a, 0xd8, 0x1a, 0x20, 0x96, 0x3f, 0x48, 0x99, 0xf7, 0xa7, 0x8c, 0xe5, 0x0f, 0x34,
+	0xe3, 0xfe, 0x08, 0x16, 0x46, 0x02, 0xf3, 0x56, 0xb6, 0x44, 0x62, 0x0c, 0x7a, 0xe3, 0x47, 0x6c,
+	0x85, 0x38, 0xf6, 0x94, 0x86, 0x70, 0x93, 0xe8, 0x97, 0xbf, 0x02, 0xa7, 0x55, 0xf4, 0x65, 0x85,
+	0x2f, 0xed, 0x01, 0xe7, 0x9d, 0xad, 0xc7, 0xac, 0xfa, 0x32, 0x0a, 0xeb, 0xbc, 0xb4, 0x07, 0x94,
+	0x7a, 0x1a, 0x1f, 0xc0, 0x7c, 0xb4, 0xcc, 0x17, 0x7b, 0xb4, 0x6f, 0xe2, 0xdf, 0xff, 0x65, 0xf1,
+	0x44, 0xcb, 0xa6, 0x13, 0x3e, 0x47, 0xd1, 0x10, 0x07, 0x6f, 0x40, 0x83, 0x82, 0x17, 0x5c, 0x8b,
+	0x3c, 0xe9, 0xff, 0x1f, 0x0b, 0x9c, 0xc0, 0x4f, 0x11, 0x8a, 0x2b, 0xd0, 0x32, 0xa8, 0x8d, 0xe3,
+	0xf7, 0x20, 0xfc, 0xfb, 0x04, 0xcc, 0x6f, 0x0f, 0x3d, 0x4f, 0xb8, 0x71, 0xb8, 0xfb, 0x45, 0xd7,
+	0x50, 0x30, 0x5c, 0xa2, 0x19, 0xf5, 0xb0, 0x17, 0x18, 0x14, 0x17, 0x1e, 0x52, 0x91, 0xf1, 0x74,
+	0x41, 0x64, 0x7c, 0x17, 0x16, 0x38, 0xa0, 0x95, 0xce, 0x4f, 0x9d, 0xb7, 0x1c, 0xfa, 0x1a, 0x34,
+	0xc6, 0xa6, 0xa0, 0x0e, 0xdd, 0xbb, 0xb0, 0xc0, 0x61, 0x5a, 0xe6, 0x0d, 0x0e, 0x86, 0x0d, 0x1a,
+	0x4b, 0xbf, 0x71, 0x13, 0x1a, 0x7e, 0xb7, 0x3b, 0x1c, 0x38, 0xa2, 0xa7, 0x6c, 0x8d, 0xc3, 0xe2,
+	0xba, 0x02, 0x4b, 0x63, 0xbb, 0x0b, 0x0b, 0x92, 0x68, 0x8c, 0x1f, 0xa8, 0x2a, 0x5b, 0xc9, 0x34,
+	0x78, 0x6c, 0x4b, 0x0e, 0x99, 0x76, 0x24, 0xda, 0x7f, 0x39, 0x01, 0xf5, 0x35, 0x3f, 0xa0, 0xe2,
+	0xe9, 0x97, 0xbf, 0xfd, 0x43, 0x0e, 0x69, 0x09, 0x2f, 0x0e, 0xc5, 0x69, 0x4c, 0xaa, 0x4a, 0x34,
+	0x5b, 0x50, 0x25, 0xba, 0x0e, 0xf5, 0x9e, 0x13, 0x08, 0xde, 0x00, 0xe5, 0x87, 0x9c, 0x09, 0xd7,
+	0x62, 0x28, 0x25, 0x78, 0xaa, 0x06, 0xf9, 0x22, 0x1a, 0x11, 0xeb, 0x64, 0x0d, 0xf2, 0x59, 0x34,
+	0x42, 0xe6, 0xd0, 0x10, 0xb1, 0x95, 0x13, 0x0b, 0xc2, 0x25, 0x66, 0x1e, 0x50, 0xbe, 0x16, 0xdf,
+	0xa9, 0x8c, 0x4b, 0x00, 0x53, 0xcb, 0x9d, 0x28, 0x58, 0xee, 0x0d, 0x68, 0xbc, 0x18, 0x8a, 0x60,
+	0xc4, 0x67, 0x3b, 0x31, 0x9c, 0x19, 0x5a, 0x23, 0x30, 0x4e, 0x82, 0x3c, 0x6f, 0xff, 0x04, 0xd2,
+	0x13, 0x9f, 0x38, 0x51, 0x4c, 0x57, 0x24, 0x26, 0x8f, 0xec, 0x89, 0xc8, 0x94, 0x54, 0x90, 0x68,
+	0xf4, 0x8a, 0x8b, 0xba, 0x2c, 0xb5, 0x99, 0xe8, 0x15, 0x55, 0x74, 0xdf, 0x6d, 0x3d, 0xf9, 0x2c,
+	0xcc, 0x86, 0xf2, 0x2a, 0x84, 0xeb, 0x18, 0x33, 0xe1, 0xbe, 0x62, 0xc2, 0x4e, 0xc8, 0x03, 0x5c,
+	0xbf, 0x98, 0xd9, 0x09, 0x69, 0xe0, 0x3d, 0xa0, 0xbc, 0xcd, 0xda, 0xa1, 0x1a, 0x74, 0x95, 0x79,
+	0x87, 0x90, 0xfb, 0x9d, 0x61, 0xdf, 0xb8, 0x09, 0x4d, 0x39, 0xca, 0x46, 0x8c, 0x38, 0x5c, 0x51,
+	0xae, 0x11, 0xce, 0x36, 0x42, 0xd3, 0x88, 0xf6, 0xc1, 0x5e, 0xaa, 0x9e, 0xc8, 0x88, 0xab, 0x07,
+	0x7b, 0x5c, 0xf9, 0xcb, 0xa4, 0x8e, 0x8d, 0x5c, 0xea, 0xa8, 0x28, 0x85, 0x1a, 0xa5, 0x66, 0x42,
+	0xa9, 0x13, 0x53, 0x5a, 0x80, 0xe9, 0x7d, 0xdb, 0xeb, 0x85, 0xf2, 0xba, 0x85, 0x1f, 0x90, 0xc5,
+	0x9e, 0x78, 0x29, 0xdf, 0xe3, 0xa4, 0x70, 0xce, 0x13, 0x2f, 0xf9, 0x15, 0xb5, 0xd9, 0x90, 0x36,
+	0x72, 0x3a, 0xd9, 0x6c, 0x47, 0xdf, 0x43, 0xa8, 0x6d, 0x76, 0x21, 0xd9, 0x6c, 0x27, 0xde, 0xac,
+	0x9e, 0x55, 0x9f, 0x39, 0x3c, 0xab, 0x5e, 0x4c, 0x67, 0xd5, 0x57, 0xa1, 0x16, 0x46, 0x68, 0x49,
+	0x7b, 0xd2, 0xc1, 0x9e, 0x65, 0xf9, 0x2a, 0xa0, 0x52, 0x82, 0x18, 0x89, 0x14, 0xaf, 0x95, 0x46,
+	0x22, 0xe5, 0xc3, 0xb4, 0xca, 0x8e, 0xef, 0xed, 0x29, 0x3f, 0xac, 0x9a, 0xd0, 0xb5, 0xd5, 0x8d,
+	0x7d, 0xde, 0x97, 0x9f, 0x2f, 0xf0, 0xe5, 0x77, 0xe0, 0x74, 0xac, 0x6f, 0xe1, 0xbe, 0x1f, 0x48,
+	0x4d, 0xbf, 0x40, 0xa8, 0xf3, 0x6a, 0xa8, 0x83, 0x23, 0x34, 0x6b, 0xba, 0xe8, 0xfc, 0x5e, 0xb6,
+	0xe8, 0xdc, 0x82, 0x59, 0x15, 0xa3, 0x72, 0xcf, 0x84, 0x7a, 0xcc, 0x66, 0xd4, 0xef, 0xe7, 0x32,
+	0xea, 0xcc, 0x95, 0xc5, 0xa5, 0xdc, 0x95, 0x05, 0xc6, 0x21, 0x24, 0x12, 0x59, 0x74, 0x97, 0x69,
+	0x22, 0xc1, 0x64, 0xd5, 0xfd, 0x06, 0x60, 0x54, 0x99, 0xca, 0x0b, 0x38, 0x53, 0xac, 0xf9, 0x83,
+	0x48, 0x4b, 0x0b, 0xce, 0xc1, 0x1c, 0xc5, 0x15, 0x49, 0xb3, 0xc3, 0x2c, 0x3e, 0xa3, 0xb7, 0x6b,
+	0x43, 0x4d, 0xbc, 0x12, 0x81, 0x15, 0x8f, 0x5f, 0xe5, 0xfb, 0x2f, 0x04, 0x3e, 0x94, 0x38, 0x64,
+	0xde, 0x98, 0xa9, 0xa0, 0xf9, 0x5d, 0x53, 0xe6, 0x2d, 0xba, 0xca, 0xfa, 0xd4, 0x9d, 0xcc, 0xf5,
+	0xd4, 0x9d, 0xcc, 0x65, 0xa0, 0x70, 0xc8, 0xc2, 0x15, 0x62, 0xd4, 0x7d, 0x23, 0xd1, 0xfa, 0xad,
+	0x41, 0x84, 0x61, 0xf7, 0x6d, 0x30, 0xf8, 0xd6, 0xc5, 0x76, 0x5d, 0x6b, 0xe0, 0x87, 0x0e, 0xba,
+	0x67, 0x95, 0x09, 0xd2, 0xc8, 0xaa, 0xeb, 0x3e, 0x95, 0xf0, 0xd8, 0x8f, 0x90, 0xc0, 0x96, 0x12,
+	0x3f, 0x42, 0x72, 0xd2, 0x42, 0x92, 0x0f, 0x8e, 0x1f, 0x92, 0xac, 0xc0, 0xd9, 0x67, 0xc1, 0xa8,
+	0xe3, 0x78, 0x7b, 0xae, 0x40, 0xd7, 0x2a, 0x13, 0xcf, 0xa3, 0xdc, 0x7a, 0xfb, 0x3f, 0x6a, 0x87,
+	0xbc, 0xf4, 0xc5, 0xd4, 0xee, 0x2e, 0x02, 0xa8, 0x3c, 0x39, 0xbe, 0x00, 0x2a, 0x4b, 0x08, 0x1f,
+	0xb6, 0x6a, 0xd8, 0x1f, 0x88, 0x40, 0xfa, 0xe5, 0x8a, 0x84, 0x6d, 0x0d, 0x44, 0xf0, 0xdf, 0xce,
+	0x39, 0x9f, 0x85, 0x59, 0xe1, 0xa7, 0x2e, 0xf9, 0x84, 0x4f, 0x03, 0xd7, 0xa1, 0xae, 0xf6, 0x2a,
+	0x43, 0x73, 0x2e, 0x2f, 0xd7, 0x24, 0x34, 0x09, 0xf0, 0x15, 0x1a, 0xea, 0x73, 0x5d, 0x1a, 0x16,
+	0x83, 0x64, 0x5f, 0x8f, 0x42, 0xd0, 0x6f, 0x75, 0x14, 0x23, 0xd9, 0x6b, 0x62, 0x0a, 0xcb, 0x31,
+	0x36, 0x12, 0x69, 0xca, 0x0b, 0x31, 0x82, 0x20, 0x0d, 0xdc, 0xb5, 0xef, 0x09, 0x49, 0x40, 0xd5,
+	0xe9, 0x7c, 0x4f, 0xf0, 0xdb, 0xe7, 0x60, 0x8e, 0x86, 0xf1, 0x5d, 0xbe, 0xf6, 0x9e, 0xc5, 0x67,
+	0x7c, 0xf3, 0x0c, 0xcc, 0x84, 0xa3, 0x10, 0x85, 0x79, 0x9a, 0x0b, 0xe7, 0xe1, 0x28, 0x4c, 0x0b,
+	0x32, 0x72, 0xfa, 0x42, 0x5e, 0x62, 0xab, 0x9d, 0x6c, 0x3b, 0xac, 0x0a, 0x7e, 0xd0, 0x13, 0x01,
+	0x23, 0xc8, 0x9b, 0x6c, 0x82, 0xd0, 0xf0, 0x69, 0x98, 0x8e, 0x5e, 0x21, 0xdd, 0x45, 0xae, 0xf3,
+	0x47, 0xaf, 0x38, 0x02, 0x56, 0x64, 0x5f, 0xda, 0x23, 0xe9, 0x7d, 0x15, 0x33, 0xbe, 0x67, 0x8f,
+	0xd8, 0xad, 0x7a, 0x5d, 0xe1, 0xb2, 0xfe, 0xb4, 0x94, 0x5b, 0x45, 0x10, 0xa9, 0x4f, 0x82, 0x40,
+	0xd3, 0x9e, 0xd3, 0x11, 0x68, 0x5e, 0x7d, 0xe5, 0xe8, 0x24, 0xcf, 0xa7, 0x57, 0x8e, 0x6e, 0x32,
+	0x13, 0x87, 0x5f, 0xc8, 0xc5, 0xe1, 0x8b, 0x30, 0x83, 0xbc, 0x0d, 0x9e, 0x4b, 0x17, 0x2b, 0x9f,
+	0x90, 0xf6, 0x70, 0x80, 0x8a, 0x65, 0xed, 0xd8, 0x51, 0x77, 0x9f, 0x9c, 0x6c, 0xcd, 0xac, 0x30,
+	0xec, 0x3e, 0x82, 0xf2, 0x6e, 0xff, 0xfd, 0x02, 0xb7, 0x7f, 0x05, 0xaa, 0xbb, 0x7e, 0xd0, 0x15,
+	0x96, 0xbf, 0xbb, 0x1b, 0x8a, 0x88, 0xbc, 0x6d, 0xd5, 0xac, 0x10, 0x6c, 0x8b, 0x40, 0x28, 0x97,
+	0x6e, 0xbf, 0x87, 0xfc, 0xbb, 0x2c, 0x2f, 0x46, 0xfb, 0x3d, 0xee, 0x31, 0x89, 0x95, 0x4e, 0xd8,
+	0x64, 0x84, 0x57, 0xd2, 0x5a, 0x27, 0x6c, 0x69, 0x88, 0x9c, 0xce, 0x86, 0xa3, 0x30, 0x12, 0x7d,
+	0x72, 0xb3, 0x55, 0xb3, 0x42, 0xb0, 0x0e, 0x81, 0xf2, 0x67, 0xe1, 0xd5, 0x82, 0xb3, 0x30, 0x11,
+	0x32, 0xf2, 0xf2, 0x9a, 0x2e, 0x64, 0xe4, 0x24, 0x86, 0xb7, 0xa8, 0x58, 0x76, 0x14, 0x05, 0xce,
+	0xce, 0x30, 0x12, 0xd2, 0xe9, 0xd6, 0x10, 0xba, 0xaa, 0x80, 0x68, 0xd6, 0xa1, 0x3b, 0x90, 0xda,
+	0xc9, 0x8e, 0x77, 0x2e, 0x74, 0x07, 0xf1, 0xc5, 0x66, 0xd7, 0xef, 0xef, 0x38, 0x9e, 0x9d, 0x04,
+	0xc9, 0x37, 0x89, 0x4a, 0x43, 0x83, 0xd3, 0x74, 0x94, 0x0b, 0x3b, 0x7b, 0x7b, 0x4a, 0xe9, 0x96,
+	0x54, 0x2e, 0x4c, 0x30, 0x12, 0xff, 0x65, 0x14, 0x3f, 0x29, 0x0f, 0x53, 0xfa, 0x40, 0xa9, 0x18,
+	0x6a, 0x8f, 0x22, 0x32, 0x08, 0x9c, 0x03, 0x94, 0xa2, 0x83, 0x0e, 0xfa, 0x43, 0x26, 0x22, 0x61,
+	0x74, 0xbb, 0xa6, 0xa1, 0x90, 0xe1, 0xdf, 0x4a, 0xa1, 0x90, 0xf5, 0x7f, 0x08, 0xf3, 0x0a, 0x25,
+	0x14, 0x81, 0x63, 0xbb, 0x28, 0x8a, 0xdb, 0xbc, 0x6c, 0x39, 0xd0, 0x21, 0x38, 0x07, 0xb9, 0xa1,
+	0x08, 0x43, 0xdc, 0x9d, 0xd3, 0xa3, 0xca, 0x5b, 0xcd, 0x2c, 0x4b, 0xc8, 0xe3, 0x1e, 0x92, 0x92,
+	0x2a, 0xad, 0x61, 0xdd, 0xe1, 0x26, 0x40, 0x1e, 0xe8, 0xc4, 0xb8, 0x99, 0x16, 0xcb, 0x8f, 0x72,
+	0x2d, 0x96, 0xe9, 0x6a, 0xf0, 0xdd, 0x6c, 0x35, 0xf8, 0x32, 0x54, 0xfb, 0x8e, 0x67, 0xc5, 0xde,
+	0x60, 0x99, 0xdd, 0x51, 0xdf, 0xf1, 0xd6, 0xa5, 0x43, 0x48, 0x87, 0x18, 0x2b, 0xd9, 0x10, 0xe3,
+	0x90, 0x88, 0xe5, 0xde, 0x61, 0x11, 0x4b, 0xb6, 0x76, 0xf6, 0x71, 0xbe, 0x76, 0xa6, 0x1d, 0x96,
+	0x5f, 0x3d, 0xfe, 0x61, 0xb9, 0x41, 0x19, 0xc8, 0x83, 0x57, 0xdd, 0xfd, 0xcf, 0xec, 0xc0, 0xc1,
+	0x33, 0x32, 0x75, 0xb2, 0x94, 0x32, 0x27, 0x4b, 0x7a, 0x5b, 0x13, 0x99, 0x6d, 0xb5, 0xff, 0xbe,
+	0x94, 0x26, 0x37, 0xee, 0xf4, 0x4c, 0xcd, 0x35, 0x71, 0xd4, 0x29, 0x36, 0x99, 0x39, 0xc5, 0x52,
+	0x71, 0xc3, 0x54, 0x26, 0x6e, 0x48, 0xaf, 0x72, 0x3a, 0xcb, 0x7c, 0x8d, 0x53, 0x33, 0xc7, 0xe7,
+	0xd4, 0xef, 0xf2, 0xde, 0xf4, 0xef, 0x54, 0x7e, 0x01, 0x56, 0xe5, 0x8f, 0xe1, 0xc9, 0x82, 0x63,
+	0x38, 0xc5, 0x82, 0xa9, 0x34, 0x0b, 0xda, 0x7f, 0x57, 0x4d, 0x2f, 0xe8, 0x17, 0x65, 0x36, 0x97,
+	0x05, 0xb5, 0x70, 0x85, 0x0a, 0x82, 0xb2, 0xd5, 0xee, 0xd0, 0x65, 0xa4, 0x25, 0x31, 0x9d, 0x97,
+	0x84, 0x16, 0x47, 0xcc, 0x64, 0xe3, 0x88, 0x63, 0x25, 0xff, 0x69, 0x46, 0xce, 0x65, 0x19, 0x19,
+	0x27, 0x4f, 0x65, 0x3d, 0x79, 0x8a, 0x5f, 0x0a, 0x86, 0xae, 0xea, 0x4c, 0xe1, 0x97, 0xcc, 0xa1,
+	0x4b, 0x47, 0x39, 0x1a, 0x30, 0xe2, 0x52, 0xa0, 0x52, 0x33, 0x67, 0xfb, 0x8e, 0xf7, 0xc8, 0xf6,
+	0x7a, 0x34, 0x64, 0xbf, 0xe2, 0xa1, 0xaa, 0x1c, 0xb2, 0x5f, 0xd1, 0xd0, 0x0d, 0x2a, 0x95, 0x3f,
+	0x17, 0x91, 0x15, 0x63, 0xc8, 0x14, 0x92, 0xc1, 0x4f, 0x24, 0x9e, 0x22, 0xe1, 0xbb, 0x3d, 0x19,
+	0xa9, 0x10, 0x09, 0xdf, 0xed, 0xe5, 0x0f, 0xb6, 0x46, 0x71, 0xfb, 0x31, 0x77, 0x65, 0x0c, 0xbd,
+	0xf8, 0x4a, 0xb1, 0x4c, 0x90, 0xef, 0x7a, 0x94, 0x57, 0x36, 0x12, 0xe7, 0xc1, 0x31, 0xd3, 0x3c,
+	0xf7, 0x10, 0xc5, 0x8e, 0x83, 0x83, 0xa6, 0x43, 0xbc, 0x8c, 0x71, 0x98, 0x97, 0xb9, 0x0e, 0x75,
+	0xd9, 0x1e, 0xb0, 0xe7, 0x07, 0x4e, 0xb4, 0xdf, 0x97, 0xd1, 0x0c, 0x5f, 0x16, 0x2b, 0x20, 0x66,
+	0x17, 0xce, 0xae, 0x95, 0x5c, 0x1a, 0xa8, 0xb0, 0xc6, 0xd9, 0x7d, 0xa2, 0x6e, 0x0c, 0x70, 0x9f,
+	0xae, 0x13, 0x46, 0x8e, 0xa7, 0x12, 0x5f, 0xce, 0x2e, 0xab, 0x12, 0xc8, 0x67, 0xd6, 0x15, 0xa8,
+	0xca, 0xca, 0x31, 0xe3, 0x2c, 0xca, 0x1b, 0x1e, 0x82, 0xc5, 0x49, 0xb6, 0xac, 0xbd, 0x93, 0xf4,
+	0x65, 0xa8, 0xc3, 0xa0, 0x6c, 0xf7, 0x58, 0x2b, 0x95, 0xa9, 0xa8, 0xaf, 0x1f, 0x58, 0x0d, 0x48,
+	0xff, 0xce, 0x25, 0x5f, 0x3f, 0xd0, 0xe7, 0x59, 0xa4, 0x83, 0xb1, 0xa6, 0x68, 0xe9, 0x25, 0x6b,
+	0x4a, 0x2e, 0x5c, 0xa6, 0x25, 0x5c, 0x48, 0xab, 0x28, 0x2d, 0xe2, 0x06, 0x34, 0x46, 0x22, 0xb4,
+	0x38, 0xef, 0xe1, 0xbd, 0xf0, 0x0d, 0x64, 0x6d, 0x24, 0xc2, 0x35, 0x84, 0xf2, 0x6e, 0x96, 0xa0,
+	0x89, 0x78, 0xdc, 0x69, 0x24, 0x11, 0x65, 0x5b, 0xfe, 0x48, 0x84, 0xdc, 0xab, 0xc4, 0x98, 0xfa,
+	0xb4, 0xa4, 0x05, 0xef, 0x73, 0x73, 0x8e, 0x02, 0x92, 0x22, 0x28, 0xd3, 0xa3, 0x75, 0x5d, 0x4a,
+	0x4c, 0x8f, 0xd6, 0x94, 0xca, 0xef, 0x2e, 0x67, 0xf2, 0x3b, 0x3d, 0x4f, 0x8d, 0x84, 0x0c, 0x7e,
+	0xe2, 0x3c, 0x35, 0xa2, 0x03, 0x6a, 0xe8, 0x51, 0x9f, 0xe7, 0xc0, 0xe1, 0x54, 0x8d, 0x5a, 0x84,
+	0x38, 0xcf, 0x9c, 0xe7, 0xa1, 0xa7, 0x72, 0x64, 0x73, 0xd8, 0x8f, 0xb9, 0x4d, 0xeb, 0xe1, 0x8d,
+	0xf1, 0xb5, 0x24, 0x71, 0x1b, 0x0f, 0x83, 0x58, 0x9e, 0x52, 0x71, 0x68, 0x57, 0xd7, 0xf4, 0xb6,
+	0x24, 0xda, 0xd3, 0x55, 0xa8, 0xe9, 0xad, 0x4d, 0xcb, 0x14, 0x0d, 0xd4, 0xcc, 0xaa, 0xd6, 0xdb,
+	0xb4, 0x9c, 0x45, 0x5a, 0x91, 0xd1, 0x80, 0x8e, 0xb4, 0x82, 0xcc, 0x56, 0xd6, 0x2a, 0x4d, 0x3d,
+	0x94, 0xf1, 0x40, 0x5d, 0x9a, 0x2b, 0x5b, 0x7c, 0xc8, 0x5d, 0xaf, 0xac, 0xac, 0xc4, 0x8e, 0x8f,
+	0x58, 0x9f, 0x25, 0x2c, 0xc7, 0xb0, 0x51, 0x48, 0x11, 0x41, 0x3a, 0xb1, 0x4f, 0x55, 0x6b, 0x96,
+	0x33, 0xd5, 0x9a, 0xdb, 0x60, 0xc8, 0x42, 0x8c, 0x2e, 0xf9, 0x15, 0x59, 0xdc, 0xa7, 0x62, 0x8c,
+	0x26, 0xfb, 0x74, 0xd3, 0xdb, 0xbd, 0x6c, 0xd3, 0xdb, 0x4d, 0x68, 0x1c, 0xf8, 0xae, 0x1d, 0x39,
+	0xae, 0x13, 0x8d, 0xb8, 0xa0, 0xc9, 0xe1, 0x40, 0x3d, 0x01, 0x9b, 0xb8, 0xe6, 0x93, 0x45, 0x04,
+	0x5b, 0xd0, 0xa0, 0x23, 0xc5, 0xb4, 0xbd, 0xbd, 0x23, 0x3e, 0xf9, 0x34, 0x60, 0x4a, 0x3b, 0xd8,
+	0xe8, 0xef, 0x43, 0x3e, 0xf5, 0xfc, 0xe1, 0x24, 0x9c, 0x56, 0x9f, 0x29, 0xe2, 0xc4, 0xf2, 0x93,
+	0xd2, 0x2f, 0xb6, 0x5e, 0x9d, 0x3e, 0x34, 0xa6, 0xb2, 0x87, 0xc6, 0x63, 0xa8, 0xed, 0x3a, 0x6e,
+	0x24, 0x02, 0x6b, 0x17, 0x77, 0x18, 0xb6, 0xa6, 0x2f, 0x4f, 0x2e, 0x55, 0x56, 0xae, 0x15, 0x30,
+	0x28, 0xf7, 0x05, 0xac, 0x59, 0xe5, 0x57, 0xe9, 0x21, 0x34, 0x1e, 0x40, 0x35, 0x40, 0x56, 0x29,
+	0x4a, 0x33, 0x44, 0xa9, 0x5d, 0xd4, 0xf1, 0x9c, 0x66, 0xab, 0x59, 0x09, 0xe2, 0xbf, 0x43, 0x63,
+	0x0b, 0xe0, 0x05, 0x32, 0x29, 0xf9, 0xf8, 0xb1, 0xbe, 0x72, 0xb7, 0xa8, 0xfd, 0x29, 0xcf, 0x49,
+	0x86, 0x51, 0xf3, 0x53, 0xf9, 0x85, 0xfa, 0xb3, 0x7d, 0x0b, 0xca, 0x31, 0xdc, 0xa8, 0x41, 0xd9,
+	0x74, 0xc2, 0xe7, 0x04, 0x68, 0x9e, 0x32, 0x1a, 0x50, 0x61, 0x57, 0xcd, 0x80, 0x52, 0xfb, 0xdf,
+	0x4a, 0x70, 0xc6, 0x54, 0x5f, 0xca, 0x50, 0x43, 0xc4, 0x1b, 0x93, 0x52, 0xc8, 0x84, 0x34, 0x29,
+	0x49, 0xc8, 0x2f, 0x7c, 0xab, 0x90, 0x96, 0xf1, 0x4c, 0x56, 0xc6, 0x68, 0xd5, 0xb8, 0x13, 0x8b,
+	0xd4, 0x30, 0x6c, 0xcd, 0x5e, 0x9e, 0xc4, 0xd3, 0x85, 0x60, 0x24, 0xcd, 0xb0, 0xfd, 0x67, 0x25,
+	0x98, 0xa7, 0x2d, 0x53, 0x27, 0xed, 0x9b, 0xd9, 0xf2, 0x35, 0xe0, 0x63, 0x38, 0x69, 0xf0, 0xd5,
+	0x23, 0x3b, 0xd5, 0xde, 0xbb, 0x84, 0xe9, 0x9a, 0x86, 0x95, 0x84, 0xb1, 0x75, 0x0d, 0x0f, 0x0d,
+	0x6d, 0x11, 0x66, 0x08, 0xc2, 0x3a, 0x8a, 0xe7, 0x1b, 0x3d, 0xb5, 0x7f, 0x5e, 0x82, 0xf3, 0x4f,
+	0xb5, 0x3e, 0xe0, 0xb7, 0x69, 0x5d, 0x37, 0x64, 0x04, 0x12, 0xef, 0x31, 0x6c, 0x4d, 0xd1, 0xe2,
+	0x6a, 0xfa, 0x26, 0xc3, 0x37, 0x68, 0x66, 0xed, 0x9f, 0x96, 0x60, 0x51, 0x7d, 0x7c, 0xfa, 0x36,
+	0xb7, 0xba, 0x00, 0xd3, 0xdd, 0x61, 0x18, 0x29, 0xee, 0xf3, 0x43, 0x7e, 0x63, 0x53, 0x27, 0xde,
+	0xd8, 0x9f, 0x94, 0xb4, 0xaf, 0x70, 0xde, 0xcc, 0x96, 0x72, 0x9f, 0xd9, 0x4c, 0x1e, 0xeb, 0x33,
+	0x9b, 0xa9, 0xa2, 0xcf, 0x6c, 0x0a, 0xf7, 0xdf, 0xfe, 0x19, 0x4a, 0x23, 0xb9, 0x7e, 0x7c, 0x6b,
+	0xd2, 0x48, 0x8c, 0x61, 0x4a, 0x37, 0x86, 0x37, 0xa9, 0x68, 0x1d, 0xfa, 0x7c, 0xff, 0xa1, 0x1f,
+	0x74, 0xa9, 0x10, 0x3c, 0xb6, 0xdf, 0xf9, 0x58, 0x2d, 0xa1, 0x3f, 0xae, 0x42, 0x33, 0x4d, 0xf2,
+	0x0b, 0x2b, 0x2c, 0x1f, 0xd5, 0x9a, 0x1c, 0x37, 0x17, 0x4f, 0xeb, 0xcd, 0xc5, 0x8b, 0x30, 0xc3,
+	0x9d, 0xba, 0xd2, 0x87, 0xca, 0x27, 0x14, 0xd6, 0x4e, 0xe0, 0x3f, 0x17, 0x81, 0x85, 0x91, 0x90,
+	0xcc, 0xcd, 0x80, 0x41, 0x1b, 0x4e, 0x18, 0xc5, 0xdf, 0x41, 0x52, 0x77, 0xcd, 0x5c, 0xf2, 0x1d,
+	0x24, 0xb5, 0xd6, 0x24, 0x5d, 0x89, 0xe5, 0x54, 0x57, 0xe2, 0x45, 0x00, 0xbb, 0x17, 0xdf, 0x87,
+	0x83, 0xec, 0x24, 0xed, 0xf5, 0x92, 0xfe, 0x14, 0x0a, 0x7e, 0x34, 0x9c, 0x4a, 0x12, 0x48, 0xae,
+	0xc6, 0x78, 0x99, 0xa6, 0xc9, 0x6a, 0x51, 0xd3, 0x64, 0xd2, 0xb4, 0xac, 0x3e, 0xa7, 0x8a, 0x7b,
+	0x96, 0xb3, 0x57, 0x39, 0xf5, 0xdc, 0x55, 0x8e, 0x6a, 0x94, 0xd1, 0x16, 0xd2, 0x48, 0x1a, 0x65,
+	0x92, 0x85, 0x5c, 0x81, 0xaa, 0xec, 0x92, 0xe4, 0xce, 0xc2, 0xa6, 0xb4, 0x35, 0x82, 0xc5, 0xbd,
+	0x85, 0x5a, 0xeb, 0xe1, 0x7c, 0xb6, 0xf5, 0xf0, 0x02, 0xd0, 0x03, 0x1f, 0x63, 0x9c, 0x9c, 0xcd,
+	0x21, 0x80, 0x4e, 0xb1, 0xdb, 0x60, 0x50, 0x95, 0xd4, 0x4a, 0x95, 0x3a, 0x39, 0x2f, 0x6b, 0xd2,
+	0xc8, 0x43, 0xad, 0xde, 0x99, 0x69, 0xf0, 0x5e, 0xc8, 0x35, 0x78, 0xc7, 0x0d, 0xc1, 0xf8, 0x68,
+	0x45, 0xc2, 0x5d, 0x96, 0x35, 0xe7, 0x5a, 0x8c, 0xb4, 0x2d, 0xdc, 0x65, 0x3a, 0x9f, 0x92, 0x56,
+	0x72, 0x44, 0x74, 0x65, 0x09, 0xba, 0x9e, 0xf4, 0x93, 0x6f, 0x0b, 0xd7, 0x4d, 0x04, 0x96, 0xfd,
+	0x78, 0x9a, 0x05, 0x16, 0xb7, 0x08, 0xc7, 0x2d, 0xc6, 0xdc, 0x05, 0xdb, 0xd2, 0x5a, 0x8c, 0xb9,
+	0x0d, 0xf6, 0x18, 0xcd, 0xa2, 0x57, 0xa1, 0xe6, 0xf9, 0x91, 0xb3, 0x3b, 0x52, 0x79, 0xaf, 0xbc,
+	0x0d, 0x64, 0xa0, 0xcc, 0x7a, 0x97, 0xa0, 0x19, 0xf9, 0xe8, 0xf6, 0x08, 0x91, 0x79, 0xce, 0x49,
+	0x5b, 0x3d, 0xf2, 0x07, 0x9b, 0x04, 0x2e, 0xfa, 0x58, 0x7f, 0x25, 0xdf, 0x35, 0xba, 0x82, 0xab,
+	0x96, 0x84, 0xa8, 0xca, 0xc9, 0x6d, 0xa3, 0xc0, 0x20, 0x2a, 0x72, 0x1e, 0xab, 0x52, 0x9d, 0x6b,
+	0x33, 0xbb, 0x54, 0xd0, 0x66, 0x96, 0x6e, 0x67, 0xbb, 0x9c, 0x6d, 0x67, 0xbb, 0x06, 0xf5, 0xde,
+	0xc8, 0xeb, 0x6a, 0xfd, 0x6c, 0x7c, 0x2b, 0x58, 0x45, 0x68, 0xdc, 0xd0, 0x56, 0xd8, 0xab, 0xd6,
+	0x2e, 0xee, 0x55, 0x3b, 0xfc, 0x5b, 0xeb, 0xab, 0x87, 0x7f, 0x6b, 0x9d, 0x29, 0x9d, 0x5e, 0xcb,
+	0x95, 0x4e, 0x8b, 0x3e, 0x3d, 0xbf, 0xfe, 0x1a, 0x9f, 0x9e, 0xdf, 0x38, 0xe4, 0xd3, 0xf3, 0x6c,
+	0x09, 0xf4, 0x66, 0xbe, 0x04, 0x8a, 0x3e, 0x81, 0x02, 0x42, 0x16, 0xfa, 0x12, 0x9f, 0x2e, 0x04,
+	0x62, 0x81, 0xa3, 0x6a, 0x24, 0x08, 0x56, 0xf8, 0x79, 0xc8, 0xa5, 0xed, 0x9a, 0x59, 0x4f, 0xb0,
+	0x3a, 0x9f, 0x87, 0xd9, 0xcf, 0x15, 0x3e, 0x2c, 0xfa, 0x19, 0x08, 0x4d, 0xe1, 0x6f, 0x65, 0xfb,
+	0xe1, 0xb5, 0xd4, 0xeb, 0xf6, 0xf1, 0x53, 0x2f, 0x15, 0xe3, 0xbc, 0xed, 0x53, 0x35, 0x3e, 0xe3,
+	0xa7, 0x8e, 0x8c, 0x71, 0x4e, 0x7e, 0xa6, 0xfe, 0x4b, 0x09, 0x2e, 0xa4, 0xbe, 0xf7, 0x7c, 0x9b,
+	0xbb, 0xc3, 0x80, 0x5c, 0x8f, 0x86, 0xd4, 0x36, 0xab, 0x5a, 0x38, 0xf4, 0x46, 0x77, 0xfb, 0x8f,
+	0x25, 0x78, 0x2f, 0xfd, 0xcd, 0xe8, 0xff, 0x28, 0x61, 0xfe, 0x7c, 0x0a, 0xaa, 0xb4, 0x29, 0xfb,
+	0x15, 0x37, 0x23, 0xfe, 0x1a, 0x65, 0x3c, 0x3d, 0x27, 0x29, 0xd3, 0x95, 0x28, 0x7d, 0xfd, 0x5a,
+	0x01, 0x71, 0xfd, 0x45, 0x7a, 0xa0, 0xbf, 0xd6, 0xd4, 0xeb, 0x94, 0xc4, 0xd6, 0xba, 0xfa, 0xa3,
+	0x2c, 0x77, 0x4a, 0xf2, 0x5c, 0x5f, 0x98, 0x60, 0x7f, 0x12, 0x83, 0x69, 0xad, 0x86, 0x05, 0x0b,
+	0x31, 0xa4, 0xeb, 0xf7, 0x07, 0x76, 0x20, 0xe2, 0xde, 0xab, 0xfa, 0xca, 0xad, 0x71, 0xab, 0x59,
+	0xe3, 0x57, 0x90, 0xc7, 0x66, 0x21, 0x21, 0xc3, 0x82, 0x33, 0xd4, 0xfc, 0x40, 0x8b, 0x90, 0x5f,
+	0x06, 0xc6, 0xf5, 0x85, 0xe2, 0xaf, 0x9c, 0x53, 0x33, 0x3c, 0x8b, 0x46, 0xf4, 0x07, 0xed, 0xd2,
+	0x40, 0x52, 0xb4, 0xf0, 0x18, 0x86, 0xa2, 0x4d, 0x26, 0xa0, 0x20, 0xad, 0x64, 0x96, 0x63, 0xbc,
+	0xb6, 0x0d, 0x8b, 0xc5, 0x2c, 0x33, 0xce, 0xc3, 0x62, 0xe7, 0xf1, 0xe6, 0xa7, 0x1b, 0x0f, 0xac,
+	0xce, 0xe3, 0xf5, 0x07, 0xd6, 0xa3, 0xad, 0x8d, 0x75, 0x6b, 0xe3, 0xf1, 0x93, 0xc7, 0xdb, 0xcd,
+	0x53, 0x46, 0x0b, 0x16, 0xee, 0x6f, 0x6d, 0x3f, 0xca, 0x8d, 0x94, 0x8c, 0x79, 0xa8, 0x6d, 0x6e,
+	0xe9, 0xa0, 0x89, 0xf6, 0x77, 0xa0, 0xaa, 0xaf, 0xd2, 0x68, 0x40, 0xc5, 0x5c, 0xdd, 0x7e, 0xbc,
+	0x15, 0x53, 0x6b, 0x42, 0x75, 0xf5, 0xc9, 0xd6, 0x77, 0x37, 0xb7, 0x63, 0x2a, 0x55, 0x98, 0xdb,
+	0xdc, 0x8a, 0x09, 0x6c, 0x41, 0x45, 0x63, 0xa4, 0x51, 0x81, 0xd9, 0x4f, 0x03, 0x61, 0x47, 0x22,
+	0x68, 0x9e, 0x32, 0x4e, 0x43, 0x43, 0x3e, 0xac, 0x7a, 0xbd, 0x07, 0x2f, 0x86, 0xb6, 0xdb, 0x2c,
+	0x19, 0x00, 0x33, 0x1b, 0x22, 0x0c, 0x45, 0xd0, 0x9c, 0x30, 0x0c, 0xa8, 0xf3, 0xdf, 0xf1, 0xf8,
+	0x64, 0x7b, 0x00, 0xf3, 0xf1, 0xa6, 0xd7, 0xed, 0x48, 0x6c, 0xa2, 0xfb, 0x35, 0x60, 0x8a, 0x2a,
+	0x75, 0xb2, 0x22, 0x85, 0x7f, 0x1b, 0x9f, 0x42, 0x83, 0x98, 0xd7, 0xb7, 0x5f, 0xb1, 0x6c, 0xc2,
+	0xd6, 0x04, 0x29, 0xf9, 0xa5, 0x31, 0x72, 0xe1, 0xa6, 0x28, 0xf5, 0x14, 0xb6, 0x7f, 0x43, 0x9b,
+	0x71, 0xdb, 0xe9, 0x8b, 0x0d, 0xc7, 0x13, 0xc7, 0xfa, 0x4d, 0x32, 0x63, 0x0d, 0x80, 0xee, 0xb5,
+	0x3d, 0xbf, 0x27, 0xd4, 0xec, 0xd7, 0x0e, 0x99, 0x3d, 0xb5, 0x21, 0xb3, 0xdc, 0x93, 0x7f, 0x51,
+	0x02, 0xc2, 0x47, 0xde, 0xf8, 0x2d, 0x2f, 0x41, 0x33, 0xf9, 0x4c, 0x54, 0x7e, 0x0b, 0x2a, 0x6d,
+	0x23, 0xfe, 0x58, 0x94, 0x7f, 0x95, 0xe4, 0xf7, 0x4a, 0x29, 0xaa, 0xb8, 0x80, 0x4d, 0xd9, 0xaa,
+	0xe8, 0xfa, 0x2f, 0x29, 0xc4, 0x47, 0x6d, 0x7e, 0x11, 0x8d, 0xa4, 0x43, 0xaa, 0x11, 0x98, 0x90,
+	0x9f, 0x45, 0x23, 0xc4, 0x1b, 0x0e, 0x06, 0x29, 0x3c, 0xf6, 0x4c, 0x35, 0x02, 0xc7, 0x78, 0x45,
+	0x2b, 0x9a, 0x2c, 0x5c, 0xd1, 0x5f, 0xa4, 0x57, 0xf4, 0x7a, 0x8c, 0x7e, 0x50, 0xc0, 0xe8, 0x1b,
+	0x05, 0x8c, 0x2e, 0x60, 0xa4, 0xc6, 0x6a, 0x24, 0x43, 0x2a, 0xc3, 0x64, 0x26, 0x8f, 0x43, 0x46,
+	0x71, 0x8e, 0xed, 0x92, 0x25, 0xf6, 0x57, 0x25, 0x68, 0xc6, 0x22, 0x7d, 0x33, 0x4e, 0x3e, 0x75,
+	0x59, 0x37, 0x79, 0xd4, 0xcd, 0x68, 0xf6, 0x3e, 0xee, 0x13, 0x98, 0x93, 0x05, 0xb6, 0xa3, 0x9c,
+	0x7c, 0x4e, 0xc1, 0xcd, 0xf8, 0xad, 0xf6, 0xdf, 0x94, 0xc0, 0xd0, 0x76, 0xfc, 0xae, 0x37, 0x74,
+	0x3f, 0xb7, 0xa1, 0x31, 0x22, 0x2a, 0xd8, 0xd2, 0x8f, 0x4a, 0xb0, 0xb8, 0x1a, 0xec, 0x38, 0x51,
+	0x60, 0xef, 0x89, 0xe3, 0xb8, 0x92, 0xa4, 0xb8, 0x5d, 0x5f, 0xb9, 0x57, 0x30, 0x5d, 0x31, 0xb1,
+	0x3b, 0x89, 0x7b, 0x27, 0x02, 0xed, 0x5b, 0x50, 0x4e, 0x7c, 0x69, 0x1d, 0x60, 0xed, 0xf3, 0xae,
+	0x58, 0x17, 0xae, 0x73, 0x20, 0x9a, 0xa7, 0xd4, 0xf3, 0xa6, 0x1f, 0xf4, 0xd1, 0x13, 0xb6, 0x7f,
+	0x2b, 0xb7, 0xc8, 0xd7, 0x33, 0x8a, 0x47, 0x05, 0x46, 0xf1, 0xc1, 0xb1, 0xd7, 0xae, 0xbb, 0xa0,
+	0x9f, 0x96, 0xe0, 0x4c, 0x1a, 0xeb, 0x5d, 0x2b, 0xc1, 0x83, 0x9c, 0x12, 0x8c, 0xdf, 0x59, 0x81,
+	0x1e, 0xfc, 0x26, 0x2c, 0x3e, 0xb0, 0x03, 0x77, 0xc4, 0x3f, 0x55, 0x82, 0x08, 0x6f, 0x66, 0x63,
+	0x37, 0xa1, 0x21, 0x90, 0x2e, 0xdf, 0x36, 0xd2, 0x15, 0xd1, 0x24, 0x7d, 0xf8, 0x5f, 0x27, 0xf0,
+	0xb6, 0x82, 0xb6, 0x7f, 0x52, 0x82, 0xb3, 0xda, 0x0a, 0xe8, 0x5c, 0x7f, 0xd7, 0xbc, 0xbd, 0x04,
+	0x15, 0x5e, 0x7c, 0x12, 0x76, 0x4c, 0x9b, 0x40, 0x20, 0x0e, 0xac, 0x62, 0x84, 0xc0, 0xee, 0x39,
+	0xdc, 0x34, 0xa1, 0x10, 0x4c, 0x84, 0xb4, 0xff, 0x21, 0xf5, 0x2b, 0x29, 0xef, 0x7a, 0x3f, 0xcf,
+	0x92, 0xdf, 0xfd, 0x90, 0x4d, 0xed, 0xc5, 0x5f, 0x92, 0xe7, 0x56, 0x7c, 0x67, 0x8d, 0x7f, 0x1c,
+	0x44, 0x5d, 0xa6, 0x74, 0xd5, 0xa3, 0xf1, 0x34, 0xfd, 0x75, 0xfa, 0x0c, 0xd1, 0xfc, 0xe8, 0x98,
+	0x34, 0x8b, 0x3e, 0x4d, 0xc7, 0x1d, 0xec, 0xd8, 0xa1, 0xe0, 0x26, 0x81, 0x59, 0xe2, 0xe8, 0x1c,
+	0x02, 0xd0, 0x31, 0xb7, 0x9f, 0x41, 0x2d, 0xb5, 0x14, 0x8c, 0xe1, 0x36, 0xf4, 0x5b, 0x6b, 0xf6,
+	0x21, 0xcb, 0xcd, 0x53, 0x14, 0x32, 0xe9, 0x23, 0xf7, 0x9a, 0xa5, 0x1c, 0xec, 0x1b, 0xcd, 0x89,
+	0xf6, 0x37, 0x52, 0x9f, 0xc2, 0x37, 0xa0, 0xb2, 0x61, 0xef, 0x09, 0xf7, 0xa9, 0x08, 0x42, 0xdf,
+	0x6b, 0x9e, 0x32, 0xce, 0xc1, 0x99, 0x4d, 0x3b, 0x1a, 0x06, 0xb6, 0xbb, 0xea, 0xf5, 0xf4, 0xa1,
+	0x52, 0xfb, 0x19, 0x34, 0x3e, 0xb3, 0x03, 0x87, 0xfa, 0xc7, 0xb6, 0x76, 0x7e, 0x20, 0xba, 0x11,
+	0xe6, 0x18, 0x9d, 0xc8, 0x0e, 0x22, 0xf5, 0x33, 0xb2, 0xf4, 0x60, 0x34, 0x61, 0xf2, 0x81, 0xd7,
+	0x93, 0xa2, 0xc4, 0x3f, 0x8d, 0x45, 0x98, 0x61, 0xbf, 0x2c, 0x63, 0x00, 0xf9, 0xd4, 0xfe, 0xa7,
+	0x09, 0xb8, 0x80, 0x34, 0x0b, 0x9c, 0x36, 0xf9, 0x64, 0x1f, 0x9a, 0xdb, 0x8e, 0xe8, 0xab, 0xe7,
+	0xed, 0x24, 0xa7, 0x58, 0x2b, 0xe0, 0xf9, 0x11, 0x94, 0xee, 0xe8, 0x0f, 0x48, 0xe6, 0x81, 0x37,
+	0xec, 0x9b, 0x39, 0xe2, 0xb8, 0xf4, 0x75, 0x5b, 0x85, 0x34, 0xf8, 0xa7, 0xf1, 0x1e, 0x94, 0x9f,
+	0xa8, 0x80, 0x45, 0xae, 0x3e, 0x01, 0xb4, 0xff, 0xa0, 0x04, 0x0b, 0x45, 0xa4, 0x91, 0xf5, 0x2c,
+	0x9b, 0x60, 0x64, 0x3d, 0xf1, 0xbd, 0x68, 0xbf, 0x79, 0xca, 0x58, 0x04, 0x23, 0x0d, 0xb3, 0xb6,
+	0x3c, 0xd1, 0x2c, 0x21, 0xcf, 0x33, 0xf0, 0x8e, 0xc0, 0xbc, 0xa3, 0x39, 0x81, 0xf2, 0xce, 0x0c,
+	0x6d, 0xef, 0x3b, 0x41, 0xaf, 0x39, 0x89, 0xf1, 0xf7, 0x86, 0xbc, 0xab, 0x46, 0xd1, 0x36, 0xa7,
+	0x30, 0xaa, 0x46, 0x69, 0x5b, 0x24, 0x6e, 0x06, 0x4e, 0xb7, 0xff, 0x7c, 0x1a, 0x16, 0x33, 0x7c,
+	0x79, 0xd7, 0x66, 0x39, 0x00, 0x23, 0x8c, 0xec, 0x08, 0x17, 0xdf, 0x0d, 0x95, 0x66, 0x4b, 0xf3,
+	0xfc, 0x64, 0xbc, 0x58, 0x95, 0x3d, 0x75, 0x72, 0x34, 0x48, 0xa6, 0x05, 0xb4, 0x8d, 0xdf, 0x2e,
+	0xc1, 0x05, 0xd5, 0x81, 0x1e, 0xab, 0x30, 0x93, 0xdc, 0x4e, 0xcc, 0xf8, 0xf1, 0xf1, 0xe7, 0x7e,
+	0x7a, 0x38, 0x31, 0x5a, 0xc4, 0x51, 0xb3, 0x19, 0x9b, 0xd0, 0xcc, 0xd8, 0x11, 0xdf, 0x49, 0x16,
+	0x5f, 0x16, 0x67, 0x50, 0xcd, 0xdc, 0xbb, 0xc6, 0x0f, 0xa0, 0x75, 0x88, 0xd6, 0x87, 0xad, 0x39,
+	0xa2, 0x7b, 0xe7, 0xf5, 0x8c, 0xc5, 0x3c, 0x94, 0x5e, 0x7b, 0x19, 0x16, 0x8b, 0xf9, 0x4e, 0x3f,
+	0x9d, 0x85, 0x8a, 0xd7, 0x3c, 0x85, 0x89, 0xa0, 0xfa, 0xc1, 0xe3, 0x66, 0xa9, 0xfd, 0x4d, 0xb8,
+	0x34, 0x86, 0x5d, 0xf8, 0xee, 0x43, 0xe7, 0x95, 0xe8, 0xf1, 0xcf, 0x6e, 0xc5, 0x58, 0xcd, 0x52,
+	0xfb, 0x8f, 0x26, 0xa1, 0x15, 0x67, 0xb8, 0x71, 0xac, 0x2a, 0xbd, 0xcf, 0xf7, 0xa1, 0x2a, 0xb3,
+	0xf2, 0x44, 0x87, 0xeb, 0x2b, 0xdf, 0x2c, 0xbe, 0x71, 0x2f, 0x24, 0xa1, 0xe7, 0xfa, 0x24, 0xb8,
+	0x4a, 0x57, 0xcb, 0x59, 0xe3, 0x8e, 0xb2, 0x09, 0xbd, 0xa3, 0xec, 0x57, 0xd5, 0x8f, 0x4d, 0xd1,
+	0x09, 0xc0, 0x35, 0x85, 0x6f, 0xbd, 0xce, 0x9c, 0x7a, 0x5e, 0x4d, 0x93, 0xf2, 0x4f, 0x55, 0x15,
+	0x24, 0xfe, 0x53, 0xd9, 0xc4, 0xbf, 0x03, 0x8d, 0xcc, 0x8a, 0xdf, 0x40, 0x62, 0xbd, 0x06, 0xcd,
+	0xec, 0x92, 0x5e, 0x3f, 0xdd, 0xff, 0xcf, 0x29, 0x38, 0x87, 0x82, 0xcb, 0xe5, 0x13, 0xe4, 0xc7,
+	0xfb, 0x87, 0xfa, 0xf1, 0xd5, 0x43, 0x54, 0xb3, 0x90, 0xce, 0xc9, 0xbd, 0x78, 0x1f, 0xd2, 0xc5,
+	0x24, 0x29, 0xb7, 0x4f, 0x5f, 0x6b, 0xf6, 0xe2, 0x9a, 0x0b, 0xad, 0x21, 0x53, 0xaa, 0x72, 0xe0,
+	0xdc, 0x61, 0xe2, 0x57, 0x57, 0xc4, 0xb7, 0x5e, 0x43, 0x65, 0xcc, 0xc3, 0xa9, 0x7d, 0xf9, 0x4f,
+	0x20, 0x01, 0xe7, 0x0f, 0x67, 0xdc, 0x9b, 0x2b, 0x58, 0xfd, 0xe1, 0x24, 0x2c, 0xa4, 0x44, 0xf7,
+	0xae, 0x8f, 0x39, 0xef, 0x88, 0x63, 0xee, 0xdb, 0xe3, 0xf4, 0xee, 0x04, 0x87, 0x9c, 0x0b, 0xe7,
+	0x0f, 0x55, 0x5d, 0xd5, 0x8d, 0x74, 0xfb, 0x75, 0xf4, 0xdd, 0x3c, 0x82, 0xde, 0x49, 0x0e, 0x82,
+	0xbf, 0x9e, 0x84, 0xf7, 0x91, 0x62, 0x71, 0x72, 0x46, 0x7e, 0x22, 0x38, 0xd4, 0x4f, 0x3c, 0x3c,
+	0x64, 0xe5, 0x87, 0x13, 0x3b, 0xb9, 0xb3, 0xe8, 0xc8, 0xac, 0x9f, 0x7d, 0xc4, 0x77, 0x5e, 0x7f,
+	0xe6, 0xb4, 0x7b, 0xe7, 0x0a, 0xc0, 0x97, 0xde, 0x4e, 0x3f, 0x82, 0x5a, 0xfa, 0x0c, 0x18, 0x57,
+	0xa6, 0xf8, 0xd3, 0x49, 0x76, 0xf9, 0x5f, 0xae, 0x02, 0x41, 0x78, 0x84, 0xd9, 0xad, 0x1d, 0x4b,
+	0x94, 0x27, 0xb0, 0xbd, 0x5f, 0x87, 0x4b, 0x47, 0xab, 0x84, 0x32, 0xc0, 0xe5, 0xd7, 0x56, 0x26,
+	0x73, 0x1c, 0xe5, 0x13, 0x98, 0xe2, 0xca, 0xef, 0xcf, 0xc0, 0x7c, 0xaa, 0x81, 0x0a, 0x17, 0x62,
+	0xf4, 0xe0, 0x6c, 0xfc, 0x3f, 0x87, 0xa4, 0x7f, 0xcb, 0xc1, 0x28, 0x2a, 0x9d, 0xeb, 0xff, 0xcb,
+	0xc8, 0xf9, 0xa2, 0xda, 0x62, 0xee, 0xf7, 0x20, 0xda, 0xa7, 0xee, 0x96, 0x8c, 0xef, 0xc3, 0x42,
+	0xfc, 0xa6, 0xd6, 0x3a, 0x34, 0x7e, 0x8a, 0x2b, 0x85, 0x27, 0xa6, 0xfe, 0xd3, 0x07, 0x44, 0xff,
+	0xff, 0xc3, 0x7c, 0xfc, 0x9a, 0x6a, 0x92, 0x1c, 0x4f, 0xfc, 0xfd, 0x23, 0x5a, 0x2c, 0x8b, 0x28,
+	0xab, 0x16, 0xb4, 0x93, 0x51, 0xd6, 0xfe, 0xf7, 0x84, 0x42, 0xca, 0xf4, 0x89, 0xc0, 0x89, 0x29,
+	0xcb, 0x5f, 0xa7, 0x25, 0xca, 0x3b, 0xb0, 0x98, 0xa2, 0x1c, 0xdf, 0xbc, 0x8e, 0x27, 0x7f, 0xf5,
+	0x18, 0x3f, 0xd6, 0x4b, 0x73, 0xe8, 0x7a, 0x93, 0xbe, 0xef, 0x3c, 0x99, 0xde, 0xe4, 0x7e, 0x67,
+	0x97, 0x66, 0xd9, 0x85, 0x56, 0xfc, 0x66, 0xe6, 0xe7, 0x5a, 0xc7, 0x4f, 0x73, 0xbd, 0x00, 0x21,
+	0xff, 0x9b, 0xaf, 0x38, 0xcf, 0xce, 0x0c, 0xfd, 0x37, 0x3b, 0xf7, 0xfe, 0x2b, 0x00, 0x00, 0xff,
+	0xff, 0x1d, 0xbe, 0xbd, 0xad, 0x83, 0x67, 0x00, 0x00,
 }
