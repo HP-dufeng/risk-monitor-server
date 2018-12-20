@@ -1,6 +1,7 @@
 package main
 
 import (
+	"context"
 	"encoding/csv"
 	"flag"
 	"fmt"
@@ -29,22 +30,27 @@ func main() {
 
 var (
 	csvDBFile = flag.String("csv_db_file", "testdata/appleStore_description.csv", "A csv file containing a list of contracts")
-	port      = flag.Int("port", 8081, "The server port")
+	port      = flag.Int("port", 8080, "The server port")
 )
 
 type server struct {
 	records [][]string
 }
 
+func (s *server) HeartBeatReq(ctx context.Context, in *pb.HeartBeat) (*pb.HeartBeat, error) {
+	return &pb.HeartBeat{}, nil
+}
+
 func (s *server) SubscribeTunnelRealFund(req *pb.SubscribeReq, stream pb.RiskMonitorServer_SubscribeTunnelRealFundServer) error {
+	log.Println("send: SubscribeTunnelRealFund")
 	tick := time.Tick(1 * time.Nanosecond)
 	for {
 		select {
 		case <-tick:
 			quote := &pb.TunnelRealFundRtn{
 				ActionFlag:         randomActionFlags(),
-				MonitorNo:          []byte(strconv.Itoa(randomIndex(100))),
-				TunnelCode:         []byte(strconv.Itoa(randomIndex(3000))),
+				MonitorNo:          []byte(strconv.Itoa(randomIndex(20))),
+				TunnelCode:         []byte(strconv.Itoa(randomIndex(100))),
 				CurrencyCode:       []byte(strconv.Itoa(randomIndex(2))),
 				AvailMarginBalance: randomFloat(10),
 				TodayMarginBalance: randomFloat(10),
@@ -61,14 +67,15 @@ func (s *server) SubscribeTunnelRealFund(req *pb.SubscribeReq, stream pb.RiskMon
 }
 
 func (s *server) SubscribeCorpHoldMon(req *pb.SubscribeReq, stream pb.RiskMonitorServer_SubscribeCorpHoldMonServer) error {
+	log.Println("send: SubscribeCorpHoldMon")
 	tick := time.Tick(1 * time.Nanosecond)
 	for {
 		select {
 		case <-tick:
 			quote := &pb.CorpHoldMonRtn{
 				ActionFlag:    randomActionFlags(),
-				MonitorNo:     []byte(strconv.Itoa(randomIndex(100))),
-				ContractCode:  []byte(strconv.Itoa(randomIndex(3000))),
+				MonitorNo:     []byte(strconv.Itoa(randomIndex(20))),
+				ContractCode:  []byte(strconv.Itoa(randomIndex(1000))),
 				SmarketCode:   []byte("smarketCode"),
 				SecCode:       []byte("secCode"),
 				SecName:       []byte("SecName"),
@@ -86,14 +93,15 @@ func (s *server) SubscribeCorpHoldMon(req *pb.SubscribeReq, stream pb.RiskMonito
 }
 
 func (s *server) SubscribeQuoteMon(req *pb.SubscribeReq, stream pb.RiskMonitorServer_SubscribeQuoteMonServer) error {
+	log.Println("send: SubscribeQuoteMon")
 	tick := time.Tick(1 * time.Nanosecond)
 	for {
 		select {
 		case <-tick:
 			quote := &pb.QuoteMonRtn{
 				ActionFlag:         randomActionFlags(),
-				MonitorNo:          []byte(strconv.Itoa(randomIndex(100))),
-				ContractCode:       []byte(strconv.Itoa(randomIndex(3000))),
+				MonitorNo:          []byte(strconv.Itoa(randomIndex(20))),
+				ContractCode:       []byte(strconv.Itoa(randomIndex(1000))),
 				SmarketCode:        []byte("smarketCode"),
 				SecCode:            []byte("secCode"),
 				TradeType:          []byte("1"),
@@ -119,70 +127,72 @@ func (s *server) SubscribeQuoteMon(req *pb.SubscribeReq, stream pb.RiskMonitorSe
 }
 
 func (s *server) SubscribeCustRisk(req *pb.SubscribeReq, stream pb.RiskMonitorServer_SubscribeCustRiskServer) error {
-	tick := time.Tick(1 * time.Nanosecond)
+	log.Println("send: SubscribeCustRisk")
+	// tick := time.Tick(1 * time.Nanosecond)
 	for {
-		select {
-		case <-tick:
-			quote := &pb.CustRiskRtn{
-				ActionFlag:          randomActionFlags(),
-				MonitorNo:           []byte(strconv.Itoa(randomIndex(100))),
-				CustNo:              []byte(strconv.Itoa(randomIndex(3000))),
-				CustClass:           []byte("CustClass"),
-				CustName:            []byte("CustName"),
-				MobilePhone:         []byte("MobilePhone"),
-				Clientmode:          []byte("Clientmode"),
-				RiskLevel:           []byte("RiskLevel"),
-				RiskDegree0:         randomFloat(10),
-				RiskDegree1:         randomFloat(10),
-				RiskDegree2:         randomFloat(10),
-				RiskDegree3:         randomFloat(10),
-				LastRiskLevel:       []byte("LastRiskLevel"),
-				LastRemain:          randomFloat(10),
-				Margin:              randomFloat(10),
-				DropProfit:          randomFloat(10),
-				HoldProfit:          randomFloat(10),
-				TodayInout:          randomFloat(10),
-				RoyaltyInout:        randomFloat(10),
-				DynCapRight:         randomFloat(10),
-				ExchMargin:          randomFloat(10),
-				AvailFund:           randomFloat(10),
-				OptionCap:           randomFloat(10),
-				DynRights:           randomFloat(10),
-				OptionDynMargin:     randomFloat(10),
-				FrznMargin:          randomFloat(10),
-				FrznRoyalty:         randomFloat(10),
-				ExchFrznMargin:      randomFloat(10),
-				FrznStrikeMargin:    randomFloat(10),
-				OptionNowMargin:     randomFloat(10),
-				ExchOptionNowMargin: randomFloat(10),
-				ExchOptionDynMargin: randomFloat(10),
-				RiskContractQty:     uint32(randomIndex(100)),
-				CurrencyCode:        []byte(strconv.Itoa(randomIndex(2))),
-				TradingNo:           []byte("TradingNo"),
-				DynRatio:            randomFloat(10),
-			}
-			if err := stream.Send(quote); err != nil {
-				return err
-			}
+		// 	select {
+		// 	case <-tick:
+		quote := &pb.CustRiskRtn{
+			ActionFlag:          randomActionFlags(),
+			MonitorNo:           []byte(strconv.Itoa(randomIndex(20))),
+			CustNo:              []byte(strconv.Itoa(randomIndex(1000))),
+			CustClass:           []byte("CustClass"),
+			CustName:            []byte("CustName"),
+			MobilePhone:         []byte("MobilePhone"),
+			Clientmode:          []byte("Clientmode"),
+			RiskLevel:           []byte("RiskLevel"),
+			RiskDegree0:         randomFloat(10),
+			RiskDegree1:         randomFloat(10),
+			RiskDegree2:         randomFloat(10),
+			RiskDegree3:         randomFloat(10),
+			LastRiskLevel:       []byte("LastRiskLevel"),
+			LastRemain:          randomFloat(10),
+			Margin:              randomFloat(10),
+			DropProfit:          randomFloat(10),
+			HoldProfit:          randomFloat(10),
+			TodayInout:          randomFloat(10),
+			RoyaltyInout:        randomFloat(10),
+			DynCapRight:         randomFloat(10),
+			ExchMargin:          randomFloat(10),
+			AvailFund:           randomFloat(10),
+			OptionCap:           randomFloat(10),
+			DynRights:           randomFloat(10),
+			OptionDynMargin:     randomFloat(10),
+			FrznMargin:          randomFloat(10),
+			FrznRoyalty:         randomFloat(10),
+			ExchFrznMargin:      randomFloat(10),
+			FrznStrikeMargin:    randomFloat(10),
+			OptionNowMargin:     randomFloat(10),
+			ExchOptionNowMargin: randomFloat(10),
+			ExchOptionDynMargin: randomFloat(10),
+			RiskContractQty:     uint32(randomIndex(100)),
+			CurrencyCode:        []byte(strconv.Itoa(randomIndex(2))),
+			TradingNo:           []byte("TradingNo"),
+			DynRatio:            randomFloat(10),
 		}
+		if err := stream.Send(quote); err != nil {
+			return err
+		}
+		// }
 
 	}
 
 }
 
 func (s *server) SubscribeCustHold(req *pb.SubscribeReq, stream pb.RiskMonitorServer_SubscribeCustHoldServer) error {
+	log.Println("send: SubscribeCustHold")
 	tick := time.Tick(1 * time.Nanosecond)
 	for {
 		select {
 		case <-tick:
 			quote := &pb.CustHoldRtn{
 				ActionFlag:   randomActionFlags(),
-				MonitorNo:    []byte(strconv.Itoa(randomIndex(100))),
-				CustNo:       []byte(strconv.Itoa(randomIndex(3000))),
+				MonitorNo:    []byte(strconv.Itoa(randomIndex(20))),
+				CustNo:       []byte(strconv.Itoa(randomIndex(2000))),
 				CustClass:    []byte("CustClass"),
 				ExchCode:     []byte("ExchCode"),
 				VariCode:     []byte("VariCode"),
-				ContractCode: []byte(strconv.Itoa(randomIndex(3000))),
+				ContractCode: []byte(strconv.Itoa(randomIndex(1000))),
 				DelivDate:    []byte("DelivDate"),
 				HoldSum:      uint32(randomIndex(100)),
 				TradeType:    []byte("1"),
@@ -209,18 +219,19 @@ func (s *server) SubscribeCustHold(req *pb.SubscribeReq, stream pb.RiskMonitorSe
 }
 
 func (s *server) SubscribeCustGroupHold(req *pb.SubscribeReq, stream pb.RiskMonitorServer_SubscribeCustGroupHoldServer) error {
+	log.Println("send: SubscribeCustGroupHold")
 	tick := time.Tick(1 * time.Nanosecond)
 	for {
 		select {
 		case <-tick:
 			quote := &pb.CustGroupHoldRtn{
 				ActionFlag:    randomActionFlags(),
-				MonitorNo:     []byte(strconv.Itoa(randomIndex(100))),
+				MonitorNo:     []byte(strconv.Itoa(randomIndex(20))),
 				CustGroupNo:   []byte(strconv.Itoa(randomIndex(1000))),
 				CustGroupName: []byte("CustGroupName"),
 				ExchCode:      []byte("ExchCode"),
 				VariCode:      []byte("VariCode"),
-				ContractCode:  []byte(strconv.Itoa(randomIndex(3000))),
+				ContractCode:  []byte(strconv.Itoa(randomIndex(1000))),
 				DelivDate:     []byte("DelivDate"),
 				HoldSum:       uint32(randomIndex(100)),
 				TradeType:     []byte("1"),
@@ -247,18 +258,19 @@ func (s *server) SubscribeCustGroupHold(req *pb.SubscribeReq, stream pb.RiskMoni
 }
 
 func (s *server) SubscribeNearDediveHold(req *pb.SubscribeReq, stream pb.RiskMonitorServer_SubscribeNearDediveHoldServer) error {
+	log.Println("send: SubscribeNearDediveHold")
 	tick := time.Tick(1 * time.Nanosecond)
 	for {
 		select {
 		case <-tick:
 			quote := &pb.NearDediveHoldRtn{
 				ActionFlag:   randomActionFlags(),
-				MonitorNo:    []byte(strconv.Itoa(randomIndex(100))),
-				CustNo:       []byte(strconv.Itoa(randomIndex(3000))),
+				MonitorNo:    []byte(strconv.Itoa(randomIndex(20))),
+				CustNo:       []byte(strconv.Itoa(randomIndex(2000))),
 				CustClass:    []byte("CustClass"),
 				ExchCode:     []byte(randomExchCodes()),
 				VariCode:     []byte("VariCode"),
-				ContractCode: []byte(strconv.Itoa(randomIndex(3000))),
+				ContractCode: []byte(strconv.Itoa(randomIndex(1000))),
 				DelivDate:    []byte("DelivDate"),
 				HoldSum:      uint32(randomIndex(100)),
 				TradeType:    []byte("1"),
@@ -277,13 +289,14 @@ func (s *server) SubscribeNearDediveHold(req *pb.SubscribeReq, stream pb.RiskMon
 }
 
 func (s *server) SubscribeProuctGroupRisk(req *pb.SubscribeReq, stream pb.RiskMonitorServer_SubscribeProuctGroupRiskServer) error {
+	log.Println("send: SubscribeProuctGroupRisk")
 	tick := time.Tick(1 * time.Nanosecond)
 	for {
 		select {
 		case <-tick:
 			quote := &pb.ProuctGroupRiskRtn{
 				ActionFlag:       randomActionFlags(),
-				MonitorNo:        []byte(strconv.Itoa(randomIndex(100))),
+				MonitorNo:        []byte(strconv.Itoa(randomIndex(20))),
 				ProductGroupNo:   []byte(strconv.Itoa(randomIndex(1000))),
 				ProductGroupName: []byte("ProductGroupName"),
 				Count:            uint32(randomIndex(100)),
@@ -292,7 +305,7 @@ func (s *server) SubscribeProuctGroupRisk(req *pb.SubscribeReq, stream pb.RiskMo
 				RiskDegree:   randomFloat(10),
 				SmarketCode:  []byte("secCode"),
 				SecCode:      []byte("secCode"),
-				ContractCode: []byte(strconv.Itoa(randomIndex(3000))),
+				ContractCode: []byte(strconv.Itoa(randomIndex(1000))),
 
 				TradeType: []byte("1"),
 

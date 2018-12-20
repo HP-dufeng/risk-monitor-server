@@ -1,6 +1,9 @@
 package main
 
 import (
+	"fmt"
+	"os"
+	"os/signal"
 	"time"
 
 	log "github.com/sirupsen/logrus"
@@ -16,14 +19,13 @@ func main() {
 	})
 
 	session, err := r.Connect(r.ConnectOpts{
-		Address:  "rethinkdb-rma-dc-test.apps.cefcfco.com:30018", // endpoint without http
+		// Address:  "websocket-rethinkdb-rma-7x24.apps.dev-cefcfco.com:30028", // endpoint without http
+		Address:  "websocket-rethinkdb:28015", // endpoint without http
 		Database: DbName,
 	})
 	if err != nil {
 		log.Fatal(err)
 	}
-
-	done := make(chan bool, 1)
 
 	go Subscribe(session, TableName_SubscribeTunnelRealFund)
 	go Subscribe(session, TableName_SubscribeCorpHoldMon)
@@ -34,7 +36,13 @@ func main() {
 	go Subscribe(session, TableName_SubscribeProuctGroupRisk)
 	go Subscribe(session, TableName_SubscribeNearDediveHold)
 
-	<-done
+	// Wait for Control C to exit
+	ch := make(chan os.Signal, 1)
+	signal.Notify(ch, os.Interrupt)
+
+	// Block until a signal is received
+	<-ch
+	fmt.Println("Stopping the server")
 }
 
 var (

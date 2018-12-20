@@ -2,7 +2,7 @@
     "apiVersion": "v1",
     "kind": "Service",
     "metadata": {
-        "name": "webserver-rethinkdb-nodeport"
+        "name": "socket-rethinkdb-nodeport"
     },
     "spec": {
         "type": "NodePort",
@@ -11,17 +11,17 @@
                 "name": "28015-tcp",
                 "port": 28015,
                 "targetPort": 28015,
-                "nodePort": 30018
+                "nodePort": 30028
             },
             {
                 "name": "29015-tcp",
                 "port": 29015,
                 "targetPort": 29015,
-                "nodePort": 30019
+                "nodePort": 30029
             }
         ],
         "selector": {
-            "deploymentconfig": "rethinkdb"
+            "deploymentconfig": "websocket-rethinkdb"
         }
     }
 }

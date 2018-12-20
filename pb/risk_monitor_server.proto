@@ -108,8 +108,8 @@ service RiskMonitorServer
   // //设置临近交割规则
   // rpc SetNearDedive(stream NearDediveSetting) returns (RspInfo) {}
 
-  // //心跳请求
-  // rpc HeartBeatReq(HeartBeat) returns (HeartBeat) {}  
+  //心跳请求
+  rpc HeartBeatReq(HeartBeat) returns (HeartBeat) {}  
 
   // //设置品种限仓规则
   // rpc SetVariHoldLimit(stream VariHoldLimitSetting) returns (RspInfo) {}

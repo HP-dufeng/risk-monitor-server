@@ -33,7 +33,7 @@ func NewRethinkDB(address string) RethinkDB {
 
 func (i *rethinkdb) Init() (*r.Session, error) {
 	session, err := r.Connect(r.ConnectOpts{
-		Address: i.address, // endpoint without http
+		Addresses: i.address, // endpoint without http
 	})
 	if err != nil {
 		return nil, err
