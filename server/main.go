@@ -135,7 +135,7 @@ func (s *server) SubscribeCustRisk(req *pb.SubscribeReq, stream pb.RiskMonitorSe
 		item := &pb.CustRiskRtn{
 			ActionFlag:          randomActionFlags(),
 			MonitorNo:           []byte(strconv.Itoa(randomIndex(10))),
-			CustNo:              []byte(strconv.Itoa(randomIndex(100))),
+			CustNo:              []byte(strconv.Itoa(randomIndex(10000))),
 			CustClass:           []byte("CustClass"),
 			CustName:            []byte("CustName"),
 			MobilePhone:         []byte("MobilePhone"),
