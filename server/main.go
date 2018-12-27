@@ -13,6 +13,7 @@ import (
 	"time"
 
 	pb "github.com/fengdu/risk-monitor-server/pb"
+	"golang.org/x/text/encoding/simplifiedchinese"
 	"google.golang.org/grpc"
 )
 
@@ -31,6 +32,8 @@ func main() {
 var (
 	csvDBFile = flag.String("csv_db_file", "testdata/appleStore_description.csv", "A csv file containing a list of contracts")
 	port      = flag.Int("port", 8080, "The server port")
+
+	encoder = simplifiedchinese.GBK.NewEncoder()
 )
 
 type server struct {
@@ -132,12 +135,13 @@ func (s *server) SubscribeCustRisk(req *pb.SubscribeReq, stream pb.RiskMonitorSe
 	for {
 		// 	select {
 		// 	case <-tick:
+		custName, _ := encoder.Bytes([]byte("客户名称"))
 		item := &pb.CustRiskRtn{
 			ActionFlag:          randomActionFlags(),
 			MonitorNo:           []byte(strconv.Itoa(randomIndex(10))),
 			CustNo:              []byte(strconv.Itoa(randomIndex(10000))),
 			CustClass:           []byte("CustClass"),
-			CustName:            []byte("CustName"),
+			CustName:            custName,
 			MobilePhone:         []byte("MobilePhone"),
 			Clientmode:          []byte("Clientmode"),
 			RiskLevel:           []byte("RiskLevel"),
